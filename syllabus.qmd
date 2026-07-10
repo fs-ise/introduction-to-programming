@@ -1,41 +1,103 @@
 ---
 title: Syllabus
+format: html
 ---
 
-## Course description
+# Introduction to Programming [INF40043]
 
-This page documents the public syllabus for {{< meta course.title >}}.
+| Field | Details |
+|---|-----------------------------|
+| Instructor | Wagner, Gerit |
+| Module Coordinator | Roßbach, Peter |
+| Programme(s) | Bachelor of Science |
+| Term | Semester 1 |
+| Module Duration | 1 Semester |
+| Compulsory/Elective Module | Compulsory Module |
+| Credits | 6 |
+| Frequency | Annually |
+| Language | German |
+| Total Workload | 150 h |
+| Academic Teaching Hours | 44 |
+| Remaining Workload | Self-study |
+| Prerequisites | None |
 
-Replace this text with a concise course-specific description after creating a repository from the template.
+One academic teaching hour corresponds to 45 minutes.
 
-## Learning objectives
+Self-study includes lesson preparation and follow-up activities, reading assignments, preparation for tests and examinations, take-home assignments, etc.
 
-After the course, students should be able to:
+## Content
 
-- explain the central concepts introduced in the sessions;
-- apply course methods to realistic tasks;
-- discuss trade-offs and limitations;
-- document their work reproducibly.
+The course introduces students to two core tools for solving business and numerical problems:
 
-## Teaching approach
+1. Introduction to Excel
+2. Introduction to Python
 
-The template supports Git-based, reproducible, and contribution-oriented teaching.
+The first part of the module focuses on developing applications with Excel. Starting from Excel, students learn the principles of spreadsheet applications and their use in a business context.
 
-Git sessions can draw on recommendations for teaching conceptual Git models before command memorization [@WagnerThurner2025].
+The second part introduces the Python programming language. Python is used as a tool for exercises in subsequent courses such as Stochastics and Applied Research Methods.
 
-Software-development courses can adapt the structured package-development course pattern and instructor-guide approach [@WagnerThurnerTangOtt2026].
+Practical exercises are conducted throughout the course, both in class and at home.
 
-Project-based open-source courses can use the CONTRIBUTE framework to scaffold student participation in authentic development projects [@ThurnerWagner2026].
+## Intended Learning Outcomes
+
+### Knowledge
+
+After completing the course, students are familiar with the fundamental concepts of Excel and the Python programming language. They can:
+
+- Explain how computer programs work.
+- Describe the fundamental principles of spreadsheet applications.
+- Explain different data types and control structures in Python.
+- Demonstrate the use of an integrated development environment.
+
+### Skills
+
+After successfully completing the course, students are able to apply their knowledge. They can:
+
+- Create Excel applications according to specific business requirements.
+- Develop simple computer programs in Python.
+- Perform data analysis using both Excel and Python.
+- Find and fix errors in code.
+
+### Competences
+
+After successfully completing the course, students are able to:
+
+- Translate business and numerical problems into Excel or Python solutions.
+- Select appropriate data structures.
+- Develop corresponding code.
+- Implement solutions with a focus on quality.
+
+## Forms of Teaching, Methods, and Support
+
+Interactive lectures with case studies and exercises.
 
 ## Assessment
 
-Describe assessment rules in the instantiated course repository.
+| Type of examination | Duration or length | Performance Points | Due date or date of exam |
+|---|---|---|---|
+| Excel | 40 minutes | 40 | Mid-term examination week |
+| Python | 80 minutes | 80 | Examination week |
 
-## Communication
+## Recommended Literature
 
-Use stable course landing links instead of semester-specific LMS deep links where feasible.
+TBA.
 
-## References
+## Module Structure
 
-::: {#refs}
-:::
+The module consists of two parts.
+
+### 1. Excel
+
+The first part takes place in the first quarter and focuses on developing applications with Excel. Starting from Excel, students learn the principles of spreadsheet applications and their use in a business context.
+
+### 2. Python
+
+The second part takes place in the second quarter and introduces the Python programming language. Python is used as a tool for exercises in subsequent courses such as Stochastics and Applied Research Methods.
+
+Practical exercises are conducted throughout the course. The exercises are completed both in class and at home.
+
+## Relevance for Other Modules and Programmes
+
+- Advanced Business Modeling Using Spreadsheets
+- Stochastics
+- Applied Research Methods

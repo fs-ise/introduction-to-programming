@@ -2,24 +2,77 @@
 title: "{{< meta course.title >}}"
 ---
 
-![Course Status](https://img.shields.io/badge/Current%20course--{{< meta course.semester >}}-green)
-[![Level](https://img.shields.io/badge/Level-{{< meta course.level >}}-blue)](syllabus.html)
-[![Degree Program](https://img.shields.io/badge/Degree%20Program-Master%20in%20Management-blue)](syllabus.html)
-[![Prerequisites](https://img.shields.io/badge/Prerequisites-Good%20Knowledge%20in%20Statistics-blue)](syllabus.html)
-![Duration](https://img.shields.io/badge/Work%20load-150h%20(6%20ECTS)-blue)<br>
-[![Language](https://img.shields.io/badge/Language-{{< meta course.language >}}-blue)](syllabus.html)
-[![Format](https://img.shields.io/badge/Format-Lecture%20%2B%20Exercises-blue)](syllabus.html)
-![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-green.svg)
+<!--
+    ![Course Status](https://img.shields.io/badge/Current%20course--{{< meta course.semester >}}-green)
+    [![Level](https://img.shields.io/badge/Level-{{< meta course.level >}}-blue)](syllabus.html)
+    [![Degree Program](https://img.shields.io/badge/Degree%20Program-Master%20in%20Management-blue)](syllabus.html)
+    [![Prerequisites](https://img.shields.io/badge/Prerequisites-Good%20Knowledge%20in%20Statistics-blue)](syllabus.html)
+    ![Duration](https://img.shields.io/badge/Work%20load-150h%20(6%20ECTS)-blue)<br>
+    [![Language](https://img.shields.io/badge/Language-{{< meta course.language >}}-blue)](syllabus.html)
+    [![Format](https://img.shields.io/badge/Format-Lecture%20%2B%20Exercises-blue)](syllabus.html)
+    ![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-green.svg)
 
-Welcome to {{< meta course.title >}}.
+    Welcome to {{< meta course.title >}}.
+-->
+
+::: {.callout-important}
+
+This is a private repository.
+
+:::
 
 ## Sessions
 
 Orga: see [slides](slides/session_00_orga.qmd)
 
-```{python}
-#| echo: false
-#| output: asis
-from scripts.session_overview import markdown_table
-print(markdown_table())
-```
+Slides: see [nextcloud](https://nc-2272638881871040784.nextcloud-ionos.com/index.php/apps/files/files/1842250?dir=/teaching/materials/Introduction_to_Programming)
+
+| Session | Focus | Title | Note | Teaching notes |
+|---|---|---|---|---|
+| 1 | Excel | Excel 1 | | [Notes](notes/session_01.qmd) |
+| 2 | Excel | Excel 2 | | [Notes](notes/session_02.qmd) |
+| 3 | Excel | Excel 3 | | [Notes](notes/session_03.qmd) |
+| 4 | Python | Python 1 | Until **Accessing data** | [Notes](notes/session_04.qmd) |
+| 5 | Python | Python 2 | Until **Statistical Functions** | [Notes](notes/session_05.qmd) |
+|  | Exam | Mid-term exam | Excel | |
+| 6 | Python | Python 3 | Until **Pivot** | [Notes](notes/session_06.qmd) |
+| 7 | Python | Python 4 | Until **Sequences** | [Notes](notes/session_07.qmd) |
+| 8 | Python | Python 5 | Until **For** | [Notes](notes/session_08.qmd) |
+| 9 | Python | Python 6 | Until **Break/Continue** | [Notes](notes/session_09.qmd) |
+| 10 | Python | Python 7 | Until **Combining Python and Pandas** | [Notes](notes/session_10.qmd) |
+| 11 | Python | Python 8 | Until the end | [Notes](notes/session_11.qmd) |
+|  | Exam | Final exams | | |
+
+<!--
+        ```{python}
+        #| echo: false
+        #| output: asis
+        from scripts.session_overview import markdown_table
+        print(markdown_table())
+        ```
+-->
+
+## Groups
+
+| Date       | E3                                           | E4                                           | E5                                           |
+| ---------- | --------- | --------- | --------- |
+| 2026-09-07 | **Session 01**<br>09:30–11:00<br>11:15–12:45 |                                              | **Session 01**<br>14:00–15:30<br>15:45–17:15 |
+| 2026-09-08 | **Session 02**<br>09:30–11:00<br>11:15–12:45 | **Session 01**<br>14:00–15:30<br>15:45–17:15 |                                              |
+| 2026-09-09 |                                              | **Session 02**<br>14:00–15:30<br>15:45–17:15 | **Session 02**<br>09:30–11:00<br>11:15–12:45 |
+| 2026-09-16 | **Session 03**<br>14:00–15:30<br>15:45–17:15 | **Session 03**<br>09:30–11:00<br>11:15–12:45 |                                              |
+| 2026-09-23 |                                              | **Session 04**<br>09:30–11:00<br>11:15–12:45 | **Session 03**<br>14:00–15:30<br>15:45–17:15 |
+| 2026-09-30 | **Session 04**<br>09:30–11:00<br>11:15–12:45 |                                              | **Session 04**<br>14:00–15:30<br>15:45–17:15 |
+| 2026-10-08 | **Session 05**<br>14:00–15:30<br>15:45–17:15 |                                              | **Session 05**<br>09:30–11:00<br>11:15–12:45 |
+| 2026-10-09 |                                              | **Session 05**<br>14:00–15:30<br>15:45–17:15 |                                              |
+| 2026-10-26 |                                              |                                              | **Session 06**<br>09:30–11:00<br>11:15–12:45 |
+| 2026-10-27 | **Session 06**<br>09:30–11:00<br>11:15–12:45 | **Session 06**<br>14:00–15:30<br>15:45–17:15 |                                              |
+| 2026-11-02 |                                              | **Session 07**<br>14:00–15:30<br>15:45–17:15 |                                              |
+| 2026-11-03 | **Session 07**<br>09:30–11:00<br>11:15–12:45 |                                              | **Session 07**<br>14:00–15:30<br>15:45–17:15 |
+| 2026-11-09 | **Session 08**<br>14:00–15:30<br>15:45–17:15 | **Session 08**<br>09:30–11:00<br>11:15–12:45 |                                              |
+| 2026-11-10 |                                              |                                              | **Session 08**<br>14:00–15:30<br>15:45–17:15 |
+| 2026-11-16 |                                              | **Session 09**<br>14:00–15:30<br>15:45–17:15 | **Session 09**<br>09:30–11:00<br>11:15–12:45 |
+| 2026-11-19 | **Session 09**<br>14:00–15:30<br>15:45–17:15 |                                              |                                              |
+| 2026-11-23 |                                              |                                              | **Session 10**<br>14:00–15:30<br>15:45–17:15 |
+| 2026-11-24 | **Session 10**<br>14:00–15:30<br>15:45–17:15 | **Session 10**<br>09:30–11:00<br>11:15–12:45 |                                              |
+| 2026-12-03 |                                              | **Session 11**<br>09:30–11:00<br>11:15–12:45 | **Session 11**<br>14:00–15:30<br>15:45–17:15 |
+| 2026-12-04 | **Session 11**<br>09:30–11:00<br>11:15–12:45 |                                              |                                              |
