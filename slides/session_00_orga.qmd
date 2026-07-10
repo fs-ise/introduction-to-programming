@@ -1,0 +1,291 @@
+---
+title: "Introduction to Programming"
+subtitle: "Course logistics"
+section_label: "Introduction"
+session: "Session 0"
+date: "2026-03-23"
+---
+
+# TODO
+
+- Get syllabus and integrate learning objectives
+
+# Welcome {data-stack-name="Welcome"}
+
+## Prof. Dr. Gerit Wagner
+
+::: {.columns}
+::: {.column width="70%"}
+
+Academic background
+
+- Universität Regensburg: Doctoral Student
+- HEC Montréal: Postdoctoral Fellowship
+- Otto-Friedrich-Universität Bamberg: Assistant Professor
+- Frankfurt School of Finance & Management: Full Professor
+
+Research interests
+
+- Open, agentic, and boundary-spanning work
+- AI-supported knowledge synthesis
+
+Teaching interests
+
+- Programming and software engineering
+- Analytics and big data
+- IT security
+- Digital knowledge-intensive and platform-based work
+- Literature review methods
+
+:::
+
+::: {.column width="30%"}
+![](../images/gerit_wagner.jpg)
+:::
+:::
+
+
+## About you
+
+<!--
+    For smaller courses (approx. 15 students):
+
+    Please answer the three questions.
+    Then choose **one** optional area where you would like to share a bit more.
+
+    HIGHLIGHT items as optional
+-->
+
+Please take a moment to think about the following questions.
+For each question, I’ll invite a few of you to briefly share your thoughts.
+
+<br>
+
+**1. Have you programmed before?**
+
+- In which context did you use programming—for example, at university, at work, or for a personal project?
+- Or is this your **first programming course**?
+
+**2. Which programming languages or technical tools have you used?**
+
+- Was there something you found particularly **interesting or useful**?
+- Or something that felt especially **difficult or confusing**?
+
+**3. What are your expectations for the course?**
+
+- What would you like to be able to **build, automate, or analyze** with Python?
+- What would make this course **worth it** for you?
+
+
+
+# Introduction to Programming {data-stack-name="Introduction to Programming"}
+
+## Programming in the curriculum
+
+![](../images/curriculum.png){.absolute top=10 left=300 width="1000" height="1000"}
+
+
+## What exactly is programming?
+
+:::: {.columns}
+
+::: {.column width="45%"}
+<br><br>
+
+![](../images/programming.jpg){width=100% fig-align="center"}
+
+:::
+
+::: {.column width="55%"}
+<br><br>
+
+**Programming** is the process of translating a problem into precise instructions that a computer can execute.
+
+A program connects:
+
+**Problem → Representation → Instructions → Execution → Result**
+
+::: {.fragment}
+
+Programming therefore involves more than writing code:
+
+- understanding the problem,
+- breaking it into manageable parts,
+- representing data appropriately,
+- defining precise rules and procedures,
+- testing whether the solution works,
+- finding and correcting errors.
+
+:::
+
+:::
+
+::::
+
+
+## Discussion: What is programming—and why can't ChatGPT just do it?
+
+Take 2–3 minutes to discuss with the person next to you:
+
+> **If ChatGPT can generate Python code, why should you still learn programming?**
+
+Consider:
+
+- Who defines the problem?
+- How do you know whether the generated solution is correct?
+- What happens when requirements are incomplete or ambiguous?
+- Who finds errors that produce plausible-looking results?
+- How do you adapt a solution when the problem changes?
+
+. . .
+
+::: {.learning_note}
+
+**Reflection**
+
+AI can generate code, but programming also requires **problem formulation, decomposition, evaluation, debugging, and responsibility for the result**.
+
+The goal of this course is therefore not simply to memorize syntax. It is to learn how to **think precisely about problems and computational solutions**.
+
+:::
+
+
+## Why programming (and this course) matter
+
+**{{< iconify mdi:file-excel >}} Business analysis — From spreadsheet to model**
+
+- Structure business problems explicitly
+- Transform raw data into calculations and decisions
+- Build transparent and reproducible analyses
+
+. . .
+
+**{{< iconify mdi:language-python >}} Data analysis — Automating repetitive work**
+
+- Process larger amounts of data
+- Repeat the same analysis consistently
+- Combine data preparation, analysis, and visualization
+
+. . .
+
+**{{< iconify mdi:bug-check >}} Problem solving — From error to understanding**
+
+- Translate requirements into precise steps
+- Test assumptions systematically
+- Find, understand, and correct errors
+
+
+## What you should be able to do
+
+By the end of the course, you should be able to:
+
+* explain how computer programs work,
+* describe the basic principles of spreadsheet applications,
+* explain fundamental Python data types and control structures,
+* use a development environment effectively,
+
+. . .
+
+and, more importantly:
+
+* translate business and numerical problems into computational solutions,
+* select suitable data structures,
+* develop simple Excel and Python applications,
+* find and fix errors,
+* implement solutions with attention to quality.
+
+## What this course does *not* primarily cover
+
+* **Advanced software engineering**
+
+  * large application architectures,
+  * distributed systems,
+  * production deployment,
+  * DevOps and MLOps.
+
+* **Advanced computer science**
+
+  * algorithmic complexity theory,
+  * compiler construction,
+  * operating systems.
+
+* **Advanced machine learning**
+
+  * model training and optimization,
+  * deep learning,
+  * autonomous agents.
+
+* **Prompting as a substitute for understanding**
+
+  * copying generated code without evaluation,
+  * treating plausible output as evidence of correctness.
+
+{{< iconify fluent-mdl2:insights >}} The focus is on **learning how to formulate problems, build solutions, inspect results, and debug systematically**.
+
+# Course logistics {data-stack-name="Course logistics"}
+
+## Course logistics
+
+Workload:
+
+* 150 hours total
+* 44 academic teaching hours
+* remaining workload: preparation, exercises, revision, and exam preparation
+
+Course structure:
+
+* **Q1:** Excel
+* **Q2:** Python
+* practical exercises in class and at home
+
+Assessment:
+
+* **Excel:** 40 minutes, 40 points, mid-term examination period
+* **Python:** 80 minutes, 80 points, examination period
+
+Contact:
+
+* E-mail: [g.wagner@fs.de](mailto:g.wagner@fs.de)
+* Office hours: [booking page](https://outlook.office.com/bookwithme/user/42312b4f18fd4acbb4255b5ce301f5d0%40fs.de?anonymous&ismsaljsauthenabled)
+
+Individual circumstances:
+
+If you have family responsibilities, religious holidays, health-related matters, or other individual circumstances that may affect your participation or performance, please reach out early.
+
+We will work together to find a fair and workable solution.
+
+## How we will learn programming
+
+Programming is a **practice**, not a spectator sport.
+
+During the course, you will repeatedly:
+
+**Read → Predict → Run → Inspect → Modify → Break → Debug → Explain**
+
+. . .
+
+You should expect to:
+
+* work through examples during class,
+* solve practical exercises,
+* compare alternative solutions,
+* explain what code does before running it,
+* debug code that does not work,
+* gradually solve less structured problems.
+
+
+## A final question for today
+
+> **When you ask ChatGPT to write a program, who is actually doing the programming?**
+
+Think about the different roles involved:
+
+**Problem owner → Problem formulation → Solution design → Code generation → Testing → Evaluation → Responsibility**
+
+Which of these can be delegated?
+
+Which cannot?
+
+And which should not?
+
+# References {data-state="hide-menubar"}

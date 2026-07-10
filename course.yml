@@ -1,0 +1,25 @@
+course:
+  id: introduction-programming
+  title: Introduction to Programming
+  short_title: Programming
+  semester: 2026-WiSe
+  level: Bachelor
+  language: English
+  credits: 6
+  description: Reusable Quarto teaching repository template for lectures, seminars, and project-based courses.
+repository:
+  organization: fs-ise
+  name: introduction-to-programming
+  url: https://github.com/fs-ise/introduction-to-programming
+instructor:
+  name: Dr. Gerit Wagner
+  name_no_title: Gerit Wagner
+  email: g.wagner@fs.de
+  url: https://www.frankfurt-school.de/en/research-and-faculty/faculty/faculty-directory/gerit-wagner
+  online_meeting_url: https://teams.microsoft.com/meet/35117082310591?p=f5NP6xsZSwVGssoMjB
+  bookings_url: https://outlook.office.com/bookwithme/user/42312b4f18fd4acbb4255b5ce301f5d0%40fs.de?anonymous&ismsaljsauthenabled
+schedule:
+  handbook_event_match: null
+  timezone: Europe/Berlin
+  source_path: data/events.yaml
+events: []

@@ -1,0 +1,42 @@
+project:
+  type: website
+  output-dir: _site
+metadata-files:
+  - course.yml
+website:
+  title: "{{< meta course.title >}}"
+  repo-url: "{{< meta repository.url >}}"
+  repo-actions: [edit, issue]
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - text: Home
+        href: index.qmd
+      - text: Syllabus
+        href: syllabus.qmd
+      - text: Group work
+        href: group_work.qmd
+      - text: Teaching notes
+        href: teaching_notes.qmd
+      - text: Resources
+        href: resources.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: false
+    css: assets/styles.css
+    include-after-body: assets/repo-actions-bottom.html
+    grid:
+      sidebar-width: 280px
+      body-width: 1000px
+      margin-width: 280px
+      gutter-width: 1.5rem
+
+
+format-links: false
+
+bibliography: bibliography.bib
+execute:
+  freeze: auto
