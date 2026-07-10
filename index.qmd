@@ -17,7 +17,7 @@ title: "{{< meta course.title >}}"
 
 ::: {.callout-important}
 
-This is a private repository.
+This repository does not contain slide/contents.
 
 :::
 
