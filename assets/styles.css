@@ -55,3 +55,24 @@
   opacity: 1;
   text-decoration: underline;
 }
+
+.session-chip {
+  display: inline-block;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.session-01 { background: #e3f2fd; color: #0d47a1; }
+.session-02 { background: #e8f5e9; color: #1b5e20; }
+.session-03 { background: #fff3e0; color: #e65100; }
+.session-04 { background: #f3e5f5; color: #4a148c; }
+.session-05 { background: #e0f7fa; color: #006064; }
+.session-06 { background: #fce4ec; color: #880e4f; }
+.session-07 { background: #ede7f6; color: #311b92; }
+.session-08 { background: #f1f8e9; color: #33691e; }
+.session-09 { background: #fff8e1; color: #ff6f00; }
+.session-10 { background: #e0f2f1; color: #004d40; }
+.session-11 { background: #ffebee; color: #b71c1c; }

@@ -1,14 +1,14 @@
 ---
-title: "Session 01 teaching notes: Excel 1"
-session_id: session-01
+title: "Session 08 teaching notes: Python 5"
+session_id: session-08
 event_id: null
 ---
 
 ## Session overview
 
-- **Focus:** Excel
-- **Session title:** Excel 1
-- **Coverage target:** TBD
+- **Focus:** Python
+- **Session title:** Python 5
+- **Coverage target:** Until **For**
 
 ## Before class
 
