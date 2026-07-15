@@ -4,7 +4,7 @@ project:
 metadata-files:
   - course.yml
 website:
-  title: "{{< meta course.title >}}"
+  title: "Introduction to Programming"
   repo-url: "{{< meta repository.url >}}"
   repo-actions: [edit, issue]
   sidebar:

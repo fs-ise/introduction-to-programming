@@ -1,50 +1,78 @@
 ---
-title: "Session 01 teaching notes: Excel 1"
+title: "Notes S-01/Excel 1: Basics, formulas, charts, conditionals"
 session_id: session-01
 event_id: null
 ---
 
-## Session 1 — Basics, formulas, charts, and conditional structures
+::: {.callout-important title="TODO"}
+- Include screenshots from `Solutions.pptx`!
+- Anfang: Worksheet (PR)
+- Excel: Funktionsparametertrenner (komma/semikolon) kann nur Global umgestellt werden, beides zulässig.
+- p.12: solution/dataset?
+- **TODO: p.21: how can I open the dialogue?**
+:::
+
+
+| Time                 | Topic/activity                                             | Materials                                                            |
+| -------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------- |
+| **Part 1: 0–15 min** | Introduction and organization                              | Separate introductory slides                                         |
+| 15–35 min            | Excel basics, formulas, and cell references                | Slides 1–6<br>[Excelsheet](../materials/introduction.xlsx)           |
+| 35–55 min            | Future-value calculation                                   | Slides 7–10<br>Slides 7 and 10: Exercise **Future value**            |
+| 55–70 min            | Data handling and chart selection                          | Slides 11–14<br>Slide 14: Exercise **Coffee-shop charts**            |
+| 70–90 min            | Functions and descriptive statistics                       | Slides 15–19<br>Slide 19: Exercise **Sales statistics**              |
+| **Break**            |                                                            |                                                                      |
+| **Part 2: 0–15 min** | Explain the moving-average task and expected output        | Slide 20<br>Take-home exercise **DAX moving averages**               |
+| 15–35 min            | Conditional logic and customer classification              | Slides 21–23<br>Slide 23: Exercise **VIP status**                    |
+| 35–50 min            | Conditional calculations                                   | Slide 24: Exercise **VIP club credits**                              |
+| 50–70 min            | Work through the installment-loan calculation on the board | Slide 25: Take-home exercise **Installment loan**                    |
+| 70–82 min            | Annuity loans and the `PMT` function                       | Slide 26: Exercise **Annuity loan**                                  |
+| 82–90 min            | Exam-result classification and wrap-up                     | Slides 27–28<br>Slide 27: Exercise **Exam result**                   |
+
+{{< pagebreak >}}
+
+## Slide 1 - Excel basics
 
 Use [Excelsheet](../materials/introduction.xlsx) (see [solution](../materials/introduction_with_solutions.xlsx))
 
-Anfang: Worksheet (PR)
-Excel: Funktionsparametertrenner (komma/semikolon) kann nur Global umgestellt werden, beides zulässig.
+## Slide 17 — Formula syntax and functions
 
-Tip: use keyboard instead of clicking (prepare/mention shortcuts)
+- Demonstrate the function-argument separator.
+- Test with `SUM(3,5)`: everyone should have `8` as the result (**TODO: may need to update the Excel configuration**).
+- Explicitly distinguish between a **formula** and a **function**.
 
-Relative/absolute references: debug formula (predecessor/successor visualization)
+## Slide 20 — DAX moving averages
 
-p.12: solution/dataset?
+- First take-home exercise.
+- Explain the required moving averages and expected charts carefully before students begin.
 
-p.17 - test auf trenner: sum(3,5) sollte bei allen 8 geben.
-
-p.17: formula vs function: clarify the difference!
-
-p.20: moving averages: first homework
-
-p.21: how can I open the dialogue?
-
-VIP II: prefer nested ifs
-
-p.25: homework (many fail), end of first session
-- Installment Loan an der Tafel durchrechnen; dann: Aufgabe: in Excel übertragen
-- Tilgung ab Periode 2: Wenn-funktion (Studierende müssen selbst auf die Wenn funktion kommen)
+**TODO: include illustration here, explain the problem well!**
 
 
-## Exercises
+## Slides 23–24 — VIP classification and credits
 
-| Slide(s) | Exercise            | Summary                                                                                                | Files | In-class vs take-home |
-| -------: | ------------------- | ------------------------------------------------------------------------------------------------------ | ----- | --------------------- |
-|    7, 10 | Future value        | Build an investment calculator and extend it to compare interest-rate and investment-period scenarios. |       |                       |
-|       14 | Coffee-shop charts  | Create two suitable charts showing different aspects of the coffee-sales distribution.                 |       |                       |
-|       19 | Sales statistics    | Calculate minimum, maximum, mean, and median sales across customers.                                   |       |                       |
-|       20 | DAX moving averages | Calculate 10-day and 20-day moving averages and visualize them using line and scatter charts.          |       |                       |
-|       23 | VIP status          | Classify customers as Bronze, Gold, or Platinum based on sales thresholds.                             |       |                       |
-|       24 | VIP club credits    | Calculate club-card credits using sales-dependent credit factors.                                      |       |                       |
-|       25 | Installment loan    | Create a flexible repayment schedule for an installment loan of up to 20 periods.                      |       |                       |
-|       26 | Annuity loan        | Create an annuity-loan repayment schedule using the `PMT` function.                                    |       |                       |
-|       27 | Exam result         | Determine whether students passed, failed, or failed because of the quorum requirement.                |       |                       |
+- Prefer nested `IF` functions for the VIP-status exercise (in part II).
+
+
+## Slide 25 — Installment loan
+
+- Work through the repayment logic on the board.
+- Students then transfer the calculation to Excel as a take-home exercise.
+- From period 2 onward, repayment requires an `IF` condition.
+- Students should identify the need for the condition themselves.
+- Allow sufficient explanation because this exercise has caused difficulties in previous cohorts.
+
+`The repayment equals the fixed repayment amount or, when the remaining debt is lower, the remaining debt.`
+
+**TODO: include visualization here**
+
+::: {.callout-note title="Pro tips"}
+- Use keyboard instead of clicking (prepare/mention shortcuts)
+- Relative/absolute references: debug formula (predecessor/successor visualization)
+:::
+
+## Notes for improvement?
+
+-> Separate paper
 
 
 

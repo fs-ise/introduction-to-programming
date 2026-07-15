@@ -6,6 +6,10 @@ event_id: null
 
 ## Session 2 — Lookups and tables
 
+::: {.callout-note title="Overview"}
+- Take-home exercises to discuss: ...
+:::
+
 Session 2:
 
 - Besprechung Hausaufgaben
