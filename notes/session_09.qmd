@@ -6,6 +6,8 @@ event_id: null
 
 ## Session 9 — For and while loops
 
+See [for_demo.py](../materials/for_demo.py)
+
 Loop: explain with sum/product \sum_i^n
 
 p. 110/111: nr 3-4, 6-7 homework

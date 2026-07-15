@@ -16,12 +16,12 @@ title: "{{< meta course.title >}}"
 -->
 
 ::: {.callout-important}
-
-This repository does not contain slide/contents.
-
+This repository does not contain slides.
 :::
 
 ## Sessions
+
+See [objectives](objectives.qmd)
 
 Orga: see [slides](slides/session_00_orga.qmd)
 

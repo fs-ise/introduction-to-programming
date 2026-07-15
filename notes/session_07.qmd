@@ -8,20 +8,16 @@ event_id: null
 
 Python-Teil: Vorsichtig vorgehen (möglichst viele Studis mitnehmen)
 
+Pivot: see `2_Pivot.py` 
+
+See `4_Python.py` (contains materials for the following sessions: TODDO: split.)
+
+pp. 69: Prediction: `3_Predictions.py`
+
 p.84/85: 4,5,6: homework
 
 p.82 solution:
 
-| Value    | Type        | To Type | Using function      | New value     |
-| -------- | ----------- | ------- | ------------------- | ------------- |
-| `"3"`    | **`str`**   | `int`   | **`int("3")`**      | **`3`**       |
-| `"3.14"` | **`str`**   | `float` | **`float("3.14")`** | **`3.14`**    |
-| `3`      | **`int`**   | `str`   | **`str(3)`**        | **`"3"`**     |
-| `3.14`   | **`float`** | `str`   | **`str(3.14)`**     | **`"3.14"`**  |
-| `False`  | **`bool`**  | `str`   | **`str(False)`**    | **`"False"`** |
-| `"True"` | **`str`**   | `bool`  | **`bool("True")`**  | **`True`**    |
-| `17.75`  | **`float`** | `int`   | **`int(17.75)`**    | **`17`**      |
-| `"3"`    | **`str`**   | `float` | **`float("3")`**    | **`3.0`**     |
 | Value    | Type        | To Type | Using function      | New value     |
 | -------- | ----------- | ------- | ------------------- | ------------- |
 | `"3"`    | **`str`**   | `int`   | **`int("3")`**      | **`3`**       |

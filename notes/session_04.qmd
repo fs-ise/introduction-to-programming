@@ -14,7 +14,8 @@ TODO: use Anaconda (be prepared to answer questions)
 spytertest.py (in canvas) mit studis am Anfang der python session step-by-step durchgehen
 use setwd() for spyder
 
-PR : teilt 1_pandas.py (codes für alle Folien)
+
+See `1_Pandas.py` - contains code for all slides (TODO: split)
 
 p.13: abhängig von Zeit: in-session or homework
 
@@ -24,6 +25,8 @@ Aufgaben: komplett (soweit die Zeit da ist)
 Bei Zeitnot: Aufgaben nach Haus geben
 Python Lösungen: werden von Tutoren besprochen
 
+
+TODO: see also `Versicherungsvertreter.py` and `Versicherungsvertreter.xslx`
 
 ## Exercises
 

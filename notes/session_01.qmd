@@ -6,7 +6,7 @@ event_id: null
 
 ## Session 1 — Basics, formulas, charts, and conditional structures
 
-TODO: demo Excel (multiple sheet), to be shared by PR
+Use [Excelsheet](../materials/introduction.xlsx) (see [solution](../materials/introduction_with_solutions.xlsx))
 
 Anfang: Worksheet (PR)
 Excel: Funktionsparametertrenner (komma/semikolon) kann nur Global umgestellt werden, beides zulässig.

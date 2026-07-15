@@ -1,0 +1,52 @@
+---
+title: Objectives
+format: html
+---
+
+Detailed learning objectives (TBD: share at the end as "relevant for the exam"?)
+
+Based on `Relevant functions for the Excel exam 2025.docx`and `Relevant content for the Python exam 2025.docx`:
+
+## Excel
+
+For the exam, you should be familiar with the following Excel functions:
+
+- SUM
+- IF
+- MIN
+- MAX
+- AVERAGE
+- COUNTIF
+- SUMIF
+- AVERAGEIF
+- VLOOKUP
+- XLOOKUP
+- SUBTOTAL (A table with the numbers for the first parameter will be provided in the exam)
+
+## Python
+
+This document refers to the slides in file "Introduction to Python.pdf" from Winter Term 2025! It applies to the exam in December 2025 and to the retake in March 2026.
+Relevant content for Pandas:
+
+All content of the part "Introduction to Pandas" **with the exception of**
+
+- chdir() function and the os module
+- dtypes property, pct_change() function, sort_values() function
+- all statistical functions other than count, sum, mean, min, max, var, and describe. If additional functions are needed, they will be specified in the exam.
+- all chart types other than line and bar charts. Also excluded are the parameters xticks and rot.
+- all slides with the topic "Making Predictions with Pandas and Scikit-Learn", slides 66-71
+
+
+Relevant content for Python:
+
+All content on the remaining slides **with the exception of**
+
+- the functions: type(), bool()
+- the list operators "in" and "not in" as well as the methods: count(), extend(), index(), reverse()
+- "Tuples", slides 96-98
+- the creation of own modules, slides 120-122
+- "The Datatype Dictionary", slides 123-130
+- "Combining Python and Pandas", slides 131-135
+- "Using services from the Internet", slides 136-156
+
+If additional functions are needed, they will be specified in the exam.
