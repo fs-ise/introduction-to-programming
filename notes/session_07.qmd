@@ -4,36 +4,78 @@ session_id: session-07
 event_id: null
 ---
 
-## Session overview
+## Session 7 — Pivoting, prediction, and data types
 
-- **Focus:** Python
-- **Session title:** Python 4
-- **Coverage target:** Until **Sequences**
+Python-Teil: Vorsichtig vorgehen (möglichst viele Studis mitnehmen)
 
-## Before class
+p.84/85: 4,5,6: homework
 
-- [ ] Review the session slides/materials.
-- [ ] Prepare files, datasets, and examples.
-- [ ] Note any announcements or reminders.
+p.82 solution:
 
-## Timing record
+| Value    | Type        | To Type | Using function      | New value     |
+| -------- | ----------- | ------- | ------------------- | ------------- |
+| `"3"`    | **`str`**   | `int`   | **`int("3")`**      | **`3`**       |
+| `"3.14"` | **`str`**   | `float` | **`float("3.14")`** | **`3.14`**    |
+| `3`      | **`int`**   | `str`   | **`str(3)`**        | **`"3"`**     |
+| `3.14`   | **`float`** | `str`   | **`str(3.14)`**     | **`"3.14"`**  |
+| `False`  | **`bool`**  | `str`   | **`str(False)`**    | **`"False"`** |
+| `"True"` | **`str`**   | `bool`  | **`bool("True")`**  | **`True`**    |
+| `17.75`  | **`float`** | `int`   | **`int(17.75)`**    | **`17`**      |
+| `"3"`    | **`str`**   | `float` | **`float("3")`**    | **`3.0`**     |
+| Value    | Type        | To Type | Using function      | New value     |
+| -------- | ----------- | ------- | ------------------- | ------------- |
+| `"3"`    | **`str`**   | `int`   | **`int("3")`**      | **`3`**       |
+| `"3.14"` | **`str`**   | `float` | **`float("3.14")`** | **`3.14`**    |
+| `3`      | **`int`**   | `str`   | **`str(3)`**        | **`"3"`**     |
+| `3.14`   | **`float`** | `str`   | **`str(3.14)`**     | **`"3.14"`**  |
+| `False`  | **`bool`**  | `str`   | **`str(False)`**    | **`"False"`** |
+| `"True"` | **`str`**   | `bool`  | **`bool("True")`**  | **`True`**    |
+| `17.75`  | **`float`** | `int`   | **`int(17.75)`**    | **`17`**      |
+| `"3"`    | **`str`**   | `float` | **`float("3")`**    | **`3.0`**     |
 
-Use this table while preparing or after teaching to record the actual timing.
 
-| Planned time | Actual time | Topic/activity | Notes for next time |
-|---|---|---|---|
-| 0--10 min |  | Setup / recap |  |
-| 10--30 min |  | Main input |  |
-| 30--60 min |  | Guided practice |  |
-| 60--80 min |  | Independent practice / questions |  |
-| 80--90 min |  | Wrap-up |  |
+## Exercises
 
-## Notes during class
+| Page(s) | Exercise                   | Summary                                                                                                                            | Files                                                                                                   | In-class / take-home |
+| ------: | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------------- |
+|      67 | Pivot tables               | Construct insurance pivot tables with multiple grouping dimensions, totals, filters, and a bar chart.                              | `insurance.xlsx`<br>`insurance2.py`                                                                     |                      |
+|   74–75 | Chipotle analysis          | Inspect the dataset; calculate orders, quantities, prices, and revenue; identify popular items; and create charts.                 | `Chipotle.csv`<br>`Chipotle.py`                                                                         |                      |
+|   76–77 | Florida housing analysis   | Calculate and analyze profits, compare agencies and house characteristics, and build three predictive models.                      | `Homes_Florida.xlsx`<br>`Homes_Florida.py`                                                              |                      |
+|   84–85 | Input and formula programs | Create interactive programs for circle area, currencies, geographic distance, travel time, fuel consumption, and annuity payments. | `CircleArea2.py`<br>`Currency.py`<br>`Distance.py`<br>`Traveltime.py`<br>`Fuel.py`<br>`AnnuityLoan1.py` |                      |
 
-- TBD
 
-## Follow-up
+<!--
+    ## Session overview
 
-- [ ] Update examples or instructions.
-- [ ] Record common questions.
-- [ ] Add reminders for the next session.
+    - **Focus:** Python
+    - **Session title:** Python 1
+    - **Coverage target:** Until **Accessing data**
+
+    ## Before class
+
+    - [ ] Review the session slides/materials.
+    - [ ] Prepare files, datasets, and examples.
+    - [ ] Note any announcements or reminders.
+
+    ## Timing record
+
+    Use this table while preparing or after teaching to record the actual timing.
+
+    | Planned time | Actual time | Topic/activity | Notes for next time |
+    |---|---|---|---|
+    | 0--10 min |  | Setup / recap |  |
+    | 10--30 min |  | Main input |  |
+    | 30--60 min |  | Guided practice |  |
+    | 60--80 min |  | Independent practice / questions |  |
+    | 80--90 min |  | Wrap-up |  |
+
+    ## Notes during class
+
+    - TBD
+
+    ## Follow-up
+
+    - [ ] Update examples or instructions.
+    - [ ] Record common questions.
+    - [ ] Add reminders for the next session.
+-->

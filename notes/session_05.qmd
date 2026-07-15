@@ -4,36 +4,49 @@ session_id: session-05
 event_id: null
 ---
 
-## Session overview
+## Session 5 — Data access and manipulation
 
-- **Focus:** Python
-- **Session title:** Python 2
-- **Coverage target:** Until **Statistical Functions**
+## Exercises
 
-## Before class
+| Page(s) | Exercise             | Summary                                                                                | Files                              | In-class / take-home |
+| ------: | -------------------- | -------------------------------------------------------------------------------------- | ---------------------------------- | -------------------- |
+|      31 | DataFrame selection  | Select specified columns and rows using `iloc` and `loc`.                              | `countries.csv`<br>`countries1.py` |                      |
+|      36 | Modify and sort data | Add Belgium, sort rows, calculate GDP per capita, and remove the added column and row. | `countries.csv`<br>`countries2.py` |                      |
 
-- [ ] Review the session slides/materials.
-- [ ] Prepare files, datasets, and examples.
-- [ ] Note any announcements or reminders.
 
-## Timing record
 
-Use this table while preparing or after teaching to record the actual timing.
+<!--
+    ## Session overview
 
-| Planned time | Actual time | Topic/activity | Notes for next time |
-|---|---|---|---|
-| 0--10 min |  | Setup / recap |  |
-| 10--30 min |  | Main input |  |
-| 30--60 min |  | Guided practice |  |
-| 60--80 min |  | Independent practice / questions |  |
-| 80--90 min |  | Wrap-up |  |
+    - **Focus:** Python
+    - **Session title:** Python 1
+    - **Coverage target:** Until **Accessing data**
 
-## Notes during class
+    ## Before class
 
-- TBD
+    - [ ] Review the session slides/materials.
+    - [ ] Prepare files, datasets, and examples.
+    - [ ] Note any announcements or reminders.
 
-## Follow-up
+    ## Timing record
 
-- [ ] Update examples or instructions.
-- [ ] Record common questions.
-- [ ] Add reminders for the next session.
+    Use this table while preparing or after teaching to record the actual timing.
+
+    | Planned time | Actual time | Topic/activity | Notes for next time |
+    |---|---|---|---|
+    | 0--10 min |  | Setup / recap |  |
+    | 10--30 min |  | Main input |  |
+    | 30--60 min |  | Guided practice |  |
+    | 60--80 min |  | Independent practice / questions |  |
+    | 80--90 min |  | Wrap-up |  |
+
+    ## Notes during class
+
+    - TBD
+
+    ## Follow-up
+
+    - [ ] Update examples or instructions.
+    - [ ] Record common questions.
+    - [ ] Add reminders for the next session.
+-->

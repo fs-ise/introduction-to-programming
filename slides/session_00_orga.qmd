@@ -9,6 +9,7 @@ date: "2026-03-23"
 # TODO
 
 - Get syllabus and integrate learning objectives
+- Start with a strong focus on programming (I love programming/Github stats, first student assistant job, ..., student coauthors, but also: teaching it in an accessible way; move research interests to the end: theses)
 
 # Welcome {data-stack-name="Welcome"}
 

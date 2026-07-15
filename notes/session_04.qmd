@@ -4,36 +4,70 @@ session_id: session-04
 event_id: null
 ---
 
-## Session overview
+### Session 4 — Python and pandas basics
 
-- **Focus:** Python
-- **Session title:** Python 1
-- **Coverage target:** Until **Accessing data**
+TODO: add spyder setup
 
-## Before class
+Python:
+- motivation: existing libraries!
+TODO: use Anaconda (be prepared to answer questions)
+spytertest.py (in canvas) mit studis am Anfang der python session step-by-step durchgehen
+use setwd() for spyder
 
-- [ ] Review the session slides/materials.
-- [ ] Prepare files, datasets, and examples.
-- [ ] Note any announcements or reminders.
+PR : teilt 1_pandas.py (codes für alle Folien)
 
-## Timing record
+p.13: abhängig von Zeit: in-session or homework
 
-Use this table while preparing or after teaching to record the actual timing.
+TODO: check pandas version? 3.0?
 
-| Planned time | Actual time | Topic/activity | Notes for next time |
-|---|---|---|---|
-| 0--10 min |  | Setup / recap |  |
-| 10--30 min |  | Main input |  |
-| 30--60 min |  | Guided practice |  |
-| 60--80 min |  | Independent practice / questions |  |
-| 80--90 min |  | Wrap-up |  |
+Aufgaben: komplett (soweit die Zeit da ist)
+Bei Zeitnot: Aufgaben nach Haus geben
+Python Lösungen: werden von Tutoren besprochen
 
-## Notes during class
 
-- TBD
+## Exercises
 
-## Follow-up
+| Page(s) | Exercise               | Summary                                                                                                          | Files                                                                                      | In-class / take-home |
+| ------: | ---------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------- |
+|       5 | Basic operators        | Run arithmetic, division, modulo, exponentiation, and string-concatenation expressions.                          | —                                                                                          |                      |
+|      11 | Trace program output   | Predict the results of assignments, reassignment, multiple assignment, and arithmetic expressions.               | —                                                                                          |                      |
+|      13 | Basic formula programs | Calculate a circle’s area and the future value of an investment using variables defined in the program.          | `CircleArea1.py`<br>`FutureValue.py`                                                       |                      |
+|      22 | Import and export data | Load country and insurance data, inspect DataFrame dimensions and columns, and export the insurance data to CSV. | `countries.csv`<br>`countries.py`<br>`insurance.xlsx`<br>`insurance.py`<br>`insurance.csv` |                      |
 
-- [ ] Update examples or instructions.
-- [ ] Record common questions.
-- [ ] Add reminders for the next session.
+
+
+<!--
+    ## Session overview
+
+    - **Focus:** Python
+    - **Session title:** Python 1
+    - **Coverage target:** Until **Accessing data**
+
+    ## Before class
+
+    - [ ] Review the session slides/materials.
+    - [ ] Prepare files, datasets, and examples.
+    - [ ] Note any announcements or reminders.
+
+    ## Timing record
+
+    Use this table while preparing or after teaching to record the actual timing.
+
+    | Planned time | Actual time | Topic/activity | Notes for next time |
+    |---|---|---|---|
+    | 0--10 min |  | Setup / recap |  |
+    | 10--30 min |  | Main input |  |
+    | 30--60 min |  | Guided practice |  |
+    | 60--80 min |  | Independent practice / questions |  |
+    | 80--90 min |  | Wrap-up |  |
+
+    ## Notes during class
+
+    - TBD
+
+    ## Follow-up
+
+    - [ ] Update examples or instructions.
+    - [ ] Record common questions.
+    - [ ] Add reminders for the next session.
+-->

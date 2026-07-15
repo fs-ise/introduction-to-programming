@@ -4,36 +4,58 @@ session_id: session-11
 event_id: null
 ---
 
-## Session overview
+## Session 11 — Pandas automation and web APIs
 
-- **Focus:** Python
-- **Session title:** Python 8
-- **Coverage target:** Until the end
+Note: Klausur: Pandas-Teil ist "Pure pandas" (keine Kombination mit Python)
 
-## Before class
+Alpha Vantage keys: PR shares them later.
 
-- [ ] Review the session slides/materials.
-- [ ] Prepare files, datasets, and examples.
-- [ ] Note any announcements or reminders.
+JSON: relevance (apps, ...)
 
-## Timing record
+API examples: depending on remaining time.
 
-Use this table while preparing or after teaching to record the actual timing.
+## Exercises
 
-| Planned time | Actual time | Topic/activity | Notes for next time |
-|---|---|---|---|
-| 0--10 min |  | Setup / recap |  |
-| 10--30 min |  | Main input |  |
-| 30--60 min |  | Guided practice |  |
-| 60--80 min |  | Independent practice / questions |  |
-| 80--90 min |  | Wrap-up |  |
+| Page(s) | Exercise                    | Summary                                                                                                                                   | Files                       | In-class / take-home |
+| ------: | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | -------------------- |
+|     143 | Stock-market API            | Retrieve Mercedes-Benz data through an API, plot closing prices, and calculate and visualize high/low returns.                            | `MercedesBenz1.py`          |                      |
+|     148 | Stock-price collection      | Retrieve evening closing prices for four stocks and append them with the date to a persistent CSV file.                                   | `Stocks.py`<br>`Stocks.csv` |                      |
+|     152 | JSON data retrieval         | Rewrite the Mercedes-Benz exercise to process the API response as JSON.                                                                   | `MercedesBenz2.py`          |                      |
+|     155 | Cryptocurrency API analysis | Retrieve Bitcoin and Ethereum prices, convert timestamps, calculate returns, variances, and correlation, and visualize the return series. | `Cryptocurrencies.py`       |                      |
+|     159 | Weather API                 | Configure an Open-Meteo forecast, retrieve it through the API, and process the resulting weather data.                                    | —                           |                      |
 
-## Notes during class
+<!--
+    ## Session overview
 
-- TBD
+    - **Focus:** Python
+    - **Session title:** Python 1
+    - **Coverage target:** Until **Accessing data**
 
-## Follow-up
+    ## Before class
 
-- [ ] Update examples or instructions.
-- [ ] Record common questions.
-- [ ] Add reminders for the next session.
+    - [ ] Review the session slides/materials.
+    - [ ] Prepare files, datasets, and examples.
+    - [ ] Note any announcements or reminders.
+
+    ## Timing record
+
+    Use this table while preparing or after teaching to record the actual timing.
+
+    | Planned time | Actual time | Topic/activity | Notes for next time |
+    |---|---|---|---|
+    | 0--10 min |  | Setup / recap |  |
+    | 10--30 min |  | Main input |  |
+    | 30--60 min |  | Guided practice |  |
+    | 60--80 min |  | Independent practice / questions |  |
+    | 80--90 min |  | Wrap-up |  |
+
+    ## Notes during class
+
+    - TBD
+
+    ## Follow-up
+
+    - [ ] Update examples or instructions.
+    - [ ] Record common questions.
+    - [ ] Add reminders for the next session.
+-->

@@ -4,36 +4,64 @@ session_id: session-02
 event_id: null
 ---
 
-## Session overview
+## Session 2 — Lookups and tables
 
-- **Focus:** Excel
-- **Session title:** Excel 2
-- **Coverage target:** TBD
+Session 2:
 
-## Before class
+- Besprechung Hausaufgaben
+- Vlookup limitation: lookup-column must be first, if we switch, it no longer works -> need for xlookup
+- p. christmas gift, grading: homework.
+- tables p.36 - Bikesales.xlsx. gemeinsam machen
+- Wichtig: p. 43 (auch p.46): Totals / Subtotals funktion verstehen (immer Klausurrelevant) -> Bei subtotals werden Funktionsnamen über die Nummern kodiert!
 
-- [ ] Review the session slides/materials.
-- [ ] Prepare files, datasets, and examples.
-- [ ] Note any announcements or reminders.
+p.47: Referenzen: egal wo die Tabelle steht
 
-## Timing record
+PR: Session 2 typically ends at 46.
 
-Use this table while preparing or after teaching to record the actual timing.
+## Exercises
 
-| Planned time | Actual time | Topic/activity | Notes for next time |
-|---|---|---|---|
-| 0--10 min |  | Setup / recap |  |
-| 10--30 min |  | Main input |  |
-| 30--60 min |  | Guided practice |  |
-| 60--80 min |  | Independent practice / questions |  |
-| 80--90 min |  | Wrap-up |  |
+| Slide(s) | Exercise       | Summary                                                                                                        | Files              | In-class vs take-home |
+| -------: | -------------- | -------------------------------------------------------------------------------------------------------------- | ------------------ | --------------------- |
+|       32 | Bar sales      | Retrieve drink prices and calculate sales amounts.                                                             |                    |                       |
+|       34 | Client lookup  | Automatically retrieve a client’s name and address from their client number.                                   | `Clients.xlsx`     |                       |
+|       35 | Christmas gift | Assign gifts and packaging based on each customer’s status.                                                    |                    |                       |
+|       36 | Course grading | Calculate final course grades from three tests and three homework assignments.                                 |                    |                       |
+|    51–52 | Excel tables   | Convert and manipulate a sales table; calculate structured-reference metrics, regional summaries, and a chart. | `Sales_Table.xlsx` |                       |
 
-## Notes during class
 
-- TBD
 
-## Follow-up
+<!--
+    ## Session overview
 
-- [ ] Update examples or instructions.
-- [ ] Record common questions.
-- [ ] Add reminders for the next session.
+    - **Focus:** Excel
+    - **Session title:** Excel 1
+    - **Coverage target:** TBD
+
+    ## Before class
+
+    - [ ] Review the session slides/materials.
+    - [ ] Prepare files, datasets, and examples.
+    - [ ] Note any announcements or reminders.
+
+    ## Timing record
+
+    Use this table while preparing or after teaching to record the actual timing.
+
+    | Planned time | Actual time | Topic/activity | Notes for next time |
+    |---|---|---|---|
+    | 0--10 min |  | Setup / recap |  |
+    | 10--30 min |  | Main input |  |
+    | 30--60 min |  | Guided practice |  |
+    | 60--80 min |  | Independent practice / questions |  |
+    | 80--90 min |  | Wrap-up |  |
+
+    ## Notes during class
+
+    - TBD
+
+    ## Follow-up
+
+    - [ ] Update examples or instructions.
+    - [ ] Record common questions.
+    - [ ] Add reminders for the next session.
+-->

@@ -4,36 +4,62 @@ session_id: session-10
 event_id: null
 ---
 
-## Session overview
+## Session 10 — Loop control, functions, and dictionaries
 
-- **Focus:** Python
-- **Session title:** Python 7
-- **Coverage target:** Until **Combining Python and Pandas**
+p.116: nr 2 homework.
 
-## Before class
+additional exercise (Insurance) - PR shares it
 
-- [ ] Review the session slides/materials.
-- [ ] Prepare files, datasets, and examples.
-- [ ] Note any announcements or reminders.
+Functions
+- mind. eine Klausuraufgabe
 
-## Timing record
+p. 121/122
+Order, in-session: 4, 5, 1, 6 (if time permits)
+Homework: 2-3
 
-Use this table while preparing or after teaching to record the actual timing.
+Dictionaries: less relevant for the exam (do not explicitly announce as not relevant at the beginning) - maybe as multiple-choice.
 
-| Planned time | Actual time | Topic/activity | Notes for next time |
-|---|---|---|---|
-| 0--10 min |  | Setup / recap |  |
-| 10--30 min |  | Main input |  |
-| 30--60 min |  | Guided practice |  |
-| 60--80 min |  | Independent practice / questions |  |
-| 80--90 min |  | Wrap-up |  |
 
-## Notes during class
+## Exercises
 
-- TBD
+| Page(s) | Exercise                     | Summary                                                                                                                                        | Files                                                                                                        | In-class / take-home |
+| ------: | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------- |
+|     116 | Loop termination             | Stop an otherwise infinite loop when zero is entered and add up to three attempts to the dice game.                                            | `StopLoop.py`<br>`Dicegame3.py`                                                                              |                      |
+| 121–122 | Functions                    | Create functions for digit counting, list multiplication, Harshad numbers, factorials, combinations, and a multistage slot-machine simulation. | `CountDigits.py`<br>`Listmult.py`<br>`Harshad.py`<br>`Factorial.py`<br>`Combinations.py`<br>`SlotMachine.py` |                      |
+|     133 | Dictionaries and persistence | Maintain a nested dictionary of friends, modify its contents, and save and reload it from a file.                                              | `Friends.py`<br>`friends.db`                                                                                 |                      |
 
-## Follow-up
+<!--
+    ## Session overview
 
-- [ ] Update examples or instructions.
-- [ ] Record common questions.
-- [ ] Add reminders for the next session.
+    - **Focus:** Python
+    - **Session title:** Python 1
+    - **Coverage target:** Until **Accessing data**
+
+    ## Before class
+
+    - [ ] Review the session slides/materials.
+    - [ ] Prepare files, datasets, and examples.
+    - [ ] Note any announcements or reminders.
+
+    ## Timing record
+
+    Use this table while preparing or after teaching to record the actual timing.
+
+    | Planned time | Actual time | Topic/activity | Notes for next time |
+    |---|---|---|---|
+    | 0--10 min |  | Setup / recap |  |
+    | 10--30 min |  | Main input |  |
+    | 30--60 min |  | Guided practice |  |
+    | 60--80 min |  | Independent practice / questions |  |
+    | 80--90 min |  | Wrap-up |  |
+
+    ## Notes during class
+
+    - TBD
+
+    ## Follow-up
+
+    - [ ] Update examples or instructions.
+    - [ ] Record common questions.
+    - [ ] Add reminders for the next session.
+-->

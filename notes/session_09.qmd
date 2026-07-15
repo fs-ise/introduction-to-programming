@@ -4,36 +4,58 @@ session_id: session-09
 event_id: null
 ---
 
-## Session overview
+## Session 9 — For and while loops
 
-- **Focus:** Python
-- **Session title:** Python 6
-- **Coverage target:** Until **Break/Continue**
+Loop: explain with sum/product \sum_i^n
 
-## Before class
+p. 110/111: nr 3-4, 6-7 homework
 
-- [ ] Review the session slides/materials.
-- [ ] Prepare files, datasets, and examples.
-- [ ] Note any announcements or reminders.
+while exercises:
+nr 1: homework
+nr 2-4: in-session
+nr 5-6: homework
+-> remind: nr 6 same task as in Excel
 
-## Timing record
+## Exercises
 
-Use this table while preparing or after teaching to record the actual timing.
+| Page(s) | Exercise      | Summary                                                                                                                                    | Files                                                                                                                | In-class / take-home |
+| ------: | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| 110–111 | `for` loops   | Repeat messages, calculate an average, identify multiples, generate Fibonacci numbers and random frequencies, and print a letter triangle. | `Message.py`<br>`Average.py`<br>`Tens.py`<br>`MultipleSum.py`<br>`Fibonacci.py`<br>`Frequencies.py`<br>`Triangle.py` |                      |
+| 113–114 | `while` loops | Build a shopping list, implement two guessing games, extend the dice game, and generate a loan-repayment history.                          | `ShoppingList.py`<br>`Guess1.py`<br>`Guess2.py`<br>`Dicegame2.py`<br>`Loan.py`                                       |                      |
 
-| Planned time | Actual time | Topic/activity | Notes for next time |
-|---|---|---|---|
-| 0--10 min |  | Setup / recap |  |
-| 10--30 min |  | Main input |  |
-| 30--60 min |  | Guided practice |  |
-| 60--80 min |  | Independent practice / questions |  |
-| 80--90 min |  | Wrap-up |  |
 
-## Notes during class
+<!--
+    ## Session overview
 
-- TBD
+    - **Focus:** Python
+    - **Session title:** Python 1
+    - **Coverage target:** Until **Accessing data**
 
-## Follow-up
+    ## Before class
 
-- [ ] Update examples or instructions.
-- [ ] Record common questions.
-- [ ] Add reminders for the next session.
+    - [ ] Review the session slides/materials.
+    - [ ] Prepare files, datasets, and examples.
+    - [ ] Note any announcements or reminders.
+
+    ## Timing record
+
+    Use this table while preparing or after teaching to record the actual timing.
+
+    | Planned time | Actual time | Topic/activity | Notes for next time |
+    |---|---|---|---|
+    | 0--10 min |  | Setup / recap |  |
+    | 10--30 min |  | Main input |  |
+    | 30--60 min |  | Guided practice |  |
+    | 60--80 min |  | Independent practice / questions |  |
+    | 80--90 min |  | Wrap-up |  |
+
+    ## Notes during class
+
+    - TBD
+
+    ## Follow-up
+
+    - [ ] Update examples or instructions.
+    - [ ] Record common questions.
+    - [ ] Add reminders for the next session.
+-->

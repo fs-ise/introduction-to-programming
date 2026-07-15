@@ -4,36 +4,60 @@ session_id: session-08
 event_id: null
 ---
 
-## Session overview
+## Session 8 — Sequences and conditionals
 
-- **Focus:** Python
-- **Session title:** Python 5
-- **Coverage target:** Until **For**
+TOOD: include visualization of IBAN
 
-## Before class
+p.91: nr 3: hausaufgabe
+p.97 nr 2 hausaufgabe
 
-- [ ] Review the session slides/materials.
-- [ ] Prepare files, datasets, and examples.
-- [ ] Note any announcements or reminders.
+tuples: kurz (zB. pandas: df.shape, ...)
 
-## Timing record
+p.105: 3 hausaufgabe
+-> nr 4: explain in-class (importance of code in/outside of if) 
+p. 106/107: homework (tutorium)
 
-Use this table while preparing or after teaching to record the actual timing.
+## Exercises
 
-| Planned time | Actual time | Topic/activity | Notes for next time |
-|---|---|---|---|
-| 0--10 min |  | Setup / recap |  |
-| 10--30 min |  | Main input |  |
-| 30--60 min |  | Guided practice |  |
-| 60--80 min |  | Independent practice / questions |  |
-| 80--90 min |  | Wrap-up |  |
+| Page(s) | Exercise          | Summary                                                                                                                   | Files                                                                                                              | In-class / take-home |
+| ------: | ----------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------- |
+|   91–92 | Strings and IBAN  | Perform string inspection and manipulation and calculate an IBAN validation number from user input.                       | `String1.py`<br>`String2.py`<br>`String3.py`<br>`IBAN.py`                                                          |                      |
+|      97 | List operations   | Create, inspect, extend, reorder, and modify lists and calculate values derived from their elements.                      | `Listexercise1.py`<br>`Listexercise2.py`                                                                           |                      |
+| 105–107 | Conditional logic | Implement odd/even checks, discounts, rating-based interest, a dice game, temperature conversion, grades, and income tax. | `OddEven.py`<br>`Discount.py`<br>`AnnuityLoan2.py`<br>`Dicegame1.py`<br>`Temperature.py`<br>`Grade.py`<br>`Tax.py` |                      |
 
-## Notes during class
 
-- TBD
+<!--
+    ## Session overview
 
-## Follow-up
+    - **Focus:** Python
+    - **Session title:** Python 1
+    - **Coverage target:** Until **Accessing data**
 
-- [ ] Update examples or instructions.
-- [ ] Record common questions.
-- [ ] Add reminders for the next session.
+    ## Before class
+
+    - [ ] Review the session slides/materials.
+    - [ ] Prepare files, datasets, and examples.
+    - [ ] Note any announcements or reminders.
+
+    ## Timing record
+
+    Use this table while preparing or after teaching to record the actual timing.
+
+    | Planned time | Actual time | Topic/activity | Notes for next time |
+    |---|---|---|---|
+    | 0--10 min |  | Setup / recap |  |
+    | 10--30 min |  | Main input |  |
+    | 30--60 min |  | Guided practice |  |
+    | 60--80 min |  | Independent practice / questions |  |
+    | 80--90 min |  | Wrap-up |  |
+
+    ## Notes during class
+
+    - TBD
+
+    ## Follow-up
+
+    - [ ] Update examples or instructions.
+    - [ ] Record common questions.
+    - [ ] Add reminders for the next session.
+-->

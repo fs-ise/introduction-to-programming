@@ -4,36 +4,60 @@ session_id: session-06
 event_id: null
 ---
 
-## Session overview
+## Session 6 — Statistics, charts, and grouping
 
-- **Focus:** Python
-- **Session title:** Python 3
-- **Coverage target:** Until **Pivot**
+ggf. Varianz/Mittelwert erkären
 
-## Before class
+Plots: nur LIne/Bar in der Klausur (siehe Dokument: relevant topics for the exam)
 
-- [ ] Review the session slides/materials.
-- [ ] Prepare files, datasets, and examples.
-- [ ] Note any announcements or reminders.
+-> ML/prediction: nicht Klausurrelevant
 
-## Timing record
+## Exercises
 
-Use this table while preparing or after teaching to record the actual timing.
+| Page(s) | Exercise                 | Summary                                                                                                      | Files                                                                     | In-class / take-home |
+| ------: | ------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- | -------------------- |
+|      42 | Descriptive statistics   | Calculate aggregates, summaries, correlations, distinct values, and continent frequencies.                   | `countries.csv`<br>`countries3.py`                                        |                      |
+|      49 | Basic visualizations     | Create line, bar, pie, density, and box plots for the country data.                                          | `countries.csv`<br>`countries4.py`                                        |                      |
+|      53 | Conditional filtering    | Filter countries using area, population, continent, and GDP conditions; summarize and visualize the results. | `countries.csv`<br>`countries5.py`                                        |                      |
+|      56 | Grouping and aggregation | Use `groupby()` to summarize countries by continent and insurance contracts by state and coverage.           | `countries.csv`<br>`countries6.py`<br>`insurance.xlsx`<br>`insurance1.py` |                      |
 
-| Planned time | Actual time | Topic/activity | Notes for next time |
-|---|---|---|---|
-| 0--10 min |  | Setup / recap |  |
-| 10--30 min |  | Main input |  |
-| 30--60 min |  | Guided practice |  |
-| 60--80 min |  | Independent practice / questions |  |
-| 80--90 min |  | Wrap-up |  |
 
-## Notes during class
+<!--
+    ## Before class
 
-- TBD
+    - [ ] Review the session slides/materials.
+    - [ ] Prepare files, datasets, and examples.
+    - [ ] Note any announcements or reminders.
 
-## Follow-up
+    ## Timing record
 
-- [ ] Update examples or instructions.
-- [ ] Record common questions.
-- [ ] Add reminders for the next session.
+    Use this table while preparing or after teaching to record the actual timing.
+
+    | Planned time | Actual time | Topic/activity | Notes for next time |
+    |---|---|---|---|
+    | 0--10 min |  | Setup / recap |  |
+    | 10--30 min |  | Main input |  |
+    | 30--60 min |  | Guided practice |  |
+    | 60--80 min |  | Independent practice / questions |  |
+    | 80--90 min |  | Wrap-up |  |
+
+    ## Notes during class
+
+    - TBD
+
+    ## Follow-up
+
+    - [ ] Update examples or instructions.
+    - [ ] Record common questions.
+    - [ ] Add reminders for the next session.
+-->
+
+## Introductory discussion
+
+- Prior programming experience?
+- Why go beyond Excel and use Python? (advanced analytics: Regression, prediction, ML, AI, ...)
+- Why shouldn't we just use ChatGPT? (prompt adequately, validate and improve, Python: effective prompting possible)
+
+- Advantage of Python: libraries! (PyPI)
+- Interpreted: vs. compiled language
+

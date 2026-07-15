@@ -4,36 +4,82 @@ session_id: session-01
 event_id: null
 ---
 
-## Session overview
+## Session 1 — Basics, formulas, charts, and conditional structures
 
-- **Focus:** Excel
-- **Session title:** Excel 1
-- **Coverage target:** TBD
+TODO: demo Excel (multiple sheet), to be shared by PR
 
-## Before class
+Anfang: Worksheet (PR)
+Excel: Funktionsparametertrenner (komma/semikolon) kann nur Global umgestellt werden, beides zulässig.
 
-- [ ] Review the session slides/materials.
-- [ ] Prepare files, datasets, and examples.
-- [ ] Note any announcements or reminders.
+Tip: use keyboard instead of clicking (prepare/mention shortcuts)
 
-## Timing record
+Relative/absolute references: debug formula (predecessor/successor visualization)
 
-Use this table while preparing or after teaching to record the actual timing.
+p.12: solution/dataset?
 
-| Planned time | Actual time | Topic/activity | Notes for next time |
-|---|---|---|---|
-| 0--10 min |  | Setup / recap |  |
-| 10--30 min |  | Main input |  |
-| 30--60 min |  | Guided practice |  |
-| 60--80 min |  | Independent practice / questions |  |
-| 80--90 min |  | Wrap-up |  |
+p.17 - test auf trenner: sum(3,5) sollte bei allen 8 geben.
 
-## Notes during class
+p.17: formula vs function: clarify the difference!
 
-- TBD
+p.20: moving averages: first homework
 
-## Follow-up
+p.21: how can I open the dialogue?
 
-- [ ] Update examples or instructions.
-- [ ] Record common questions.
-- [ ] Add reminders for the next session.
+VIP II: prefer nested ifs
+
+p.25: homework (many fail), end of first session
+- Installment Loan an der Tafel durchrechnen; dann: Aufgabe: in Excel übertragen
+- Tilgung ab Periode 2: Wenn-funktion (Studierende müssen selbst auf die Wenn funktion kommen)
+
+
+## Exercises
+
+| Slide(s) | Exercise            | Summary                                                                                                | Files | In-class vs take-home |
+| -------: | ------------------- | ------------------------------------------------------------------------------------------------------ | ----- | --------------------- |
+|    7, 10 | Future value        | Build an investment calculator and extend it to compare interest-rate and investment-period scenarios. |       |                       |
+|       14 | Coffee-shop charts  | Create two suitable charts showing different aspects of the coffee-sales distribution.                 |       |                       |
+|       19 | Sales statistics    | Calculate minimum, maximum, mean, and median sales across customers.                                   |       |                       |
+|       20 | DAX moving averages | Calculate 10-day and 20-day moving averages and visualize them using line and scatter charts.          |       |                       |
+|       23 | VIP status          | Classify customers as Bronze, Gold, or Platinum based on sales thresholds.                             |       |                       |
+|       24 | VIP club credits    | Calculate club-card credits using sales-dependent credit factors.                                      |       |                       |
+|       25 | Installment loan    | Create a flexible repayment schedule for an installment loan of up to 20 periods.                      |       |                       |
+|       26 | Annuity loan        | Create an annuity-loan repayment schedule using the `PMT` function.                                    |       |                       |
+|       27 | Exam result         | Determine whether students passed, failed, or failed because of the quorum requirement.                |       |                       |
+
+
+
+<!--
+    ## Session overview
+
+    - **Focus:** Excel
+    - **Session title:** Excel 1
+    - **Coverage target:** TBD
+
+    ## Before class
+
+    - [ ] Review the session slides/materials.
+    - [ ] Prepare files, datasets, and examples.
+    - [ ] Note any announcements or reminders.
+
+    ## Timing record
+
+    Use this table while preparing or after teaching to record the actual timing.
+
+    | Planned time | Actual time | Topic/activity | Notes for next time |
+    |---|---|---|---|
+    | 0--10 min |  | Setup / recap |  |
+    | 10--30 min |  | Main input |  |
+    | 30--60 min |  | Guided practice |  |
+    | 60--80 min |  | Independent practice / questions |  |
+    | 80--90 min |  | Wrap-up |  |
+
+    ## Notes during class
+
+    - TBD
+
+    ## Follow-up
+
+    - [ ] Update examples or instructions.
+    - [ ] Record common questions.
+    - [ ] Add reminders for the next session.
+-->
