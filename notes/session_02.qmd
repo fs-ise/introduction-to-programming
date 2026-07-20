@@ -38,10 +38,10 @@ PR: Session 2 typically ends at 46.
 
 ## Homework: solutions
 
-![](../images/excel_installment_loan_solution_1.png)
 
-![](images/excel_installment_loan_solution_2.png)
+![](../images/excel_installment_loan_1_solution.png){fig-align="center" width="90%"}
 
+![](../images/excel_installment_loan_2_solution.png){fig-align="center" width="90%"}
 
 
 ::: {.teaching-break}
@@ -52,39 +52,6 @@ PR: Session 2 typically ends at 46.
 
 TODO
 
-
-<!--
-    ## Session overview
-
-    - **Focus:** Excel
-    - **Session title:** Excel 1
-    - **Coverage target:** TBD
-
-    ## Before class
-
-    - [ ] Review the session slides/materials.
-    - [ ] Prepare files, datasets, and examples.
-    - [ ] Note any announcements or reminders.
-
-    ## Timing record
-
-    Use this table while preparing or after teaching to record the actual timing.
-
-    | Planned time | Actual time | Topic/activity | Notes for next time |
-    |---|---|---|---|
-    | 0--10 min |  | Setup / recap |  |
-    | 10--30 min |  | Main input |  |
-    | 30--60 min |  | Guided practice |  |
-    | 60--80 min |  | Independent practice / questions |  |
-    | 80--90 min |  | Wrap-up |  |
-
-    ## Notes during class
-
-    - TBD
-
-    ## Follow-up
-
-    - [ ] Update examples or instructions.
-    - [ ] Record common questions.
-    - [ ] Add reminders for the next session.
--->
+::: {.callout-tip title="Notes for improvement"}
+Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
+:::

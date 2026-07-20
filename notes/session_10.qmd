@@ -36,39 +36,6 @@ Dictionaries: less relevant for the exam (do not explicitly announce as not rele
 
 TODO
 
-
-<!--
-    ## Session overview
-
-    - **Focus:** Python
-    - **Session title:** Python 1
-    - **Coverage target:** Until **Accessing data**
-
-    ## Before class
-
-    - [ ] Review the session slides/materials.
-    - [ ] Prepare files, datasets, and examples.
-    - [ ] Note any announcements or reminders.
-
-    ## Timing record
-
-    Use this table while preparing or after teaching to record the actual timing.
-
-    | Planned time | Actual time | Topic/activity | Notes for next time |
-    |---|---|---|---|
-    | 0--10 min |  | Setup / recap |  |
-    | 10--30 min |  | Main input |  |
-    | 30--60 min |  | Guided practice |  |
-    | 60--80 min |  | Independent practice / questions |  |
-    | 80--90 min |  | Wrap-up |  |
-
-    ## Notes during class
-
-    - TBD
-
-    ## Follow-up
-
-    - [ ] Update examples or instructions.
-    - [ ] Record common questions.
-    - [ ] Add reminders for the next session.
--->
+::: {.callout-tip title="Notes for improvement"}
+Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
+:::

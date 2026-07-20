@@ -7,10 +7,10 @@ event_id: null
 ## Session 3 — Pivot tables
 
 - Include screenshots from `Solutions.pptx`!
-Pivots: Mit Daten vs. Entscheidung Erklärung starten, dann Beispiel in Excel durchgehen
-PR: legt die Pivot-Folien gar nicht im Detail auf
-p.75: Aggregation über Datum: siehe auch in den Folien
-p.76/77: in-session (if enough time)
+- Pivots: Mit Daten vs. Entscheidung Erklärung starten, dann Beispiel in Excel durchgehen
+- PR: legt die Pivot-Folien gar nicht im Detail auf
+- p.75: Aggregation über Datum: siehe auch in den Folien
+- p.76/77: in-session (if enough time)
 
 ## Exercises
 
@@ -28,39 +28,6 @@ p.76/77: in-session (if enough time)
 
 TODO
 
-
-<!--
-    ## Session overview
-
-    - **Focus:** Excel
-    - **Session title:** Excel 1
-    - **Coverage target:** TBD
-
-    ## Before class
-
-    - [ ] Review the session slides/materials.
-    - [ ] Prepare files, datasets, and examples.
-    - [ ] Note any announcements or reminders.
-
-    ## Timing record
-
-    Use this table while preparing or after teaching to record the actual timing.
-
-    | Planned time | Actual time | Topic/activity | Notes for next time |
-    |---|---|---|---|
-    | 0--10 min |  | Setup / recap |  |
-    | 10--30 min |  | Main input |  |
-    | 30--60 min |  | Guided practice |  |
-    | 60--80 min |  | Independent practice / questions |  |
-    | 80--90 min |  | Wrap-up |  |
-
-    ## Notes during class
-
-    - TBD
-
-    ## Follow-up
-
-    - [ ] Update examples or instructions.
-    - [ ] Record common questions.
-    - [ ] Add reminders for the next session.
--->
+::: {.callout-tip title="Notes for improvement"}
+Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
+:::

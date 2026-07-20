@@ -4,12 +4,19 @@ session_id: session-01
 event_id: null
 ---
 
+TODO:
+
+- Clearly state which Excel file/sheet should be used (for the exercise and solution) (**Excel_Exercises_in_class_session_1.xlsx**, **introduction.xlsx**)
+- Slide 25 — Installment loan: prepare separate slide for the visualization? 
+- Slide 28: Special IF functions
+- TBD: reflection/questions for next sesssion?
+
 In-class exercise sheet: [Excel_Exercises_in_class_session_1.xlsx](../materials/Excel_Exercises_in_class_session_1.xlsx)
 
 | Time                 | Topic/activity                                             | Materials                                                            |
 | -------------------: | ---------------------------------------------------------- | -------------------------------------------------------------------- |
 | 0–15 min             | Introduction and organization                              | [Introductory slides](../slides/session_00_orga.qmd) (separate)      |
-| 15–35 min            | Excel basics, formulas, and cell references                | Slides 1–6<br>[introduction.xlsx: sheet start](../materials/introduction.xlsx) |
+| 15–35 min            | Excel basics, formulas, and cell references                | Slides 1–6<br>                                                       |
 | 35–55 min            | Future-value calculation                                   | Slides 7–10<br>Slides 7 and 10: Exercise **Future value**            |
 | 55–70 min            | Data handling and chart selection                          | Slides 11–14<br>Slide 14: Exercise **Coffee-shop charts**            |
 | 70–90 min            | Functions and descriptive statistics                       | Slides 15–19<br>Slide 19: Exercise **Sales statistics**              |
@@ -25,7 +32,7 @@ In-class exercise sheet: [Excel_Exercises_in_class_session_1.xlsx](../materials/
 
 ## Slide 1 - Excel basics
 
-Use [introduction.xlsx](../materials/introduction.xlsx) for the following.
+[introduction.xlsx](../materials/introduction.xlsx) - Sheet `Start`
 <!-- see [solution](../materials/introduction_with_solutions.xlsx) -->
 
 ![](../images/Excel_introduction_xlsx_1.png){fig-align="center" width="50%"}
@@ -53,11 +60,17 @@ Solution:
 
 ![](../images/Excel_future_value_1.png){fig-align="center" width="50%"}
 
-## Slide 8: Referencing cells:
+::: {.callout-tip title="Pro tips"}
+Use keyboard instead of clicking (prepare/mention shortcuts)
+:::
 
-[introduction.xlsx sheet 2](../materials/introduction.xlsx): Kosten-Erlösrechnung
+## Slide 8: Referencing cells (example: cost revenue calculation)
 
-**TODO: switch to english and add screenshot here**
+[introduction.xlsx](../materials/introduction.xlsx) - Sheet `Cost_Revenue`
+
+Solution:
+
+![](../images/excel_cost_profit_calculation.png){fig-align="center" width="80%"}
 
 ## Slide 10 - Future Value (second exercise)
 
@@ -65,10 +78,15 @@ Solution:
 
 ![](../images/future_value_abs_rel_refs.png){fig-align="center" width="80%"}
 
-## Slide 14
+## Slide 13 - Charts illustration
+
+[introduction.xlsx](../materials/introduction.xlsx) - Sheet `with_plot`
+
+![](../images/excel_charts_example.png){fig-align="center" width="90%"}
+
+## Slide 14 - Exercise Coffee-shop charts
 
 ![](../images/excel_coffeeshop_charts.png){fig-align="center" width="90%"}
-
 
 ## Slide 16 — Formula syntax and functions
 
@@ -100,19 +118,23 @@ This ensures that language is set to English and parameters are separated by `,`
 
 :::
 
+## Slide 18 - Formula illustration
+
+![](../images/excel_formula_illustration.png){fig-align="center" width="90%"}
+
 ## Slide 19 - Sales statistics
 
 ![](../images/excel_sales_solution.png){fig-align="center" width="90%"}
 
-## Slide 20 — DAX moving averages (before or after the break)
+## Slide 20 — DAX moving averages (first take-home exercise)
 
-- First take-home exercise.
+Before or after the break.
 
 - Explain the figure, then the formula, and then ask students how the spreadsheet should look like (draft column-names, maybe where the formulas start, but not the specific formula solutions)
 - Draft structure on the blackboard
 - Last step: create the visualization...
 
-#![](../images/excel_moving_average_solution.png)
+![](../images/excel_moving_average_solution.png){fig-align="center" width="90%"}
 
 ## Slide 21 - IF Dialogue
 
@@ -122,7 +144,19 @@ Opens when selecting ribbon Formulas, Logical, IF
 ☕ Break — 10 minutes
 :::
 
-**TODO: include illustration here, explain the problem well! (PR?)**
+[introduction.xlsx](../materials/introduction.xlsx) - Sheet `simple`
+
+Solution:
+
+![](../images/excel_cost_revenue_if_simple.png){fig-align="center" width="90%"}
+
+---
+
+[introduction.xlsx](../materials/introduction.xlsx) - Sheet `Cost_Revenue`
+
+Solution:
+
+![](../images/excel_cost_revenue_if_nested.png){fig-align="center" width="90%"}
 
 ## Slides 23–24 — VIP classification and credits
 
@@ -130,7 +164,7 @@ Opens when selecting ribbon Formulas, Logical, IF
 
 ![](../images/excel_vip_solution.png)
 
-## Slide 25 — Installment loan
+## Slide 25 — Installment loan (take-home exercise)
 
 - Work through the repayment logic on the board.
 - Students then transfer the calculation to Excel as a take-home exercise.
@@ -138,13 +172,21 @@ Opens when selecting ribbon Formulas, Logical, IF
 - Students should identify the need for the condition themselves.
 - Allow sufficient explanation because this exercise has caused difficulties in previous cohorts.
 
-`The repayment equals the fixed repayment amount or, when the remaining debt is lower, the remaining debt.`
+::: {.callout-important}
+The repayment equals the fixed repayment amount or, when the remaining debt is lower, the remaining debt.
+:::
 
-**TODO: include visualization here (PR?)**
+{{< include ../materials/_installment_loan.qmd >}}
+
+{{< include ../materials/_annuity_loan.qmd >}}
+
+::: {.callout-note title="Understanding the difference between fixed installments and anuity loans"}
+With a fixed-principal installment loan, the principal is reduced more quickly at the beginning, which lowers the total interest paid. However, this also means that the initial payments are higher.
+:::
 
 ## Slide 27 Exam
 
-![](../images/excel_exam_solution.png)
+![](../images/excel_exam_solution.png){fig-align="center" width="60%"}
 
 ## Slide 28: Special IF functions
 
@@ -152,50 +194,6 @@ TBD
 
 ## Summary and announcements (next session)
 
-TODO / TBD: reflection/questions for next sesssion?
-
-
-::: {.callout-note title="Pro tips"}
-- Use keyboard instead of clicking (prepare/mention shortcuts)
-- Relative/absolute references: debug formula (predecessor/successor visualization)
-:::
-
 ::: {.callout-tip title="Notes for improvement"}
-Take notes on a separate paper and add to `feedback.qmd` after the session.
+Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
 :::
-
-<!--
-    ## Session overview
-
-    - **Focus:** Excel
-    - **Session title:** Excel 1
-    - **Coverage target:** TBD
-
-    ## Before class
-
-    - [ ] Review the session slides/materials.
-    - [ ] Prepare files, datasets, and examples.
-    - [ ] Note any announcements or reminders.
-
-    ## Timing record
-
-    Use this table while preparing or after teaching to record the actual timing.
-
-    | Planned time | Actual time | Topic/activity | Notes for next time |
-    |---|---|---|---|
-    | 0--10 min |  | Setup / recap |  |
-    | 10--30 min |  | Main input |  |
-    | 30--60 min |  | Guided practice |  |
-    | 60--80 min |  | Independent practice / questions |  |
-    | 80--90 min |  | Wrap-up |  |
-
-    ## Notes during class
-
-    - TBD
-
-    ## Follow-up
-
-    - [ ] Update examples or instructions.
-    - [ ] Record common questions.
-    - [ ] Add reminders for the next session.
--->

@@ -1,0 +1,80 @@
+```{python}
+#| fig-width: 8
+#| fig-height: 5
+#| echo: false
+
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.ticker import FuncFormatter
+
+
+def annuity_schedule(
+    loan_amount: float,
+    interest_rate: float,
+    periods: int,
+) -> tuple[float, np.ndarray, np.ndarray]:
+    """Calculate the annuity, interest, and principal repayment."""
+    annuity = (
+        loan_amount
+        * interest_rate
+        / (1 - (1 + interest_rate) ** -periods)
+    )
+
+    interest = np.zeros(periods)
+    redemption = np.zeros(periods)
+
+    balance = loan_amount
+
+    for period in range(periods):
+        interest[period] = balance * interest_rate
+        redemption[period] = min(annuity - interest[period], balance)
+        balance -= redemption[period]
+
+    return annuity, interest, redemption
+
+
+loan_amount = 100_000
+interest_rate = 0.07
+periods = 20
+
+annuity, interest, redemption = annuity_schedule(
+    loan_amount,
+    interest_rate,
+    periods,
+)
+
+period = np.arange(1, periods + 1)
+
+fig, ax = plt.subplots(figsize=(8, 5))
+
+ax.bar(
+    period,
+    redemption,
+    color="tab:blue",
+    label="Principal repayment",
+)
+ax.bar(
+    period,
+    interest,
+    bottom=redemption,
+    color="tab:orange",
+    label="Interest",
+)
+
+ax.set(
+    xlabel="Period",
+    ylabel="Annual payment",
+    title=f"Annuity loan (annual payment = €{annuity:,.2f})",
+    xticks=period,
+)
+
+ax.yaxis.set_major_formatter(
+    FuncFormatter(lambda value, _: f"€{value:,.0f}")
+)
+
+ax.legend()
+ax.grid(axis="y", alpha=0.3)
+
+fig.tight_layout()
+plt.show()
+```

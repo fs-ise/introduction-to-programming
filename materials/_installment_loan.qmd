@@ -1,0 +1,57 @@
+```{python}
+#| fig-width: 8
+#| fig-height: 5
+#| echo: false
+
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.ticker import FuncFormatter
+
+loan_amount = 100_000
+interest_rate = 0.07
+number_of_periods = 20
+fixed_redemption = loan_amount / number_of_periods
+
+periods = np.arange(1, number_of_periods + 1)
+
+redemption = np.empty(number_of_periods)
+interest = np.empty(number_of_periods)
+
+balance = loan_amount
+
+for index in range(number_of_periods):
+    redemption[index] = min(fixed_redemption, balance)
+    interest[index] = balance * interest_rate
+    balance -= redemption[index]
+
+fig, ax = plt.subplots(figsize=(8, 5))
+
+ax.bar(
+    periods,
+    redemption,
+    label="Principal repayment",
+)
+ax.bar(
+    periods,
+    interest,
+    bottom=redemption,
+    label="Interest",
+)
+
+ax.set(
+    xlabel="Period",
+    ylabel="Payment",
+    title="Fixed-principal installment loan",
+)
+
+ax.yaxis.set_major_formatter(
+    FuncFormatter(lambda value, _: f"€{value:,.0f}")
+)
+
+ax.set_xticks(periods)
+ax.legend(loc="upper right")
+ax.grid(axis="y", alpha=0.25)
+
+fig.tight_layout()
+plt.show()
+```

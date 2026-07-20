@@ -6,6 +6,18 @@ event_id: null
 
 ### Session 4 — Python and pandas basics
 
+
+## Introductory discussion
+
+- Prior programming experience?
+- Why go beyond Excel and use Python? (advanced analytics: Regression, prediction, ML, AI, ...)
+- Why shouldn't we just use ChatGPT? (prompt adequately, validate and improve, Python: effective prompting possible)
+
+- Advantage of Python: libraries! (PyPI)
+- Interpreted: vs. compiled language
+
+
+
 TODO: add spyder setup
 
 TBD: quarto-include code fragments? add explanations (asides?)
@@ -48,39 +60,6 @@ TODO: see also `Versicherungsvertreter.py` and `Versicherungsvertreter.xslx`
 
 TODO
 
-
-<!--
-    ## Session overview
-
-    - **Focus:** Python
-    - **Session title:** Python 1
-    - **Coverage target:** Until **Accessing data**
-
-    ## Before class
-
-    - [ ] Review the session slides/materials.
-    - [ ] Prepare files, datasets, and examples.
-    - [ ] Note any announcements or reminders.
-
-    ## Timing record
-
-    Use this table while preparing or after teaching to record the actual timing.
-
-    | Planned time | Actual time | Topic/activity | Notes for next time |
-    |---|---|---|---|
-    | 0--10 min |  | Setup / recap |  |
-    | 10--30 min |  | Main input |  |
-    | 30--60 min |  | Guided practice |  |
-    | 60--80 min |  | Independent practice / questions |  |
-    | 80--90 min |  | Wrap-up |  |
-
-    ## Notes during class
-
-    - TBD
-
-    ## Follow-up
-
-    - [ ] Update examples or instructions.
-    - [ ] Record common questions.
-    - [ ] Add reminders for the next session.
--->
+::: {.callout-tip title="Notes for improvement"}
+Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
+:::
