@@ -25,7 +25,7 @@ For the exam, you should be familiar with the following Excel functions:
 
 ## Python
 
-This document refers to the slides in file "Introduction to Python.pdf" from Winter Term 2025! It applies to the exam in December 2025 and to the retake in March 2026.
+<!-- This document refers to the slides in file "Introduction to Python.pdf" from Winter Term 2025! It applies to the exam in December 2025 and to the retake in March 2026. -->
 Relevant content for Pandas:
 
 All content of the part "Introduction to Pandas" **with the exception of**
@@ -43,10 +43,10 @@ All content on the remaining slides **with the exception of**
 
 - the functions: type(), bool()
 - the list operators "in" and "not in" as well as the methods: count(), extend(), index(), reverse()
-- "Tuples", slides 96-98
-- the creation of own modules, slides 120-122
-- "The Datatype Dictionary", slides 123-130
-- "Combining Python and Pandas", slides 131-135
-- "Using services from the Internet", slides 136-156
+- tuples
+- the creation of own modules
+- the datatype Dictionary
+- combining Python and Pandas
+- using services from the Internet
 
 If additional functions are needed, they will be specified in the exam.
