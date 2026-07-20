@@ -26,6 +26,14 @@ p. 106/107: homework (tutorium)
 | 105–107 | Conditional logic | Implement odd/even checks, discounts, rating-based interest, a dice game, temperature conversion, grades, and income tax. | `OddEven.py`<br>`Discount.py`<br>`AnnuityLoan2.py`<br>`Dicegame1.py`<br>`Temperature.py`<br>`Grade.py`<br>`Tax.py` |                      |
 
 
+::: {.teaching-break}
+☕ Break — 10 minutes
+:::
+
+## Summary and announcements (next session)
+
+TODO
+
 <!--
     ## Session overview
 

@@ -8,6 +8,8 @@ event_id: null
 
 TODO: add spyder setup
 
+TBD: quarto-include code fragments? add explanations (asides?)
+
 Python:
 - motivation: existing libraries!
 TODO: use Anaconda (be prepared to answer questions)
@@ -37,6 +39,14 @@ TODO: see also `Versicherungsvertreter.py` and `Versicherungsvertreter.xslx`
 |      13 | Basic formula programs | Calculate a circle’s area and the future value of an investment using variables defined in the program.          | `CircleArea1.py`<br>`FutureValue.py`                                                       |                      |
 |      22 | Import and export data | Load country and insurance data, inspect DataFrame dimensions and columns, and export the insurance data to CSV. | `countries.csv`<br>`countries.py`<br>`insurance.xlsx`<br>`insurance.py`<br>`insurance.csv` |                      |
 
+
+::: {.teaching-break}
+☕ Break — 10 minutes
+:::
+
+## Summary and announcements (next session)
+
+TODO
 
 
 <!--

@@ -27,6 +27,15 @@ See `5_REST.py`
 |     155 | Cryptocurrency API analysis | Retrieve Bitcoin and Ethereum prices, convert timestamps, calculate returns, variances, and correlation, and visualize the return series. | `Cryptocurrencies.py`       |                      |
 |     159 | Weather API                 | Configure an Open-Meteo forecast, retrieve it through the API, and process the resulting weather data.                                    | —                           |                      |
 
+::: {.teaching-break}
+☕ Break — 10 minutes
+:::
+
+## Summary and announcements (next session)
+
+TODO
+
+
 <!--
     ## Session overview
 

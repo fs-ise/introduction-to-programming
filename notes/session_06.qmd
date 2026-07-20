@@ -21,6 +21,13 @@ Plots: nur LIne/Bar in der Klausur (siehe Dokument: relevant topics for the exam
 |      53 | Conditional filtering    | Filter countries using area, population, continent, and GDP conditions; summarize and visualize the results. | `countries.csv`<br>`countries5.py`                                        |                      |
 |      56 | Grouping and aggregation | Use `groupby()` to summarize countries by continent and insurance contracts by state and coverage.           | `countries.csv`<br>`countries6.py`<br>`insurance.xlsx`<br>`insurance1.py` |                      |
 
+::: {.teaching-break}
+☕ Break — 10 minutes
+:::
+
+## Summary and announcements (next session)
+
+TODO
 
 <!--
     ## Before class

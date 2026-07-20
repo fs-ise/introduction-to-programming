@@ -29,6 +29,9 @@ p.82 solution:
 | `17.75`  | **`float`** | `int`   | **`int(17.75)`**    | **`17`**      |
 | `"3"`    | **`str`**   | `float` | **`float("3")`**    | **`3.0`**     |
 
+::: {.teaching-break}
+☕ Break — 10 minutes
+:::
 
 ## Exercises
 
@@ -38,6 +41,11 @@ p.82 solution:
 |   74–75 | Chipotle analysis          | Inspect the dataset; calculate orders, quantities, prices, and revenue; identify popular items; and create charts.                 | `Chipotle.csv`<br>`Chipotle.py`                                                                         |                      |
 |   76–77 | Florida housing analysis   | Calculate and analyze profits, compare agencies and house characteristics, and build three predictive models.                      | `Homes_Florida.xlsx`<br>`Homes_Florida.py`                                                              |                      |
 |   84–85 | Input and formula programs | Create interactive programs for circle area, currencies, geographic distance, travel time, fuel consumption, and annuity payments. | `CircleArea2.py`<br>`Currency.py`<br>`Distance.py`<br>`Traveltime.py`<br>`Fuel.py`<br>`AnnuityLoan1.py` |                      |
+
+
+## Summary and announcements (next session)
+
+TODO
 
 
 <!--

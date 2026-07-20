@@ -25,6 +25,14 @@ nr 5-6: homework
 | 110–111 | `for` loops   | Repeat messages, calculate an average, identify multiples, generate Fibonacci numbers and random frequencies, and print a letter triangle. | `Message.py`<br>`Average.py`<br>`Tens.py`<br>`MultipleSum.py`<br>`Fibonacci.py`<br>`Frequencies.py`<br>`Triangle.py` |                      |
 | 113–114 | `while` loops | Build a shopping list, implement two guessing games, extend the dice game, and generate a loan-repayment history.                          | `ShoppingList.py`<br>`Guess1.py`<br>`Guess2.py`<br>`Dicegame2.py`<br>`Loan.py`                                       |                      |
 
+::: {.teaching-break}
+☕ Break — 10 minutes
+:::
+
+## Summary and announcements (next session)
+
+TODO
+
 
 <!--
     ## Session overview

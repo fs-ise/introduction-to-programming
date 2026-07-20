@@ -6,13 +6,16 @@ event_id: null
 
 ## Session 2 — Lookups and tables
 
+::: {.callout-important title="TODO"}
+- Include screenshots from `Solutions.pptx`!
+:::
+
 ::: {.callout-note title="Overview"}
 - Take-home exercises to discuss: ...
 :::
 
 Session 2:
 
-- Besprechung Hausaufgaben
 - Vlookup limitation: lookup-column must be first, if we switch, it no longer works -> need for xlookup
 - p. christmas gift, grading: homework.
 - tables p.36 - Bikesales.xlsx. gemeinsam machen
@@ -32,6 +35,22 @@ PR: Session 2 typically ends at 46.
 |       36 | Course grading | Calculate final course grades from three tests and three homework assignments.                                 |                    |                       |
 |    51–52 | Excel tables   | Convert and manipulate a sales table; calculate structured-reference metrics, regional summaries, and a chart. | `Sales_Table.xlsx` |                       |
 
+
+## Homework: solutions
+
+![](../images/excel_installment_loan_solution_1.png)
+
+![](images/excel_installment_loan_solution_2.png)
+
+
+
+::: {.teaching-break}
+☕ Break — 10 minutes
+:::
+
+## Summary and announcements (next session)
+
+TODO
 
 
 <!--

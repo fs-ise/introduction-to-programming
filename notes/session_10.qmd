@@ -28,6 +28,15 @@ Dictionaries: less relevant for the exam (do not explicitly announce as not rele
 | 121–122 | Functions                    | Create functions for digit counting, list multiplication, Harshad numbers, factorials, combinations, and a multistage slot-machine simulation. | `CountDigits.py`<br>`Listmult.py`<br>`Harshad.py`<br>`Factorial.py`<br>`Combinations.py`<br>`SlotMachine.py` |                      |
 |     133 | Dictionaries and persistence | Maintain a nested dictionary of friends, modify its contents, and save and reload it from a file.                                              | `Friends.py`<br>`friends.db`                                                                                 |                      |
 
+::: {.teaching-break}
+☕ Break — 10 minutes
+:::
+
+## Summary and announcements (next session)
+
+TODO
+
+
 <!--
     ## Session overview
 

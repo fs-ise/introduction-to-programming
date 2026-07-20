@@ -1,0 +1,21 @@
+---
+title: Excel setup
+format: html
+---
+
+
+Slides: "Parameters are separated by a comma in the English versions and by a semicolon in the German version of Excel."
+
+1. Close Excel.
+2. Press **`Win` + `R`**.
+3. Enter **`intl.cpl`** and press Enter.
+4. Click **Additional settings… / Weitere Einstellungen…**
+5. Under **Numbers / Zahlen**, set:
+
+* **Decimal symbol / Dezimaltrennzeichen:** `.`
+* **Digit grouping symbol:** `,`
+* **List separator / Listentrennzeichen:** `,`
+6. Confirm with **OK** and restart Excel. The list separator determines whether Excel formulas use `,` or `;`. ([Microsoft Support][1])
+
+In Excel, ensure **File → Options → Advanced → Use system separators** remains enabled. ([Microsoft Support][2])
+

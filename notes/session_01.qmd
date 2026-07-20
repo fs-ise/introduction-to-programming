@@ -4,24 +4,17 @@ session_id: session-01
 event_id: null
 ---
 
-::: {.callout-important title="TODO"}
-- Include screenshots from `Solutions.pptx`!
-- Anfang: Worksheet (PR)
-- Excel: Funktionsparametertrenner (komma/semikolon) kann nur Global umgestellt werden, beides zulässig.
-- p.12: solution/dataset?
-- **TODO: p.21: how can I open the dialogue?**
-:::
-
+In-class exercise sheet: [Excel_Exercises_in_class_session_1.xlsx](../materials/Excel_Exercises_in_class_session_1.xlsx)
 
 | Time                 | Topic/activity                                             | Materials                                                            |
-| -------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------- |
-| **Part 1: 0–15 min** | Introduction and organization                              | Separate introductory slides                                         |
-| 15–35 min            | Excel basics, formulas, and cell references                | Slides 1–6<br>[Excelsheet](../materials/introduction.xlsx)           |
+| -------------------: | ---------------------------------------------------------- | -------------------------------------------------------------------- |
+| 0–15 min             | Introduction and organization                              | [Introductory slides](../slides/session_00_orga.qmd) (separate)      |
+| 15–35 min            | Excel basics, formulas, and cell references                | Slides 1–6<br>[introduction.xlsx: sheet start](../materials/introduction.xlsx) |
 | 35–55 min            | Future-value calculation                                   | Slides 7–10<br>Slides 7 and 10: Exercise **Future value**            |
 | 55–70 min            | Data handling and chart selection                          | Slides 11–14<br>Slide 14: Exercise **Coffee-shop charts**            |
 | 70–90 min            | Functions and descriptive statistics                       | Slides 15–19<br>Slide 19: Exercise **Sales statistics**              |
 | **Break**            |                                                            |                                                                      |
-| **Part 2: 0–15 min** | Explain the moving-average task and expected output        | Slide 20<br>Take-home exercise **DAX moving averages**               |
+| 0–15 min             | Explain the moving-average task and expected output        | Slide 20<br>Take-home exercise **DAX moving averages**               |
 | 15–35 min            | Conditional logic and customer classification              | Slides 21–23<br>Slide 23: Exercise **VIP status**                    |
 | 35–50 min            | Conditional calculations                                   | Slide 24: Exercise **VIP club credits**                              |
 | 50–70 min            | Work through the installment-loan calculation on the board | Slide 25: Take-home exercise **Installment loan**                    |
@@ -32,26 +25,110 @@ event_id: null
 
 ## Slide 1 - Excel basics
 
-Use [Excelsheet](../materials/introduction.xlsx) (see [solution](../materials/introduction_with_solutions.xlsx))
+Use [introduction.xlsx](../materials/introduction.xlsx) for the following.
+<!-- see [solution](../materials/introduction_with_solutions.xlsx) -->
 
-## Slide 17 — Formula syntax and functions
+![](../images/Excel_introduction_xlsx_1.png){fig-align="center" width="50%"}
 
+- Entering formulas in the cell or the bar
+- Selecting cells by typing "=A1+A2" vs. by clicking on cells
+- Anticipate changes (based on discussions/feedback), extensions of Excel sheets (need for proper design)
+
+::: {.callout-tip title="Pro tips"}
+
+Expect that Excel spreadsheets will contain errors.
+Always check and debug: for the exercises, but also in your job, when you build an Excel spreadsheet or when you get one from a colleague.
+
+- Show formula mode
+- Shortcut: `ctrl`+`shift`+`` ` ``
+- Show predecessor/successor visually
+- Show calculations (stopped?)
+:::
+
+## Slide 7: Future Value (first exercise)
+
+Task: Create a first spreadsheet and create the formula for future value.
+
+Solution:
+
+![](../images/Excel_future_value_1.png){fig-align="center" width="50%"}
+
+## Slide 8: Referencing cells:
+
+[introduction.xlsx sheet 2](../materials/introduction.xlsx): Kosten-Erlösrechnung
+
+**TODO: switch to english and add screenshot here**
+
+## Slide 10 - Future Value (second exercise)
+
+Solution:
+
+![](../images/future_value_abs_rel_refs.png){fig-align="center" width="80%"}
+
+## Slide 14
+
+![](../images/excel_coffeeshop_charts.png){fig-align="center" width="90%"}
+
+
+## Slide 16 — Formula syntax and functions
+
+- Show graphical Formulas selection (areas: ...)
 - Demonstrate the function-argument separator.
-- Test with `SUM(3,5)`: everyone should have `8` as the result (**TODO: may need to update the Excel configuration**).
+- Examples (at the bottom): how many parameters are there in each function?
 - Explicitly distinguish between a **formula** and a **function**.
 
-## Slide 20 — DAX moving averages
+
+::: {.callout-important title="Test Excel configuration"}
+Test requirement: **For `SUM(3,5)`: everyone should have `8` as the result.**
+This ensures that language is set to English and parameters are separated by `,`.
+
+- English: Make sure Excel is in English (File -> Options -> Language; restart)
+- Separator:
+
+    1. Close Excel.
+    2. Press **`Win` + `R`**.
+    3. Enter **`intl.cpl`** and press Enter.
+    4. Click **Additional settings… / Weitere Einstellungen…**
+    5. Under **Numbers / Zahlen**, set:
+
+    * **Decimal symbol / Dezimaltrennzeichen:** `.`
+    * **Digit grouping symbol:** `,`
+    * **List separator / Listentrennzeichen:** `,`
+    6. Confirm with **OK** and restart Excel.
+
+    In Excel, ensure **File → Options → Advanced → Use system separators** remains enabled.
+
+:::
+
+## Slide 19 - Sales statistics
+
+![](../images/excel_sales_solution.png){fig-align="center" width="90%"}
+
+## Slide 20 — DAX moving averages (before or after the break)
 
 - First take-home exercise.
-- Explain the required moving averages and expected charts carefully before students begin.
 
-**TODO: include illustration here, explain the problem well!**
+- Explain the figure, then the formula, and then ask students how the spreadsheet should look like (draft column-names, maybe where the formulas start, but not the specific formula solutions)
+- Draft structure on the blackboard
+- Last step: create the visualization...
 
+#![](../images/excel_moving_average_solution.png)
+
+## Slide 21 - IF Dialogue
+
+Opens when selecting ribbon Formulas, Logical, IF
+
+::: {.teaching-break}
+☕ Break — 10 minutes
+:::
+
+**TODO: include illustration here, explain the problem well! (PR?)**
 
 ## Slides 23–24 — VIP classification and credits
 
 - Prefer nested `IF` functions for the VIP-status exercise (in part II).
 
+![](../images/excel_vip_solution.png)
 
 ## Slide 25 — Installment loan
 
@@ -63,18 +140,29 @@ Use [Excelsheet](../materials/introduction.xlsx) (see [solution](../materials/in
 
 `The repayment equals the fixed repayment amount or, when the remaining debt is lower, the remaining debt.`
 
-**TODO: include visualization here**
+**TODO: include visualization here (PR?)**
+
+## Slide 27 Exam
+
+![](../images/excel_exam_solution.png)
+
+## Slide 28: Special IF functions
+
+TBD
+
+## Summary and announcements (next session)
+
+TODO / TBD: reflection/questions for next sesssion?
+
 
 ::: {.callout-note title="Pro tips"}
 - Use keyboard instead of clicking (prepare/mention shortcuts)
 - Relative/absolute references: debug formula (predecessor/successor visualization)
 :::
 
-## Notes for improvement?
-
--> Separate paper
-
-
+::: {.callout-tip title="Notes for improvement"}
+Take notes on a separate paper and add to `feedback.qmd` after the session.
+:::
 
 <!--
     ## Session overview
