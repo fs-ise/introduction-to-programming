@@ -23,7 +23,8 @@ Slides are on [nextcloud](https://nc-2272638881871040784.nextcloud-ionos.com/ind
 ## Sessions
 
 ::: {.callout-important title="TODO"}
-- TODO: document with instructions to configure Excel (language, separators)? PR: available in canvas? Plan how to present (slide?)
+- Document with instructions to configure Excel (language, separators)? PR: available in canvas? Plan how to present (slide?)
+- Detailed learning objectives (TBD: share at the end as "relevant for the exam"?)
 :::
 
 See [objectives](objectives.qmd)

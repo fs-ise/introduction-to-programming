@@ -3,8 +3,6 @@ title: Objectives
 format: html
 ---
 
-Detailed learning objectives (TBD: share at the end as "relevant for the exam"?)
-
 Based on `Relevant functions for the Excel exam 2025.docx`and `Relevant content for the Python exam 2025.docx`:
 
 ## Excel
