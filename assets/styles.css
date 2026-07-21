@@ -88,3 +88,68 @@
   border-bottom: 1px solid var(--bs-border-color);
   border-radius: 0.4rem;
 }
+
+/* Semantic colors shared by teaching-file labels and their file buttons. */
+:root {
+  --teaching-demo-color: #0b5ed7;
+  --teaching-demo-background: #e7f1ff;
+  --teaching-exercise-color: #146c43;
+  --teaching-exercise-background: #e9f7ef;
+  --teaching-homework-color: #856404;
+  --teaching-homework-background: #fff3cd;
+}
+
+.teaching-file {
+  margin: 0.5rem 0 0.75rem;
+}
+
+.teaching-file > p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.75rem;
+  margin: 0;
+}
+
+.teaching-label {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.teaching-label-demo {
+  color: var(--teaching-demo-color);
+  background: var(--teaching-demo-background);
+}
+
+.teaching-label-exercise {
+  color: var(--teaching-exercise-color);
+  background: var(--teaching-exercise-background);
+}
+
+.teaching-label-homework {
+  color: var(--teaching-homework-color);
+  background: var(--teaching-homework-background);
+}
+
+.teaching-button {
+  font-weight: 600;
+  text-underline-offset: 0.15em;
+}
+
+.teaching-button-demo { color: var(--teaching-demo-color); }
+.teaching-button-exercise { color: var(--teaching-exercise-color); }
+.teaching-button-homework { color: var(--teaching-homework-color); }
+
+.teaching-button-demo:hover,
+.teaching-button-demo:focus { color: var(--teaching-demo-color); }
+
+.teaching-button-exercise:hover,
+.teaching-button-exercise:focus { color: var(--teaching-exercise-color); }
+
+.teaching-button-homework:hover,
+.teaching-button-homework:focus { color: var(--teaching-homework-color); }

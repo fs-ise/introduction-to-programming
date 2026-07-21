@@ -6,12 +6,10 @@ event_id: null
 
 TODO:
 
-- Clearly state which Excel file/sheet should be used (for the exercise and solution) (**Excel_Exercises_in_class_session_1.xlsx**, **introduction.xlsx**)
 - Slide 25 — Installment loan: prepare separate slide for the visualization? 
 - Slide 28: Special IF functions
 - TBD: reflection/questions for next sesssion?
 
-In-class exercise sheet: [Excel_Exercises_in_class_session_1.xlsx](../materials/Excel_Exercises_in_class_session_1.xlsx)
 
 | Time                 | Topic/activity                                             | Materials                                                            |
 | -------------------: | ---------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -30,7 +28,9 @@ In-class exercise sheet: [Excel_Exercises_in_class_session_1.xlsx](../materials/
 
 ## Slide 1 - Excel basics
 
-[introduction.xlsx](../materials/introduction.xlsx) - Sheet `Start`
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Start
+:::
 <!-- see [solution](../materials/introduction_with_solutions.xlsx) -->
 
 ![](../images/Excel_introduction_xlsx_1.png){fig-align="center" width="50%"}
@@ -52,9 +52,11 @@ Always check and debug: for the exercises, but also in your job, when you build 
 
 ## Slide 7: Future Value (first exercise)
 
-Task: Create a first spreadsheet and create the formula for future value.
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Future_Value
+:::
 
-Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `Future_Value`
+Task: Create a first spreadsheet and create the formula for future value.
 
 Solution:
 
@@ -66,7 +68,9 @@ Use keyboard instead of clicking (prepare/mention shortcuts)
 
 ## Slide 8: Referencing cells (example: cost revenue calculation)
 
-[introduction.xlsx](../materials/introduction.xlsx) - Sheet `Cost_Revenue`
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Cost_Revenue
+:::
 
 Solution:
 
@@ -74,7 +78,9 @@ Solution:
 
 ## Slide 10 - Future Value (second exercise)
 
-Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `Future_Value2`
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Future_Value2
+:::
 
 Solution:
 
@@ -82,13 +88,17 @@ Solution:
 
 ## Slide 13 - Charts illustration
 
-[introduction.xlsx](../materials/introduction.xlsx) - Sheet `with_plot`
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: with_plot
+:::
 
 ![](../images/excel_charts_example.png){fig-align="center" width="90%"}
 
 ## Slide 14 - Exercise Coffee-shop charts
 
-Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `CoffeeShop`
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: CoffeeShop
+:::
 
 ![](../images/excel_coffeeshop_charts.png){fig-align="center" width="90%"}
 
@@ -128,13 +138,17 @@ This ensures that language is set to English and parameters are separated by `,`
 
 ## Slide 19 - Sales statistics
 
-Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `Sales`
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Sales
+:::
 
 ![](../images/excel_sales_solution.png){fig-align="center" width="90%"}
 
 ## Slide 20 — DAX moving averages (first take-home exercise)
 
-TBD: explain and solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `Moving Average` ?????
+::: {.teaching-file}
+[Take-home exercise]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Moving Average
+:::
 
 Before or after the break.
 
@@ -152,7 +166,9 @@ Opens when selecting ribbon Formulas, Logical, IF
 ☕ Break — 10 minutes
 :::
 
-[introduction.xlsx](../materials/introduction.xlsx) - Sheet `simple`
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: simple
+:::
 
 Solution:
 
@@ -160,7 +176,9 @@ Solution:
 
 ---
 
-[introduction.xlsx](../materials/introduction.xlsx) - Sheet `Cost_Revenue`
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Cost_Revenue
+:::
 
 Solution:
 
@@ -168,14 +186,19 @@ Solution:
 
 ## Slides 23–24 — VIP classification and credits
 
-Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `VIP`
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: VIP
+:::
 
-
-- Prefer nested `IF` functions for the VIP-status exercise (in part II).
+Prefer nested `IF` functions for the VIP-status exercise (in part II).
 
 ![](../images/excel_vip_solution.png)
 
 ## Slide 25 — Installment loan (take-home exercise)
+
+::: {.teaching-file}
+[Take-home exercise]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment
+:::
 
 - Work through the repayment logic on the board.
 - Students then transfer the calculation to Excel as a take-home exercise.
@@ -187,15 +210,16 @@ Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_c
 The repayment equals the fixed repayment amount or, when the remaining debt is lower, the remaining debt.
 :::
 
-TODO: compare to Excel_Exercises_in_class_session_1_solutions.xlsx - Installment and Annuity slides?!?! - only 14 and 15 periods???
-
 - Insert formulas to make sure that when users modify the `amount`, `interest rate`, or `redemption`, the `payments table` is updated automatically.
 - In the **annuity loan** task, the `annuity` should also be updated automatically.
 - Students should have a clear understanding of what the **data cells** (manually entered/modified parameters) and the **function cells** are. (similar to Hillier and Hillier: data/changing/output/objective cells)
 - Ask students to understand the `PMT(interest rate, term, loan amount)` function (payment).
 
-
 {{< include ../materials/_installment_loan.qmd >}}
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Annuity
+:::
 
 {{< include ../materials/_annuity_loan.qmd >}}
 
@@ -204,6 +228,10 @@ With a fixed-principal installment loan, the principal is reduced more quickly a
 :::
 
 ## Slide 27 Exam
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Exam
+:::
 
 ![](../images/excel_exam_solution.png){fig-align="center" width="60%"}
 

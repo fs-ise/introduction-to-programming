@@ -1,6 +1,13 @@
+@import url("styles.css");
+
 @media print {
   h2 {
     break-before: page;
     page-break-before: always;
+  }
+
+  section.no-page-break > h2 {
+    break-before: auto;
+    page-break-before: auto;
   }
 }
