@@ -1,0 +1,4 @@
+format:
+  html:
+    css:
+      - ../assets/notes.css

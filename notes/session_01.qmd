@@ -28,8 +28,6 @@ In-class exercise sheet: [Excel_Exercises_in_class_session_1.xlsx](../materials/
 | 70–82 min            | Annuity loans and the `PMT` function                       | Slide 26: Exercise **Annuity loan**                                  |
 | 82–90 min            | Exam-result classification and wrap-up                     | Slides 27–28<br>Slide 27: Exercise **Exam result**                   |
 
-{{< pagebreak >}}
-
 ## Slide 1 - Excel basics
 
 [introduction.xlsx](../materials/introduction.xlsx) - Sheet `Start`
@@ -218,4 +216,3 @@ TBD
 ::: {.callout-tip title="Notes for improvement"}
 Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
 :::
-

@@ -26,7 +26,8 @@ format:
   html:
     theme: cosmo
     toc: false
-    css: assets/styles.css
+    css:
+      - assets/styles.css
     include-after-body: assets/repo-actions-bottom.html
     grid:
       sidebar-width: 280px
