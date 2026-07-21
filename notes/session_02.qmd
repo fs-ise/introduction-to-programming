@@ -10,6 +10,10 @@ event_id: null
 - Confirm the exercise files for **Bar sales**, **Christmas gift**, and **Course grading**.
 - TBD: reflection/questions for the next session (maybe as a digital or offline paper submission option?)
 - Check/test the vlookup limitation demo (xlookup)
+
+PR:
+
+- Importance of HLOOKUP/approximate matching? - update materials accordingly
 :::
 
 Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
@@ -28,9 +32,14 @@ Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 | 65–75 min            | Introduce structured references                              | Slides 47–50                                                           |
 | 75–90 min            | Begin the Excel Tables exercise                              | Slides 51–52: Exercise **Excel tables**; `Sales_Table.xlsx`            |
 
+
 ## Homework review: DAX moving averages
 
-Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `Moving Average`
+::: {.teaching-file}
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Moving Average
+:::
+
+Start by briefly explaining the task (again):
 
 - Discuss the spreadsheet structure before discussing individual formulas.
 - Check the starting periods for the 10-period and 20-period averages.
@@ -40,35 +49,71 @@ Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_c
 
 ## Homework review: Installment loan
 
-- Review the repayment condition introduced in Session 1.
-- Ask why the fixed repayment amount cannot simply be copied through all 20 periods.
-- Reiterate that the final repayment must not exceed the remaining debt.
-- Briefly contrast the declining payments of a fixed-principal loan with the constant payments of an annuity loan.
+::: {.teaching-file}
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment
+:::
 
-Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `Installment`
+Explain the payment schema introduced inthe previous session.
+
+Q: Why should the fixed repayment amount not be copied through all 20 periods?  
+A: The final repayment must not exceed the remaining debt.
+
+Show how changes in `Loan amount`, `Interest rate` and `Redemption` are automatically reflected in the payments.
+This could be used in a What-if or scenario analysis.
 
 ![](../images/excel_installment_loan_1_solution.png){fig-align="center" width="90%"}
 
----
+{{< pagebreak >}}
 
-Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `Annuity`
+::: {.teaching-file}
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Annuity
+:::
 
 - Explain the `PMT(interest rate, term, loan amount)` function (payment).
 - Show that the annuity and payments per period change when modifying the numbers of periods.
 
 ![](../images/excel_installment_loan_2_solution.png){fig-align="center" width="90%"}
 
-## Slides
+Add charts for the payments of instalment loans and annuity loans.  
+Briefly contrast the declining payments of a fixed-principal loan with the constant payments of an annuity loan.
 
-If it was not covered in the previous session: complete slide 28
+
+::: {.callout-important title="Slides"}
+If **Special IF functions** were not covered in the previous session: complete slide 28.
+:::
 
 ## Slides 30–31 — `VLOOKUP` and `HLOOKUP`
 
-Start with the general form:
+Start with the practical example:
+
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Bar_Sales
+:::
+
+- Scroll down (hide the price list initially)
+- Start with a simple approach: filling in raw data. Highlight that this is not how a restaurant works.
+  It does not make sense that every sale can have a different price for the same product (the unit price should not be in the sales table).
+- Common problem: some data (such as unit prices) should not be entered in the sales table, but they should be taken from the menu.
+- Scroll up to the price list and explain.
+- Instead of copying data from the price list, we would like to use a formula: VLOOKUP
+
+Whiteboard:
 
 ```text
 =VLOOKUP(lookup_value, table_array, column_index_num, range_lookup)
 ```
+
+- Explain parameters (range_lookup: FALSE for exact match; for TRUE/approximate matches, the first column must be sorted in ascending order)
+- Write VLOOKUP formula 
+- Ask about the need for absolute and relative references
+- Calculate total price
+- Copy formulas down
+
+![](../images/excel_bar_sales_solution.png){fig-align="center" width="60%"}
+
+{{< pagebreak >}}
+
+Continue on the slides (the general VLOOKUP formula).
 
 Explain the lookup process step by step:
 
@@ -86,30 +131,7 @@ Key points:
 
 `HLOOKUP` follows the same principle but searches in the first row instead of the first column. Mention it briefly; focus the practical work on vertical lookups.
 
-## Slide 32 — Bar sales
 
-Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `Bar_Sales`
-
-Task:
-
-- Retrieve the unit price corresponding to each sold beverage.
-- Calculate the total price from quantity and unit price.
-- Only the beverage and quantity should be entered manually.
-
-Suggested progression:
-
-1. Identify the lookup value.
-2. Select the price-list range.
-3. Determine the column containing the price.
-4. Use an exact lookup.
-5. Copy the formula down.
-6. Calculate the total price.
-
-::: {.callout-tip title="Teaching point"}
-Ask which references must remain fixed when the formula is copied and which references must change.
-:::
-
-![](../images/excel_bar_sales_solution.png){fig-align="center" width="90%"}
 
 ## Slide 33 — `XLOOKUP`
 
@@ -151,9 +173,11 @@ Example:
 
 ## Slide 34 — Client lookup
 
-[Clients.xlsx](../materials/Clients.xlsx)
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Clients.xlsx`](../materials/Clients.xlsx){.teaching-button .teaching-button-exercise}
+:::
 
-The client number is entered once. The following fields should update automatically:
+We want to change the client number (type in different values) and then the following fields should update automatically (based on the list above):
 
 - Name
 - Address
@@ -171,48 +195,27 @@ Teaching sequence:
 
 ## Slide 35 — Christmas gift (take-home exercise)
 
+::: {.teaching-file}
+[Take-home exercise]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Gift
+:::
+
 Students should retrieve two values based on customer status:
 
 - Christmas gift
 - Packaging
 
-Expected approach:
+**Formulas are needed for the ChristmasGift and Packaging columns (each retrieving the data from a different table).**
 
-- Use the status column as the lookup value.
-- Use the two small mapping tables at the bottom of the sheet.
-- Retrieve the gift and packaging independently.
-- Copy both formulas down.
-
-Encourage students to use `XLOOKUP`. A `VLOOKUP` solution can be accepted if the lookup tables are arranged appropriately.
-
-::: {.callout-note title="Screenshot placeholder"}
-Add the **Christmas gift** solution screenshot from `Solutions.pptx`.
-:::
+Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution.
 
 ## Slide 36 — Course grading (take-home exercise)
 
-The selected student ID should determine:
+::: {.teaching-file}
+[Take-home exercise]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
+:::
 
-- Test 1 score
-- Test 2 score
-- Test 3 score
-- Average homework score
-- Final course grade
-
-Suggested decomposition:
-
-1. Retrieve the three test scores.
-2. Retrieve or calculate the homework average.
-3. Apply the corresponding weights.
-4. Add the weighted components.
-
-Solution with **VLOOKUP**:
-
-![](../images/excel_grading_vlookup.png){fig-align="center" width="90%"}
-
-Solution with **XLOOKUP**:
-
-![](../images/excel_grading_xlookup.png){fig-align="center" width="90%"}
+This one is similar to the client lookup.
+We want to enter different StudentIDs and then the lookup functions should retrieve the different test scores and do the calculations of final grades.
 
 ::: {.teaching-break}
 ☕ Break — 10 minutes
@@ -222,7 +225,9 @@ Solution with **XLOOKUP**:
 
 ## Slides 38–39 — Introduction to Excel Tables
 
-Solve together: [Bikesales.xlsx](../materials/Bikesales.xlsx)
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/Bikesales.xlsx`](../materials/Bikesales.xlsx){.teaching-button .teaching-button-demo}
+:::
 
 Create the table together with the students.
 
@@ -447,7 +452,9 @@ Add a screenshot illustrating an outside-table reference and an `@` current-row 
 
 ## Slides 51–52 — Excel Tables exercise
 
-[Sales_Table.xlsx](../materials/Sales_Table.xlsx)
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Sales_Table.xlsx`](../materials/Sales_Table.xlsx){.teaching-button .teaching-button-exercise}
+:::
 
 This extended exercise can be completed in class, assigned as take-home work, or continued in Session 3.
 
