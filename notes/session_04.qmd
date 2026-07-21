@@ -24,7 +24,7 @@ TBD: quarto-include code fragments? add explanations (asides?)
 Python:
 - motivation: existing libraries!
 - Don't repeat yourself principle of programming: by using Python libraries (modularization of code), we benefit from the code written by others.
-  Illustration (whiteboard): the Python code that is involved in a typical ML studyis roughly 2 million LOC. 99.99% is imported (Pandas, scikitlearn, ...) and a few hundred LOC are our code (tip of the iceberg, we orchestrate existing libraries). For the sake of the argument, we simply ignore all of the other code that runs the OS etc.
+  Illustration (whiteboard): the Python code that is involved in a typical ML studyis roughly 2 million LOC. 99.99% is imported (Pandas, scikitlearn, ...) and a few hundred LOC are our code (tip of the iceberg, we orchestrate existing libraries). For the sake of the argument, we simply ignore all of the other code, the Python core or the code that runs the OS and operates the hardware.
   It is not just LOC, but the 99% of the code (the libraries) are often very well designed and maintained (if you pick the right libraries). Also, they are constantly updated so we get performance improvements, remaining bugs are fixed, and the documentation gets better.
   This means we can really "stand on the shoulders of giants". Pretty amazing.
 
