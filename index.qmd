@@ -25,6 +25,7 @@ Slides are on [nextcloud](https://nc-2272638881871040784.nextcloud-ionos.com/ind
 ::: {.callout-important title="TODO"}
 - Document with instructions to configure Excel (language, separators)? PR: available in canvas? Plan how to present (slide?)
 - Detailed learning objectives (TBD: share at the end as "relevant for the exam"?)
+- **My VM Excel version does not support XLOOKUP** (TODO: update the formula in Excel_Exercises_in_class_session_1.xlsx sheet Grading F17)
 :::
 
 See [objectives](objectives.qmd)

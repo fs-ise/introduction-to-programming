@@ -6,7 +6,7 @@ event_id: null
 
 ## Session 3 — Pivot tables
 
-- Include screenshots from `Solutions.pptx`!
+- Done: Include screenshots from `Solutions.pptx`. Remaining solutions should be in the `pivot` folder (/home/gerit/workspace/action-office/prep-prog/nextcloud/Solutions_Excel/pivot)
 - Pivots: Mit Daten vs. Entscheidung Erklärung starten, dann Beispiel in Excel durchgehen
 - PR: legt die Pivot-Folien gar nicht im Detail auf
 - p.75: Aggregation über Datum: siehe auch in den Folien
@@ -19,10 +19,35 @@ event_id: null
 |       76 | Exporter pivot tables       | Create five PivotTable views analyzing sales by country, category, product, and time. | `Exporter.xlsx` |                       |
 |       77 | Expeditioner pivot analysis | Reproduce the specified PivotTable report and answer six detailed sales questions.    | `Exped.xlsx`    |                       |
 
+
+Homework to discuss/solve:
+
+- **Christmas gift**
+- **Course grading**
+- Complete the **Sales Table** exercise if it was not finished in class.
+
+## Gift (VLOOKUP)
+
+![](../images/excel_gift_vlookup.png){fig-align="center" width="90%"}
+
+## Gift (XLOOKUP)
+
+![](../images/excel_xlookup.png){fig-align="center" width="90%"}
+
+
+## Grading (VLOOKUP)
+
+![](../images/excel_grading_vlookup.png){fig-align="center" width="90%"}
+
+
+## Grading (XLOOKUP)
+
+![](../images/excel_grading_xlookup.png){fig-align="center" width="90%"}
+
+
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
-
 
 ## Summary and announcements (next session)
 

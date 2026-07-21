@@ -56,6 +56,8 @@ Always check and debug: for the exercises, but also in your job, when you build 
 
 Task: Create a first spreadsheet and create the formula for future value.
 
+Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `Future_Value`
+
 Solution:
 
 ![](../images/Excel_future_value_1.png){fig-align="center" width="50%"}
@@ -74,6 +76,8 @@ Solution:
 
 ## Slide 10 - Future Value (second exercise)
 
+Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `Future_Value2`
+
 Solution:
 
 ![](../images/future_value_abs_rel_refs.png){fig-align="center" width="80%"}
@@ -85,6 +89,8 @@ Solution:
 ![](../images/excel_charts_example.png){fig-align="center" width="90%"}
 
 ## Slide 14 - Exercise Coffee-shop charts
+
+Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `CoffeeShop`
 
 ![](../images/excel_coffeeshop_charts.png){fig-align="center" width="90%"}
 
@@ -124,9 +130,13 @@ This ensures that language is set to English and parameters are separated by `,`
 
 ## Slide 19 - Sales statistics
 
+Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `Sales`
+
 ![](../images/excel_sales_solution.png){fig-align="center" width="90%"}
 
 ## Slide 20 — DAX moving averages (first take-home exercise)
+
+TBD: explain and solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `Moving Average` ?????
 
 Before or after the break.
 
@@ -160,6 +170,9 @@ Solution:
 
 ## Slides 23–24 — VIP classification and credits
 
+Solve together in [Excel_Exercises_in_class_session_1.xlsx](Excel_Exercises_in_class_session_1.xlsx): Sheet `VIP`
+
+
 - Prefer nested `IF` functions for the VIP-status exercise (in part II).
 
 ![](../images/excel_vip_solution.png)
@@ -175,6 +188,14 @@ Solution:
 ::: {.callout-important}
 The repayment equals the fixed repayment amount or, when the remaining debt is lower, the remaining debt.
 :::
+
+TODO: compare to Excel_Exercises_in_class_session_1_solutions.xlsx - Installment and Annuity slides?!?! - only 14 and 15 periods???
+
+- Insert formulas to make sure that when users modify the `amount`, `interest rate`, or `redemption`, the `payments table` is updated automatically.
+- In the **annuity loan** task, the `annuity` should also be updated automatically.
+- Students should have a clear understanding of what the **data cells** (manually entered/modified parameters) and the **function cells** are. (similar to Hillier and Hillier: data/changing/output/objective cells)
+- Ask students to understand the `PMT(interest rate, term, loan amount)` function (payment).
+
 
 {{< include ../materials/_installment_loan.qmd >}}
 
@@ -197,3 +218,4 @@ TBD
 ::: {.callout-tip title="Notes for improvement"}
 Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
 :::
+
