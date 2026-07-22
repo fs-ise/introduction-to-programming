@@ -12,10 +12,10 @@ event_id: null
 | 55–70 min            | Data handling and chart selection                          | Slides 11–14<br>Slide 14: Exercise **Coffee-shop charts**            |
 | 70–90 min            | Functions and descriptive statistics                       | Slides 15–19<br>Slide 19: Exercise **Sales statistics**              |
 | **Break**            |                                                            |                                                                      |
-| 0–15 min             | Explain the moving-average task and expected output        | Slide 20<br>Take-home exercise **DAX moving averages**               |
+| 0–15 min             | Explain the moving-average task and expected output        | Slide 20<br>Homework **DAX moving averages**               |
 | 15–35 min            | Conditional logic and customer classification              | Slides 21–23<br>Slide 23: Exercise **VIP status**                    |
 | 35–50 min            | Conditional calculations                                   | Slide 24: Exercise **VIP club credits**                              |
-| 50–70 min            | Work through the installment-loan calculation on the board | Slide 25: Take-home exercise **Installment loan**                    |
+| 50–70 min            | Work through the installment-loan calculation on the board | Slide 25: Homework **Installment loan**                    |
 | 70–82 min            | Annuity loans and the `PMT` function                       | Slide 26: Exercise **Annuity loan**                                  |
 | 82–90 min            | Exam-result classification and wrap-up                     | Slides 27–28<br>Slide 27: Exercise **Exam result**                   |
 
@@ -142,10 +142,10 @@ This ensures that language is set to English and parameters are separated by `,`
 
 ![](../images/excel_sales_solution.png){fig-align="center" width="90%"}
 
-## Slide 20 — DAX moving averages (first take-home exercise)
+## Slide 20 — DAX moving averages (first homework)
 
 ::: {.teaching-file}
-[Take-home exercise]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Moving Average
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Moving Average
 :::
 
 Before or after the break.
@@ -192,10 +192,10 @@ Prefer nested `IF` functions for the VIP-status exercise (in part II).
 
 ![](../images/excel_vip_solution.png)
 
-## Slide 25 — Installment loan (take-home exercise)
+## Slide 25 — Installment loan (Homework)
 
 ::: {.teaching-file}
-[Take-home exercise]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment | Annuity
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment | Annuity
 :::
 
 - Illustrate the repayment logic using the visualization: [materials/loans.html](../materials/loans.qmd).
@@ -206,7 +206,7 @@ Prefer nested `IF` functions for the VIP-status exercise (in part II).
 ![](../images/excel_loans_illustration.png){fig-align="center" width="40%"}
 
 - Work through the repayment logic on the board.
-- Students then transfer the calculation to Excel as a take-home exercise.
+- Students then transfer the calculation to Excel as a homework.
 - From period 2 onward, repayment requires an `IF` condition.
 - Students should identify the need for the condition themselves.
 - Allow sufficient explanation because this exercise has caused difficulties in previous cohorts.

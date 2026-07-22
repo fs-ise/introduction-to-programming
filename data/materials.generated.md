@@ -6,6 +6,8 @@
 |---|---|
 | [Excel in class exercises](materials/Excel_in_class_exercises.xlsx) | Excel workbook |
 | [Excel setup](materials/excel_setup.html) | Web page |
+| [Exped Table](materials/Exped_Table.xlsx) | Excel workbook |
+| [Exporter](materials/Exporter.xlsx) | Excel workbook |
 | [Introduction](materials/introduction.xlsx) | Excel workbook |
 | [Loan illustrations](materials/loans.html) | Web page |
 | [Sales Table](materials/Sales_Table.xlsx) | Excel workbook |

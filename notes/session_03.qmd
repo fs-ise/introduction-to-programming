@@ -4,78 +4,549 @@ session_id: session-03
 event_id: null
 ---
 
-- Include remaining solutions in the `pivot` folder (/home/gerit/workspace/action-office/prep-prog/nextcloud/Solutions_Excel/pivot)
+::: {.callout-important title="TODO"}
+- Add screenshots of the completed PivotTables where marked with **SCREENSHOT**.
+:::
 
-## Exercises
+| Time      | Topic/activity                                               | Materials                                      |
+| --------: | ------------------------------------------------------------ | ---------------------------------------------- |
+| 0–20 min  | Review the **Christmas gift** and **Course grading** homework | Slides 36–37; `Excel_in_class_exercises.xlsx`  |
+| 20–35 min | Complete the **Sales table** exercise, if necessary           | Slides 51–52; `Sales_Table.xlsx`               |
+| 35–50 min | Motivate PivotTables through management questions             | Slides 54–60                                   |
+| 50–65 min | Explain facts, dimensions, data cubes, and slicing            | Slides 61–64                                   |
+| 65–90 min | Create the first PivotTable and explain the field areas       | Slides 65–66                                   |
+| **Break** |                                                              |                                                |
+| 0–20 min  | Filtering, aggregations, and displaying values                | Slides 67–69                                   |
+| 20–40 min | Multiple dimensions and measures; PivotCharts                 | Slides 70–73                                   |
+| 40–55 min | Calculated fields and date grouping                           | Slides 74–75                                   |
+| 55–85 min | Complete the **Exporter** exercise                            | Slide 76; `Exporter.xlsx`                      |
+| 85–90 min | Introduce the **Expeditioner** exercise                       | Slide 78; `Exped.xlsx`                         |
 
-| Slide(s) | Exercise                    | Summary                                                                               | Files           | In-class vs take-home |
-| -------: | --------------------------- | ------------------------------------------------------------------------------------- | --------------- | --------------------- |
-|       76 | Exporter pivot tables       | Create five PivotTable views analyzing sales by country, category, product, and time. | `Exporter.xlsx` |                       |
-|       77 | Expeditioner pivot analysis | Reproduce the specified PivotTable report and answer six detailed sales questions.    | `Exped.xlsx`    |                       |
-
-## Gift (VLOOKUP)
+## Homework review: Christmas gift
 
 ::: {.teaching-file}
-[Take-home exercise]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Gift
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Gift
 :::
+
+Students should retrieve two values based on customer status:
+
+- Christmas gift
+- Packaging
+
+The values come from two different lookup tables.
+
+### `VLOOKUP` solution
+
+Review:
+
+- The lookup value is the customer status.
+- The lookup column must be the first column of the selected table.
+- The return-column number differs between the two lookup tables.
+- Use `FALSE` for an exact match.
+- Lock the lookup ranges before copying the formulas.
 
 ![](../images/excel_gift_vlookup.png){fig-align="center" width="90%"}
 
-## Gift (XLOOKUP)
+### `XLOOKUP` solution
 
-Note: copy the sheet to solve it with XLOOKUP
+Copy the sheet before creating the alternative solution.
+
+Contrast the formula structure with `VLOOKUP`:
+
+```text
+=XLOOKUP(lookup_value,lookup_array,return_array)
+````
+
+Emphasize that the lookup and return arrays are selected explicitly.
 
 ![](../images/excel_xlookup.png){fig-align="center" width="90%"}
 
-
-## Grading (VLOOKUP)
+## Homework review: Course grading
 
 ::: {.teaching-file}
-[Take-home exercise]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
 :::
+
+Change the `StudentID` and check that the workbook retrieves the corresponding scores and recalculates the final grade.
+
+### `VLOOKUP` solution
+
+Review the sequence:
+
+1. Retrieve the homework and exam scores.
+2. Calculate the contribution of each assessment component.
+3. Add the contributions to obtain the final course grade.
+4. Change the `StudentID` and confirm that all output cells update.
+
+For the illustrated student, check:
+
+- Homework contribution: `9.11`
+- Final course grade: `73.61`
 
 ![](../images/excel_grading_vlookup.png){fig-align="center" width="90%"}
 
-## Grading (XLOOKUP)
+### `XLOOKUP` solution
 
-Note: copy the sheet to solve it with XLOOKUP
+Copy the sheet and replace the `VLOOKUP` formulas with `XLOOKUP`.
+
+Emphasize that each score column has its own return array, while all formulas use the same StudentID lookup array.
 
 ![](../images/excel_grading_xlookup.png){fig-align="center" width="90%"}
 
-::: {.callout-tip "In-class exercise: Sales table"}
+::: {.callout-tip title="In-class exercise: Sales table"}
 Complete the in-class exercise **Sales table** if it was not completed in the previous session.
-Use [teaching notes for session 2](session_02.qmd).
+
+Use the [teaching notes for Session 2](session_02.html#slides-5152-excel-tables-exercise).
 :::
 
+## Slides 54–60 — From data to management questions
 
-## Slide 54 - Pivot tables
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Sales_pivot
+:::
 
-Pivots: Mit Daten vs. Entscheidung Erklärung starten, dann Beispiel in Excel durchgehen.
+Begin with the decisions and questions that the data should support (instead of the mechanics of PivotTables).
 
-PR: legt die Pivot-Folien gar nicht im Detail auf.
+Show that the same sales data can answer different questions by creating pivot tables for the following:
 
+**TODO: add detailed notes on how to complete the following:**
 
+- What is total turnover in 2020?
+- What is turnover by product group?
+- What is turnover by month?
+- What is turnover by region?
+- How do actual and target values compare?
+- How can several dimensions be combined in one report?
+
+Slides 56–61 are complementary for students.
+Select two or three examples and ask students:
+
+- Which number is being aggregated?
+- Which categories are used to divide the number?
+- Which values are fixed or filtered?
+- How would the table have to change for a different management question?
+
+Key message:
+
+> A PivotTable makes it possible to generate different analytical views from the same underlying records without manually constructing each summary table.
+
+## Slide 61 — Facts and dimensions
+
+Introduce the distinction using the table on the slide.
+
+| Type       | Purpose                                   | Examples                               |
+| ---------- | ----------------------------------------- | -------------------------------------- |
+| Dimensions | Describe, classify, group, or filter data | Region, product, category, month, year |
+| Facts      | Numerical values that can be aggregated   | Turnover, cost, profit, quantity       |
+
+Connect this distinction to the PivotTable areas:
+
+- Dimensions usually appear in **Rows**, **Columns**, or **Filters**.
+- Facts usually appear in **Values**.
+
+## Slides 62–63 — Data cube and slicing
+
+Use the cube as a conceptual model.
+Explain:
+
+- Each dimension provides a perspective on the data.
+- A fact is stored for combinations of dimension values.
+- A worksheet is two-dimensional.
+- A PivotTable therefore presents a two-dimensional slice of a multidimensional dataset.
+- Filters fix the dimensions that are not currently shown in rows or columns.
+
+## Slide 64 — PivotTables in Excel
+
+PivotTables implement the basic data-cube idea in Excel.
+
+In the example on the slide:
+
+- **Rows:** Region
+- **Columns:** Product
+- **Values:** Sum of Turnover
+- **Filters:** Month, Year, Category
+
+Point out how the field arrangement corresponds directly to the management question.
+
+## Slide 65 — Creating a PivotTable
+
+Demonstrate the process in Excel:
+
+1. Select a cell inside the source dataset.
+2. Choose **Insert → PivotTable**.
+3. Confirm the complete source range.
+4. Create the PivotTable in a new worksheet.
+5. Locate the **PivotTable Fields** panel.
+
+Before creating the PivotTable, briefly check that:
+
+- Each column has one header.
+- Each row represents one observation.
+- There are no blank header cells.
+- Numerical facts are stored as numbers.
+- Dates are stored as actual Excel dates.
+
+## Slide 66 — PivotTable field areas
+
+**TODO: add reference to specific file**
+
+Create the first PivotTable together:
+
+| Area    | Field      |
+| ------- | ---------- |
+| Filters | `Month`    |
+| Filters | `Year`     |
+| Filters | `Category` |
+| Rows    | `Region`   |
+| Columns | `Product`  |
+| Values  | `Turnover` |
+
+Set:
+
+- `Year` to `2020`
+- `Category` to `Actual`
+- `Month` to `(All)`
+
+Confirm that Excel uses **Sum of Turnover** rather than Count of Turnover.
+
+Ask students to modify one field at a time and predict the resulting table before releasing the mouse button.
+
+## Slide 67 — Filtering PivotTables
+
+Demonstrate two kinds of filters:
+
+- Report filters above the PivotTable
+- Filters attached to row or column labels
+
+Filter the product columns to retain only selected products.
+
+Emphasize:
+
+- Filtering changes the displayed slice.
+- It does not delete the underlying observations.
+- Grand totals are recalculated based on the active filter.
+
+**SCREENSHOT:** Product filter with only selected products and the resulting PivotTable.
+
+## Slide 68 — Showing values as percentages
+
+Right-click a value and demonstrate:
+
+**Show Values As → % of Grand Total**
+
+Distinguish carefully between:
+
+- The numerical aggregation used to create a value
+- The way the resulting value is displayed
+
+For example:
+
+- Aggregation: `Sum`
+- Display: `% of Grand Total`
+
+Restore the normal values after the demonstration.
+
+**SCREENSHOT:** Turnover displayed as a percentage of the grand total.
+
+## Slide 69 — Value Field Settings
+
+Open **Value Field Settings** and change the aggregation from `Sum` to `Count`.
+
+Discuss common aggregations:
+
+| Aggregation | Interpretation                  |
+| ----------- | ------------------------------- |
+| Sum         | Total value of the observations |
+| Count       | Number of observations          |
+| Average     | Mean value per observation      |
+| Maximum     | Largest value                   |
+| Minimum     | Smallest value                  |
+
+Explain the common error:
+
+> When Excel interprets a numerical column as text, it may use `Count` instead of `Sum`.
+
+Restore **Sum of Turnover** before continuing.
+
+**SCREENSHOT:** Value Field Settings with the aggregation options.
 
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
 
+## Slide 70 — Adding dimensions
+
+Add `Category` below `Product` in the **Columns** area.
+
+Show that the order of fields matters:
+
+```text
+Product
+└── Category
+```
+
+is different from:
+
+```text
+Category
+└── Product
+```
+
+Students should understand that adding fields increases the level of detail shown in the PivotTable.
+
+Avoid spending much time on the visual details of the example. Focus on the field hierarchy.
+
+## Slide 71 — Using the same fact multiple times
+
+Drag `Turnover` into **Values** twice.
+
+Configure:
+
+- First field: `Sum of Turnover`
+- Second field: `Count of Turnover`
+
+This demonstrates that the same source field can be used for different analytical measures.
+
+Also show that the automatically created `Values` field can be moved between rows and columns.
+
+## Slide 72 — Using different facts
+
+Add both:
+
+- `Turnover`
+- `Cost`
+
+to the **Values** area.
+
+Explain that one PivotTable can present several measures for the same dimensional view.
+
+Ask:
+
+- Which measure is larger?
+- What additional measure would be required to analyze profitability?
+
+## Slide 73 — PivotCharts
+
+Create a PivotChart from the current PivotTable.
+
+Demonstrate that:
+
+- The chart is connected to the PivotTable.
+- PivotTable filters also change the chart.
+- Fields can be filtered directly through the chart controls.
+
+Do not spend time on detailed chart formatting. Focus on the relationship between the PivotTable and PivotChart.
+
+**SCREENSHOT:** PivotChart with visible field controls.
+
+## Slide 74 — Calculated fields
+
+Create a calculated field:
+
+```text
+Name: Profit
+Formula: =Turnover-Cost
+```
+
+Show:
+
+**PivotTable Analyze → Fields, Items & Sets → Calculated Field**
+
+Add the calculated field and use it in the Values area.
+
+Key point:
+
+> Calculated fields refer to source-field names rather than worksheet cells.
+
+This is an optional feature. Prioritize Rows, Columns, Filters, Values, and aggregations if time is limited.
+
+**SCREENSHOT:** Calculated Field dialog with the `Profit` formula.
+
+## Slide 75 — Grouping dates
+
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Store_sales_pivot
+:::
+
+Explain that PivotTables can aggregate an actual date field automatically.
+
+Demonstrate:
+
+1. Place the date field in **Rows**.
+2. Right-click one of the dates.
+3. Select **Group**.
+4. Select `Months` and `Quarters`.
+5. Add `Years` when data from several years are present.
+
+Emphasize that the source column must contain valid Excel dates. Blank cells or invalid date values may prevent grouping.
+
+**SCREENSHOT:** Date-grouping dialog with Months and Quarters selected.
+
+## Slide 76 — Exercise: Exporter pivot tables
+
+TODO: integrate Exporter.xlsx into Excel_in_class_exercises.xlsx (sheets: data + pivot)
+TODO: solution: create different pivot tables on the same sheet?
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Exporter.xlsx`](../materials/Exporter.xlsx){.teaching-button .teaching-button-exercise}
+:::
+
+Complete this exercise in class only if sufficient time remains. Otherwise, assign it as homework.
+
+Students create five PivotTable views.
+
+### Task 1 — Category sales by country
+
+Suggested field arrangement:
+
+| Area    | Field      |
+| ------- | ---------- |
+| Rows    | `Country`  |
+| Columns | `Category` |
+| Values  | `Sales`    |
+
+Use `Sum of Sales`.
+
+### Task 2 — Fruit-product sales by country
+
+Suggested field arrangement:
+
+| Area    | Field      |
+| ------- | ---------- |
+| Filters | `Category` |
+| Rows    | `Country`  |
+| Columns | `Product`  |
+| Values  | `Sales`    |
+
+Select the fruit category using the exact category label contained in the workbook.
+
+### Task 3 — Product sales in Germany
+
+Suggested field arrangement:
+
+| Area    | Field     |
+| ------- | --------- |
+| Filters | `Country` |
+| Rows    | `Product` |
+| Values  | `Sales`   |
+
+Filter `Country` to `Germany`.
+
+### Task 4 — Product sales by quarter and month
+
+Suggested field arrangement:
+
+| Area    | Field     |
+| ------- | --------- |
+| Rows    | `Date`    |
+| Columns | `Product` |
+| Values  | `Sales`   |
+
+Group the date field by:
+
+- Quarters
+- Months
+
+### Task 5 — European countries in Q4
+
+Suggested field arrangement:
+
+| Area    | Field      |
+| ------- | ---------- |
+| Filters | `Country`  |
+| Filters | `Date`     |
+| Rows    | `Category` |
+| Columns | `Product`  |
+| Values  | `Sales`    |
+
+Select the relevant European countries and filter the grouped date field to Q4.
+
+Teaching procedure:
+
+- Allow students to work independently first.
+- Compare the field arrangements after each task.
+- Emphasize that several arrangements may answer the same question.
+- Check the aggregation and active filters before comparing numerical results.
+
+**SCREENSHOT:** Completed Exporter PivotTables.
+
+## Slide 78 — Exercise: Expeditioner pivot analysis
+
+TODO: integrate Exped_*.xlsx into Excel_in_class_exercises.xlsx (sheets: data + pivot) - also see Exped_Solution.pdf
+TODO: solution: create different pivot tables on the same sheet?
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise}/[Homework]{.teaching-label .teaching-label-homework} [`../materials/Exped.xlsx`](../materials/Exped.xlsx){.teaching-button .teaching-button-exercise}
+:::
+
+The workbook contains 1,000 sales transactions with information about:
+
+- When the item was sold
+- Where it was sold
+- What was sold
+- How it was sold
+- Quantity
+- Revenue
+
+First reproduce the report shown on the slide.
+
+Suggested initial field arrangement:
+
+| Area    | Field     |
+| ------- | --------- |
+| Filters | `WHEN`    |
+| Filters | `WHAT`    |
+| Rows    | `WHERE`   |
+| Columns | `HOW`     |
+| Values  | `REVENUE` |
+
+Use `Sum of REVENUE`.
+
+Then answer:
+
+1. What was the value of catalog sales for London in the first quarter?
+2. What percentage of Tokyo's total annual sales were Tokyo Web sales in the fourth quarter?
+3. What percentage of Sydney's annual sales was its Catalog sales?
+4. What was the value of Camel saddle sales for Paris in 2002 by quarter?
+5. What was the value of catalog sales for London in January, and what are the underlying transactions?
+6. How many Elephant polo sticks were sold in New York in each month of 2002?
+
+Skills required:
+
+- Filtering several dimensions
+- Grouping dates
+- Showing values as percentages
+- Changing the aggregation from revenue to quantity
+- Drilling down to the underlying transactions by double-clicking a PivotTable value
 
 
-## Slide 75
+TBD: **SCREENSHOT:** Initial Expeditioner PivotTable and completed answers.
 
-Aggregation über Datum: siehe auch in den Folien
+## Summary and announcements
 
-## Slide 76/77
+Key concepts:
 
-In-session (if enough time)
+- Dimensions describe how facts are grouped or filtered.
+- Facts are numerical measures that can be aggregated.
+- Rows and columns define the visible two-dimensional slice.
+- Filters fix additional dimensions.
+- Value Field Settings control the aggregation.
+- Show Values As controls how aggregated values are displayed.
+- Date fields can be grouped into months, quarters, and years.
 
+Homework:
 
+- Complete the **Exporter** exercise if it was not finished.
+- Complete the **Expeditioner** exercise.
+- Save the completed workbooks.
 
-## Summary and announcements (next session)
+TODO: brief summary/review of the Excel part, collect questions for the Mid-term exam.
 
-TODO
+Next session:
+
+- Introduction to Python and pandas.
+- Transition from Excel tables and PivotTables to tabular data structures in Python.
 
 ::: {.callout-tip title="Notes for improvement"}
-Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
+Take notes on timing, common errors, unclear instructions, and suitable stopping points on a separate paper and add them to `feedback.qmd` after the session.
 :::

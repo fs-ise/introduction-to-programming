@@ -28,13 +28,12 @@ Slides are on [nextcloud](https://nc-2272638881871040784.nextcloud-ionos.com/ind
 - Detailed learning objectives (TBD: share at the end as "relevant for the exam"?)
 - TBD: save the Excel sheets for each group (to track progress)?
 - TBD: reflection/questions for the next sessions (maybe as a digital or offline paper submission option?)
-- Consistently refer to "take-home exercise" or "homework" (in the labels and text)
 :::
 
 ::: {.callout-tip title="Principles"}
-**TBD: currently, in-class demos are combined? and in-class exercises/take-home exercises are in individual files (linked in the slides)**
+**TBD: currently, in-class demos are combined? and in-class exercises/homework exercises are in individual files (linked in the slides)**
 
-- Distinguish in-class demo, in-class exercise, and take-home exercise.
+- Distinguish in-class demo, in-class exercise, and homework.
   One file for each (with different sheets).
   Solutions are in a separate `_solution.xlsx` file.
   Use the solutions file only to generate screenshots for the teaching notes.

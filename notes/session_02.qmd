@@ -13,7 +13,7 @@ Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 
 | Time                 | Topic/activity                                               | Materials                                                                |
 | -------------------: | ------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| 0–15 min             | Review take-home exercises <br> (if necessary: complete special IF functions) | Session 1 solutions                                     |
+| 0–15 min             | Review Homeworks <br> (if necessary: complete special IF functions) | Session 1 solutions                                     |
 | 15–55 min            | Introduce `VLOOKUP` and `HLOOKUP`                            | Slides 29–31 <br>Slide 32: Exercise **Bar sales**                        |
 | 55–85 min            | Explain `XLOOKUP` and contrast it with `VLOOKUP`             | Slide 33 <br>Slide 34: Exercise **Client lookup**; `Clients.xlsx`        |
 | 85–90 min            | Introduce the lookup homework                                | Slides 35–36: **Christmas gift** and **Course grading**                  |
@@ -184,10 +184,10 @@ Teaching sequence:
 
 ![](../images/excel_client_xlookup.png){fig-align="center" width="90%"}
 
-## Slide 35 — Christmas gift (take-home exercise)
+## Slide 35 — Christmas gift (Homework)
 
 ::: {.teaching-file}
-[Take-home exercise]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Gift
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Gift
 :::
 
 Students should retrieve two values based on customer status:
@@ -199,10 +199,10 @@ Students should retrieve two values based on customer status:
 
 Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution.
 
-## Slide 36 — Course grading (take-home exercise)
+## Slide 36 — Course grading (Homework)
 
 ::: {.teaching-file}
-[Take-home exercise]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
 :::
 
 This one is similar to the client lookup.
@@ -447,10 +447,10 @@ After entering the formula once, Excel should copy it to the complete calculated
 ## Slides 51–52 — Excel Tables exercise
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise}/[Take-home exercise]{.teaching-label .teaching-label-homework}[`../materials/Sales_Table.xlsx`](../materials/Sales_Table.xlsx){.teaching-button .teaching-button-exercise}
+[In-class exercise]{.teaching-label .teaching-label-exercise}/[Homework]{.teaching-label .teaching-label-homework}[`../materials/Sales_Table.xlsx`](../materials/Sales_Table.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
-This extended exercise can be completed in class, assigned as take-home work, or continued in Session 3.
+This extended exercise can be completed in class, assigned as homework, or continued in Session 3.
 
 Suggested checkpoints:
 
@@ -539,7 +539,7 @@ Solution:
 
 ## Summary and announcements
 
-Take-home work:
+Homework:
 
 - **Christmas gift**
 - **Course grading**
