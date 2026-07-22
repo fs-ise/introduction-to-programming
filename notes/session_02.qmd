@@ -6,10 +6,7 @@ event_id: null
 
 ::: {.callout-important title="TODO"}
 - Check/test the vlookup limitation demo (xlookup)
-
-PR:
-
-- Importance of HLOOKUP/approximate matching? - update materials accordingly
+- PR: Importance of HLOOKUP/approximate matching? - update materials accordingly
 :::
 
 Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
@@ -452,8 +449,6 @@ After entering the formula once, Excel should copy it to the complete calculated
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise}/[Take-home exercise]{.teaching-label .teaching-label-homework}[`../materials/Sales_Table.xlsx`](../materials/Sales_Table.xlsx){.teaching-button .teaching-button-exercise}
 :::
-
-TODO: CHECK WHICH SALES TABLE FILE, add to materials
 
 This extended exercise can be completed in class, assigned as take-home work, or continued in Session 3.
 
