@@ -31,7 +31,7 @@ event_id: null
 - Entering formulas in the cell or the bar
 - Selecting cells by typing "=A1+A2" vs. by clicking on cells
 - Some cells are used for entering data, others for formulas (we need to understand which type of cell is needed)
-- Illustrate data types: Add "€" to the nubmers and show that the SUM/EXP no longer work. 
+- Illustrate data types: Add "€" to the numbers and show that the SUM/EXP no longer work. 
 - Anticipate changes (based on discussions/feedback), extensions of Excel sheets (need for proper design).
   Use clear labels (e.g., "Price of coffee", "Price of tea" instead of Number 1, Number 2).
   Make sure that formulas continue to work correctly if we add items (like "Price of water").
@@ -200,7 +200,7 @@ Prefer nested `IF` functions for the VIP-status exercise (in part II).
 
 - Illustrate the repayment logic using the visualization: [materials/loans.html](../materials/loans.qmd).
   We could imagine that a loan adviser uses a similar interface to discuss this with her clients.
-  We also note that there are some parameters that we can adjust (principal, interst, payment periods) and others that are calcualted (repayments).
+  We also note that there are some parameters that we can adjust (principal, interest, payment periods) and others that are calculated (repayments).
   It's the same principle in this interface and in your Excel sheet.
 
 ![](../images/excel_loans_illustration.png){fig-align="center" width="40%"}
@@ -220,7 +220,7 @@ The repayment equals the fixed repayment amount or, when the remaining debt is l
 - Students should have a clear understanding of what the **data cells** (manually entered/modified parameters) and the **function cells** are. (similar to Hillier and Hillier: data/changing/output/objective cells)
 - Ask students to understand the `PMT(interest rate, term, loan amount)` function (payment).
 
-::: {.callout-note title="Understanding the difference between fixed installments and anuity loans"}
+::: {.callout-note title="Understanding the difference between fixed installments and annuity loans"}
 With a fixed-principal installment loan, the principal is reduced more quickly at the beginning, which lowers the total interest paid. However, this also means that the initial payments are higher.
 :::
 

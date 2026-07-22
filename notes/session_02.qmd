@@ -5,10 +5,7 @@ event_id: null
 ---
 
 ::: {.callout-important title="TODO"}
-- Done: Add solution screenshots from `Solutions.pptx`.
 - Check solutions in data tables folder (/home/gerit/workspace/action-office/prep-prog/nextcloud/Solutions_Excel/data_tables)
-- Confirm the exercise files for **Bar sales**, **Christmas gift**, and **Course grading**.
-- TBD: reflection/questions for the next session (maybe as a digital or offline paper submission option?)
 - Check/test the vlookup limitation demo (xlookup)
 
 PR:
@@ -20,17 +17,17 @@ Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 
 | Time                 | Topic/activity                                               | Materials                                                                |
 | -------------------: | ------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| 0–15 min             | Review take-home exercises <br> (if necessary: complete special IF functions) | Session 1 solutions                                                     |
+| 0–15 min             | Review take-home exercises <br> (if necessary: complete special IF functions) | Session 1 solutions                                     |
 | 15–55 min            | Introduce `VLOOKUP` and `HLOOKUP`                            | Slides 29–31 <br>Slide 32: Exercise **Bar sales**                        |
-| 55–85 min            | Explain `XLOOKUP` and contrast it with `VLOOKUP`             | Slide 33 <br>Slide 34: Exercise **Client lookup**; `Clients.xlsx`                                                               |
-| 85–90 min            | Introduce the lookup homework                                | Slides 35–36: **Christmas gift** and **Course grading**                 |
+| 55–85 min            | Explain `XLOOKUP` and contrast it with `VLOOKUP`             | Slide 33 <br>Slide 34: Exercise **Client lookup**; `Clients.xlsx`        |
+| 85–90 min            | Introduce the lookup homework                                | Slides 35–36: **Christmas gift** and **Course grading**                  |
 | **Break**            |                                                              |                                                                          |
-| 0–15 min             | Introduce and create Excel Tables                            | Slides 37–39; `Bikesales.xlsx`                                         |
-| 15–30 min            | Sorting, filtering, table design, and styles                 | Slides 40–42                                                           |
-| 30–50 min            | Demonstrate dynamic tables, charts, and row operations       | Slides 43–44                                                           |
-| 50–65 min            | Add a Total Row and explain `SUBTOTAL`                       | Slides 45–46                                                           |
-| 65–75 min            | Introduce structured references                              | Slides 47–50                                                           |
-| 75–90 min            | Begin the Excel Tables exercise                              | Slides 51–52: Exercise **Excel tables**; `Sales_Table.xlsx`            |
+| 0–15 min             | Introduce and create Excel Tables                            | Slides 37–39; `Bikesales.xlsx`                                           |
+| 15–30 min            | Sorting, filtering, table design, and styles                 | Slides 40–42                                                             |
+| 30–50 min            | Demonstrate dynamic tables, charts, and row operations       | Slides 43–44                                                             |
+| 50–65 min            | Add a Total Row and explain `SUBTOTAL`                       | Slides 45–46                                                             |
+| 65–75 min            | Introduce structured references                              | Slides 47–50                                                             |
+| 75–90 min            | Begin the Excel Tables exercise                              | Slides 51–52: Exercise **Excel tables**; `Sales_Table.xlsx`              |
 
 
 ## Homework review: DAX moving averages
@@ -53,7 +50,7 @@ Start by briefly explaining the task (again):
 [Homework solution]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment
 :::
 
-Explain the payment schema introduced inthe previous session.
+Explain the payment schema introduced in the previous session.
 
 Q: Why should the fixed repayment amount not be copied through all 20 periods?  
 A: The final repayment must not exceed the remaining debt.
@@ -74,7 +71,7 @@ This could be used in a What-if or scenario analysis.
 
 ![](../images/excel_installment_loan_2_solution.png){fig-align="center" width="90%"}
 
-Add charts for the payments of instalment loans and annuity loans.  
+Add charts for the payments of installment loans and annuity loans.  
 Briefly contrast the declining payments of a fixed-principal loan with the constant payments of an annuity loan.
 
 
@@ -151,7 +148,7 @@ Contrast it with `VLOOKUP`:
 
 
 ::: {.callout-important title="Limitation of VLOOKUP"}
-TODO: table is probably the Bar sales. - switch the price list (add an ID as the first column for plausiblity)
+TODO: table is probably the Bar sales. - switch the price list (add an ID as the first column for plausibility)
 
 Rearrange the columns in the lookup table (**TODO: CLARIFY WHICH ONE**) and show that the formula may fail or return the wrong column. This motivates the introduction of `XLOOKUP`.
 
