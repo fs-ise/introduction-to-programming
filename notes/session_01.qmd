@@ -4,12 +4,6 @@ session_id: session-01
 event_id: null
 ---
 
-TODO:
-
-- Slide 25 — Installment loan: prepare separate slide for the visualization? 
-- Slide 28: Special IF functions
-- TBD: reflection/questions for next sesssion?
-
 | Time                 | Topic/activity                                             | Materials                                                            |
 | -------------------: | ---------------------------------------------------------- | -------------------------------------------------------------------- |
 | 0–15 min             | Introduction and organization                              | [Introductory slides](../slides/session_00_orga.qmd) (separate)      |
@@ -204,6 +198,7 @@ Prefer nested `IF` functions for the VIP-status exercise (in part II).
 [Take-home exercise]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment
 :::
 
+- Illustrate the repayment logic using the visualization: [materials/loans.html](../materials/loans.qmd)
 - Work through the repayment logic on the board.
 - Students then transfer the calculation to Excel as a take-home exercise.
 - From period 2 onward, repayment requires an `IF` condition.
@@ -241,7 +236,13 @@ With a fixed-principal installment loan, the principal is reduced more quickly a
 
 ## Slide 28: Special IF functions
 
-TBD
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Departments
+:::
+
+Solve together (before revealing slide 28, which contains the solutions).
+
+![](../images/excel_special_if_solution.png)
 
 ## Summary and announcements (next session)
 

@@ -1,0 +1,49 @@
+---
+title: "Loan illustrations"
+navbar: false
+sidebar: false
+toc: false
+page-navigation: false
+format:
+  html:
+    page-layout: full
+---
+
+<style>
+.loan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.loan-panel {
+  min-width: 0;
+}
+
+@media (max-width: 1000px) {
+  .loan-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+:::: {.loan-grid}
+
+::: {.loan-panel}
+
+## Installment loan
+
+{{< include ../materials/_installment_loan.qmd >}}
+
+:::
+
+::: {.loan-panel}
+
+## Annuity loan
+
+{{< include ../materials/_annuity_loan.qmd >}}
+
+:::
+
+::::

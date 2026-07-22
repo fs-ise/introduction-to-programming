@@ -23,9 +23,23 @@ Slides are on [nextcloud](https://nc-2272638881871040784.nextcloud-ionos.com/ind
 ## Sessions
 
 ::: {.callout-important title="TODO"}
+- **My VM Excel version does not support XLOOKUP** (TODO: update the formula in Excel_in_class_exercises.xlsx sheet Grading F17)
 - Document with instructions to configure Excel (language, separators)? PR: available in canvas? Plan how to present (slide?)
 - Detailed learning objectives (TBD: share at the end as "relevant for the exam"?)
-- **My VM Excel version does not support XLOOKUP** (TODO: update the formula in Excel_in_class_exercises.xlsx sheet Grading F17)
+- TBD: save the Excel sheets for each group (to track progress)?
+:::
+
+::: {.callout-tip title="Principles"}
+**TBD: currently, in-class demos are combined? and in-class exercises/take-home exercises are in individual files (linked in the slides)**
+
+- Distinguish in-class demo, in-class exercise, and take-home exercise.
+  One file for each (with different sheets).
+  Solutions are in a separate `_solution.xlsx` file.
+  Use the solutions file only to generate screenshots for the teaching notes.
+  Develop solutions interactively in class.
+- Links to the files/sheets should be on the slides (currently: in the teaching notes?? - should not be in both places)
+- Python code should be included in teaching notes to avoid duplication.
+- Make sure that all homework is properly discussed at the beginning of the next session.
 :::
 
 See [objectives](objectives.qmd)

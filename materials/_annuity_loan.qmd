@@ -1,83 +1,160 @@
-```{python}
-#| fig-width: 8
-#| fig-height: 5
-#| echo: false
+```{ojs}
+//| echo: false
+//| panel: input
+//| layout-ncol: 3
 
-import matplotlib.pyplot as plt
-import numpy as np
-from matplotlib.ticker import FuncFormatter
-
-
-def annuity_schedule(
-    loan_amount: float,
-    interest_rate: float,
-    payment_periods: int,
-    plot_periods: int,
-) -> tuple[float, np.ndarray, np.ndarray]:
-    """Calculate the repayment schedule and pad later periods with zeros."""
-    annuity = (
-        loan_amount
-        * interest_rate
-        / (1 - (1 + interest_rate) ** -payment_periods)
-    )
-
-    interest = np.zeros(plot_periods)
-    redemption = np.zeros(plot_periods)
-
-    balance = loan_amount
-
-    for period in range(payment_periods):
-        interest[period] = balance * interest_rate
-        redemption[period] = min(annuity - interest[period], balance)
-        balance -= redemption[period]
-
-    return annuity, interest, redemption
-
-
-loan_amount = 100_000
-interest_rate = 0.07
-payment_periods = 10
-plot_periods = 20
-
-annuity, interest, redemption = annuity_schedule(
-    loan_amount,
-    interest_rate,
-    payment_periods,
-    plot_periods,
+viewof loanAmount = Inputs.range(
+  [10_000, 250_000],
+  {
+    value: 100_000,
+    step: 5_000,
+    label: "Principal (€)"
+  }
 )
 
-periods = np.arange(1, plot_periods + 1)
-
-fig, ax = plt.subplots(figsize=(8, 5))
-
-ax.bar(
-    periods,
-    redemption,
-    color="tab:blue",
-    label="Principal repayment",
-)
-ax.bar(
-    periods,
-    interest,
-    bottom=redemption,
-    color="tab:orange",
-    label="Interest",
+viewof annualRatePercent = Inputs.range(
+  [0, 15],
+  {
+    value: 7,
+    step: 0.25,
+    label: "Annual interest rate (%)"
+  }
 )
 
-ax.set(
-    xlabel="Period",
-    ylabel="Annual payment",
-    title=f"Annuity loan (annual payment = €{annuity:,.2f})",
-    xticks=periods,
+viewof paymentPeriods = Inputs.range(
+  [3, 20],
+  {
+    value: 10,
+    step: 1,
+    label: "Payment periods"
+  }
 )
+```
 
-ax.yaxis.set_major_formatter(
-    FuncFormatter(lambda value, _: f"€{value:,.0f}")
-)
+```{ojs}
+//| echo: false
+//| output: false
 
-ax.legend()
-ax.grid(axis="y", alpha=0.3)
+plotPeriods = 20
 
-fig.tight_layout()
-plt.show()
+schedule = {
+  const interestRate = annualRatePercent / 100;
+
+  const annuity =
+    interestRate === 0
+      ? loanAmount / paymentPeriods
+      : loanAmount * interestRate /
+        (1 - (1 + interestRate) ** (-paymentPeriods));
+
+  let balance = loanAmount;
+  const rows = [];
+
+  for (let period = 1; period <= paymentPeriods; period++) {
+    const interest = balance * interestRate;
+    const redemption = Math.min(annuity - interest, balance);
+
+    rows.push({
+      period,
+      component: "Principal repayment",
+      amount: redemption
+    });
+
+    rows.push({
+      period,
+      component: "Interest",
+      amount: interest
+    });
+
+    balance = Math.max(0, balance - redemption);
+  }
+
+  return {annuity, rows};
+}
+```
+
+```{ojs}
+//| echo: false
+
+html`
+  <div style="
+    display: inline-block;
+    margin: 0.5rem 0 1rem 0;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.5rem;
+    background-color: var(--bs-tertiary-bg);
+  ">
+    <div style="
+      font-size: 0.85rem;
+      color: var(--bs-secondary-color);
+    ">
+      Annual payment
+    </div>
+
+    <div style="
+      font-size: 1.5rem;
+      font-weight: 600;
+    ">
+      ${schedule.annuity.toLocaleString("en-US", {
+        style: "currency",
+        currency: "EUR"
+      })}
+    </div>
+  </div>
+`
+```
+
+```{ojs}
+//| echo: false
+
+Plot.plot({
+  height: 500,
+  marginLeft: 85,
+  marginBottom: 55,
+
+  x: {
+    label: "Period",
+    domain: Array.from(
+      {length: plotPeriods},
+      (_, index) => index + 1
+    ),
+    tickFormat: period => period
+  },
+
+  y: {
+    label: "Annual payment",
+    grid: true,
+    tickFormat: value =>
+      value.toLocaleString("en-US", {
+        style: "currency",
+        currency: "EUR",
+        maximumFractionDigits: 0
+      })
+  },
+
+  color: {
+    legend: true,
+    domain: ["Principal repayment", "Interest"],
+    range: ["#1f77b4", "#ff7f0e"]
+  },
+
+  marks: [
+    Plot.barY(
+      schedule.rows,
+      Plot.stackY({
+        x: "period",
+        y: "amount",
+        fill: "component",
+        title: row =>
+          `${row.component}: ${
+            row.amount.toLocaleString("en-US", {
+              style: "currency",
+              currency: "EUR"
+            })
+          }`
+      })
+    ),
+    Plot.ruleY([0])
+  ]
+})
 ```

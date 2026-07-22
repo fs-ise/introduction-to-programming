@@ -11,13 +11,7 @@ event_id: null
 
 - Prior programming experience?
 - Why go beyond Excel and use Python? (advanced analytics: Regression, prediction, ML, AI, ...)
-- Why shouldn't we just use ChatGPT? (prompt adequately, validate and improve, Python: effective prompting possible)
-
-- Advantage of Python: libraries! (PyPI)
 - Interpreted: vs. compiled language
-
-
-TODO: add spyder setup
 
 TBD: quarto-include code fragments? add explanations (asides?)
 
@@ -28,21 +22,22 @@ Python:
   It is not just LOC, but the 99% of the code (the libraries) are often very well designed and maintained (if you pick the right libraries). Also, they are constantly updated so we get performance improvements, remaining bugs are fixed, and the documentation gets better.
   This means we can really "stand on the shoulders of giants". Pretty amazing.
 
+- Why shouldn't we just use ChatGPT? (prompt adequately, validate and improve, Python: effective prompting possible)
+
+TODO: add spyder setup
 TODO: use Anaconda (be prepared to answer questions)
 spytertest.py (in canvas) mit studis am Anfang der python session step-by-step durchgehen
 use setwd() for spyder
+TODO: check pandas version? 3.0?
 
 
 See `1_Pandas.py` - contains code for all slides (TODO: split)
 
 p.13: abhängig von Zeit: in-session or homework
 
-TODO: check pandas version? 3.0?
-
 Aufgaben: komplett (soweit die Zeit da ist)
 Bei Zeitnot: Aufgaben nach Haus geben
 Python Lösungen: werden von Tutoren besprochen
-
 
 TODO: see also `Versicherungsvertreter.py` and `Versicherungsvertreter.xslx`
 

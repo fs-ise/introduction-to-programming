@@ -131,8 +131,6 @@ Key points:
 
 `HLOOKUP` follows the same principle but searches in the first row instead of the first column. Mention it briefly; focus the practical work on vertical lookups.
 
-
-
 ## Slide 33 — `XLOOKUP`
 
 General form:
