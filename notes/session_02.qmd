@@ -5,7 +5,6 @@ event_id: null
 ---
 
 ::: {.callout-important title="TODO"}
-- Check solutions in data tables folder (/home/gerit/workspace/action-office/prep-prog/nextcloud/Solutions_Excel/data_tables)
 - Check/test the vlookup limitation demo (xlookup)
 
 PR:
