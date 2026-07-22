@@ -10,7 +10,6 @@ TODO:
 - Slide 28: Special IF functions
 - TBD: reflection/questions for next sesssion?
 
-
 | Time                 | Topic/activity                                             | Materials                                                            |
 | -------------------: | ---------------------------------------------------------- | -------------------------------------------------------------------- |
 | 0–15 min             | Introduction and organization                              | [Introductory slides](../slides/session_00_orga.qmd) (separate)      |
@@ -37,7 +36,12 @@ TODO:
 
 - Entering formulas in the cell or the bar
 - Selecting cells by typing "=A1+A2" vs. by clicking on cells
-- Anticipate changes (based on discussions/feedback), extensions of Excel sheets (need for proper design)
+- Some cells are used for entering data, others for formulas (we need to understand which type of cell is needed)
+- Illustrate data types: Add "€" to the nubmers and show that the SUM/EXP no longer work. 
+- Anticipate changes (based on discussions/feedback), extensions of Excel sheets (need for proper design).
+  Use clear labels (e.g., "Price of coffee", "Price of tea" instead of Number 1, Number 2).
+  Make sure that formulas continue to work correctly if we add items (like "Price of water").
+  For this, we would need to adapt the SUM formula. Some may already know how to do this, and we will come back to it later today.
 
 ::: {.callout-tip title="Pro tips"}
 
