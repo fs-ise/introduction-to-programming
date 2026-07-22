@@ -8,3 +8,4 @@
 | [Excel setup](materials/excel_setup.html) | Web page |
 | [Introduction](materials/introduction.xlsx) | Excel workbook |
 | [Loan illustrations](materials/loans.html) | Web page |
+| [Sales Table](materials/Sales_Table.xlsx) | Excel workbook |

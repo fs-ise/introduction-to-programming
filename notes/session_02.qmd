@@ -22,7 +22,7 @@ Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 | 55–85 min            | Explain `XLOOKUP` and contrast it with `VLOOKUP`             | Slide 33 <br>Slide 34: Exercise **Client lookup**; `Clients.xlsx`        |
 | 85–90 min            | Introduce the lookup homework                                | Slides 35–36: **Christmas gift** and **Course grading**                  |
 | **Break**            |                                                              |                                                                          |
-| 0–15 min             | Introduce and create Excel Tables                            | Slides 37–39; `Bikesales.xlsx`                                           |
+| 0–15 min             | Introduce and create Excel Tables                            | Slides 37–39;                                                            |
 | 15–30 min            | Sorting, filtering, table design, and styles                 | Slides 40–42                                                             |
 | 30–50 min            | Demonstrate dynamic tables, charts, and row operations       | Slides 43–44                                                             |
 | 50–65 min            | Add a Total Row and explain `SUBTOTAL`                       | Slides 45–46                                                             |
@@ -223,14 +223,15 @@ The calculation of the homework contribution is not yet updated in `Excel_Exerci
 ## Slides 38–39 — Introduction to Excel Tables
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/Bikesales.xlsx`](../materials/Bikesales.xlsx){.teaching-button .teaching-button-demo}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Bike_sales
 :::
 
 Create the table together with the students.
+**Copy and show how the range of cells behaves differently compared to the excel table**
 
 Teaching sequence:
 
-- Start with the ordinary range in `Bikesales.xlsx`.
+- Start with the ordinary range in the `Bike_sales` sheet
 - Select the complete data range.
 - Insert an Excel Table.
 - Confirm that the range contains headers.
@@ -249,9 +250,7 @@ Explain the main differences between an ordinary range and an Excel Table:
 A table name identifies the table independently of its position in the worksheet.
 :::
 
-::: {.callout-note title="Screenshot placeholder"}
-Add a screenshot showing the original range and the converted `Bikesales` table.
-:::
+![](../images/excel_create_table.png){fig-align="center" width="70%"}
 
 ## Slide 40 — Sorting and filtering
 
@@ -291,9 +290,7 @@ Demonstrate that:
 
 Add the `Gravel-Star` row and observe whether the chart changes.
 
-::: {.callout-note title="Screenshot placeholder"}
-Add a screenshot showing the dynamically expanded table and chart.
-:::
+![](../images/excel_tables_add_row.png){fig-align="center" width="80%"}
 
 ## Slide 44 — Inserting and deleting rows and columns
 
@@ -309,6 +306,8 @@ Students should understand that table operations affect the table structure, whe
 ## Slide 45 — Calculating totals
 
 Activate **Table Design → Total Row**.
+
+![](../images/excel_table_total_row.png){fig-align="center" width="80%"}
 
 Demonstrate how the drop-down menu can be used to calculate:
 
@@ -329,15 +328,9 @@ Key observation:
 - Excel does not use a normal `SUM` formula.
 - It generates a `SUBTOTAL` formula that responds to filtering.
 
-::: {.callout-note title="Screenshot placeholder"}
-Add a screenshot showing the Total Row and its function-selection menu.
-:::
-
 ## Slide 46 — `SUBTOTAL` function numbers
 
-TODO: check and understand SUBTOTALS!
-
-Note: need to insert the **Function numbers**! (a mapping table will be provided in the exam)
+Note: need to select/click function or insert the **Function numbers**! But do not memorize them - a mapping table will be provided in the exam.
 
 General form:
 
@@ -351,17 +344,10 @@ The first argument encodes the aggregation function:
 | --------- | ----------------------------: | ----------------------------: |
 | `AVERAGE` |                             1 |                           101 |
 | `COUNT`   |                             2 |                           102 |
-| `COUNTA`  |                             3 |                           103 |
-| `MAX`     |                             4 |                           104 |
-| `MIN`     |                             5 |                           105 |
-| `PRODUCT` |                             6 |                           106 |
-| `STDEV`   |                             7 |                           107 |
-| `STDEVP`  |                             8 |                           108 |
-| `SUM`     |                             9 |                           109 |
-| `VAR`     |                            10 |                           110 |
-| `VARP`    |                            11 |                           111 |
+| ...       |                           ... |                           ... |
 
-::: {.callout-important title="Exam-relevant distinction"}
+
+::: {.callout-important title="Important distinction"}
 Filtered-out rows are excluded by `SUBTOTAL`.
 
 For manually hidden rows:
@@ -381,7 +367,14 @@ Demonstrate the difference by:
 
 ## Slides 47–50 — Structured references
 
-Use this section if time permits; otherwise, continue at the beginning of Session 3.
+Note: This part is slightly more challenging. It will help you in the Python/Pandas sessions.
+
+Principles:
+
+- Accessing data through variables
+- Selecting specific columns
+
+In Python/Pandas, this will be the same. There are no cells with row and column numbers. They are replaced by named variables.
 
 Note: structured references work regardless of where the table is located (name references).
 
@@ -414,6 +407,17 @@ A structured reference can contain:
 - Item specifier
 - Column specifier
 
+Item specifiers:
+
+| Specifier    | Meaning      |
+| ------------: | ------------ |
+| `[#All]`     | Entire table |
+| `[#Data]`    | Data rows    |
+| `[#Headers]` | Header row   |
+| `[#Totals]`  | Total row    |
+
+Develop the formulas to illustrate name-based access to tables/cells:
+
 Examples:
 
 ```text
@@ -422,16 +426,17 @@ Bikesales[[#Totals],[Turnover]]
 Bikesales[[#Totals],[Turnover]:[Cost]]
 ```
 
-Item specifiers:
+![](../images/excel_table_structured_refs.png){fig-align="center" width="80%"}
 
-| Specifier    | Meaning      |
-| ------------ | ------------ |
-| `[#All]`     | Entire table |
-| `[#Data]`    | Data rows    |
-| `[#Headers]` | Header row   |
-| `[#Totals]`  | Total row    |
+Note: in `=ROWS(Bikesales[[#All],[Sales]])`, the `[#All]` also counts header and totals as rows.
 
 ## Current-row references
+
+Working with data tables raises the question: how can we use data within the table to calculate something?
+
+Extend the example with current row formulas:
+
+![](../images/excel_tables_current_row_ref.png){fig-align="center" width="80%"}
 
 Inside the table, `@` refers to the current row:
 
@@ -443,100 +448,102 @@ Inside the table, `@` refers to the current row:
 
 After entering the formula once, Excel should copy it to the complete calculated column.
 
-::: {.callout-note title="Screenshot placeholder"}
-Add a screenshot illustrating an outside-table reference and an `@` current-row reference.
-:::
-
 ## Slides 51–52 — Excel Tables exercise
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Sales_Table.xlsx`](../materials/Sales_Table.xlsx){.teaching-button .teaching-button-exercise}
+[In-class exercise]{.teaching-label .teaching-label-exercise}/[Take-home exercise]{.teaching-label .teaching-label-homework}[`../materials/Sales_Table.xlsx`](../materials/Sales_Table.xlsx){.teaching-button .teaching-button-exercise}
 :::
+
+TODO: CHECK WHICH SALES TABLE FILE, add to materials
 
 This extended exercise can be completed in class, assigned as take-home work, or continued in Session 3.
 
 Suggested checkpoints:
 
-## Table setup
+### Table exercise
 
-- Convert the data into an Excel Table.
-- Name the table `Sales`.
-- Sort by region.
-- Filter to 2020 and restore all years.
-- Delete the records for Brazil.
+1. Open `Sales_Table.xlsx` and convert the data into an Excel Table.
+2. Name the table `Sales`.
+3. Sort the table by region.
+4. Filter the table to show only 2020.
+5. Restore all years.
+6. Delete the records for Brazil.
+7. Enable the **Total Row** and calculate (use drop-down at the end of the table):
+   - Quantity: sum
+   - Cost: sum
+   - Turnover: average
+   - Year: maximum
+8. **Outside the table**: Count the number of records:
 
-## Total Row
+   ```excel
+   =ROWS(Sales[Product])
+   ```
 
-Calculate:
+9. Add the column `Profit`:
 
-- Sum of quantity
-- Sum of cost
-- Average turnover
-- Maximum year
+   ```excel
+   =[@Turnover]-[@Cost]
+   ```
 
-## Structured references
+10. Add the column `TOpU` for turnover per unit:
 
-Outside the table:
+    ```excel
+    =[@Turnover]*1000/[@Quantity]
+    ```
 
-- Count the number of records.
-- Recalculate total profit.
-- Calculate total turnover using the turnover column.
-- Refer directly to values in the Total Row.
-- Add the values in the Total Row.
+11. Add the column `QShare` and format it as a percentage:
 
-Inside the table, add:
+    ```excel
+    =[@Quantity]/SUM([Quantity])
+    ```
 
-```text
-Profit = Turnover - Cost
-TOpU = Turnover / Quantity
-QShare = Quantity / total quantity
-```
+12. In the **Total Row**, calculate (use drop-down at the end of the table):
 
-Possible formulas:
+    * Sum of `Profit`
+    * Average of `TOpU`
+    * Sum of `QShare`
 
-```text
-=[@Turnover]-[@Cost]
-=[@Turnover]/[@Quantity]
-=[@Quantity]/Sales[[#Totals],[Quantity]]
-```
+13. **Outside the table**: Recalculate total profit:
 
-Format `QShare` as a percentage.
+    ```excel
+    =SUM(Sales[Profit])
+    ```
 
-## Regional summary
+14. **Outside the table**: Calculate total turnover in two ways:
 
-- Extract the unique regions:
+    ```excel
+    =SUM(Sales[Turnover])
+    ```
 
-```text
-=UNIQUE(Sales[Region])
-```
+    ```excel
+    =Sales[[#Totals];[Profit]]+Sales[[#Totals];[Cost]]
+    ```
 
-- Calculate turnover by region:
+15. **Outside the table**: Add all values from `Year` to `QShare` in the **Total Row**:
 
-```text
-=SUMIF(Sales[Region],region_cell,Sales[Turnover])
-```
+    ```excel
+    =SUM(Sales[[#Totals];[Year]:[QShare]])
+    ```
 
-- Create a chart showing turnover by region.
+16. **Outside the table**: Extract the unique regions in cell `L8`:
 
-::: {.callout-note title="Screenshot placeholder"}
-Add screenshots from `Solutions.pptx` showing:
+    ```excel
+    =UNIQUE(Sales[Region])
+    ```
 
-- The completed `Sales` table
-- The calculated columns
-- The Total Row
-- The regional summary
-- The final chart
-:::
+17. **Outside the table**: Calculate turnover by region in cell `M8` and fill the formula down:
+
+    ```excel
+    =SUMIF(Sales[Region];L8;Sales[Turnover])
+    ```
+
+18. **Outside the table**: Create a chart showing total turnover by region.
+
+Solution:
+
+![](../images/excel_sales_table_solution.png){fig-align="center" width="100%"}
 
 ## Summary and announcements
-
-Possible reflection questions:
-
-- Why can `XLOOKUP` return a value to the left while `VLOOKUP` cannot?
-- Why does an Excel Table use `SUBTOTAL` rather than `SUM` in its Total Row?
-- What advantage does `Sales[Turnover]` provide compared with a fixed cell range?
-- What does `[@Turnover]` mean?
-
 
 Take-home work:
 
