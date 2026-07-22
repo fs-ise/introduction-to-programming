@@ -1,0 +1,5 @@
+---
+title: "Materials"
+---
+
+{{< include data/materials.generated.md >}}

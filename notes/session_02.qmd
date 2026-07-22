@@ -215,11 +215,13 @@ Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution.
 This one is similar to the client lookup.
 We want to enter different StudentIDs and then the lookup functions should retrieve the different test scores and do the calculations of final grades.
 
+::: {.callout-important title="Error in Excel sheet"}
+The calculation of the homework contribution is not yet updated in `Excel_Exercises_in_class_session_1_solutions.xlsx` (to use the AVERAGE()/15 x 10). A more recent version of Excel is needed for that.
+:::
+
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
-
-**Note: The calculation of the homework contribution is not yet updated in `Excel_Exercises_in_class_session_1_solutions.xlsx` (to use the AVERAGE()/15 x 10). A more recent version of Excel is needed for that.**
 
 ## Slides 38–39 — Introduction to Excel Tables
 

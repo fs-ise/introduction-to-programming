@@ -1,6 +1,7 @@
 project:
   type: website
   output-dir: _site
+  pre-render: python scripts/generate_materials_overview.py
 metadata-files:
   - course.yml
 website:
@@ -19,8 +20,8 @@ website:
         href: objectives.qmd
       - text: Teaching notes
         href: teaching_notes.qmd
-      - text: Resources
-        href: resources.qmd
+      - text: Materials
+        href: materials.qmd
 
 format:
   html:

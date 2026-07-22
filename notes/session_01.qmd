@@ -195,10 +195,16 @@ Prefer nested `IF` functions for the VIP-status exercise (in part II).
 ## Slide 25 — Installment loan (take-home exercise)
 
 ::: {.teaching-file}
-[Take-home exercise]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment
+[Take-home exercise]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment | Annuity
 :::
 
-- Illustrate the repayment logic using the visualization: [materials/loans.html](../materials/loans.qmd)
+- Illustrate the repayment logic using the visualization: [materials/loans.html](../materials/loans.qmd).
+  We could imagine that a loan adviser uses a similar interface to discuss this with her clients.
+  We also note that there are some parameters that we can adjust (principal, interst, payment periods) and others that are calcualted (repayments).
+  It's the same principle in this interface and in your Excel sheet.
+
+![](../images/excel_loans_illustration.png){fig-align="center" width="40%"}
+
 - Work through the repayment logic on the board.
 - Students then transfer the calculation to Excel as a take-home exercise.
 - From period 2 onward, repayment requires an `IF` condition.
@@ -213,14 +219,6 @@ The repayment equals the fixed repayment amount or, when the remaining debt is l
 - In the **annuity loan** task, the `annuity` should also be updated automatically.
 - Students should have a clear understanding of what the **data cells** (manually entered/modified parameters) and the **function cells** are. (similar to Hillier and Hillier: data/changing/output/objective cells)
 - Ask students to understand the `PMT(interest rate, term, loan amount)` function (payment).
-
-{{< include ../materials/_installment_loan.qmd >}}
-
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Annuity
-:::
-
-{{< include ../materials/_annuity_loan.qmd >}}
 
 ::: {.callout-note title="Understanding the difference between fixed installments and anuity loans"}
 With a fixed-principal installment loan, the principal is reduced more quickly at the beginning, which lowers the total interest paid. However, this also means that the initial payments are higher.
