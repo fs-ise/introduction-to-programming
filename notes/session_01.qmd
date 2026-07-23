@@ -4,8 +4,10 @@ session_id: session-01
 event_id: null
 ---
 
-| Time                 | Topic/activity                                             | Materials                                                            |
-| -------------------: | ---------------------------------------------------------- | -------------------------------------------------------------------- |
+<br>
+
+| Time                 | Topic/activity                                               | Materials                                                                |
+| -------------------: | ------------------------------------------------------------ | ------------------------------------------------------------------------ |
 | 0–15 min             | Introduction and organization                              | [Introductory slides](../slides/session_00_orga.qmd) (separate)      |
 | 15–35 min            | Excel basics, formulas, and cell references                | Slides 1–6<br>                                                       |
 | 35–55 min            | Future-value calculation                                   | Slides 7–10<br>Slides 7 and 10: Exercise **Future value**            |
@@ -19,6 +21,8 @@ event_id: null
 | 70–82 min            | Annuity loans and the `PMT` function                       | Slide 26: Exercise **Annuity loan**                                  |
 | 82–90 min            | Exam-result classification and wrap-up                     | Slides 27–28<br>Slide 27: Exercise **Exam result**                   |
 
+: {tbl-colwidths="[20,40,40]"}
+
 ## Slide 1 - Excel basics
 
 ::: {.teaching-file}
@@ -31,7 +35,7 @@ event_id: null
 - Entering formulas in the cell or the bar
 - Selecting cells by typing "=A1+A2" vs. by clicking on cells
 - Some cells are used for entering data, others for formulas (we need to understand which type of cell is needed)
-- Illustrate data types: Add "€" to the numbers and show that the SUM/EXP no longer work. 
+- Illustrate data types: Add "€" to the numbers and show that the SUM/EXP no longer work.
 - Anticipate changes (based on discussions/feedback), extensions of Excel sheets (need for proper design).
   Use clear labels (e.g., "Price of coffee", "Price of tea" instead of Number 1, Number 2).
   Make sure that formulas continue to work correctly if we add items (like "Price of water").
@@ -72,7 +76,7 @@ Use keyboard instead of clicking (prepare/mention shortcuts)
 
 Solution:
 
-![](../images/excel_cost_profit_calculation.png){fig-align="center" width="80%"}
+![](../images/excel_cost_profit_calculation.png){fig-align="center" width="100%"}
 
 ## Slide 10 - Future Value (second exercise)
 
@@ -102,7 +106,7 @@ Solution:
 
 ## Slide 16 — Formula syntax and functions
 
-- Show graphical Formulas selection (areas: ...)
+- Show graphical Formulas selection (areas: financial, logical, text, ...)
 - Demonstrate the function-argument separator.
 - Examples (at the bottom): how many parameters are there in each function?
 - Explicitly distinguish between a **formula** and a **function**.
@@ -132,6 +136,12 @@ This ensures that language is set to English and parameters are separated by `,`
 
 ## Slide 18 - Formula illustration
 
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: simple
+:::
+
+Add the `=SUM()` at the end, using a range of cells:
+
 ![](../images/excel_formula_illustration.png){fig-align="center" width="90%"}
 
 ## Slide 19 - Sales statistics
@@ -156,31 +166,23 @@ Before or after the break.
 
 ![](../images/excel_moving_average_solution.png){fig-align="center" width="90%"}
 
-## Slide 21 - IF Dialogue
-
-Opens when selecting ribbon Formulas, Logical, IF
-
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
 
+## Slide 22 - IF Dialogue
+
+Opens when selecting ribbon Formulas, Logical, IF
+
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: simple
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: conditional_cost
 :::
+
+Task: introduce conditional fixed cost and calculate annual profit (based on conditional fixed costs).
 
 Solution:
 
-![](../images/excel_cost_revenue_if_simple.png){fig-align="center" width="90%"}
-
----
-
-::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Cost_Revenue
-:::
-
-Solution:
-
-![](../images/excel_cost_revenue_if_nested.png){fig-align="center" width="90%"}
+![](../images/excel_cost_revenue_conditional_if.png){fig-align="center" width="90%"}
 
 ## Slides 23–24 — VIP classification and credits
 
@@ -192,7 +194,7 @@ Prefer nested `IF` functions for the VIP-status exercise (in part II).
 
 ![](../images/excel_vip_solution.png)
 
-## Slide 25 — Installment loan (Homework)
+## Slide 25/26 — Installment/annuity loans (Homework)
 
 ::: {.teaching-file}
 [Homework]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment | Annuity
@@ -242,7 +244,9 @@ Solve together (before revealing slide 28, which contains the solutions).
 
 ![](../images/excel_special_if_solution.png)
 
-## Summary and announcements (next session)
+<br><br><br>
+
+### Summary and announcements (next session)
 
 ::: {.callout-tip title="Notes for improvement"}
 Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.

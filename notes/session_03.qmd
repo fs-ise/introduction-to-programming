@@ -4,8 +4,11 @@ session_id: session-03
 event_id: null
 ---
 
+<br>
+
 ::: {.callout-important title="TODO"}
 - Add screenshots of the completed PivotTables where marked with **SCREENSHOT**.
+- Check document for TODOs
 :::
 
 | Time      | Topic/activity                                               | Materials                                      |
@@ -21,6 +24,8 @@ event_id: null
 | 40–55 min | Calculated fields and date grouping                           | Slides 74–75                                   |
 | 55–85 min | Complete the **Exporter** exercise                            | Slide 76; `Exporter.xlsx`                      |
 | 85–90 min | Introduce the **Expeditioner** exercise                       | Slide 78; `Exped.xlsx`                         |
+
+: {tbl-colwidths="[20,40,40]"}
 
 ## Homework review: Christmas gift
 
@@ -46,6 +51,8 @@ Review:
 - Lock the lookup ranges before copying the formulas.
 
 ![](../images/excel_gift_vlookup.png){fig-align="center" width="90%"}
+
+{{< pagebreak >}}
 
 ### `XLOOKUP` solution
 
@@ -84,6 +91,8 @@ For the illustrated student, check:
 - Final course grade: `73.61`
 
 ![](../images/excel_grading_vlookup.png){fig-align="center" width="90%"}
+
+{{< pagebreak >}}
 
 ### `XLOOKUP` solution
 
@@ -523,16 +532,6 @@ Skills required:
 TBD: **SCREENSHOT:** Initial Expeditioner PivotTable and completed answers.
 
 ## Summary and announcements
-
-Key concepts:
-
-- Dimensions describe how facts are grouped or filtered.
-- Facts are numerical measures that can be aggregated.
-- Rows and columns define the visible two-dimensional slice.
-- Filters fix additional dimensions.
-- Value Field Settings control the aggregation.
-- Show Values As controls how aggregated values are displayed.
-- Date fields can be grouped into months, quarters, and years.
 
 Homework:
 

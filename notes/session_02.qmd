@@ -4,12 +4,12 @@ session_id: session-02
 event_id: null
 ---
 
+<br>
+
 ::: {.callout-important title="TODO"}
 - Check/test the vlookup limitation demo (xlookup)
 - PR: Importance of HLOOKUP/approximate matching? - update materials accordingly
 :::
-
-Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 
 | Time                 | Topic/activity                                               | Materials                                                                |
 | -------------------: | ------------------------------------------------------------ | ------------------------------------------------------------------------ |
@@ -25,6 +25,9 @@ Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 | 65–75 min            | Introduce structured references                              | Slides 47–50                                                             |
 | 75–90 min            | Begin the Excel Tables exercise                              | Slides 51–52: Exercise **Excel tables**; `Sales_Table.xlsx`              |
 
+: {tbl-colwidths="[20,40,40]"}
+
+Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 
 ## Homework review: DAX moving averages
 
@@ -48,8 +51,8 @@ Start by briefly explaining the task (again):
 
 Explain the payment schema introduced in the previous session.
 
-Q: Why should the fixed repayment amount not be copied through all 20 periods?  
-A: The final repayment must not exceed the remaining debt.
+- Q: Why should the fixed repayment amount not be copied through all 20 periods?
+- A: The final repayment must not exceed the remaining debt.
 
 Show how changes in `Loan amount`, `Interest rate` and `Redemption` are automatically reflected in the payments.
 This could be used in a What-if or scenario analysis.
@@ -67,7 +70,7 @@ This could be used in a What-if or scenario analysis.
 
 ![](../images/excel_installment_loan_2_solution.png){fig-align="center" width="90%"}
 
-Add charts for the payments of installment loans and annuity loans.  
+Add charts for the payments of installment loans and annuity loans.
 Briefly contrast the declining payments of a fixed-principal loan with the constant payments of an annuity loan.
 
 
@@ -83,10 +86,10 @@ Start with the practical example:
 [In-class demo]{.teaching-label .teaching-label-demo} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Bar_Sales
 :::
 
-- Scroll down (hide the price list initially)
-- Start with a simple approach: filling in raw data. Highlight that this is not how a restaurant works.
+- Scroll down (hide the price list initially) to start with a simple approach: filling in raw data
+- Highlight that this is not how a restaurant works.
   It does not make sense that every sale can have a different price for the same product (the unit price should not be in the sales table).
-- Common problem: some data (such as unit prices) should not be entered in the sales table, but they should be taken from the menu.
+- Common problem: some data (unit prices) should not be entered in the sales table, but taken from the menu.
 - Scroll up to the price list and explain.
 - Instead of copying data from the price list, we would like to use a formula: VLOOKUP
 
@@ -97,7 +100,7 @@ Whiteboard:
 ```
 
 - Explain parameters (range_lookup: FALSE for exact match; for TRUE/approximate matches, the first column must be sorted in ascending order)
-- Write VLOOKUP formula 
+- Write VLOOKUP formula
 - Ask about the need for absolute and relative references
 - Calculate total price
 - Copy formulas down
@@ -126,6 +129,29 @@ Key points:
 
 ## Slide 33 — `XLOOKUP`
 
+::: {.callout-important title="Limitation of VLOOKUP"}
+TODO: table is probably the Bar sales. - switch the price list (add an ID as the first column for plausibility)
+
+Funny illustration: With VLOOKUP, Microsoft built a formula that can only look to the right. This is why they needed to build the XLOOKUP 😊
+
+"VLOOKUP can only return values from columns to the right of the lookup column"
+
+Rearrange the columns in the lookup table (**TODO: CLARIFY WHICH ONE**) and show that the formula may fail or return the wrong column. This motivates the introduction of `XLOOKUP`.
+
+Demonstration:
+
+- First solve a lookup with `VLOOKUP`.
+- Move the return column to the left of the lookup column.
+- Show why `VLOOKUP` no longer works.
+- Replace it with `XLOOKUP`.
+
+Example:
+
+```text
+=XLOOKUP(D11,$B$3:$B$7,$C$3:$C$7)
+```
+:::
+
 General form:
 
 ```text
@@ -143,24 +169,6 @@ Contrast it with `VLOOKUP`:
 | May break when columns are inserted or reordered        | More robust to structural changes                |
 
 
-::: {.callout-important title="Limitation of VLOOKUP"}
-TODO: table is probably the Bar sales. - switch the price list (add an ID as the first column for plausibility)
-
-Rearrange the columns in the lookup table (**TODO: CLARIFY WHICH ONE**) and show that the formula may fail or return the wrong column. This motivates the introduction of `XLOOKUP`.
-
-Demonstration:
-
-- First solve a lookup with `VLOOKUP`.
-- Move the return column to the left of the lookup column.
-- Show why `VLOOKUP` no longer works.
-- Replace it with `XLOOKUP`.
-
-Example:
-
-```text
-=XLOOKUP(D11,$B$3:$B$7,$C$3:$C$7)
-```
-:::
 
 ## Slide 34 — Client lookup
 
