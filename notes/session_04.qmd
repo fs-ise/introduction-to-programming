@@ -6,13 +6,31 @@ event_id: null
 
 ### Session 4 — Python and pandas basics
 
+TODO:
+
+- add spyder setup
+- spytertest.py (in canvas) mit studis am Anfang der python session step-by-step durchgehen
+- use Anaconda (be prepared to answer questions)
+- use setwd() for spyder. prepare to explain os.chdir(). Include an explicit task/test.
+- check pandas version? 3.0?
+- TBD: quarto-include code fragments? add explanations (asides?)
+
+Notes:
+
+- Note: `1_Pandas.py` - contains code for all slides (TODO: split)
+- p.13: abhängig von Zeit: in-session or homework
+- Aufgaben: komplett (soweit die Zeit da ist)
+- Bei Zeitnot: Aufgaben nach Haus geben
+- Python Lösungen: werden von Tutoren besprochen
+- See also `Versicherungsvertreter.py` and `Versicherungsvertreter.xslx`
+
+
+
 **Introductory discussion**
 
 - Prior programming experience?
 - Why go beyond Excel and use Python? (advanced analytics: Regression, prediction, ML, AI, ...)
 - Interpreted: vs. compiled language
-
-TBD: quarto-include code fragments? add explanations (asides?)
 
 Python:
 
@@ -23,24 +41,6 @@ Python:
   This means we can really "stand on the shoulders of giants". Pretty amazing.
 
 - Why shouldn't we just use ChatGPT? (prompt adequately, validate and improve, Python: effective prompting possible)
-
-TODO: add spyder setup
-TODO: use Anaconda (be prepared to answer questions)
-spytertest.py (in canvas) mit studis am Anfang der python session step-by-step durchgehen
-use setwd() for spyder
-TODO: check pandas version? 3.0?
-TODO: prepare to explain os.chdir(). Include an explicit task/test.
-
-See `1_Pandas.py` - contains code for all slides (TODO: split)
-
-p.13: abhängig von Zeit: in-session or homework
-
-Aufgaben: komplett (soweit die Zeit da ist)
-Bei Zeitnot: Aufgaben nach Haus geben
-Python Lösungen: werden von Tutoren besprochen
-
-TODO: see also `Versicherungsvertreter.py` and `Versicherungsvertreter.xslx`
-
 
 Prepare the Python environment before the session and plan to complete as many exercises as time permits.
 
