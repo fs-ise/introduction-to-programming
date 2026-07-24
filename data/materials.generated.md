@@ -26,7 +26,6 @@
 
 | Material | Type |
 |---|---|
-| [1 Pandas](materials/session_04/1_Pandas.py) | PY file |
 | [CircleArea1](materials/session_04/CircleArea1.py) | PY file |
 | [Countries](materials/session_04/countries.py) | PY file |
 | [FutureValue](materials/session_04/FutureValue.py) | PY file |

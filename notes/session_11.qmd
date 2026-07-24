@@ -21,13 +21,62 @@ Keep API examples non-executable in rendered notes and select them according to 
 
 ## Exercises
 
-| Page(s) | Exercise                    | Summary                                                                                                                                   | Files                       | In-class / take-home |
+| Slide(s) | Exercise                    | Summary                                                                                                                                   | Files                       | In-class / take-home |
 | ------: | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | -------------------- |
 |     143 | Stock-market API            | Retrieve Mercedes-Benz data through an API, plot closing prices, and calculate and visualize high/low returns.                            | `MercedesBenz1.py`          |                      |
 |     148 | Stock-price collection      | Retrieve evening closing prices for four stocks and append them with the date to a persistent CSV file.                                   | `Stocks.py`<br>`Stocks.csv` |                      |
 |     152 | JSON data retrieval         | Rewrite the Mercedes-Benz exercise to process the API response as JSON.                                                                   | `MercedesBenz2.py`          |                      |
 |     155 | Cryptocurrency API analysis | Retrieve Bitcoin and Ethereum prices, convert timestamps, calculate returns, variances, and correlation, and visualize the return series. | `Cryptocurrencies.py`       |                      |
 |     159 | Weather API                 | Configure an Open-Meteo forecast, retrieve it through the API, and process the resulting weather data.                                    | —                           |                      |
+
+## Slide 137 — Calculate a moving average with a loop
+
+The loop calculates the mean of the preceding ten observations and writes it into the `MA10` column. The first ten positions remain empty because no complete ten-observation window is available.
+
+```python
+import pandas as pd
+
+data = pd.read_csv('Stockprice.csv')
+data.head()
+
+data['MA10'] = None
+n = 10
+
+for i in range(n, len(data)):
+    data.iloc[i, 2] = data.iloc[(i - n):i, 1].mean()
+
+data.head()
+data.head(15)
+
+data.plot(
+    y=['price', 'MA10'],
+    use_index=True,
+)
+```
+
+## Slide 138 — Define a semivariance function
+
+Semivariance includes only observations below the mean. While migrating this fragment, the condition was corrected to compare the observed value (rather than its row position) with the average, and the accumulator was renamed so it does not shadow Python's built-in `sum()`.
+
+```python
+def semivariance(values):
+    average = values.mean()
+    squared_deviation_sum = 0
+    count = 0
+
+    for i in range(len(values)):
+        if values.iloc[i] < average:
+            squared_deviation_sum += (
+                values.iloc[i] - average
+            ) ** 2
+            count += 1
+
+    semivar = squared_deviation_sum / count
+    return semivar
+
+
+semivariance(data['price'])
+```
 
 ## General teaching notes
 
@@ -53,7 +102,7 @@ Do not execute API scripts while rendering these notes. They may require network
 The pandas portion of the exam is “pure pandas”; it does not combine pandas with the Python topics taught here.
 :::
 
-## Page 143 — Stock-market API
+## Slide 143 — Stock-market API
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_11/MercedesBenz1.py`](../materials/session_11/MercedesBenz1.py){.teaching-button .teaching-button-exercise}
@@ -65,7 +114,7 @@ The pandas portion of the exam is “pure pandas”; it does not combine pandas 
 {{< include ../materials/session_11/MercedesBenz1.py >}}
 ```
 
-## Page 148 — Stock-price collection
+## Slide 148 — Stock-price collection
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_11/Stocks.py`](../materials/session_11/Stocks.py){.teaching-button .teaching-button-exercise}
@@ -85,7 +134,7 @@ The pandas portion of the exam is “pure pandas”; it does not combine pandas 
 ☕ Break — 10 minutes
 :::
 
-## Page 152 — JSON data retrieval
+## Slide 152 — JSON data retrieval
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_11/MercedesBenz2.py`](../materials/session_11/MercedesBenz2.py){.teaching-button .teaching-button-exercise}
@@ -97,7 +146,7 @@ The pandas portion of the exam is “pure pandas”; it does not combine pandas 
 {{< include ../materials/session_11/MercedesBenz2.py >}}
 ```
 
-## Page 155 — Cryptocurrency API analysis
+## Slide 155 — Cryptocurrency API analysis
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_11/Cryptocurrencies.py`](../materials/session_11/Cryptocurrencies.py){.teaching-button .teaching-button-exercise}
@@ -109,7 +158,7 @@ The pandas portion of the exam is “pure pandas”; it does not combine pandas 
 {{< include ../materials/session_11/Cryptocurrencies.py >}}
 ```
 
-## Page 159 — Weather API
+## Slide 159 — Weather API
 
 - Configure and process the weather API example described in the exercise table.
 - No source filename is provided in the existing notes or material inventory.

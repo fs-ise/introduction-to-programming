@@ -23,12 +23,40 @@ Explain loop mechanics with sums and products, then distinguish the planned in-c
 
 ## Exercises
 
-| Page(s) | Exercise      | Summary                                                                                                                                    | Files                                                                                                                | In-class / take-home |
+| Slide(s) | Exercise      | Summary                                                                                                                                    | Files                                                                                                                | In-class / take-home |
 | ------: | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- | -------------------- |
 | 110–111 | `for` loops   | Repeat messages, calculate an average, identify multiples, generate Fibonacci numbers and random frequencies, and print a letter triangle. | `Message.py`<br>`Average.py`<br>`Tens.py`<br>`MultipleSum.py`<br>`Fibonacci.py`<br>`Frequencies.py`<br>`Triangle.py` |                      |
 | 113–114 | `while` loops | Build a shopping list, implement two guessing games, extend the dice game, and generate a loan-repayment history.                          | `ShoppingList.py`<br>`Guess1.py`<br>`Guess2.py`<br>`Dicegame2.py`<br>`Loan.py`                                       |                      |
 
-## Pages 110–111 — `for` loops
+## Slide 109 — Ranges and `for` loops
+
+`range()` accepts a start, an exclusive stop, and an optional step.
+
+```python
+list(range(10))
+list(range(6, 10))
+list(range(1, 10, 2))
+```
+
+```python
+for i in range(3):
+    print(i)
+```
+
+```python
+for i in [2, 9, 7]:
+    x = i * 2
+    print(x)
+```
+
+```python
+for i in ['apple', 'orange']:
+    print(i)
+```
+
+`for` can iterate over ranges and directly over list elements.
+
+## Slides 110–111 — `for` loops
 
 ::: {.teaching-file}
 [In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_09/for_demo.py`](../materials/session_09/for_demo.py){.teaching-button .teaching-button-demo}
@@ -123,7 +151,27 @@ product: ∏ᵢⁿ
 ☕ Break — 10 minutes
 :::
 
-## Pages 113–114 — `while` loops
+## Slide 112 — `while` loops
+
+A `while` loop repeats while its condition remains true. Its body must change the relevant state to avoid an infinite loop.
+
+```python
+count = 0
+
+while count < 4:
+    print("The count is:", count)
+    count = count + 1
+```
+
+```python
+names = ['Ann', 'Tom', 'Peter', 'Jens', 'Sue']
+
+while names[0] != 'Jens':
+    print(names[0])
+    names.remove(names[0])
+```
+
+## Slides 113–114 — `while` loops
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/ShoppingList.py`](../materials/session_09/ShoppingList.py){.teaching-button .teaching-button-exercise}

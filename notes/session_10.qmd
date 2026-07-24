@@ -24,13 +24,35 @@ Cover loop termination, functions, and dictionaries, while retaining the planned
 
 ## Exercises
 
-| Page(s) | Exercise                     | Summary                                                                                                                                        | Files                                                                                                        | In-class / take-home |
+| Slide(s) | Exercise                     | Summary                                                                                                                                        | Files                                                                                                        | In-class / take-home |
 | ------: | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------- |
 |     116 | Loop termination             | Stop an otherwise infinite loop when zero is entered and add up to three attempts to the dice game.                                            | `StopLoop.py`<br>`Dicegame3.py`                                                                              |                      |
 | 121–122 | Functions                    | Create functions for digit counting, list multiplication, Harshad numbers, factorials, combinations, and a multistage slot-machine simulation. | `CountDigits.py`<br>`Listmult.py`<br>`Harshad.py`<br>`Factorial.py`<br>`Combinations.py`<br>`SlotMachine.py` |                      |
 |     133 | Dictionaries and persistence | Maintain a nested dictionary of friends, modify its contents, and save and reload it from a file.                                              | `Friends.py`<br>`friends.db`                                                                                 |                      |
 
-## Page 116 — Loop termination
+## Slide 115 — `break` and `continue`
+
+`break` terminates the loop, whereas `continue` skips the rest of the current iteration.
+
+```python
+for val in "string":
+    if val == "i":
+        break
+    print(val)
+
+print("The end")
+```
+
+```python
+for val in "string":
+    if val == "i":
+        continue
+    print(val)
+
+print("The end")
+```
+
+## Slide 116 — Loop termination
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/StopLoop.py`](../materials/session_10/StopLoop.py){.teaching-button .teaching-button-exercise}
@@ -58,7 +80,79 @@ Cover loop termination, functions, and dictionaries, while retaining the planned
 An additional insurance exercise is shared by PR. TODO: Add its mapping when the material is available.
 :::
 
-## Pages 121–122 — Functions
+## Slide 118 — Defining functions
+
+Parameters receive call arguments, `return` sends a value to the caller, and a function call runs the reusable body.
+
+```python
+def square(x):
+    sq = x * x
+    return sq
+
+
+x = 2
+y = square(x)
+print(x, y)
+```
+
+```python
+def add(x, y):
+    return x + y
+
+
+x = 2
+y = 3
+z = add(x, y)
+print(x, y, z)
+```
+
+```python
+def fibonacci(n):
+    fib = [0, 1]
+
+    for i in range(n):
+        fib.append(fib[-2] + fib[-1])
+
+    return fib
+
+
+n = int(input("How many numbers: "))
+print(fibonacci(n))
+```
+
+## Slide 120 — Reusing functions
+
+One function can call another, and defining reusable functions reduces duplication.
+
+```python
+def square(x):
+    sq = x * x
+    return sq
+
+
+def sumofSquares(numberlist):
+    sum_ = 0
+
+    for i in numberlist:
+        squaredValue = square(i)
+        sum_ += squaredValue
+
+    return sum_
+
+
+a = 2
+b = 3
+
+c2 = square(a) + square(b)
+print(c2)
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+total = sumofSquares(numbers)
+
+print("Sum of the Square of List of Numbers:", total)
+```
+
+## Slides 121–122 — Functions
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/CountDigits.py`](../materials/session_10/CountDigits.py){.teaching-button .teaching-button-exercise}
@@ -127,11 +221,193 @@ An additional insurance exercise is shared by PR. TODO: Add its mapping when the
 At least one exam exercise will cover functions.
 :::
 
+## Slide 125 — Using an external module
+
+The module name acts as a namespace prefix.
+
+```python
+import math
+
+print(math.sin(5))
+print(math.sin(math.pi))
+```
+
+## Slide 127 — Creating a dictionary
+
+Dictionaries use curly braces to associate unique keys with values.
+
+```python
+dict1 = {
+    'Peter': 55,
+    'Mary': 40,
+    'Bob': 34,
+}
+
+dict1
+```
+
+## Slide 128 — Accessing and modifying dictionaries
+
+The second and third expressions below intentionally raise `KeyError` because those keys do not exist.
+
+```python
+dict1['Mary']
+dict1['Hans']
+dict1[0]
+```
+
+```python
+a = 'Peter'
+dict1[a]
+```
+
+```python
+dict1['Alice'] = 55
+dict1
+```
+
+```python
+dict1['Mary'] = 41
+dict1
+```
+
+```python
+stockprices = {
+    'Date': [
+        '1.1.2021',
+        '2.1.2021',
+        '1.1.2021',
+        '2.1.2021',
+    ],
+    'BMW': [89, 91, 95, 92],
+    'Telekom': [12, 10, 14, 17],
+    'SAP': [114, 119, 125, 130],
+}
+```
+
+These examples demonstrate lookup, insertion, replacement, and list values.
+
+## Slide 129 — Complex and nested dictionaries
+
+Values can themselves be dictionaries or lists, and keys may be strings or numbers.
+
+```python
+contacts = {
+    'name': 'Alice',
+    'age': 30,
+    'address': {
+        'street': '123 Main St',
+        'city': 'Wonderland',
+        'zip': '12345',
+    },
+    'phone_numbers': [
+        {
+            'type': 'home',
+            'number': '123-456-7890',
+        },
+        {
+            'type': 'work',
+            'number': '987-654-3210',
+        },
+    ],
+}
+```
+
+```python
+product_details = {
+    'product_id': 101,
+    'name': 'Laptop',
+    'price': 799.99,
+    'in_stock': True,
+    'tags': ['electronics', 'computer'],
+}
+```
+
+```python
+item_quantities = {
+    1: 50,
+    2: 30,
+    3: 75,
+}
+```
+
+```python
+students = {
+    'student1': {
+        'name': 'John',
+        'age': 22,
+        'courses': ['Math', 'Science'],
+    },
+    'student2': {
+        'name': 'Jane',
+        'age': 24,
+        'courses': ['History', 'Literature'],
+    },
+}
+```
+
+## Slide 130 — Accessing nested dictionary values
+
+Use successive keys to access nested values; a list stored inside a dictionary can be modified with its list methods.
+
+```python
+students['student1']
+students['student1']['age']
+students['student1']['courses']
+students['student1']['courses'][0]
+```
+
+```python
+students['student1']['haircolor'] = 'blonde'
+students['student1']['courses'].append('Informatics')
+
+students['student1']
+```
+
+## Slide 131 — Adding, changing, and deleting nested data
+
+```python
+students['student3'] = {
+    'name': 'Peter',
+    'age': 25,
+    'courses': ['Finance'],
+}
+
+students['student3']['weight'] = 23
+```
+
+```python
+del students['student3']['weight']
+del students['student3']
+```
+
+```python
+students['student2']['courses'].append('Informatics')
+students['student1']['courses'].remove('Math')
+students['student1'] = {'age': 25}
+```
+
+The final assignment replaces the complete `student1` dictionary rather than changing only its age.
+
+## Slide 132 — Save and load dictionaries with JSON
+
+Write mode creates or replaces the file and `json.dump()` serializes the dictionary; read mode opens it and `json.load()` reconstructs the data.
+
+```python
+import json
+
+with open('students.db', 'w', encoding='utf-8') as file:
+    json.dump(students, file)
+
+with open('students.db', 'r', encoding='utf-8') as file:
+    students = json.load(file)
+```
+
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
 
-## Page 133 — Dictionaries and persistence
+## Slide 133 — Dictionaries and persistence
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/Friends.py`](../materials/session_10/Friends.py){.teaching-button .teaching-button-exercise}

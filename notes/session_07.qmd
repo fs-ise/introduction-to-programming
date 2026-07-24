@@ -8,50 +8,151 @@ event_id: null
 
 Python-Teil: Vorsichtig vorgehen (möglichst viele Studis mitnehmen)
 
-Pivot: see `2_Pivot.py`
-
-See `4_Python.py` (contains materials for the following sessions: TODDO: split.)
-
-pp. 69: Prediction: `3_Predictions.py`
-
-p.84/85: 4,5,6: homework
-
-p.82 solution:
-
-| Value    | Type        | To Type | Using function      | New value     |
-| -------- | ----------- | ------- | ------------------- | ------------- |
-| `"3"`    | **`str`**   | `int`   | **`int("3")`**      | **`3`**       |
-| `"3.14"` | **`str`**   | `float` | **`float("3.14")`** | **`3.14`**    |
-| `3`      | **`int`**   | `str`   | **`str(3)`**        | **`"3"`**     |
-| `3.14`   | **`float`** | `str`   | **`str(3.14)`**     | **`"3.14"`**  |
-| `False`  | **`bool`**  | `str`   | **`str(False)`**    | **`"False"`** |
-| `"True"` | **`str`**   | `bool`  | **`bool("True")`**  | **`True`**    |
-| `17.75`  | **`float`** | `int`   | **`int(17.75)`**    | **`17`**      |
-| `"3"`    | **`str`**   | `float` | **`float("3")`**    | **`3.0`**     |
-
-
-Proceed carefully through the Python material so that as many students as possible can follow.
-
 ## Exercises
 
-| Page(s) | Exercise                   | Summary                                                                                                                            | Files                                                                                                   | In-class / take-home |
+| Slide(s) | Exercise                   | Summary                                                                                                                            | Files                                                                                                   | In-class / take-home |
 | ------: | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------------- |
 |      67 | Pivot tables               | Construct insurance pivot tables with multiple grouping dimensions, totals, filters, and a bar chart.                              | `insurance.xlsx`<br>`insurance2.py`                                                                     |                      |
 |   74–75 | Chipotle analysis          | Inspect the dataset; calculate orders, quantities, prices, and revenue; identify popular items; and create charts.                 | `Chipotle.csv`<br>`Chipotle.py`                                                                         |                      |
 |   76–77 | Florida housing analysis   | Calculate and analyze profits, compare agencies and house characteristics, and build three predictive models.                      | `Homes_Florida.xlsx`<br>`Homes_Florida.py`                                                              |                      |
 |   84–85 | Input and formula programs | Create interactive programs for circle area, currencies, geographic distance, travel time, fuel consumption, and annuity payments. | `CircleArea2.py`<br>`Currency.py`<br>`Distance.py`<br>`Traveltime.py`<br>`Fuel.py`<br>`AnnuityLoan1.py` |                      |
 
-## Page 67 — Pivot tables
+## Slide 58 — Load the sales data and create a pivot table
 
-::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_07/2_Pivot.py`](../materials/session_07/2_Pivot.py){.teaching-button .teaching-button-demo}
-:::
+The additional `shape` and column-name checks inspect the dataset before constructing the pivot table.
 
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_07/2_Pivot.py >}}
+```python
+import pandas as pd
+
+sales = pd.read_excel('Sales.xlsx')
+print(sales.shape)
+sales.head()
+list(sales)
+
+pd.pivot_table(
+    sales,
+    index='Region',
+    values='Turnover',
+    aggfunc='sum',
+)
 ```
+
+## Slide 59 — Filter the data before pivoting
+
+Both filtering forms are equivalent and prevent actual and target values from being aggregated together.
+
+```python
+pd.pivot_table(
+    sales.loc[sales.Category == 'Actual'],
+    index='Region',
+    values='Turnover',
+    aggfunc='sum',
+)
+
+pd.pivot_table(
+    sales[sales.Category == 'Actual'],
+    index='Region',
+    values='Turnover',
+    aggfunc='sum',
+)
+```
+
+## Slide 60 — Apply multiple aggregation functions
+
+`aggfunc` can contain multiple aggregation functions.
+
+```python
+pd.pivot_table(
+    sales[sales.Category == 'Actual'],
+    index='Region',
+    values='Turnover',
+    aggfunc=['sum', 'mean', 'std'],
+)
+```
+
+## Slide 61 — Add products as a column dimension
+
+First, compare an unfiltered pivot with the filtered lecture example. `columns='Product'` introduces a second pivot-table dimension.
+
+```python
+pd.pivot_table(
+    sales,
+    index='Region',
+    columns='Product',
+    values='Turnover',
+    aggfunc='sum',
+)
+```
+
+```python
+pd.pivot_table(
+    sales[sales.Category == 'Actual'],
+    index='Region',
+    columns='Product',
+    values='Turnover',
+    aggfunc='sum',
+)
+```
+
+## Slide 62 — Combine multiple filters
+
+Parentheses are required around the individual Pandas conditions.
+
+```python
+pd.pivot_table(
+    sales[
+        (sales.Category == 'Actual')
+        & (sales.Year == 2020)
+    ],
+    index='Region',
+    columns='Product',
+    values='Turnover',
+    aggfunc='sum',
+)
+```
+
+## Slide 63 — Store and extend a pivot table
+
+The pivot table is a DataFrame and can therefore be stored, summed, and extended with a total row.
+
+```python
+pivot_df = pd.pivot_table(
+    sales[
+        (sales.Category == 'Actual')
+        & (sales.Year == 2020)
+    ],
+    index='Region',
+    columns='Product',
+    values='Turnover',
+    aggfunc='sum',
+)
+
+pivot_df.sum()
+pivot_df.loc['Total'] = pivot_df.sum()
+print(pivot_df)
+```
+
+## Slide 64 — Plot a pivot table
+
+```python
+pivot_df.plot(kind='bar')
+```
+
+## Slide 65 — Use multiple row dimensions
+
+Passing a list to `index` creates a hierarchical row index.
+
+```python
+pd.pivot_table(
+    sales[sales.Category == 'Actual'],
+    index=['Year', 'Region'],
+    columns='Product',
+    values='Turnover',
+    aggfunc='sum',
+)
+```
+
+## Slide 67 — Pivot tables
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
@@ -67,23 +168,87 @@ Proceed carefully through the Python material so that as many students as possib
 {{< include ../materials/session_07/insurance2.py >}}
 ```
 
-- Use `2_Pivot.py` while introducing pivoting.
 
-## Page 69 — Prediction
+## Slides 68–69 — Prediction concepts
 
-::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_07/3_Predictions.py`](../materials/session_07/3_Predictions.py){.teaching-button .teaching-button-demo}
-:::
+Input variables describe the observations, while the target variable is the value to predict. A predictive model learns their relationship; prediction error measures how closely its predictions match known targets. Scikit-learn uses a standardized workflow: construct an estimator, fit it, predict, and evaluate.
 
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_07/3_Predictions.py >}}
+## Slide 70 — Prepare input and output data
+
+`x` contains the predictor variables and `y` contains the target variable. The following demonstrations are sequential and reuse these arrays.
+
+```python
+import pandas as pd
+
+students = pd.read_csv("Student_performance.csv")
+students.head()
+
+x = students.loc[
+    :,
+    [
+        'Hours_Studied',
+        'Sleep_Hours',
+        'Exercises_Practiced',
+    ],
+].values
+
+y = students.loc[:, 'Performance'].values
 ```
 
-- Use the prediction example identified in the existing notes.
+## Slide 71 — Linear regression
 
-## Pages 74–75 — Chipotle analysis
+This constructs the estimator, fits it, predicts the known observations, calculates $R^2$, and finally predicts one new observation.
+
+```python
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+
+predictivemodel_reg = LinearRegression()
+predictivemodel_reg.fit(x, y)
+
+y_pred = predictivemodel_reg.predict(x)
+
+r2_score(y, y_pred)
+predictivemodel_reg.predict([[5, 5, 1]])
+```
+
+## Slide 72 — Random-forest regression
+
+`random_state=0` makes the model's random choices reproducible.
+
+```python
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import r2_score
+
+predictivemodel_rf = RandomForestRegressor(random_state=0)
+predictivemodel_rf.fit(x, y)
+
+y_pred = predictivemodel_rf.predict(x)
+
+r2_score(y, y_pred)
+predictivemodel_rf.predict([[5, 5, 1]])
+```
+
+## Slide 73 — Neural-network regression
+
+```python
+from sklearn.neural_network import MLPRegressor
+from sklearn.metrics import r2_score
+
+predictivemodel_net = MLPRegressor(
+    solver='lbfgs',
+    max_iter=3000,
+    random_state=0,
+)
+
+predictivemodel_net.fit(x, y)
+y_pred = predictivemodel_net.predict(x)
+
+r2_score(y, y_pred)
+predictivemodel_net.predict([[5, 5, 1]])
+```
+
+## Slides 74–75 — Chipotle analysis
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/Chipotle.csv`](../materials/data/Chipotle.csv){.teaching-button .teaching-button-exercise}
@@ -99,7 +264,7 @@ Proceed carefully through the Python material so that as many students as possib
 {{< include ../materials/session_07/Chipotle.py >}}
 ```
 
-## Pages 76–77 — Florida housing analysis
+## Slides 76–77 — Florida housing analysis
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/Homes_Florida.xlsx`](../materials/data/Homes_Florida.xlsx){.teaching-button .teaching-button-exercise}
@@ -119,7 +284,26 @@ Proceed carefully through the Python material so that as many students as possib
 ☕ Break — 10 minutes
 :::
 
-## Page 82 — Type conversion
+## Slide 80 — Integers and floating-point numbers
+
+Python distinguishes integers from floating-point numbers and may display very large or very small floating-point values in scientific notation.
+
+```python
+127
+
+x = -127
+x
+type(x)
+
+-236.4532
+12398741634341798.132
+
+x = 0.0000000000234234
+x
+type(x)
+```
+
+## Slide 82 — Type conversion
 
 Use this solution when reviewing conversions:
 
@@ -134,7 +318,30 @@ Use this solution when reviewing conversions:
 | `17.75`  | **`float`** | `int`   | **`int(17.75)`**    | **`17`**      |
 | `"3"`    | **`str`**   | `float` | **`float("3")`**    | **`3.0`**     |
 
-## Pages 84–85 — Interactive formula programs
+## Slide 83 — Keyboard input and type conversion
+
+`input()` returns a string. The final call uses `int()` to convert the second input explicitly.
+
+```python
+name = input("What's your name? ")
+print("Nice to meet you " + name + "!")
+
+age = input("Your age? ")
+print(
+    "So, you are already "
+    + age
+    + " years old, "
+    + name
+    + "!"
+)
+
+type(age)
+
+age = int(input("Your age? "))
+type(age)
+```
+
+## Slides 84–85 — Interactive formula programs
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/CircleArea2.py`](../materials/session_07/CircleArea2.py){.teaching-button .teaching-button-exercise}
@@ -192,23 +399,22 @@ Use this solution when reviewing conversions:
 TODO: `Traveltime.py` appears in the exercise table, but it is not present in the supplied material inventory. Do not create or substitute a file until the source is located.
 :::
 
-## General teaching notes
+## Slide 86 — Boolean values
 
-::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_07/4_Python.py`](../materials/session_07/4_Python.py){.teaching-button .teaching-button-demo}
-:::
+Boolean literals, comparisons, and conversion with `bool()` all produce truth values.
 
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_07/4_Python.py >}}
+```python
+12 > 11
+
+x = True
+x
+
+x = bool(1)
+x
+
+answer = (2 * 3 == 6)
+answer
 ```
-
-- `4_Python.py` contains material for this and following sessions.
-
-::: {.callout-note title="TODO"}
-Split `4_Python.py` by session or topic in a future revision; the existing notes do not provide an exact page mapping.
-:::
 
 ## Summary and announcements
 

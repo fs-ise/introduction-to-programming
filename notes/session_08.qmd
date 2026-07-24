@@ -22,13 +22,38 @@ Use the exercises to move from sequences to conditional logic, while keeping the
 
 ## Exercises
 
-| Page(s) | Exercise          | Summary                                                                                                                   | Files                                                                                                              | In-class / take-home |
+| Slide(s) | Exercise          | Summary                                                                                                                   | Files                                                                                                              | In-class / take-home |
 | ------: | ----------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------- |
 |   91–92 | Strings and IBAN  | Perform string inspection and manipulation and calculate an IBAN validation number from user input.                       | `String1.py`<br>`String2.py`<br>`String3.py`<br>`IBAN.py`                                                          |                      |
 |      97 | List operations   | Create, inspect, extend, reorder, and modify lists and calculate values derived from their elements.                      | `Listexercise1.py`<br>`Listexercise2.py`                                                                           |                      |
 | 105–107 | Conditional logic | Implement odd/even checks, discounts, rating-based interest, a dice game, temperature conversion, grades, and income tax. | `OddEven.py`<br>`Discount.py`<br>`AnnuityLoan2.py`<br>`Dicegame1.py`<br>`Temperature.py`<br>`Grade.py`<br>`Tax.py` |                      |
 
-## Pages 91–92 — Strings and IBAN
+## Slide 88 — Creating strings
+
+Single and double quotation marks both create strings and allow the other kind of quote to appear inside a value.
+
+```python
+var1 = 'Hello World!'
+var2 = "Python Programming"
+
+x = 'abc'
+type(x)
+
+y = '"A quotation!"'
+print(y)
+```
+
+## Slide 90 — Slicing strings
+
+The two complementary slices reconstruct the original string.
+
+```python
+s = 'Don Quijote'
+
+s[:6] + s[6:]
+```
+
+## Slides 91–92 — Strings and IBAN
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/String1.py`](../materials/session_08/String1.py){.teaching-button .teaching-button-exercise}
@@ -70,13 +95,37 @@ Use the exercises to move from sequences to conditional logic, while keeping the
 {{< include ../materials/session_08/IBAN.py >}}
 ```
 
-- Assign exercise 3 on Page 91 as homework.
+- Assign exercise 3 on Slide 91 as homework.
 
 ::: {.callout-note title="TODO"}
 Include a visualization of the IBAN procedure.
 :::
 
-## Page 97 — List operations
+## Slide 93 — Creating lists
+
+Lists may contain different data types and may themselves contain other lists.
+
+```python
+list1 = ['physics', 'chemistry', 1997, 2000]
+list2 = [1, 2, 3, 4, 5]
+list3 = ["a", "b", "c", "d"]
+
+list4 = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+]
+```
+
+## Slide 94 — Prepare a list for slicing
+
+This list is used for the indexing and slicing examples shown on the slide.
+
+```python
+x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+## Slide 97 — List operations
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Listexercise1.py`](../materials/session_08/Listexercise1.py){.teaching-button .teaching-button-exercise}
@@ -101,11 +150,92 @@ Include a visualization of the IBAN procedure.
 - Assign exercise 2 as homework.
 - Cover tuples briefly; use `df.shape` as an example.
 
+## Slide 98 — Creating and slicing tuples
+
+Indexing and slicing are similar for tuples and lists.
+
+```python
+tuple1 = ('physics', 'chemistry', 1997, 2000)
+tuple2 = (1, 2, 3, 4, 5)
+tuple3 = ("a", "b", "c", "d")
+tuple4 = ((1, 2, 3, 4), (5, 6, 7, 8))
+
+tuple1[1]
+tuple2[2:4]
+tuple4[1][2:4]
+```
+
+## Slide 99 — Mutable lists and immutable tuples
+
+The final line intentionally raises `TypeError: 'tuple' object does not support item assignment` because tuples are immutable.
+
+```python
+mylist = [1, 2, 3, 4]
+mytupel = (1, 2, 3, 4)
+
+print(mylist)
+print(mytupel)
+
+mylist[2] = 5
+print(mylist)
+
+mytupel[2] = 5
+```
+
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
 
-## Pages 105–107 — Conditional logic
+## Slide 104 — Conditional statements
+
+Assign suitable values to `x`, `y`, and `time` before running the relevant examples.
+
+```python
+if x < 1:
+    print("x smaller than 1")
+```
+
+```python
+if x < 1:
+    print("x smaller than 1")
+else:
+    print("x is bigger than or equal to 1")
+```
+
+```python
+if x < 1:
+    print("x smaller than 1")
+elif x == 1:
+    print("x is equal to 1")
+else:
+    print("x is bigger than 1")
+```
+
+```python
+# Swap x and y if y < x
+print(x, y)
+
+if y < x:
+    temp = x
+    x = y
+    y = temp
+
+print(x, y)
+```
+
+```python
+if time >= 11 and time <= 13:
+    print("It is noon!")
+```
+
+The final condition can also use a chained comparison:
+
+```python
+if 11 <= time <= 13:
+    print("It is noon!")
+```
+
+## Slides 105–107 — Conditional logic
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/OddEven.py`](../materials/session_08/OddEven.py){.teaching-button .teaching-button-exercise}
@@ -177,9 +307,9 @@ Include a visualization of the IBAN procedure.
 {{< include ../materials/session_08/Tax.py >}}
 ```
 
-- Assign exercise 3 on Page 105 as homework.
+- Assign exercise 3 on Slide 105 as homework.
 - Explain exercise 4 in class, emphasizing the importance of whether code is inside or outside an `if` block.
-- Assign Pages 106–107 as homework for the tutorial.
+- Assign Slides 106–107 as homework for the tutorial.
 
 ## Summary and announcements
 
