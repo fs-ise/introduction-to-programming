@@ -1,7 +1,5 @@
-import os
 import pandas as pd
 
-os.chdir('D:\Dropbox\Lehre\Introduction to Programming\Exercises_Python')
 insurance = pd.read_excel('insurance.xlsx')
 
 pd.options.display.float_format = '{:.2f}'.format

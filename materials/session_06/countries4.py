@@ -1,10 +1,8 @@
-import os
 import pandas as pd
 
-os.chdir('D:\Dropbox\Lehre\Introduction to Programming\Exercises_Python')
 countries = pd.read_csv('countries.csv')
 
-countries.plot(x='Country', y=['Population', 'Area', 'GDP'], 
+countries.plot(x='Country', y=['Population', 'Area', 'GDP'],
                xticks=range(len(countries['Country'])), rot=75)
 
 df = countries['Continent'].value_counts()

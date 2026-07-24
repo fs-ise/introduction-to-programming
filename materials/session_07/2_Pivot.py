@@ -1,7 +1,5 @@
-import os
 import pandas as pd
 
-os.chdir('D:\Dropbox\Lehre\Introduction to Programming\Presentation')
 sales = pd.read_excel('Sales.xlsx')
 print(sales.shape)
 sales.head()

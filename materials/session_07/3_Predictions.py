@@ -1,7 +1,4 @@
-import os
 import pandas as pd
-
-os.chdir('D:\Dropbox\Lehre\Introduction to Programming\Presentation')
 
 students = pd.read_csv("Student_performance.csv")
 students.head()

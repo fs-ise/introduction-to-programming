@@ -1,7 +1,5 @@
-import os
 import pandas as pd
 
-os.chdir('D:/Dropbox/Lehre/Introduction to Programming/Exercises_Pandas')
 houses = pd.read_excel('Homes_Florida.xlsx')
 
 #1 Erzeugen Sie eine neue Spalte namens Profit, die den bei den Haustransaktionen erzielten Gewinn enthält.

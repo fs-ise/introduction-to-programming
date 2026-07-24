@@ -1,7 +1,5 @@
-import os
 import pandas as pd
 
-os.chdir('D:\Dropbox\Lehre\Introduction to Programming\Exercises_Python')
 countries = pd.read_csv('countries.csv')
 
 countries.loc[len(countries)] = ['Belgium',11.5,11.849,803.166,'Europe']

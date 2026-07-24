@@ -1,7 +1,5 @@
-import os
 import pandas as pd
 
-os.chdir('D:/Dropbox/Lehre/Temp/Pivot')
 chipo = pd.read_csv('Chipotle.csv')
 
 #1 Display the first 10 entries
@@ -19,7 +17,7 @@ list(chipo)
 #5 How many items were ordered in total?
 chipo['quantity'].sum()
 
-#6 How many different items are sold? 
+#6 How many different items are sold?
 chipo['item_name'].value_counts().count()
 
 #7 How many orders were made in the period?
@@ -32,7 +30,7 @@ chipo['order_id'].value_counts().count()
 chipo['revenue'] = chipo['quantity'] * chipo['item_price']
 chipo.groupby('order_id')['revenue'].sum().mean()
 
-#10 Which was the most-ordered item? 
+#10 Which was the most-ordered item?
 chipo.groupby('item_name').sum().sort_values(['quantity'], ascending=False).head(1)
 
 #11 How many products cost more than $10.00?

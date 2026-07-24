@@ -41,7 +41,7 @@ print('Peter')
 
 
 x = 15
-x = x + 5 
+x = x + 5
 print(x)
 
 x = 4
@@ -53,8 +53,8 @@ a = 4.5
 b = 2
 print(a//b)
 
-x = 17 / 2 % 2 * 3**3 
-print(x) 
+x = 17 / 2 % 2 * 3**3
+print(x)
 
 x, y = 2, 6
 x, y = y, x + 2
@@ -76,12 +76,9 @@ data.shape
 list(data)
 data.dtypes
 
-import os
-os.chdir(r'D:\Dropbox\Lehre\Introduction to Programming\Presentation')
 data =  pd.read_csv('Bikesales.csv')
 
 
-os.chdir(r'D:\Dropbox\Lehre\Introduction to Programming\Presentation')
 exped = pd.read_excel('Exped.xlsx')
 exped.head()
 
@@ -95,11 +92,11 @@ exped['WHERE']
 exped.WHERE
 
 data.loc[1:3, :]
-data.loc[1:3] 
-data.loc[1:3, 'Turnover'] 
-data.loc [1:3, ['Bike','Turnover']] 
-data.loc [1:3, 'Bike':'Turnover'] 
-data.loc [[1, 3, 6], 'Bike':'Turnover'] 
+data.loc[1:3]
+data.loc[1:3, 'Turnover']
+data.loc [1:3, ['Bike','Turnover']]
+data.loc [1:3, 'Bike':'Turnover']
+data.loc [[1, 3, 6], 'Bike':'Turnover']
 data.loc[data.Turnover>23000, :]
 
 exped.loc[0]
@@ -107,12 +104,12 @@ exped.loc[0:2]
 exped.loc[1, ['WHERE','WHAT','HOW']]
 exped.loc[1:3, ['WHEN','WHERE']]
 
-data.iloc[0,1] 
-data.iloc[:,0] 
-data.iloc[1:3,1] 
-data.iloc[:,-2] 
-data.iloc[-1,:] 
-data.iloc[[0, 2], [1, 2]] 
+data.iloc[0,1]
+data.iloc[:,0]
+data.iloc[1:3,1]
+data.iloc[:,-2]
+data.iloc[-1,:]
+data.iloc[[0, 2], [1, 2]]
 data.iloc[[0, 2], 1:3]
 
 exped.iloc[0]
@@ -158,9 +155,7 @@ exped['WHERE'].describe()
 exped['WHERE'].unique()
 exped['WHERE'].value_counts()
 
-import os
 import pandas as pd
-os.chdir(r'D:\Dropbox\Lehre\Introduction to Programming\Presentation')
 temps = pd.read_csv('temperatures.csv')
 temps.head()
 temps.plot()

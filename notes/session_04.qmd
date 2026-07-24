@@ -29,6 +29,7 @@ TODO: use Anaconda (be prepared to answer questions)
 spytertest.py (in canvas) mit studis am Anfang der python session step-by-step durchgehen
 use setwd() for spyder
 TODO: check pandas version? 3.0?
+TODO: prepare to explain os.chdir(). Include an explicit task/test.
 
 See `1_Pandas.py` - contains code for all slides (TODO: split)
 
