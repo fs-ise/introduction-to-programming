@@ -10,12 +10,92 @@ Use the two exercises as the anchors for selection and data modification.
 
 ## Exercises
 
-| Page(s) | Exercise             | Summary                                                                                | Files                              | In-class / take-home |
+| Slide(s) | Exercise             | Summary                                                                                | Files                              | In-class / take-home |
 | ------: | -------------------- | -------------------------------------------------------------------------------------- | ---------------------------------- | -------------------- |
 |      31 | DataFrame selection  | Select specified columns and rows using `iloc` and `loc`.                              | `countries.csv`<br>`countries1.py` |                      |
 |      36 | Modify and sort data | Add Belgium, sort rows, calculate GDP per capita, and remove the added column and row. | `countries.csv`<br>`countries2.py` |                      |
 
-## Page 31 — DataFrame selection
+## Slide 23 — Accessing a column
+
+Both forms select one column, but bracket notation is more general because it works with any column name.
+
+```python
+exped['WHERE']
+exped.WHERE
+```
+
+## Slide 24 — Label-based selection with `loc`
+
+`loc` selects by row and column labels. The final expression selects rows using a condition applied to the `Turnover` column.
+
+```python
+data.loc[1:3, :]
+data.loc[1:3]
+data.loc[1:3, 'Turnover']
+data.loc[1:3, ['Bike', 'Turnover']]
+data.loc[1:3, 'Bike':'Turnover']
+data.loc[[1, 3, 6], 'Bike':'Turnover']
+data.loc[data.Turnover > 23000, :]
+```
+
+## Slide 25 — Selecting rows with `loc`
+
+Selecting a single row label returns one row, whereas a label slice selects multiple rows (including the ending label).
+
+```python
+exped.loc[0]
+exped.loc[0:2]
+exped.loc[1, ['WHERE', 'WHAT', 'HOW']]
+exped.loc[1:3, ['WHEN', 'WHERE']]
+```
+
+## Slide 26 — Position-based selection with `iloc`
+
+`iloc` uses zero-based integer positions. Negative positions count from the end, and the end of a slice is excluded.
+
+```python
+data.iloc[0, 1]
+data.iloc[:, 0]
+data.iloc[1:3, 1]
+data.iloc[:, -2]
+data.iloc[-1, :]
+data.iloc[[0, 2], [1, 2]]
+data.iloc[[0, 2], 1:3]
+```
+
+## Slide 27 — One versus multiple rows with `iloc`
+
+Selecting one row generally returns a Series, whereas selecting a range returns a DataFrame.
+
+```python
+exped.iloc[0]
+exped.iloc[0:2]
+```
+
+## Slide 28 — Comparing `loc` and `iloc`
+
+`loc` uses labels and includes the ending label; `iloc` uses integer positions and excludes the ending position.
+
+```python
+data.loc[1:3, 'Bike':'Turnover']
+data.iloc[1:3, [0, 2]]
+
+exped.loc[1:3, 'WHEN':'WHERE']
+exped.iloc[1:3, 1:2]
+```
+
+## Slide 29 — Labels after sorting
+
+After sorting, `loc` still follows labels rather than the rows' current physical positions.
+
+```python
+data_sorted = data.sort_values(by='Turnover')
+data_sorted
+
+data_sorted.loc[1:3, 'Bike':'Turnover']
+```
+
+## Slide 31 — DataFrame selection
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
@@ -37,7 +117,51 @@ Use the two exercises as the anchors for selection and data modification.
 ☕ Break — 10 minutes
 :::
 
-## Page 36 — Modifying and sorting data
+## Slide 32 — Adding rows and columns
+
+Rows can use named or numeric labels. Values may be supplied manually, while new columns can also be calculated from existing columns.
+
+```python
+data.loc['bike5'] = ['Gravelbike', 4, 14000, 9000]
+data.loc[len(data)] = ['Gravelbike', 4, 14000, 9000]
+
+data.loc[:, 'Profit'] = [3387, 6495, 999, 10796, 14310]
+data['Profit'] = data.Turnover - data.Cost
+data['Gross_turnover'] = data.Turnover * 1.19
+```
+
+## Slide 34 — Deleting rows and columns
+
+`drop()` returns a changed DataFrame, so its result is assigned back to `data`. The default `axis=0` removes rows; `axis=1` removes columns.
+
+```python
+data = data.drop('bike5')
+data = data.drop(5)
+
+data = data.drop('Profit', axis=1)
+data = data.drop('Gross_turnover', axis=1)
+```
+
+## Slide 35 — Sorting and useful DataFrame functions
+
+`sort_values()` can sort by one column or by several columns in priority order. `len()` counts rows, while `pct_change()` calculates proportional change from one row to the next.
+
+```python
+data_sorted = data.sort_values(by='Turnover')
+data_sorted
+
+data_sorted = data.sort_values(
+    by=['Sales', 'Turnover'],
+    ascending=False,
+)
+data_sorted
+
+len(exped)
+
+data['Cost'].pct_change()
+```
+
+## Slide 36 — Modifying and sorting data
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}

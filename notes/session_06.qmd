@@ -17,14 +17,49 @@ Focus on descriptive statistics, basic charts, filtering, and grouping; distingu
 
 ## Exercises
 
-| Page(s) | Exercise                 | Summary                                                                                                      | Files                                                                     | In-class / take-home |
+| Slide(s) | Exercise                 | Summary                                                                                                      | Files                                                                     | In-class / take-home |
 | ------: | ------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- | -------------------- |
 |      42 | Descriptive statistics   | Calculate aggregates, summaries, correlations, distinct values, and continent frequencies.                   | `countries.csv`<br>`countries3.py`                                        |                      |
 |      49 | Basic visualizations     | Create line, bar, pie, density, and box plots for the country data.                                          | `countries.csv`<br>`countries4.py`                                        |                      |
 |      53 | Conditional filtering    | Filter countries using area, population, continent, and GDP conditions; summarize and visualize the results. | `countries.csv`<br>`countries5.py`                                        |                      |
 |      56 | Grouping and aggregation | Use `groupby()` to summarize countries by continent and insurance contracts by state and coverage.           | `countries.csv`<br>`countries6.py`<br>`insurance.xlsx`<br>`insurance1.py` |                      |
 
-## Page 42 — Descriptive statistics
+## Slide 37 — Summing DataFrame values
+
+The latter two expressions calculate the same sums using label-based and position-based selection.
+
+```python
+data.sum()
+exped.loc[:, ['QUANTITY', 'REVENUE']].sum()
+exped.iloc[:, 5:7].sum()
+```
+
+## Slide 39 — Mean, standard deviation, and correlation
+
+```python
+exped.loc[:, ['QUANTITY', 'REVENUE']].mean()
+exped['REVENUE'].std()
+exped.loc[:, ['QUANTITY', 'REVENUE']].corr()
+```
+
+## Slide 40 — Statistical summaries
+
+`describe()` is type-aware, so its summary depends on whether the selected data are numerical or categorical.
+
+```python
+exped.describe()
+exped['REVENUE'].describe()
+exped['WHERE'].describe()
+```
+
+## Slide 41 — Unique values and frequencies
+
+```python
+exped['WHERE'].unique()
+exped['WHERE'].value_counts()
+```
+
+## Slide 42 — Descriptive statistics
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
@@ -42,7 +77,57 @@ Focus on descriptive statistics, basic charts, filtering, and grouping; distingu
 
 - Explain variance and the mean if students need a refresher.
 
-## Page 49 — Basic visualizations
+## Slide 43 — Creating a basic chart
+
+With no explicit column selection, `plot()` includes all numerical columns by default.
+
+```python
+import pandas as pd
+
+temps = pd.read_csv('temperatures.csv')
+temps.head()
+temps.plot()
+```
+
+## Slide 44 — Selecting variables for a chart
+
+```python
+temps.iloc[:, 1:4].plot()
+temps.plot(
+    x='Month',
+    y=['Maximum', 'Average', 'Minimum'],
+)
+```
+
+## Slide 45 — Formatting the x-axis
+
+```python
+temps.plot(
+    x='Month',
+    y=['Maximum', 'Average', 'Minimum'],
+    xticks=range(len(temps['Month'])),
+    rot=75,
+)
+```
+
+## Slide 47 — Creating a bar chart
+
+```python
+df = exped['WHERE'].value_counts()
+print(df)
+df.dtypes
+df.plot(kind='bar')
+```
+
+## Slide 48 — Creating pie charts
+
+```python
+df.plot(kind='pie', y='WHERE')
+df.plot(kind='pie', subplots=True)
+df.plot(kind='pie', subplots=True, legend=True)
+```
+
+## Slide 49 — Basic visualizations
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
@@ -66,7 +151,37 @@ Only line and bar plots are relevant to the exam; see the document listing exam-
 ☕ Break — 10 minutes
 :::
 
-## Page 53 — Conditional filtering
+## Slide 50 — Creating a Boolean condition
+
+The comparison produces a Boolean Series with one value per row.
+
+```python
+exped.WHERE == 'London'
+```
+
+## Slide 51 — Selecting rows based on a condition
+
+```python
+exped.loc[exped.WHERE == 'London']
+```
+
+## Slide 52 — Combining conditions
+
+Use `&` for “and” and `|` for “or”. Each individual pandas condition needs parentheses when conditions are combined.
+
+```python
+exped.loc[
+    (exped.WHERE == 'London')
+    & (exped.REVENUE >= 2500)
+]
+
+exped.loc[
+    (exped.QUANTITY >= 5)
+    | (exped.REVENUE >= 2500)
+]
+```
+
+## Slide 53 — Conditional filtering
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
@@ -84,7 +199,21 @@ Only line and bar plots are relevant to the exam; see the document listing exam-
 
 - Connect filtering conditions to the resulting summaries and visualizations.
 
-## Page 56 — Grouping and aggregation
+## Slide 54 — Grouping by one column
+
+```python
+exped.groupby('HOW')['HOW'].count()
+exped.groupby('HOW')['REVENUE'].mean()
+```
+
+## Slide 55 — Grouping by multiple columns
+
+```python
+a = exped.groupby(['HOW', 'WHERE'])['REVENUE'].mean()
+a
+```
+
+## Slide 56 — Grouping and aggregation
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
