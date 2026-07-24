@@ -11,3 +11,118 @@
 | [Introduction](materials/introduction.xlsx) | Excel workbook |
 | [Loan illustrations](materials/loans.html) | Web page |
 | [Sales Table](materials/Sales_Table.xlsx) | Excel workbook |
+
+## Data
+
+| Material | Type |
+|---|---|
+| [Chipotle](materials/data/Chipotle.csv) | CSV file |
+| [Countries](materials/data/countries.csv) | CSV file |
+| [Homes Florida](materials/data/Homes_Florida.xlsx) | Excel workbook |
+| [Insurance](materials/data/insurance.xlsx) | Excel workbook |
+| [Stocks](materials/data/Stocks.csv) | CSV file |
+
+## Session 04
+
+| Material | Type |
+|---|---|
+| [1 Pandas](materials/session_04/1_Pandas.py) | PY file |
+| [CircleArea1](materials/session_04/CircleArea1.py) | PY file |
+| [Countries](materials/session_04/countries.py) | PY file |
+| [FutureValue](materials/session_04/FutureValue.py) | PY file |
+| [Insurance](materials/session_04/insurance.py) | PY file |
+| [Versicherungsvertreter](materials/session_04/Versicherungsvertreter.docx) | Word document |
+| [Versicherungsvertreter](materials/session_04/Versicherungsvertreter.py) | PY file |
+
+## Session 05
+
+| Material | Type |
+|---|---|
+| [Countries1](materials/session_05/countries1.py) | PY file |
+| [Countries2](materials/session_05/countries2.py) | PY file |
+
+## Session 06
+
+| Material | Type |
+|---|---|
+| [Countries3](materials/session_06/countries3.py) | PY file |
+| [Countries4](materials/session_06/countries4.py) | PY file |
+| [Countries5](materials/session_06/countries5.py) | PY file |
+| [Countries6](materials/session_06/countries6.py) | PY file |
+| [Insurance1](materials/session_06/insurance1.py) | PY file |
+
+## Session 07
+
+| Material | Type |
+|---|---|
+| [2 Pivot](materials/session_07/2_Pivot.py) | PY file |
+| [3 Predictions](materials/session_07/3_Predictions.py) | PY file |
+| [4 Python](materials/session_07/4_Python.py) | PY file |
+| [AnnuityLoan1](materials/session_07/AnnuityLoan1.py) | PY file |
+| [Chipotle](materials/session_07/Chipotle.py) | PY file |
+| [CircleArea2](materials/session_07/CircleArea2.py) | PY file |
+| [Currency](materials/session_07/Currency.py) | PY file |
+| [Distance](materials/session_07/Distance.py) | PY file |
+| [Fuel](materials/session_07/Fuel.py) | PY file |
+| [Homes Florida](materials/session_07/Homes_Florida.py) | PY file |
+| [Insurance2](materials/session_07/insurance2.py) | PY file |
+
+## Session 08
+
+| Material | Type |
+|---|---|
+| [AnnuityLoan2](materials/session_08/AnnuityLoan2.py) | PY file |
+| [Dicegame1](materials/session_08/dicegame1.py) | PY file |
+| [Discount](materials/session_08/Discount.py) | PY file |
+| [Grade](materials/session_08/Grade.py) | PY file |
+| [IBAN](materials/session_08/IBAN.py) | PY file |
+| [Listexercise1](materials/session_08/Listexercise1.py) | PY file |
+| [Listexercise2](materials/session_08/Listexercise2.py) | PY file |
+| [OddEven](materials/session_08/OddEven.py) | PY file |
+| [String1](materials/session_08/String1.py) | PY file |
+| [String2](materials/session_08/String2.py) | PY file |
+| [String3](materials/session_08/String3.py) | PY file |
+| [Tax](materials/session_08/Tax.py) | PY file |
+| [Temperature](materials/session_08/Temperature.py) | PY file |
+
+## Session 09
+
+| Material | Type |
+|---|---|
+| [Average](materials/session_09/Average.py) | PY file |
+| [Dicegame2](materials/session_09/dicegame2.py) | PY file |
+| [Fibonacci](materials/session_09/Fibonacci.py) | PY file |
+| [For demo](materials/session_09/for_demo.py) | PY file |
+| [Frequencies](materials/session_09/Frequencies.py) | PY file |
+| [Guess1](materials/session_09/Guess1.py) | PY file |
+| [Guess2](materials/session_09/Guess2.py) | PY file |
+| [Loan](materials/session_09/Loan.py) | PY file |
+| [Message](materials/session_09/Message.py) | PY file |
+| [MultipleSum](materials/session_09/MultipleSum.py) | PY file |
+| [ShoppingList](materials/session_09/ShoppingList.py) | PY file |
+| [Tens](materials/session_09/Tens.py) | PY file |
+| [Triangle](materials/session_09/Triangle.py) | PY file |
+
+## Session 10
+
+| Material | Type |
+|---|---|
+| [Combinations](materials/session_10/Combinations.py) | PY file |
+| [CountDigits](materials/session_10/CountDigits.py) | PY file |
+| [Dicegame3](materials/session_10/dicegame3.py) | PY file |
+| [Factorial](materials/session_10/Factorial.py) | PY file |
+| [Friends](materials/session_10/Friends.py) | PY file |
+| [Harshad](materials/session_10/Harshad.py) | PY file |
+| [Listmult](materials/session_10/Listmult.py) | PY file |
+| [SlotMachine](materials/session_10/SlotMachine.py) | PY file |
+| [StopLoop](materials/session_10/StopLoop.py) | PY file |
+
+## Session 11
+
+| Material | Type |
+|---|---|
+| [5 REST](materials/session_11/5_REST.py) | PY file |
+| [Cryptocurrencies](materials/session_11/Cryptocurrencies.py) | PY file |
+| [MercedesBenz1](materials/session_11/MercedesBenz1.py) | PY file |
+| [MercedesBenz2](materials/session_11/MercedesBenz2.py) | PY file |
+| [Stocks](materials/session_11/Stocks.py) | PY file |
