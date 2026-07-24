@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Oct 18 11:15:52 2017
-
-@author: PeterRossbach
-"""
-
 def multi(x):
     n = len(x)
     prodX = 1.0

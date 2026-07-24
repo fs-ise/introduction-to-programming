@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
-
 n = int(input("How many numbers do you want to enter: "))
 numbers = []
 for i in range(n):

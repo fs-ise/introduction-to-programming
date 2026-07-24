@@ -6,6 +6,8 @@ event_id: null
 
 ## Session 5 — Data access and manipulation
 
+Use the two exercises as the anchors for selection and data modification.
+
 ## Exercises
 
 | Page(s) | Exercise             | Summary                                                                                | Files                              | In-class / take-home |
@@ -13,15 +15,50 @@ event_id: null
 |      31 | DataFrame selection  | Select specified columns and rows using `iloc` and `loc`.                              | `countries.csv`<br>`countries1.py` |                      |
 |      36 | Modify and sort data | Add Belgium, sort rows, calculate GDP per capita, and remove the added column and row. | `countries.csv`<br>`countries2.py` |                      |
 
+## Page 31 — DataFrame selection
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+:::
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_05/countries1.py`](../materials/session_05/countries1.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_05/countries1.py >}}
+```
+
+- Guide students through selecting columns and rows with `iloc` and `loc`.
 
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
 
-## Summary and announcements (next session)
+## Page 36 — Modifying and sorting data
 
-TODO
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+:::
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_05/countries2.py`](../materials/session_05/countries2.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_05/countries2.py >}}
+```
+
+- Use the exercise sequence to add, sort, calculate, and then remove data.
+
+## Summary and announcements
+
+- TODO
 
 ::: {.callout-tip title="Notes for improvement"}
-Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
+Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
 :::

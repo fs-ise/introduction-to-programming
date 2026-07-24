@@ -1,16 +1,9 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Oct 18 14:39:44 2017
-
-@author: PeterRossbach
-"""
-
 def isHarshad(num):
     num_string = str(num)
     num_sum = 0
     for i in range(len(num_string)):
         num_sum = num_sum + int(num_string[i])
-    if (num%num_sum==0): 
+    if (num%num_sum==0):
         return True
     else:
         return False

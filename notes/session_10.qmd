@@ -20,6 +20,8 @@ Homework: 2-3
 Dictionaries: less relevant for the exam (do not explicitly announce as not relevant at the beginning) - maybe as multiple-choice.
 
 
+Cover loop termination, functions, and dictionaries, while retaining the planned exercise order and exam guidance.
+
 ## Exercises
 
 | Page(s) | Exercise                     | Summary                                                                                                                                        | Files                                                                                                        | In-class / take-home |
@@ -28,14 +30,129 @@ Dictionaries: less relevant for the exam (do not explicitly announce as not rele
 | 121–122 | Functions                    | Create functions for digit counting, list multiplication, Harshad numbers, factorials, combinations, and a multistage slot-machine simulation. | `CountDigits.py`<br>`Listmult.py`<br>`Harshad.py`<br>`Factorial.py`<br>`Combinations.py`<br>`SlotMachine.py` |                      |
 |     133 | Dictionaries and persistence | Maintain a nested dictionary of friends, modify its contents, and save and reload it from a file.                                              | `Friends.py`<br>`friends.db`                                                                                 |                      |
 
+## Page 116 — Loop termination
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/StopLoop.py`](../materials/session_10/StopLoop.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_10/StopLoop.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/dicegame3.py`](../materials/session_10/dicegame3.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_10/dicegame3.py >}}
+```
+
+- Assign exercise 2 as homework.
+
+::: {.callout-note title="Additional exercise TODO"}
+An additional insurance exercise is shared by PR. TODO: Add its mapping when the material is available.
+:::
+
+## Pages 121–122 — Functions
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/CountDigits.py`](../materials/session_10/CountDigits.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_10/CountDigits.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/Listmult.py`](../materials/session_10/Listmult.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_10/Listmult.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/Harshad.py`](../materials/session_10/Harshad.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_10/Harshad.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/Factorial.py`](../materials/session_10/Factorial.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_10/Factorial.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/Combinations.py`](../materials/session_10/Combinations.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_10/Combinations.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/SlotMachine.py`](../materials/session_10/SlotMachine.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_10/SlotMachine.py >}}
+```
+
+- Complete exercises in this order: 4, 5, 1, then 6 if time permits.
+- Assign exercises 2–3 as homework.
+
+::: {.callout-important title="Exam relevance"}
+At least one exam exercise will cover functions.
+:::
+
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
 
-## Summary and announcements (next session)
+## Page 133 — Dictionaries and persistence
 
-TODO
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/Friends.py`](../materials/session_10/Friends.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_10/Friends.py >}}
+```
+
+- Dictionaries are less relevant to the exam; do not announce this explicitly at the beginning. They may appear in a multiple-choice question.
+
+::: {.callout-note title="Generated file"}
+`friends.db` is preserved in the exercise table, but it is not supplied as input material. `Friends.py` generates it at runtime.
+:::
+
+## Summary and announcements
+
+- TODO
 
 ::: {.callout-tip title="Notes for improvement"}
-Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
+Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
 :::

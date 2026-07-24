@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Oct 16 17:31:19 2020
-
-@author: rossbach
-"""
-
 s1 = input("Enter the first string: ")
 s2 = input("Enter the second string: ")
 s = s1 + " " + s2

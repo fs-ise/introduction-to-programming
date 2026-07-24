@@ -8,7 +8,7 @@ event_id: null
 
 Python-Teil: Vorsichtig vorgehen (möglichst viele Studis mitnehmen)
 
-Pivot: see `2_Pivot.py` 
+Pivot: see `2_Pivot.py`
 
 See `4_Python.py` (contains materials for the following sessions: TODDO: split.)
 
@@ -29,9 +29,8 @@ p.82 solution:
 | `17.75`  | **`float`** | `int`   | **`int(17.75)`**    | **`17`**      |
 | `"3"`    | **`str`**   | `float` | **`float("3")`**    | **`3.0`**     |
 
-::: {.teaching-break}
-☕ Break — 10 minutes
-:::
+
+Proceed carefully through the Python material so that as many students as possible can follow.
 
 ## Exercises
 
@@ -42,12 +41,179 @@ p.82 solution:
 |   76–77 | Florida housing analysis   | Calculate and analyze profits, compare agencies and house characteristics, and build three predictive models.                      | `Homes_Florida.xlsx`<br>`Homes_Florida.py`                                                              |                      |
 |   84–85 | Input and formula programs | Create interactive programs for circle area, currencies, geographic distance, travel time, fuel consumption, and annuity payments. | `CircleArea2.py`<br>`Currency.py`<br>`Distance.py`<br>`Traveltime.py`<br>`Fuel.py`<br>`AnnuityLoan1.py` |                      |
 
+## Page 67 — Pivot tables
 
-## Summary and announcements (next session)
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_07/2_Pivot.py`](../materials/session_07/2_Pivot.py){.teaching-button .teaching-button-demo}
+:::
 
-TODO
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_07/2_Pivot.py >}}
+```
 
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
+:::
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/insurance2.py`](../materials/session_07/insurance2.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_07/insurance2.py >}}
+```
+
+- Use `2_Pivot.py` while introducing pivoting.
+
+## Page 69 — Prediction
+
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_07/3_Predictions.py`](../materials/session_07/3_Predictions.py){.teaching-button .teaching-button-demo}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_07/3_Predictions.py >}}
+```
+
+- Use the prediction example identified in the existing notes.
+
+## Pages 74–75 — Chipotle analysis
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/Chipotle.csv`](../materials/data/Chipotle.csv){.teaching-button .teaching-button-exercise}
+:::
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/Chipotle.py`](../materials/session_07/Chipotle.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_07/Chipotle.py >}}
+```
+
+## Pages 76–77 — Florida housing analysis
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/Homes_Florida.xlsx`](../materials/data/Homes_Florida.xlsx){.teaching-button .teaching-button-exercise}
+:::
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/Homes_Florida.py`](../materials/session_07/Homes_Florida.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_07/Homes_Florida.py >}}
+```
+
+::: {.teaching-break}
+☕ Break — 10 minutes
+:::
+
+## Page 82 — Type conversion
+
+Use this solution when reviewing conversions:
+
+| Value    | Type        | To Type | Using function      | New value     |
+| -------- | ----------- | ------- | ------------------- | ------------- |
+| `"3"`    | **`str`**   | `int`   | **`int("3")`**      | **`3`**       |
+| `"3.14"` | **`str`**   | `float` | **`float("3.14")`** | **`3.14`**    |
+| `3`      | **`int`**   | `str`   | **`str(3)`**        | **`"3"`**     |
+| `3.14`   | **`float`** | `str`   | **`str(3.14)`**     | **`"3.14"`**  |
+| `False`  | **`bool`**  | `str`   | **`str(False)`**    | **`"False"`** |
+| `"True"` | **`str`**   | `bool`  | **`bool("True")`**  | **`True`**    |
+| `17.75`  | **`float`** | `int`   | **`int(17.75)`**    | **`17`**      |
+| `"3"`    | **`str`**   | `float` | **`float("3")`**    | **`3.0`**     |
+
+## Pages 84–85 — Interactive formula programs
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/CircleArea2.py`](../materials/session_07/CircleArea2.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_07/CircleArea2.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/Currency.py`](../materials/session_07/Currency.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_07/Currency.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/Distance.py`](../materials/session_07/Distance.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_07/Distance.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/Fuel.py`](../materials/session_07/Fuel.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_07/Fuel.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/AnnuityLoan1.py`](../materials/session_07/AnnuityLoan1.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_07/AnnuityLoan1.py >}}
+```
+
+- Assign exercises 4, 5, and 6 as homework.
+
+::: {.callout-warning title="Missing material"}
+TODO: `Traveltime.py` appears in the exercise table, but it is not present in the supplied material inventory. Do not create or substitute a file until the source is located.
+:::
+
+## General teaching notes
+
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_07/4_Python.py`](../materials/session_07/4_Python.py){.teaching-button .teaching-button-demo}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_07/4_Python.py >}}
+```
+
+- `4_Python.py` contains material for this and following sessions.
+
+::: {.callout-note title="TODO"}
+Split `4_Python.py` by session or topic in a future revision; the existing notes do not provide an exact page mapping.
+:::
+
+## Summary and announcements
+
+- TODO
 
 ::: {.callout-tip title="Notes for improvement"}
-Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
+Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
 :::

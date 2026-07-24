@@ -17,6 +17,8 @@ API examples: depending on remaining time.
 See `5_REST.py`
 
 
+Keep API examples non-executable in rendered notes and select them according to the remaining class time.
+
 ## Exercises
 
 | Page(s) | Exercise                    | Summary                                                                                                                                   | Files                       | In-class / take-home |
@@ -27,14 +29,95 @@ See `5_REST.py`
 |     155 | Cryptocurrency API analysis | Retrieve Bitcoin and Ethereum prices, convert timestamps, calculate returns, variances, and correlation, and visualize the return series. | `Cryptocurrencies.py`       |                      |
 |     159 | Weather API                 | Configure an Open-Meteo forecast, retrieve it through the API, and process the resulting weather data.                                    | —                           |                      |
 
+## General teaching notes
+
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_11/5_REST.py`](../materials/session_11/5_REST.py){.teaching-button .teaching-button-demo}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_11/5_REST.py >}}
+```
+
+- Explain why JSON is relevant to applications.
+- Choose API examples according to the remaining time.
+- Alpha Vantage keys will be shared later by PR.
+
+::: {.callout-warning title="API execution"}
+Do not execute API scripts while rendering these notes. They may require network access, API keys, or current external responses.
+:::
+
+::: {.callout-important title="Exam relevance"}
+The pandas portion of the exam is “pure pandas”; it does not combine pandas with the Python topics taught here.
+:::
+
+## Page 143 — Stock-market API
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_11/MercedesBenz1.py`](../materials/session_11/MercedesBenz1.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_11/MercedesBenz1.py >}}
+```
+
+## Page 148 — Stock-price collection
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_11/Stocks.py`](../materials/session_11/Stocks.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_11/Stocks.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/Stocks.csv`](../materials/data/Stocks.csv){.teaching-button .teaching-button-exercise}
+:::
+
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
 
-## Summary and announcements (next session)
+## Page 152 — JSON data retrieval
 
-TODO
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_11/MercedesBenz2.py`](../materials/session_11/MercedesBenz2.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_11/MercedesBenz2.py >}}
+```
+
+## Page 155 — Cryptocurrency API analysis
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_11/Cryptocurrencies.py`](../materials/session_11/Cryptocurrencies.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_11/Cryptocurrencies.py >}}
+```
+
+## Page 159 — Weather API
+
+- Configure and process the weather API example described in the exercise table.
+- No source filename is provided in the existing notes or material inventory.
+
+## Summary and announcements
+
+- TODO
 
 ::: {.callout-tip title="Notes for improvement"}
-Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
+Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
 :::

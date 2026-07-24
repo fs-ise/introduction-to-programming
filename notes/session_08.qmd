@@ -14,8 +14,11 @@ p.97 nr 2 hausaufgabe
 tuples: kurz (zB. pandas: df.shape, ...)
 
 p.105: 3 hausaufgabe
--> nr 4: explain in-class (importance of code in/outside of if) 
+-> nr 4: explain in-class (importance of code in/outside of if)
 p. 106/107: homework (tutorium)
+
+
+Use the exercises to move from sequences to conditional logic, while keeping the stated homework decisions.
 
 ## Exercises
 
@@ -25,15 +28,163 @@ p. 106/107: homework (tutorium)
 |      97 | List operations   | Create, inspect, extend, reorder, and modify lists and calculate values derived from their elements.                      | `Listexercise1.py`<br>`Listexercise2.py`                                                                           |                      |
 | 105–107 | Conditional logic | Implement odd/even checks, discounts, rating-based interest, a dice game, temperature conversion, grades, and income tax. | `OddEven.py`<br>`Discount.py`<br>`AnnuityLoan2.py`<br>`Dicegame1.py`<br>`Temperature.py`<br>`Grade.py`<br>`Tax.py` |                      |
 
+## Pages 91–92 — Strings and IBAN
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/String1.py`](../materials/session_08/String1.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_08/String1.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/String2.py`](../materials/session_08/String2.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_08/String2.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/String3.py`](../materials/session_08/String3.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_08/String3.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/IBAN.py`](../materials/session_08/IBAN.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_08/IBAN.py >}}
+```
+
+- Assign exercise 3 on Page 91 as homework.
+
+::: {.callout-note title="TODO"}
+Include a visualization of the IBAN procedure.
+:::
+
+## Page 97 — List operations
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Listexercise1.py`](../materials/session_08/Listexercise1.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_08/Listexercise1.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Listexercise2.py`](../materials/session_08/Listexercise2.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_08/Listexercise2.py >}}
+```
+
+- Assign exercise 2 as homework.
+- Cover tuples briefly; use `df.shape` as an example.
 
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
 
-## Summary and announcements (next session)
+## Pages 105–107 — Conditional logic
 
-TODO
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/OddEven.py`](../materials/session_08/OddEven.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_08/OddEven.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Discount.py`](../materials/session_08/Discount.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_08/Discount.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/AnnuityLoan2.py`](../materials/session_08/AnnuityLoan2.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_08/AnnuityLoan2.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/dicegame1.py`](../materials/session_08/dicegame1.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_08/dicegame1.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Temperature.py`](../materials/session_08/Temperature.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_08/Temperature.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Grade.py`](../materials/session_08/Grade.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_08/Grade.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Tax.py`](../materials/session_08/Tax.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_08/Tax.py >}}
+```
+
+- Assign exercise 3 on Page 105 as homework.
+- Explain exercise 4 in class, emphasizing the importance of whether code is inside or outside an `if` block.
+- Assign Pages 106–107 as homework for the tutorial.
+
+## Summary and announcements
+
+- TODO
 
 ::: {.callout-tip title="Notes for improvement"}
-Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
+Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
 :::

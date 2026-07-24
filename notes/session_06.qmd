@@ -12,6 +12,9 @@ Plots: nur LIne/Bar in der Klausur (siehe Dokument: relevant topics for the exam
 
 -> ML/prediction: nicht Klausurrelevant
 
+
+Focus on descriptive statistics, basic charts, filtering, and grouping; distinguish exam-relevant content from enrichment.
+
 ## Exercises
 
 | Page(s) | Exercise                 | Summary                                                                                                      | Files                                                                     | In-class / take-home |
@@ -21,14 +24,106 @@ Plots: nur LIne/Bar in der Klausur (siehe Dokument: relevant topics for the exam
 |      53 | Conditional filtering    | Filter countries using area, population, continent, and GDP conditions; summarize and visualize the results. | `countries.csv`<br>`countries5.py`                                        |                      |
 |      56 | Grouping and aggregation | Use `groupby()` to summarize countries by continent and insurance contracts by state and coverage.           | `countries.csv`<br>`countries6.py`<br>`insurance.xlsx`<br>`insurance1.py` |                      |
 
+## Page 42 — Descriptive statistics
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+:::
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_06/countries3.py`](../materials/session_06/countries3.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_06/countries3.py >}}
+```
+
+- Explain variance and the mean if students need a refresher.
+
+## Page 49 — Basic visualizations
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+:::
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_06/countries4.py`](../materials/session_06/countries4.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_06/countries4.py >}}
+```
+
+::: {.callout-important title="Exam relevance"}
+Only line and bar plots are relevant to the exam; see the document listing exam-relevant topics.
+:::
+
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
 
-## Summary and announcements (next session)
+## Page 53 — Conditional filtering
 
-TODO
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+:::
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_06/countries5.py`](../materials/session_06/countries5.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_06/countries5.py >}}
+```
+
+- Connect filtering conditions to the resulting summaries and visualizations.
+
+## Page 56 — Grouping and aggregation
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+:::
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_06/countries6.py`](../materials/session_06/countries6.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_06/countries6.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
+:::
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_06/insurance1.py`](../materials/session_06/insurance1.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_06/insurance1.py >}}
+```
+
+- Demonstrate grouping with both the country and insurance datasets.
+
+::: {.callout-note title="Exam relevance"}
+Machine learning and prediction are not relevant to the exam.
+:::
+
+## Summary and announcements
+
+- TODO
 
 ::: {.callout-tip title="Notes for improvement"}
-Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
+Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
 :::

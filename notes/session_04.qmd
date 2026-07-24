@@ -6,8 +6,7 @@ event_id: null
 
 ### Session 4 — Python and pandas basics
 
-
-## Introductory discussion
+**Introductory discussion**
 
 - Prior programming experience?
 - Why go beyond Excel and use Python? (advanced analytics: Regression, prediction, ML, AI, ...)
@@ -16,6 +15,7 @@ event_id: null
 TBD: quarto-include code fragments? add explanations (asides?)
 
 Python:
+
 - motivation: existing libraries!
 - Don't repeat yourself principle of programming: by using Python libraries (modularization of code), we benefit from the code written by others.
   Illustration (whiteboard): the Python code that is involved in a typical ML studyis roughly 2 million LOC. 99.99% is imported (Pandas, scikitlearn, ...) and a few hundred LOC are our code (tip of the iceberg, we orchestrate existing libraries). For the sake of the argument, we simply ignore all of the other code, the Python core or the code that runs the OS and operates the hardware.
@@ -30,7 +30,6 @@ spytertest.py (in canvas) mit studis am Anfang der python session step-by-step d
 use setwd() for spyder
 TODO: check pandas version? 3.0?
 
-
 See `1_Pandas.py` - contains code for all slides (TODO: split)
 
 p.13: abhängig von Zeit: in-session or homework
@@ -41,6 +40,9 @@ Python Lösungen: werden von Tutoren besprochen
 
 TODO: see also `Versicherungsvertreter.py` and `Versicherungsvertreter.xslx`
 
+
+Prepare the Python environment before the session and plan to complete as many exercises as time permits.
+
 ## Exercises
 
 | Page(s) | Exercise               | Summary                                                                                                          | Files                                                                                      | In-class / take-home |
@@ -50,15 +52,111 @@ TODO: see also `Versicherungsvertreter.py` and `Versicherungsvertreter.xslx`
 |      13 | Basic formula programs | Calculate a circle’s area and the future value of an investment using variables defined in the program.          | `CircleArea1.py`<br>`FutureValue.py`                                                       |                      |
 |      22 | Import and export data | Load country and insurance data, inspect DataFrame dimensions and columns, and export the insurance data to CSV. | `countries.csv`<br>`countries.py`<br>`insurance.xlsx`<br>`insurance.py`<br>`insurance.csv` |                      |
 
+## General teaching notes
+
+- Ask about prior programming experience.
+- Discuss why Python complements Excel for advanced analytics, regression, prediction, machine learning, and AI.
+- Contrast interpreted and compiled languages.
+- Motivate Python through reusable libraries and the “don't repeat yourself” principle.
+- On the whiteboard, illustrate an ML study as a small amount of course code built on a much larger body of imported, maintained library code. Emphasize that students orchestrate existing libraries and can “stand on the shoulders of giants.”
+- Ask why students should not simply use ChatGPT: effective prompting still requires validation and improvement.
+
+::: {.callout-note title="Preparation TODOs"}
+- TODO: Add the Spyder setup.
+- TODO: Use Anaconda and be prepared for questions.
+- TODO: Walk through `spytertest.py` from Canvas with students at the start of the Python session. Retain the original filename spelling; its repository path is not known.
+- TODO: Clarify the note “use `setwd()` for Spyder.”
+- TODO: Check whether pandas 3.0 is the version to discuss.
+- TODO: Decide whether to include code fragments and explanatory asides through Quarto.
+:::
+
+## Pages 1–12 — Python and pandas basics
+
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_04/1_Pandas.py`](../materials/session_04/1_Pandas.py){.teaching-button .teaching-button-demo}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_04/1_Pandas.py >}}
+```
+
+## Page 13 — Basic formula programs
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_04/CircleArea1.py`](../materials/session_04/CircleArea1.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_04/CircleArea1.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_04/FutureValue.py`](../materials/session_04/FutureValue.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_04/FutureValue.py >}}
+```
+
+- Depending on available time, complete this exercise in class or assign it as homework.
 
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
 
-## Summary and announcements (next session)
+## Page 22 — Importing and exporting data
 
-TODO
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+:::
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_04/countries.py`](../materials/session_04/countries.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_04/countries.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
+:::
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_04/insurance.py`](../materials/session_04/insurance.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_04/insurance.py >}}
+```
+
+- Complete all exercises as time permits.
+- If time is short, assign unfinished exercises as homework.
+- Python solutions will be discussed by the tutors.
+
+::: {.callout-note title="Additional insurance material"}
+The existing notes also identify these materials, but do not establish an exact page mapping:
+
+- [`Versicherungsvertreter.py`](../materials/session_04/Versicherungsvertreter.py)
+- [`Versicherungsvertreter.docx`](../materials/session_04/Versicherungsvertreter.docx)
+
+TODO: Confirm where these materials should be used. The original note referred to the second file as `Versicherungsvertreter.xslx`; the supplied inventory contains the Word document above instead.
+:::
+
+## Summary and announcements
+
+- TODO
 
 ::: {.callout-tip title="Notes for improvement"}
-Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
+Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
 :::

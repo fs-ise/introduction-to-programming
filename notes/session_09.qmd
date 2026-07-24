@@ -6,7 +6,7 @@ event_id: null
 
 ## Session 9 — For and while loops
 
-See [for_demo.py](../materials/for_demo.py)
+See [for_demo.py](../materials/session_09/for_demo.py)
 
 Loop: explain with sum/product \sum_i^n
 
@@ -18,6 +18,9 @@ nr 2-4: in-session
 nr 5-6: homework
 -> remind: nr 6 same task as in Excel
 
+
+Explain loop mechanics with sums and products, then distinguish the planned in-class and homework exercises.
+
 ## Exercises
 
 | Page(s) | Exercise      | Summary                                                                                                                                    | Files                                                                                                                | In-class / take-home |
@@ -25,14 +28,162 @@ nr 5-6: homework
 | 110–111 | `for` loops   | Repeat messages, calculate an average, identify multiples, generate Fibonacci numbers and random frequencies, and print a letter triangle. | `Message.py`<br>`Average.py`<br>`Tens.py`<br>`MultipleSum.py`<br>`Fibonacci.py`<br>`Frequencies.py`<br>`Triangle.py` |                      |
 | 113–114 | `while` loops | Build a shopping list, implement two guessing games, extend the dice game, and generate a loan-repayment history.                          | `ShoppingList.py`<br>`Guess1.py`<br>`Guess2.py`<br>`Dicegame2.py`<br>`Loan.py`                                       |                      |
 
+## Pages 110–111 — `for` loops
+
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_09/for_demo.py`](../materials/session_09/for_demo.py){.teaching-button .teaching-button-demo}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_09/for_demo.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Message.py`](../materials/session_09/Message.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_09/Message.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Average.py`](../materials/session_09/Average.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_09/Average.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Tens.py`](../materials/session_09/Tens.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_09/Tens.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/MultipleSum.py`](../materials/session_09/MultipleSum.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_09/MultipleSum.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Fibonacci.py`](../materials/session_09/Fibonacci.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_09/Fibonacci.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Frequencies.py`](../materials/session_09/Frequencies.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_09/Frequencies.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Triangle.py`](../materials/session_09/Triangle.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_09/Triangle.py >}}
+```
+
+- Explain loops using a sum and a product:
+
+```text
+sum:     Σᵢⁿ
+product: ∏ᵢⁿ
+```
+
+- Assign exercises 3–4 and 6–7 as homework.
+
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
 
-## Summary and announcements (next session)
+## Pages 113–114 — `while` loops
 
-TODO
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/ShoppingList.py`](../materials/session_09/ShoppingList.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_09/ShoppingList.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Guess1.py`](../materials/session_09/Guess1.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_09/Guess1.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Guess2.py`](../materials/session_09/Guess2.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_09/Guess2.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/dicegame2.py`](../materials/session_09/dicegame2.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_09/dicegame2.py >}}
+```
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Loan.py`](../materials/session_09/Loan.py){.teaching-button .teaching-button-exercise}
+:::
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_09/Loan.py >}}
+```
+
+- Assign exercise 1 as homework.
+- Complete exercises 2–4 in class.
+- Assign exercises 5–6 as homework.
+- Remind students that exercise 6 is the same task they completed in Excel.
+
+## Summary and announcements
+
+- TODO
 
 ::: {.callout-tip title="Notes for improvement"}
-Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
+Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
 :::

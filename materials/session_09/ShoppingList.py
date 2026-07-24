@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
-
 sl = []
 item=input("Insert list item: ")
 while item != "":
@@ -13,7 +6,7 @@ while item != "":
 for i in sl:
     print(i)
 
-    
+
 
 
 sl = []

@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Oct 16 17:31:19 2020
-
-@author: rossbach
-"""
-
-
 x = []
 n = int(input("Enter the first number: "))
 x.append(n)

@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
-
-
 investment = 1000
 interest_rate = 0.06
 investment_period = 5
