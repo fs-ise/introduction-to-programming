@@ -1,5 +1,5 @@
 ---
-title: "Session 02 teaching notes: Excel 2"
+title: "Notes S-02/Excel 2: Lookups and tables"
 session_id: session-02
 event_id: null
 ---

@@ -1,10 +1,8 @@
 ---
-title: "Session 06 teaching notes: Python 3"
+title: "Notes S-06/Python 3: Statistics, charts, and grouping"
 session_id: session-06
 event_id: null
 ---
-
-## Session 6 — Statistics, charts, and grouping
 
 ggf. Varianz/Mittelwert erkären
 

@@ -1,10 +1,8 @@
 ---
-title: "Session 05 teaching notes: Python 2"
+title: "Notes S-05/Python 2: Data access and manipulation"
 session_id: session-05
 event_id: null
 ---
-
-## Session 5 — Data access and manipulation
 
 Use the two exercises as the anchors for selection and data modification.
 

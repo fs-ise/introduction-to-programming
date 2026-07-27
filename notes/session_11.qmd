@@ -1,10 +1,8 @@
 ---
-title: "Session 11 teaching notes: Python 8"
+title: "Notes S-11/Python 8: Pandas automation and web APIs"
 session_id: session-11
 event_id: null
 ---
-
-## Session 11 — Pandas automation and web APIs
 
 Note: Klausur: Pandas-Teil ist "Pure pandas" (keine Kombination mit Python)
 

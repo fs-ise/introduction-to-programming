@@ -1,10 +1,8 @@
 ---
-title: "Session 07 teaching notes: Python 4"
+title: "Notes S-07/Python 4: Pivoting, prediction, and data types"
 session_id: session-07
 event_id: null
 ---
-
-## Session 7 — Pivoting, prediction, and data types
 
 Python-Teil: Vorsichtig vorgehen (möglichst viele Studis mitnehmen)
 

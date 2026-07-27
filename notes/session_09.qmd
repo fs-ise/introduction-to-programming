@@ -1,10 +1,8 @@
 ---
-title: "Session 09 teaching notes: Python 6"
+title: "Notes S-09/Python 6: For and while loops"
 session_id: session-09
 event_id: null
 ---
-
-## Session 9 — For and while loops
 
 See [for_demo.py](../materials/session_09/for_demo.py)
 
