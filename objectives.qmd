@@ -21,6 +21,14 @@ For the exam, you should be familiar with the following Excel functions:
 - XLOOKUP
 - SUBTOTAL (A table with the numbers for the first parameter will be provided in the exam)
 
+| Area                                       | Students must be able to…                                                                                                                                                                                                                                   |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Conditional formulas and references**    | Translate business rules into `IF` formulas; distinguish relative and absolute references; create formulas that can be copied down; use adjustable parameter cells; calculate sums, averages, commissions, payments and taxes.                              |
+| **Lookups and combined calculations**      | Use `XLOOKUP`, including nested lookups; fix lookup ranges with absolute references; combine lookups with `IF`; return empty cells when a condition is not satisfied; calculate VAT, bonuses, travel expenses and totals; make all formulas copyable.       |
+| **Excel Tables and structured references** | Use Excel Table notation rather than conventional cell ranges; use `SUBTOTAL` with the correct function code; use current-row references such as `[@Column]`; apply `SUMIF`; and evaluate whether at least one table value satisfies a threshold condition. |
+| **PivotTables**                            | Place variables correctly in **Filters, Columns, Rows and Values**; select appropriate filters; use multiple value fields; and choose the required aggregation, particularly sums.                                                                          |
+
+
 ## Python
 
 <!-- This document refers to the slides in file "Introduction to Python.pdf" from Winter Term 2025! It applies to the exam in December 2025 and to the retake in March 2026. -->
