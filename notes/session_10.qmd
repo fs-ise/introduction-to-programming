@@ -4,29 +4,14 @@ session_id: session-10
 event_id: null
 ---
 
-p.116: nr 2 homework.
+TODO: Additional exercise (Insurance) - PR shares it
 
-additional exercise (Insurance) - PR shares it
+Notes:
 
-Functions
-- mind. eine Klausuraufgabe
-
-p. 121/122
-Order, in-session: 4, 5, 1, 6 (if time permits)
-Homework: 2-3
-
-Dictionaries: less relevant for the exam (do not explicitly announce as not relevant at the beginning) - maybe as multiple-choice.
-
+- Functions: at least one problem set in the exam.
+- Dictionaries: less relevant for the exam (do not explicitly announce as not relevant at the beginning) - maybe as multiple-choice.
 
 Cover loop termination, functions, and dictionaries, while retaining the planned exercise order and exam guidance.
-
-## Exercises
-
-| Slide(s) | Exercise                     | Summary                                                                                                                                        | Files                                                                                                        | In-class / take-home |
-| ------: | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------- |
-|     116 | Loop termination             | Stop an otherwise infinite loop when zero is entered and add up to three attempts to the dice game.                                            | `StopLoop.py`<br>`Dicegame3.py`                                                                              |                      |
-| 121–122 | Functions                    | Create functions for digit counting, list multiplication, Harshad numbers, factorials, combinations, and a multistage slot-machine simulation. | `CountDigits.py`<br>`Listmult.py`<br>`Harshad.py`<br>`Factorial.py`<br>`Combinations.py`<br>`SlotMachine.py` |                      |
-|     133 | Dictionaries and persistence | Maintain a nested dictionary of friends, modify its contents, and save and reload it from a file.                                              | `Friends.py`<br>`friends.db`                                                                                 |                      |
 
 ## Slide 115 — `break` and `continue`
 
@@ -52,6 +37,8 @@ print("The end")
 
 ## Slide 116 — Loop termination
 
+1. Extend the code to end the loop when the user enters 0.
+
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/StopLoop.py`](../materials/session_10/StopLoop.py){.teaching-button .teaching-button-exercise}
 :::
@@ -62,8 +49,12 @@ print("The end")
 {{< include ../materials/session_10/StopLoop.py >}}
 ```
 
+2. Expand the dice game again.
+
+Assign exercise 2 as homework.
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/dicegame3.py`](../materials/session_10/dicegame3.py){.teaching-button .teaching-button-exercise}
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_10/dicegame3.py`](../materials/session_10/dicegame3.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -72,7 +63,6 @@ print("The end")
 {{< include ../materials/session_10/dicegame3.py >}}
 ```
 
-- Assign exercise 2 as homework.
 
 ::: {.callout-note title="Additional exercise TODO"}
 An additional insurance exercise is shared by PR. TODO: Add its mapping when the material is available.
@@ -152,6 +142,11 @@ print("Sum of the Square of List of Numbers:", total)
 
 ## Slides 121–122 — Functions
 
+Order, in-session: 4, 5, 1, 6 (if time permits).
+Assign 2,3 as homework.
+
+1. Write a function count_digits(int)
+
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/CountDigits.py`](../materials/session_10/CountDigits.py){.teaching-button .teaching-button-exercise}
 :::
@@ -162,8 +157,10 @@ print("Sum of the Square of List of Numbers:", total)
 {{< include ../materials/session_10/CountDigits.py >}}
 ```
 
+2. Write a Python function to multiply all the numbers in a list.
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/Listmult.py`](../materials/session_10/Listmult.py){.teaching-button .teaching-button-exercise}
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_10/Listmult.py`](../materials/session_10/Listmult.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -172,8 +169,10 @@ print("Sum of the Square of List of Numbers:", total)
 {{< include ../materials/session_10/Listmult.py >}}
 ```
 
+3. Write a function isHarshad(int)
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/Harshad.py`](../materials/session_10/Harshad.py){.teaching-button .teaching-button-exercise}
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_10/Harshad.py`](../materials/session_10/Harshad.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -181,6 +180,8 @@ print("Sum of the Square of List of Numbers:", total)
 #| eval: false
 {{< include ../materials/session_10/Harshad.py >}}
 ```
+
+4. Write a Python function to calculate the factorial of a number (n!).
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/Factorial.py`](../materials/session_10/Factorial.py){.teaching-button .teaching-button-exercise}
@@ -192,6 +193,8 @@ print("Sum of the Square of List of Numbers:", total)
 {{< include ../materials/session_10/Factorial.py >}}
 ```
 
+5. Extend the program by adding a function which calculates the number of possible combinations
+
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/Combinations.py`](../materials/session_10/Combinations.py){.teaching-button .teaching-button-exercise}
 :::
@@ -202,6 +205,8 @@ print("Sum of the Square of List of Numbers:", total)
 {{< include ../materials/session_10/Combinations.py >}}
 ```
 
+6. Write a program that simulates a slotmachine
+
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/SlotMachine.py`](../materials/session_10/SlotMachine.py){.teaching-button .teaching-button-exercise}
 :::
@@ -211,9 +216,6 @@ print("Sum of the Square of List of Numbers:", total)
 #| eval: false
 {{< include ../materials/session_10/SlotMachine.py >}}
 ```
-
-- Complete exercises in this order: 4, 5, 1, then 6 if time permits.
-- Assign exercises 2–3 as homework.
 
 ::: {.callout-important title="Exam relevance"}
 At least one exam exercise will cover functions.

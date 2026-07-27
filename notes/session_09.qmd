@@ -4,27 +4,7 @@ session_id: session-09
 event_id: null
 ---
 
-See [for_demo.py](../materials/session_09/for_demo.py)
-
-Loop: explain with sum/product \sum_i^n
-
-p. 110/111: nr 3-4, 6-7 homework
-
-while exercises:
-nr 1: homework
-nr 2-4: in-session
-nr 5-6: homework
--> remind: nr 6 same task as in Excel
-
-
 Explain loop mechanics with sums and products, then distinguish the planned in-class and homework exercises.
-
-## Exercises
-
-| Slide(s) | Exercise      | Summary                                                                                                                                    | Files                                                                                                                | In-class / take-home |
-| ------: | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| 110–111 | `for` loops   | Repeat messages, calculate an average, identify multiples, generate Fibonacci numbers and random frequencies, and print a letter triangle. | `Message.py`<br>`Average.py`<br>`Tens.py`<br>`MultipleSum.py`<br>`Fibonacci.py`<br>`Frequencies.py`<br>`Triangle.py` |                      |
-| 113–114 | `while` loops | Build a shopping list, implement two guessing games, extend the dice game, and generate a loan-repayment history.                          | `ShoppingList.py`<br>`Guess1.py`<br>`Guess2.py`<br>`Dicegame2.py`<br>`Loan.py`                                       |                      |
 
 ## Slide 109 — Ranges and `for` loops
 
@@ -56,6 +36,8 @@ for i in ['apple', 'orange']:
 
 ## Slides 110–111 — `for` loops
 
+Explain loops using $\sum_i^n$ and $\prod_i^n$.
+
 ::: {.teaching-file}
 [In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_09/for_demo.py`](../materials/session_09/for_demo.py){.teaching-button .teaching-button-demo}
 :::
@@ -65,6 +47,10 @@ for i in ['apple', 'orange']:
 #| eval: false
 {{< include ../materials/session_09/for_demo.py >}}
 ```
+
+Note: 3–4 and 6–7 are homework.
+
+1. Write a program that will ask the user for a message and the number of times they want that message displayed.
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Message.py`](../materials/session_09/Message.py){.teaching-button .teaching-button-exercise}
@@ -76,6 +62,8 @@ for i in ['apple', 'orange']:
 {{< include ../materials/session_09/Message.py >}}
 ```
 
+2. Write a program that will calculate the average (mean) of a set of numbers.
+
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Average.py`](../materials/session_09/Average.py){.teaching-button .teaching-button-exercise}
 :::
@@ -86,8 +74,10 @@ for i in ['apple', 'orange']:
 {{< include ../materials/session_09/Average.py >}}
 ```
 
+3. Write a program that will output the numbers from 1 to 100.
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Tens.py`](../materials/session_09/Tens.py){.teaching-button .teaching-button-exercise}
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_09/Tens.py`](../materials/session_09/Tens.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -96,8 +86,10 @@ for i in ['apple', 'orange']:
 {{< include ../materials/session_09/Tens.py >}}
 ```
 
+4. If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/MultipleSum.py`](../materials/session_09/MultipleSum.py){.teaching-button .teaching-button-exercise}
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_09/MultipleSum.py`](../materials/session_09/MultipleSum.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -105,6 +97,8 @@ for i in ['apple', 'orange']:
 #| eval: false
 {{< include ../materials/session_09/MultipleSum.py >}}
 ```
+
+5. Write a program that generates a list containing the Fibonacci sequence.
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Fibonacci.py`](../materials/session_09/Fibonacci.py){.teaching-button .teaching-button-exercise}
@@ -116,8 +110,10 @@ for i in ['apple', 'orange']:
 {{< include ../materials/session_09/Fibonacci.py >}}
 ```
 
+6. Write a program to generate n random numbers between 1 and 10.
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Frequencies.py`](../materials/session_09/Frequencies.py){.teaching-button .teaching-button-exercise}
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_09/Frequencies.py`](../materials/session_09/Frequencies.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -126,8 +122,10 @@ for i in ['apple', 'orange']:
 {{< include ../materials/session_09/Frequencies.py >}}
 ```
 
+7. Write a program that displays a word entered by the user as a triangle of letters.
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Triangle.py`](../materials/session_09/Triangle.py){.teaching-button .teaching-button-exercise}
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_09/Triangle.py`](../materials/session_09/Triangle.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -135,15 +133,6 @@ for i in ['apple', 'orange']:
 #| eval: false
 {{< include ../materials/session_09/Triangle.py >}}
 ```
-
-- Explain loops using a sum and a product:
-
-```text
-sum:     Σᵢⁿ
-product: ∏ᵢⁿ
-```
-
-- Assign exercises 3–4 and 6–7 as homework.
 
 ::: {.teaching-break}
 ☕ Break — 10 minutes
@@ -171,8 +160,12 @@ while names[0] != 'Jens':
 
 ## Slides 113–114 — `while` loops
 
+Assign exercise 1, 5 as homework.
+
+1. Create a program that will keep track of items for a shopping list.
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/ShoppingList.py`](../materials/session_09/ShoppingList.py){.teaching-button .teaching-button-exercise}
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_09/ShoppingList.py`](../materials/session_09/ShoppingList.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -180,6 +173,8 @@ while names[0] != 'Jens':
 #| eval: false
 {{< include ../materials/session_09/ShoppingList.py >}}
 ```
+
+2. Write a Python program to guess a number between 1 to 10.
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Guess1.py`](../materials/session_09/Guess1.py){.teaching-button .teaching-button-exercise}
@@ -191,6 +186,8 @@ while names[0] != 'Jens':
 {{< include ../materials/session_09/Guess1.py >}}
 ```
 
+3. Rewrite the program to have the user guess a number between 1 to 100
+
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Guess2.py`](../materials/session_09/Guess2.py){.teaching-button .teaching-button-exercise}
 :::
@@ -200,6 +197,8 @@ while names[0] != 'Jens':
 #| eval: false
 {{< include ../materials/session_09/Guess2.py >}}
 ```
+
+4. Expand the previously created dice game.
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/dicegame2.py`](../materials/session_09/dicegame2.py){.teaching-button .teaching-button-exercise}
@@ -211,8 +210,12 @@ while names[0] != 'Jens':
 {{< include ../materials/session_09/dicegame2.py >}}
 ```
 
+5. Write a program to create the history of a loan.
+
+Note: Remind students that exercise 5 is the same task they completed in Excel.
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Loan.py`](../materials/session_09/Loan.py){.teaching-button .teaching-button-exercise}
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_09/Loan.py`](../materials/session_09/Loan.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -221,14 +224,7 @@ while names[0] != 'Jens':
 {{< include ../materials/session_09/Loan.py >}}
 ```
 
-- Assign exercise 1 as homework.
-- Complete exercises 2–4 in class.
-- Assign exercises 5–6 as homework.
-- Remind students that exercise 6 is the same task they completed in Excel.
-
 ## Summary and announcements
-
-- TODO
 
 ::: {.callout-tip title="Notes for improvement"}
 Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.

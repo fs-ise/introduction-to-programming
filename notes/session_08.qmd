@@ -6,25 +6,7 @@ event_id: null
 
 TOOD: include visualization of IBAN
 
-p.91: nr 3: hausaufgabe
-p.97 nr 2 hausaufgabe
-
-tuples: kurz (zB. pandas: df.shape, ...)
-
-p.105: 3 hausaufgabe
--> nr 4: explain in-class (importance of code in/outside of if)
-p. 106/107: homework (tutorium)
-
-
 Use the exercises to move from sequences to conditional logic, while keeping the stated homework decisions.
-
-## Exercises
-
-| Slide(s) | Exercise          | Summary                                                                                                                   | Files                                                                                                              | In-class / take-home |
-| ------: | ----------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------- |
-|   91–92 | Strings and IBAN  | Perform string inspection and manipulation and calculate an IBAN validation number from user input.                       | `String1.py`<br>`String2.py`<br>`String3.py`<br>`IBAN.py`                                                          |                      |
-|      97 | List operations   | Create, inspect, extend, reorder, and modify lists and calculate values derived from their elements.                      | `Listexercise1.py`<br>`Listexercise2.py`                                                                           |                      |
-| 105–107 | Conditional logic | Implement odd/even checks, discounts, rating-based interest, a dice game, temperature conversion, grades, and income tax. | `OddEven.py`<br>`Discount.py`<br>`AnnuityLoan2.py`<br>`Dicegame1.py`<br>`Temperature.py`<br>`Grade.py`<br>`Tax.py` |                      |
 
 ## Slide 88 — Creating strings
 
@@ -53,6 +35,10 @@ s[:6] + s[6:]
 
 ## Slides 91–92 — Strings and IBAN
 
+**Assign exercise 3 as homework.**
+
+1. Write a Python program to calculate the length of a string you type in. Furthermore, it should output the first and the last character.
+
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/String1.py`](../materials/session_08/String1.py){.teaching-button .teaching-button-exercise}
 :::
@@ -62,6 +48,10 @@ s[:6] + s[6:]
 #| eval: false
 {{< include ../materials/session_08/String1.py >}}
 ```
+
+<br><br>
+
+2. Write a Python program to insert a string in the middle of a string.
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/String2.py`](../materials/session_08/String2.py){.teaching-button .teaching-button-exercise}
@@ -73,8 +63,12 @@ s[:6] + s[6:]
 {{< include ../materials/session_08/String2.py >}}
 ```
 
+<br><br>
+
+3. Write a program that at first asks for two strings...
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/String3.py`](../materials/session_08/String3.py){.teaching-button .teaching-button-exercise}
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/session_08/String3.py`](../materials/session_08/String3.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -82,6 +76,10 @@ s[:6] + s[6:]
 #| eval: false
 {{< include ../materials/session_08/String3.py >}}
 ```
+
+<br><br>
+
+4. The International Bank Account Number (IBAN) is a standardized international numbering system developed to identify bank accounts across national borders....
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/IBAN.py`](../materials/session_08/IBAN.py){.teaching-button .teaching-button-exercise}
@@ -92,8 +90,6 @@ s[:6] + s[6:]
 #| eval: false
 {{< include ../materials/session_08/IBAN.py >}}
 ```
-
-- Assign exercise 3 on Slide 91 as homework.
 
 ::: {.callout-note title="TODO"}
 Include a visualization of the IBAN procedure.
@@ -125,6 +121,8 @@ x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 ## Slide 97 — List operations
 
+1. Perform the following list operations:
+
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Listexercise1.py`](../materials/session_08/Listexercise1.py){.teaching-button .teaching-button-exercise}
 :::
@@ -135,8 +133,12 @@ x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 {{< include ../materials/session_08/Listexercise1.py >}}
 ```
 
+2. Write a program that creates an empty list named x at first.
+
+- Assign exercise 2 as homework.
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Listexercise2.py`](../materials/session_08/Listexercise2.py){.teaching-button .teaching-button-exercise}
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_08/Listexercise2.py`](../materials/session_08/Listexercise2.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -145,10 +147,9 @@ x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 {{< include ../materials/session_08/Listexercise2.py >}}
 ```
 
-- Assign exercise 2 as homework.
-- Cover tuples briefly; use `df.shape` as an example.
-
 ## Slide 98 — Creating and slicing tuples
+
+- Cover tuples briefly; use `df.shape` as an example.
 
 Indexing and slicing are similar for tuples and lists.
 
@@ -235,6 +236,10 @@ if 11 <= time <= 13:
 
 ## Slides 105–107 — Conditional logic
 
+PR: exercises 3, 5, 6, 7: homework (for the tutorial).
+
+1. Write a program to determine if a number entered is odd or even.
+
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/OddEven.py`](../materials/session_08/OddEven.py){.teaching-button .teaching-button-exercise}
 :::
@@ -244,6 +249,10 @@ if 11 <= time <= 13:
 #| eval: false
 {{< include ../materials/session_08/OddEven.py >}}
 ```
+
+<br><br>
+
+2. Write a program that calculates a discount based on the purchase amount.
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Discount.py`](../materials/session_08/Discount.py){.teaching-button .teaching-button-exercise}
@@ -255,8 +264,12 @@ if 11 <= time <= 13:
 {{< include ../materials/session_08/Discount.py >}}
 ```
 
+<br><br>
+
+3. Extend the program which calculates the annual payment of an annuity loan by a rating parameter.
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/AnnuityLoan2.py`](../materials/session_08/AnnuityLoan2.py){.teaching-button .teaching-button-exercise}
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_08/AnnuityLoan2.py`](../materials/session_08/AnnuityLoan2.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -264,6 +277,12 @@ if 11 <= time <= 13:
 #| eval: false
 {{< include ../materials/session_08/AnnuityLoan2.py >}}
 ```
+
+<br><br>
+
+4. Write a program that simulates a dice game.
+
+**Explain exercise 4 in class, emphasizing the importance of whether code is inside or outside an `if` block.**
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/dicegame1.py`](../materials/session_08/dicegame1.py){.teaching-button .teaching-button-exercise}
@@ -275,8 +294,12 @@ if 11 <= time <= 13:
 {{< include ../materials/session_08/dicegame1.py >}}
 ```
 
+<br><br>
+
+5. Write a program to convert temperatures between celsius and fahrenheit.
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Temperature.py`](../materials/session_08/Temperature.py){.teaching-button .teaching-button-exercise}
+[In-class exercise]{.teaching-label .teaching-label-homework} [`../materials/session_08/Temperature.py`](../materials/session_08/Temperature.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -285,8 +308,12 @@ if 11 <= time <= 13:
 {{< include ../materials/session_08/Temperature.py >}}
 ```
 
+<br><br>
+
+6. Write a program to calculate the grades A-F based on the final percentage score:
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Grade.py`](../materials/session_08/Grade.py){.teaching-button .teaching-button-exercise}
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_08/Grade.py`](../materials/session_08/Grade.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -295,8 +322,12 @@ if 11 <= time <= 13:
 {{< include ../materials/session_08/Grade.py >}}
 ```
 
+<br><br>
+
+7. Write a program to calculate income tax (T) and net income for any taxable income (X)
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Tax.py`](../materials/session_08/Tax.py){.teaching-button .teaching-button-exercise}
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_08/Tax.py`](../materials/session_08/Tax.py){.teaching-button .teaching-button-homework}
 :::
 
 ```{python}
@@ -305,13 +336,7 @@ if 11 <= time <= 13:
 {{< include ../materials/session_08/Tax.py >}}
 ```
 
-- Assign exercise 3 on Slide 105 as homework.
-- Explain exercise 4 in class, emphasizing the importance of whether code is inside or outside an `if` block.
-- Assign Slides 106–107 as homework for the tutorial.
-
 ## Summary and announcements
-
-- TODO
 
 ::: {.callout-tip title="Notes for improvement"}
 Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.

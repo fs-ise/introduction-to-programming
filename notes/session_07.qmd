@@ -6,14 +6,9 @@ event_id: null
 
 Python-Teil: Vorsichtig vorgehen (möglichst viele Studis mitnehmen)
 
-## Exercises
-
-| Slide(s) | Exercise                   | Summary                                                                                                                            | Files                                                                                                   | In-class / take-home |
-| ------: | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------------- |
-|      67 | Pivot tables               | Construct insurance pivot tables with multiple grouping dimensions, totals, filters, and a bar chart.                              | `insurance.xlsx`<br>`insurance2.py`                                                                     |                      |
-|   74–75 | Chipotle analysis          | Inspect the dataset; calculate orders, quantities, prices, and revenue; identify popular items; and create charts.                 | `Chipotle.csv`<br>`Chipotle.py`                                                                         |                      |
-|   76–77 | Florida housing analysis   | Calculate and analyze profits, compare agencies and house characteristics, and build three predictive models.                      | `Homes_Florida.xlsx`<br>`Homes_Florida.py`                                                              |                      |
-|   84–85 | Input and formula programs | Create interactive programs for circle area, currencies, geographic distance, travel time, fuel consumption, and annuity payments. | `CircleArea2.py`<br>`Currency.py`<br>`Distance.py`<br>`Traveltime.py`<br>`Fuel.py`<br>`AnnuityLoan1.py` |                      |
+::: {.callout-warning title="Missing material"}
+TODO: `Traveltime.py` appears in the exercise table, but it is not present in the supplied material inventory. Do not create or substitute a file until the source is located.
+:::
 
 ## Slide 58 — Load the sales data and create a pivot table
 
@@ -392,10 +387,6 @@ type(age)
 ```
 
 - Assign exercises 4, 5, and 6 as homework.
-
-::: {.callout-warning title="Missing material"}
-TODO: `Traveltime.py` appears in the exercise table, but it is not present in the supplied material inventory. Do not create or substitute a file until the source is located.
-:::
 
 ## Slide 86 — Boolean values
 

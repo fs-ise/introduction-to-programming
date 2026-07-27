@@ -4,28 +4,16 @@ session_id: session-11
 event_id: null
 ---
 
-Note: Klausur: Pandas-Teil ist "Pure pandas" (keine Kombination mit Python)
+TODO: prepare (split) `5_REST.py`
 
-Alpha Vantage keys: PR shares them later.
+Notes:
 
-JSON: relevance (apps, ...)
-
-API examples: depending on remaining time.
-
-See `5_REST.py`
-
+- Alpha Vantage keys: PR shares them later.
+- Klausur: Pandas-Teil ist "Pure pandas" (keine Kombination mit Python)
+- JSON: relevance (apps, ...)
+- API examples: depending on remaining time.
 
 Keep API examples non-executable in rendered notes and select them according to the remaining class time.
-
-## Exercises
-
-| Slide(s) | Exercise                    | Summary                                                                                                                                   | Files                       | In-class / take-home |
-| ------: | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | -------------------- |
-|     143 | Stock-market API            | Retrieve Mercedes-Benz data through an API, plot closing prices, and calculate and visualize high/low returns.                            | `MercedesBenz1.py`          |                      |
-|     148 | Stock-price collection      | Retrieve evening closing prices for four stocks and append them with the date to a persistent CSV file.                                   | `Stocks.py`<br>`Stocks.csv` |                      |
-|     152 | JSON data retrieval         | Rewrite the Mercedes-Benz exercise to process the API response as JSON.                                                                   | `MercedesBenz2.py`          |                      |
-|     155 | Cryptocurrency API analysis | Retrieve Bitcoin and Ethereum prices, convert timestamps, calculate returns, variances, and correlation, and visualize the return series. | `Cryptocurrencies.py`       |                      |
-|     159 | Weather API                 | Configure an Open-Meteo forecast, retrieve it through the API, and process the resulting weather data.                                    | —                           |                      |
 
 ## Slide 137 — Calculate a moving average with a loop
 

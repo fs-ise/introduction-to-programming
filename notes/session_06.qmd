@@ -8,19 +8,10 @@ ggf. Varianz/Mittelwert erkären
 
 Plots: nur LIne/Bar in der Klausur (siehe Dokument: relevant topics for the exam)
 
--> ML/prediction: nicht Klausurrelevant
-
+Note: ML/prediction is not relevant for the exam.
 
 Focus on descriptive statistics, basic charts, filtering, and grouping; distinguish exam-relevant content from enrichment.
 
-## Exercises
-
-| Slide(s) | Exercise                 | Summary                                                                                                      | Files                                                                     | In-class / take-home |
-| ------: | ------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- | -------------------- |
-|      42 | Descriptive statistics   | Calculate aggregates, summaries, correlations, distinct values, and continent frequencies.                   | `countries.csv`<br>`countries3.py`                                        |                      |
-|      49 | Basic visualizations     | Create line, bar, pie, density, and box plots for the country data.                                          | `countries.csv`<br>`countries4.py`                                        |                      |
-|      53 | Conditional filtering    | Filter countries using area, population, continent, and GDP conditions; summarize and visualize the results. | `countries.csv`<br>`countries5.py`                                        |                      |
-|      56 | Grouping and aggregation | Use `groupby()` to summarize countries by continent and insurance contracts by state and coverage.           | `countries.csv`<br>`countries6.py`<br>`insurance.xlsx`<br>`insurance1.py` |                      |
 
 ## Slide 37 — Summing DataFrame values
 

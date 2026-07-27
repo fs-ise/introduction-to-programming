@@ -4,14 +4,21 @@ session_id: session-05
 event_id: null
 ---
 
-Use the two exercises as the anchors for selection and data modification.
+Resources:
 
-## Exercises
+- [Good explanation](https://proclusacademy.com/blog/practical/slice-pandas-dataframes-using-iloc-loc/)
+- [Kaggle exercise](https://www.kaggle.com/learn/pandas?trk=public_profile_certification-title)
+- [pandas tutorial](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html)
 
-| Slide(s) | Exercise             | Summary                                                                                | Files                              | In-class / take-home |
-| ------: | -------------------- | -------------------------------------------------------------------------------------- | ---------------------------------- | -------------------- |
-|      31 | DataFrame selection  | Select specified columns and rows using `iloc` and `loc`.                              | `countries.csv`<br>`countries1.py` |                      |
-|      36 | Modify and sort data | Add Belgium, sort rows, calculate GDP per capita, and remove the added column and row. | `countries.csv`<br>`countries2.py` |                      |
+TODO: illustrate Excel structured references (if they are helpful to understand)?
+TBD: illustrate label and index-based access in Python or on the whiteboard?
+
+Note: `exped` corresponds to dataset `Exped_tabls.xls`. `data` corresponds to `Bikestore.xlsx`.
+
+TODO/TBD: start by explaining label/position-based access based on a whiteboard illustration (leverage similarities to Excel. Run the operations in parallel (**but make sure the results are identical with the illustration**))
+See: https://chatgpt.com/c/6a6758fc-2954-83eb-a108-c91f378dfc7c
+
+![](../images/pandas_label_vs_position.png){fig-align="center" width="80%"}
 
 ## Slide 23 — Accessing a column
 
@@ -92,6 +99,14 @@ data_sorted
 
 data_sorted.loc[1:3, 'Bike':'Turnover']
 ```
+
+## Slide 30 - Accessing data: loc vs. iloc
+
+
+Highlight that the iloc (red) is fixed.
+The loc (blue) may change its positions.
+
+<!-- see also: https://proclusacademy.com/blog/practical/slice-pandas-dataframes-using-iloc-loc/ -->
 
 ## Slide 31 — DataFrame selection
 
