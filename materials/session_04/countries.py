@@ -1,7 +1,7 @@
 import pandas as pd
 
-countries = pd.read_csv('countries.csv')
+countries = pd.read_csv('../materials/data/countries.csv')
 print(countries.shape)
-list(countries)
+print(countries.columns) # or print(list(countries))
 countries.head()
 

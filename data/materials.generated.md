@@ -54,9 +54,6 @@
 
 | Material | Type |
 |---|---|
-| [2 Pivot](materials/session_07/2_Pivot.py) | PY file |
-| [3 Predictions](materials/session_07/3_Predictions.py) | PY file |
-| [4 Python](materials/session_07/4_Python.py) | PY file |
 | [AnnuityLoan1](materials/session_07/AnnuityLoan1.py) | PY file |
 | [Chipotle](materials/session_07/Chipotle.py) | PY file |
 | [CircleArea2](materials/session_07/CircleArea2.py) | PY file |

@@ -4,91 +4,67 @@ session_id: session-04
 event_id: null
 ---
 
-### Session 4 — Python and pandas basics
-
-TODO:
-
-- add spyder setup
-- spytertest.py (in canvas) mit studis am Anfang der python session step-by-step durchgehen
-- use Anaconda (be prepared to answer questions)
-- use setwd() for spyder. prepare to explain os.chdir(). Include an explicit task/test.
-- check pandas version? 3.0?
-- TBD: quarto-include code fragments? add explanations (asides?)
-
-Notes:
-
-- p.13: abhängig von Zeit: in-session or homework
-- Aufgaben: komplett (soweit die Zeit da ist)
-- Bei Zeitnot: Aufgaben nach Haus geben
-- Python Lösungen: werden von Tutoren besprochen
-- See also `Versicherungsvertreter.py` and `Versicherungsvertreter.xslx`
-
-
-
-**Introductory discussion**
-
-- Prior programming experience?
-- Why go beyond Excel and use Python? (advanced analytics: Regression, prediction, ML, AI, ...)
-- Interpreted: vs. compiled language
-
-Python:
-
-- motivation: existing libraries!
-- Don't repeat yourself principle of programming: by using Python libraries (modularization of code), we benefit from the code written by others.
-  Illustration (whiteboard): the Python code that is involved in a typical ML studyis roughly 2 million LOC. 99.99% is imported (Pandas, scikitlearn, ...) and a few hundred LOC are our code (tip of the iceberg, we orchestrate existing libraries). For the sake of the argument, we simply ignore all of the other code, the Python core or the code that runs the OS and operates the hardware.
-  It is not just LOC, but the 99% of the code (the libraries) are often very well designed and maintained (if you pick the right libraries). Also, they are constantly updated so we get performance improvements, remaining bugs are fixed, and the documentation gets better.
-  This means we can really "stand on the shoulders of giants". Pretty amazing.
-
-- Why shouldn't we just use ChatGPT? (prompt adequately, validate and improve, Python: effective prompting possible)
-
-Prepare the Python environment before the session and plan to complete as many exercises as time permits.
-
-## Exercises
-
-| Slide(s) | Exercise               | Summary                                                                                                          | Files                                                                                      | In-class / take-home |
-| ------: | ---------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------- |
-|       5 | Basic operators        | Run arithmetic, division, modulo, exponentiation, and string-concatenation expressions.                          | —                                                                                          |                      |
-|      11 | Trace program output   | Predict the results of assignments, reassignment, multiple assignment, and arithmetic expressions.               | —                                                                                          |                      |
-|      13 | Basic formula programs | Calculate a circle’s area and the future value of an investment using variables defined in the program.          | `CircleArea1.py`<br>`FutureValue.py`                                                       |                      |
-|      22 | Import and export data | Load country and insurance data, inspect DataFrame dimensions and columns, and export the insurance data to CSV. | `countries.csv`<br>`countries.py`<br>`insurance.xlsx`<br>`insurance.py`<br>`insurance.csv` |                      |
-
-## General teaching notes
-
-- Ask about prior programming experience.
-- Discuss why Python complements Excel for advanced analytics, regression, prediction, machine learning, and AI.
-- Contrast interpreted and compiled languages.
-- Motivate Python through reusable libraries and the “don't repeat yourself” principle.
-- On the whiteboard, illustrate an ML study as a small amount of course code built on a much larger body of imported, maintained library code. Emphasize that students orchestrate existing libraries and can “stand on the shoulders of giants.”
-- Ask why students should not simply use ChatGPT: effective prompting still requires validation and improvement.
-
 ::: {.callout-note title="Preparation TODOs"}
 - TODO: Add the Spyder setup.
 - TODO: Use Anaconda and be prepared for questions.
 - TODO: Walk through `spytertest.py` from Canvas with students at the start of the Python session. Retain the original filename spelling; its repository path is not known.
-- TODO: Clarify the note “use `setwd()` for Spyder.”
-- TODO: Check whether pandas 3.0 is the version to discuss.
+- TODO: Clarify the note “use `os.chdir()` for Spyder.”
+- TODO: Check whether pandas 3.0 is installed automatically.
+
+- TODO: check with PR: no explicit take-home/homework exercises in this session?
+
+The existing notes also identify these materials, but do not establish an exact page mapping:
+
+- [`Versicherungsvertreter.py`](../materials/session_04/Versicherungsvertreter.py)
+- [`Versicherungsvertreter.docx`](../materials/session_04/Versicherungsvertreter.docx)
+
+TODO: Confirm where these materials should be used. The original note referred to the second file as `Versicherungsvertreter.xslx`; the supplied inventory contains the Word document above instead.
 :::
+
+Notes:
+
+- Rule: TBD?? in-class demo: directly hard-code solution; in-class exercise: include script !??
+- Note: solutions (of take-home exercises) are discussed by the tutors
+
+Prepare the Python environment before the session and plan to complete as many exercises as time permits.
+
+## Slide 1 - Introductory discussion
+
+- Ask about prior programming experience.
+- Discuss why Python complements Excel for advanced analytics, regression, prediction, machine learning, and AI.
+- Contrast interpreted and compiled languages.
+- Motivate Python through **reusable libraries** and the “don't repeat yourself” principle.
+  Don't repeat yourself principle of programming: by using Python libraries (modularization of code), we benefit from the code written by others.
+  Illustration (whiteboard): the Python code that is involved in a typical ML studyis roughly 2 million LOC. 99.99% is imported (Pandas, scikitlearn, ...) and a few hundred LOC are our code (tip of the iceberg, we orchestrate existing libraries). For the sake of the argument, we simply ignore all of the other code, the Python core or the code that runs the OS and operates the hardware.
+  It is not just LOC, but the 99% of the code (the libraries) are often very well designed and maintained (if you pick the right libraries). Also, they are constantly updated so we get performance improvements, remaining bugs are fixed, and the documentation gets better.
+  This means we can really "stand on the shoulders of giants". Pretty amazing.
+- On the whiteboard, illustrate an ML study as a small amount of course code built on a much larger body of imported, maintained library code. Emphasize that students orchestrate existing libraries and can “stand on the shoulders of giants.”
+- Ask why students should not simply use ChatGPT: effective prompting still requires validation and improvement.
+
+## Slides 2-4 - Shell, Scripts, IDE
+
+**TODO: include Spyder setup here.**
 
 ## Slide 5 — Basic arithmetic and string operations
 
-Run these expressions individually in the interactive console so that each result is visible.
+Run these expressions individually in Spyder so that each result is visible.
 
 ```python
 3*5
 16-5
 16/4
 16/5
-16%5
-16//5
-3**2
+16%5              # modulo/remainder after integer division (1)
+16//5             # floor division: returns whole-number qotient (3)
+3**2              # exponent
 "Hello " + "World"
 ```
 
-## Slide 6 — Operators in Python
-
-In the preceding examples, `/` performs division, `//` performs floor division, `%` gives the remainder (modulo), and `**` performs exponentiation. For strings, `+` concatenates the operands.
+Note: operators explained on the following slide.
 
 ## Slide 8 — Variables and reassignment
+
+Refer to a variable as **names bound to an object**
 
 Python allows a variable to be reassigned to values of different types (dynamic typing), while multiple assignment sets several variables in one statement.
 
@@ -107,6 +83,13 @@ a
 b
 a + b
 ```
+
+## Slide 9 - Variable memory and CPU
+
+Explain step by step how Python approaches this statement.
+
+- Assignment: right side to the variable z.
+- Right side is a complex statement. Needs to be evaluated first....
 
 ## Slide 10 — Output with `print()`
 
@@ -134,31 +117,32 @@ print('Peter')
 
 Predict the result of each block before running it.
 
-```python
+```{python}
 x = 15
 x = x + 5
 print(x)
 ```
+Note: for the `x = x + 5`, the following slide provides an animated explanation.
 
-```python
+```{python}
 x = 4
 y = x + 1
 x = 2
 print(x, y)
 ```
 
-```python
+```{python}
 a = 4.5
 b = 2
 print(a // b)
 ```
 
-```python
+```{python}
 x = 17 / 2 % 2 * 3**3
 print(x)
 ```
 
-```python
+```{python}
 x, y = 2, 6
 x, y = y, x + 2
 print(x, y)
@@ -174,8 +158,10 @@ The final block intentionally raises a `NameError` because `c` is read before it
 
 ## Slide 13 — Basic formula programs
 
+Depending on available time, complete this exercise in class or assign it as homework.
+
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_04/CircleArea1.py`](../materials/session_04/CircleArea1.py){.teaching-button .teaching-button-exercise}
+[In-class exercise]{.teaching-label .teaching-label-exercise}
 :::
 
 ```{python}
@@ -185,7 +171,7 @@ The final block intentionally raises a `NameError` because `c` is read before it
 ```
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_04/FutureValue.py`](../materials/session_04/FutureValue.py){.teaching-button .teaching-button-exercise}
+[In-class exercise]{.teaching-label .teaching-label-exercise}
 :::
 
 ```{python}
@@ -194,7 +180,6 @@ The final block intentionally raises a `NameError` because `c` is read before it
 {{< include ../materials/session_04/FutureValue.py >}}
 ```
 
-- Depending on available time, complete this exercise in class or assign it as homework.
 
 ::: {.teaching-break}
 ☕ Break — 10 minutes
@@ -202,13 +187,17 @@ The final block intentionally raises a `NameError` because `c` is read before it
 
 ## Slide 15 — Importing pandas
 
-The short alias `pd` is the conventional name used for pandas.
+pandas DataFrames are widely used to load, inspect, clean, and prepare tabular data for machine learning. Models commonly receive DataFrames (or similar formats) depending on the library.
+
+The short alias `pd` is the conventional name used for pandas (programmers are often lazy and prefer short names).
 
 ```python
 import pandas as pd
 ```
 
 ## Slide 16 — Reading an Excel file into a DataFrame
+
+**TODO: get and link Bikesales.xlsx file**
 
 The final expression displays the DataFrame in an interactive environment.
 
@@ -231,10 +220,22 @@ data.dtypes
 
 This path is machine-specific. The raw-string prefix `r` prevents Windows backslashes from being interpreted as escape sequences.
 
+**TODO: select a suitable path here:**
+
 ```python
 import os
 os.chdir(r'D:\Dropbox\Lehre\Introduction to Programming\Presentation')
 ```
+
+Note:
+
+```python
+import os
+
+print(os.getcwd())
+```
+
+**TODO: where is it in spyder?**
 
 ## Slide 19 — Reading CSV files
 
@@ -245,6 +246,10 @@ data = pd.read_csv('Bikesales.csv')
 ```
 
 ## Slide 20 — Loading, previewing, and exporting data
+
+::: {.teaching-file}
+[`../materials/Exped_Table.xlsx`](../materials/Exped_Table.xlsx){.teaching-button .teaching-button-exercise}
+:::
 
 `head()` previews the first rows; `index=False` avoids writing the DataFrame index as an extra CSV column.
 
@@ -257,6 +262,8 @@ exped.to_csv('Exped.csv', index=False)
 ```
 
 ## Slide 21 — Setting a DataFrame index
+
+**TODO: think: should Transid be an incrementing index? in this case, it does not differ from the default/artificial index... It may be a more reasonable example if the new index differs from the one created by default.**
 
 After `set_index()`, `Transid` supplies the row labels.
 
@@ -272,27 +279,25 @@ exped1.head()
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_04/countries.py`](../materials/session_04/countries.py){.teaching-button .teaching-button-exercise}
-:::
+<!-- ../materials/session_04/countries.py -->
 
 ```{python}
 #| echo: true
-#| eval: false
+#| eval: true
 {{< include ../materials/session_04/countries.py >}}
 ```
+
+{{< pagebreak >}}
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_04/insurance.py`](../materials/session_04/insurance.py){.teaching-button .teaching-button-exercise}
-:::
+<!-- ../materials/session_04/insurance.py -->
 
 ```{python}
 #| echo: true
-#| eval: false
+#| eval: true
 {{< include ../materials/session_04/insurance.py >}}
 ```
 
@@ -300,18 +305,7 @@ exped1.head()
 - If time is short, assign unfinished exercises as homework.
 - Python solutions will be discussed by the tutors.
 
-::: {.callout-note title="Additional insurance material"}
-The existing notes also identify these materials, but do not establish an exact page mapping:
-
-- [`Versicherungsvertreter.py`](../materials/session_04/Versicherungsvertreter.py)
-- [`Versicherungsvertreter.docx`](../materials/session_04/Versicherungsvertreter.docx)
-
-TODO: Confirm where these materials should be used. The original note referred to the second file as `Versicherungsvertreter.xslx`; the supplied inventory contains the Word document above instead.
-:::
-
 ## Summary and announcements
-
-- TODO
 
 ::: {.callout-tip title="Notes for improvement"}
 Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
