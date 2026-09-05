@@ -24,7 +24,6 @@ Slides are on [nextcloud](https://nc-2272638881871040784.nextcloud-ionos.com/ind
 
 ::: {.callout-important title="TODO"}
 - Use **win10_64** (not **windows-10-virtual**) for XLOOKUP support.
-- **My VM Excel version does not support XLOOKUP** (TODO: update the formula in Excel_in_class_exercises.xlsx sheet Grading F17)
 - Document with instructions to configure Excel (language, separators)? PR: available in canvas? Plan how to present (slide?)
 - TBD: save the Excel sheets for each group (to track progress)?
 - TBD: survey with reflection/questions for the next sessions (maybe as a digital or offline paper submission option?)
@@ -39,7 +38,7 @@ Slides are on [nextcloud](https://nc-2272638881871040784.nextcloud-ionos.com/ind
   Use the solutions file only to generate screenshots for the teaching notes.
   Develop solutions interactively in class.
 - Links to the files/sheets should be on the slides (currently: in the teaching notes?? - should not be in both places)
-- Python code should be included in teaching notes to avoid duplication.
+- Python code should be included through ``{{< include _demo.py >}}`` in teaching notes to avoid duplication.
 - Make sure that all homework is properly discussed at the beginning of the next session.
 :::
 

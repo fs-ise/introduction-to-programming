@@ -9,7 +9,8 @@ event_id: null
 ::: {.callout-important title="TODO"}
 - Check/test the vlookup limitation demo (xlookup)
 - Prep/clarify: `XLOOKUP(lookup_value, lookup_array, return_array)`
-- PR: Importance of HLOOKUP/approximate matching? - update materials accordingly
+- Vertical lookup: down
+- Horizontal lookup: to the right
 :::
 
 | Time                 | Topic/activity                                               | Materials                                                                |
@@ -243,8 +244,9 @@ Create the table together with the students.
 Teaching sequence:
 
 - Start with the ordinary range in the `Bike_sales` sheet
+- Illustrate shortcoming: Add `Sum(range....)`, and then add a row in the table to show that the new data is not considered
 - Select the complete data range.
-- Insert an Excel Table.
+- Insert an Excel Table (through ribbon or click into the table and use `ctrl+t`).
 - Confirm that the range contains headers.
 - Rename the table from its default name to `Bikesales`.
 
@@ -252,10 +254,10 @@ Explain the main differences between an ordinary range and an Excel Table:
 
 - Named object
 - Automatic headers
-- Dynamic expansion
+- Dynamic expansion (using `tab` in the last line) - with updating of formulas (show and updated `Sum(Bikesales[price])` example).
 - Integrated filtering and sorting
 - Structured references
-- Automatically propagated formulas
+- Automatically propagated formulas (when adding a column, and entering a formula, it gets copied to the following cells)
 
 ::: {.callout-important}
 A table name identifies the table independently of its position in the worksheet.

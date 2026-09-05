@@ -7,18 +7,19 @@ event_id: null
 <br>
 
 ::: {.callout-important title="TODO"}
+- Make sure students are prepared for the typical exam question the Pivot-table creator: (../images/pivot-numbered.png) and then a list with the fields to select.
 - Add screenshots of the completed PivotTables where marked with **SCREENSHOT**.
 - Check document for TODOs
 :::
 
-| Time      | Topic/activity                                               | Materials                                      |
-| --------: | ------------------------------------------------------------ | ---------------------------------------------- |
+| Time      | Topic/activity                                                | Materials                                      |
+| --------: | ------------------------------------------------------------- | ---------------------------------------------- |
 | 0–20 min  | Review the **Christmas gift** and **Course grading** homework | Slides 36–37; `Excel_in_class_exercises.xlsx`  |
 | 20–35 min | Complete the **Sales table** exercise, if necessary           | Slides 51–52; `Sales_Table.xlsx`               |
 | 35–50 min | Motivate PivotTables through management questions             | Slides 54–60                                   |
 | 50–65 min | Explain facts, dimensions, data cubes, and slicing            | Slides 61–64                                   |
 | 65–90 min | Create the first PivotTable and explain the field areas       | Slides 65–66                                   |
-| **Break** |                                                              |                                                |
+| **Break** |                                                               |                                                |
 | 0–20 min  | Filtering, aggregations, and displaying values                | Slides 67–69                                   |
 | 20–40 min | Multiple dimensions and measures; PivotCharts                 | Slides 70–73                                   |
 | 40–55 min | Calculated fields and date grouping                           | Slides 74–75                                   |
