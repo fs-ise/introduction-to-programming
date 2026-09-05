@@ -8,6 +8,7 @@ event_id: null
 
 ::: {.callout-important title="TODO"}
 - Check/test the vlookup limitation demo (xlookup)
+- Prep/clarify: `XLOOKUP(lookup_value, lookup_array, return_array)`
 - PR: Importance of HLOOKUP/approximate matching? - update materials accordingly
 :::
 
@@ -216,8 +217,14 @@ Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution.
 This one is similar to the client lookup.
 We want to enter different StudentIDs and then the lookup functions should retrieve the different test scores and do the calculations of final grades.
 
-::: {.callout-important title="Error in Excel sheet"}
-The calculation of the homework contribution is not yet updated in `Excel_Exercises_in_class_session_1_solutions.xlsx` (to use the AVERAGE()/15 x 10). A more recent version of Excel is needed for that.
+::: {.callout-important title="Error the slides"}
+
+On the slides, the contribution of homework should be **9.11** and the overall grade **73.61**.
+
+Show the correct version to students: **images/excel_grading_assignment.png**
+
+![](../images/excel_grading_assignment.png)
+
 :::
 
 ::: {.teaching-break}
