@@ -3,13 +3,7 @@ title: "Introduction to Programming"
 subtitle: "Course logistics"
 section_label: "Introduction"
 session: "Session 0"
-date: "2026-03-23"
 ---
-
-# TODO
-
-- Get syllabus and integrate learning objectives
-- Start with a strong focus on programming (I love programming/Github stats, first student assistant job, ..., student coauthors, but also: teaching it in an accessible way; move research interests to the end: theses)
 
 # Welcome {data-stack-name="Welcome"}
 
@@ -18,12 +12,26 @@ date: "2026-03-23"
 ::: {.columns}
 ::: {.column width="70%"}
 
-Academic background
+**Academic background**
 
-- Universität Regensburg: Doctoral Student
-- HEC Montréal: Postdoctoral Fellowship
-- Otto-Friedrich-Universität Bamberg: Assistant Professor
-- Frankfurt School of Finance & Management: Full Professor
+- 2009-2018: Universität Regensburg (Bachelor/Master/Doctoral Student)
+- 2014: University of Oulu (ERASMUS)
+- 2019-2022: HEC Montréal (Postdoctoral Fellowship)
+- 2022-2026: Otto-Friedrich-Universität Bamberg (Assistant Professor)
+- Since 2026: Frankfurt School of Finance & Management (Full Professor)
+
+**My teaching and research interests**
+
+- Programming (on <a href="https://github.com/geritwagner" target="_blank">GitHub</a>)
+- AI for knowledge work, health, and literature reviews
+
+**Things I do outside of work**
+
+- Running and working out in the gym
+- Hiking, skiing, sailing with friends
+- Contribute to OpenStreetMap using the <a href="https://streetcomplete.app/" target="_blank" rel="noopener noreferrer">StreetComplete</a> app
+
+<!--
 
 Research interests
 
@@ -37,6 +45,7 @@ Teaching interests
 - IT security
 - Digital knowledge-intensive and platform-based work
 - Literature review methods
+-->
 
 :::
 
@@ -74,31 +83,64 @@ For each question, I’ll invite a few of you to briefly share your thoughts.
 
 **3. What are your expectations for the course?**
 
-- What would you like to be able to **build, automate, or analyze** with Python?
+- What would you like to be able to **build, automate, or analyze** with Excel or Python?
 - What would make this course **worth it** for you?
 
 
 
 # Introduction to Programming {data-stack-name="Introduction to Programming"}
 
-## Programming in the curriculum
-
-![](../images/curriculum.png){.absolute top=10 left=300 width="1000" height="1000"}
+## Definitions
 
 
-## What exactly is programming?
+**programming**
 
-:::: {.columns}
+*noun*
 
-::: {.column width="45%"}
+> **The process of writing and testing a sequence of instructions that a computer can follow to perform specific tasks.**
+
+. . . 
+
+**ChatGPT**
+
+*noun*
+
+> **A large language model by OpenAI that can generate, explain, and debug code — often surprisingly accurately.**
+
+
+. . . 
+
 <br><br>
 
-![](../images/programming.jpg){width=100% fig-align="center"}
+**{{< iconify mdi:help-circle-outline >}}** If ChatGPT can generate code, why should we still learn programming?
+
+::: notes
+
+Discussion: What is programming—and why can't ChatGPT just do it?
+
+Take 2–3 minutes to discuss with the person next to you:
+
+> **If ChatGPT can generate Python code, why should you still learn programming?**
+
+Consider:
+
+- Who defines the problem?
+- How do you know whether the generated solution is correct?
+- What happens when requirements are incomplete or ambiguous?
+- Who finds errors that produce plausible-looking results?
+- How do you adapt a solution when the problem changes?
+
+
+**Reflection**
+
+AI can generate code, but programming also requires **problem formulation, decomposition, evaluation, debugging, and responsibility for the result**.
+
+The goal of this course is therefore not simply to memorize syntax. It is to learn how to **think precisely about problems and computational solutions**.
 
 :::
 
-::: {.column width="55%"}
-<br><br>
+<!--
+## What exactly is programming?
 
 **Programming** is the process of translating a problem into precise instructions that a computer can execute.
 
@@ -117,38 +159,19 @@ Programming therefore involves more than writing code:
 - testing whether the solution works,
 - finding and correcting errors.
 
+
+
+::: aside
+[1](https://www.vocabulary.com/dictionary/programing){target="_blank"}
+&nbsp;&nbsp;·&nbsp;&nbsp;
+[2](https://www.oxfordlearnersdictionaries.com/definition/english/programming){target="_blank"}
 :::
 
-:::
+## Programming in the curriculum
 
-::::
+![](../images/curriculum.png){.absolute top=10 left=300 width="1000" height="1000"}
 
-
-## Discussion: What is programming—and why can't ChatGPT just do it?
-
-Take 2–3 minutes to discuss with the person next to you:
-
-> **If ChatGPT can generate Python code, why should you still learn programming?**
-
-Consider:
-
-- Who defines the problem?
-- How do you know whether the generated solution is correct?
-- What happens when requirements are incomplete or ambiguous?
-- Who finds errors that produce plausible-looking results?
-- How do you adapt a solution when the problem changes?
-
-. . .
-
-::: {.learning_note}
-
-**Reflection**
-
-AI can generate code, but programming also requires **problem formulation, decomposition, evaluation, debugging, and responsibility for the result**.
-
-The goal of this course is therefore not simply to memorize syntax. It is to learn how to **think precisely about problems and computational solutions**.
-
-:::
+-->
 
 
 ## Why programming (and this course) matter
@@ -175,7 +198,7 @@ The goal of this course is therefore not simply to memorize syntax. It is to lea
 - Test assumptions systematically
 - Find, understand, and correct errors
 
-
+<!--
 ## What you should be able to do
 
 By the end of the course, you should be able to:
@@ -194,36 +217,28 @@ and, more importantly:
 * develop simple Excel and Python applications,
 * find and fix errors,
 * implement solutions with attention to quality.
-
-## What this course does *not* primarily cover
-
-* **Advanced software engineering**
-
-  * large application architectures,
-  * distributed systems,
-  * production deployment,
-  * DevOps and MLOps.
-
-* **Advanced computer science**
-
-  * algorithmic complexity theory,
-  * compiler construction,
-  * operating systems.
-
-* **Advanced machine learning**
-
-  * model training and optimization,
-  * deep learning,
-  * autonomous agents.
-
-* **Prompting as a substitute for understanding**
-
-  * copying generated code without evaluation,
-  * treating plausible output as evidence of correctness.
-
-{{< iconify fluent-mdl2:insights >}} The focus is on **learning how to formulate problems, build solutions, inspect results, and debug systematically**.
+-->
 
 # Course logistics {data-stack-name="Course logistics"}
+
+## Course structure
+
+| Session | Focus | Topics |
+|---:|---|---|
+| **1** | Excel | Basics, formulas, charts, and conditional structures |
+| **2** | Excel | Lookups and tables |
+| **3** | Excel | Pivot tables |
+| **4** | Python/Pandas | Python and pandas basics |
+| **5** | Python/Pandas | Data access and manipulation |
+|  | **Exam** | **Mid-term exam: Excel — 40 points** |
+| **6** | Python/Pandas | Statistics, charts, and grouping |
+| **7** | Python | Pivoting, prediction, and data types |
+| **8** | Python | Sequences and conditionals |
+| **9** | Python | For and while loops |
+| **10** | Python | Loop control, functions, and dictionaries |
+| **11** | Python | Pandas automation and web APIs |
+|  | **Exam** | **Final exam: Python — 80 points** |
+
 
 ## Course logistics
 
@@ -233,20 +248,35 @@ Workload:
 * 44 academic teaching hours
 * remaining workload: preparation, exercises, revision, and exam preparation
 
-Course structure:
-
-* **Q1:** Excel
-* **Q2:** Python
-* practical exercises in class and at home
-
-Assessment:
-
-* **Excel:** 40 minutes, 40 points, mid-term examination period
-* **Python:** 80 minutes, 80 points, examination period
-
 Contact:
 
 * E-mail: [g.wagner@fs.de](mailto:g.wagner@fs.de)
+
+## Workshop: Python Setup for macOS Users
+
+Join us for a hands-on workshop on setting up Python on macOS.
+
+**Date:** September 8, 2026
+**Time:** 18:00 CET
+
+Please scan the QR code below to register for the workshop.
+
+![](../images/qr-mac-session.png)
+
+## For a successful course
+
+I hope you enjoy the course, learn a lot, and come away with skills that you can actually use.
+
+- I hope you **develop a good rhythm early** and find a way of learning that works well for you.
+- I wish you the **perseverance and confidence to keep going** when things do not work immediately — that is a normal part of learning to program.
+- I hope you **support each other, ask questions, and make good use of the tutoring sessions** — our tutors do an amazing job and are there for you.
+- And, of course, I wish you **success in the course and in the exams**.
+
+<br>
+
+**Most importantly, I hope you finish the course thinking: “I can actually do this.”**
+
+<!--
 * Office hours: [booking page](https://outlook.office.com/bookwithme/user/42312b4f18fd4acbb4255b5ce301f5d0%40fs.de?anonymous&ismsaljsauthenabled)
 
 Individual circumstances:
@@ -275,6 +305,8 @@ You should expect to:
 * gradually solve less structured problems.
 
 
+TODO: encourage questions/partner work
+
 ## A final question for today
 
 > **When you ask ChatGPT to write a program, who is actually doing the programming?**
@@ -290,3 +322,5 @@ Which cannot?
 And which should not?
 
 # References {data-state="hide-menubar"}
+
+-->
