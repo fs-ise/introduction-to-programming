@@ -41,7 +41,14 @@ title: "Teaching Notes"
 format:
   pdf:
     toc: true
+    toc-depth: 1
     number-sections: false
+    geometry:
+      - margin=1.5cm
+    include-in-header:
+      text: |
+        \\usepackage{etoolbox}
+        \\pretocmd{\\subsection}{\\clearpage}{}{}
 ---"""
     page_break = "\n\n\\newpage\n\n"
     output.write_text(
