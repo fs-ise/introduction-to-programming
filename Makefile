@@ -34,7 +34,7 @@ $(NOTES_PDF): $(NOTES_QMD) scripts/combine_notes.py
 	@mkdir -p $(OUT_DIR) _pdf-tmp
 	@$(PYTHON) scripts/combine_notes.py $(NOTES_COMBINED) $(NOTES_QMD)
 	@$(QUARTO) render $(NOTES_COMBINED) --to pdf --output notes.pdf
-	@mv _pdf-tmp/notes.pdf $(NOTES_PDF)
+	@mv notes.pdf $(NOTES_PDF)
 	@rm -f $(NOTES_COMBINED)
 $(SLIDES_DIR)/%.pdf: $(SRC_SLIDES_DIR)/%.qmd _quarto.yml scripts/decktape.sh
 	@mkdir -p $(SLIDES_DIR)
