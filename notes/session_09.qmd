@@ -1,5 +1,5 @@
 ---
-title: "Notes S-09/Python 6: For and while loops"
+title: "Session 09/Python 6: For and while loops"
 session_id: session-09
 event_id: null
 ---

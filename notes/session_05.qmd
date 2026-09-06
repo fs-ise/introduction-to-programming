@@ -1,5 +1,5 @@
 ---
-title: "Notes S-05/Python 2: Data access and manipulation"
+title: "Session 05/Python 2: Data access and manipulation"
 session_id: session-05
 event_id: null
 ---

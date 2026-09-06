@@ -1,5 +1,5 @@
 ---
-title: "Notes S-06/Python 3: Statistics, charts, and grouping"
+title: "Session 06/Python 3: Statistics, charts, and grouping"
 session_id: session-06
 event_id: null
 ---

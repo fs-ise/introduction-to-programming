@@ -1,5 +1,5 @@
 ---
-title: "Notes S-11/Python 8: Pandas automation and web APIs"
+title: "Session 11/Python 8: Pandas automation and web APIs"
 session_id: session-11
 event_id: null
 ---

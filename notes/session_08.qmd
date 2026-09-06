@@ -1,5 +1,5 @@
 ---
-title: "Notes S-08/Python 5: Sequences and conditionals"
+title: "Session 08/Python 5: Sequences and conditionals"
 session_id: session-08
 event_id: null
 ---

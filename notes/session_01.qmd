@@ -1,5 +1,5 @@
 ---
-title: "Notes S-01/Excel 1: Basics, formulas, charts, conditionals"
+title: "Session 01/Excel 1: Basics, formulas, charts, conditionals"
 session_id: session-01
 event_id: null
 ---
