@@ -14,8 +14,8 @@ event_id: null
 
 | Time      | Topic/activity                                                | Materials                                      |
 | --------: | ------------------------------------------------------------- | ---------------------------------------------- |
-| 0–20 min  | Review the **Christmas gift** and **Course grading** homework | Slides 36–37; `Excel_in_class_exercises.xlsx`  |
-| 20–35 min | Complete the **Sales table** exercise, if necessary           | Slides 51–52; `Sales_Table.xlsx`               |
+| 0–20 min  | Review the **Christmas gift** and **Course grading** homework | Slides 36–37; `exercises_with_solutions.xlsx`, sheets `Gift` and `Grading` |
+| 20–35 min | Complete the **Sales table** exercise, if necessary           | Slides 51–52; `exercises.xlsx`, sheet `Sales_table` |
 | 35–50 min | Motivate PivotTables through management questions             | Slides 54–60                                   |
 | 50–65 min | Explain facts, dimensions, data cubes, and slicing            | Slides 61–64                                   |
 | 65–90 min | Create the first PivotTable and explain the field areas       | Slides 65–66                                   |
@@ -23,15 +23,15 @@ event_id: null
 | 0–20 min  | Filtering, aggregations, and displaying values                | Slides 67–69                                   |
 | 20–40 min | Multiple dimensions and measures; PivotCharts                 | Slides 70–73                                   |
 | 40–55 min | Calculated fields and date grouping                           | Slides 74–75                                   |
-| 55–85 min | Complete the **Exporter** exercise                            | Slide 76; `Exporter.xlsx`                      |
-| 85–90 min | Introduce the **Expeditioner** exercise                       | Slide 78; `Exped.xlsx`                         |
+| 55–85 min | Complete the **Exporter** exercise                            | Slide 76; `exercises.xlsx`, sheets `Exporter_data` and `Exporter_pivot` |
+| 85–90 min | Introduce the **Expeditioner** exercise                       | Slide 78; `exercises.xlsx`, sheets `Exped_data` and `Exped_pivot` |
 
 : {tbl-colwidths="[20,40,40]"}
 
 ## Homework review: Christmas gift
 
 ::: {.teaching-file}
-[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Gift
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Gift
 :::
 
 Students should retrieve two values based on customer status:
@@ -72,7 +72,7 @@ Emphasize that the lookup and return arrays are selected explicitly.
 ## Homework review: Course grading
 
 ::: {.teaching-file}
-[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
 :::
 
 Change the `StudentID` and check that the workbook retrieves the corresponding scores and recalculates the final grade.
@@ -112,7 +112,7 @@ Use the [teaching notes for Session 2](session_02.html#slides-5152-excel-tables-
 ## Slides 54–60 — From data to management questions
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Sales_pivot
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheets: Sales_data | Sales_pivot
 :::
 
 Begin with the decisions and questions that the data should support (instead of the mechanics of PivotTables).
@@ -198,7 +198,9 @@ Before creating the PivotTable, briefly check that:
 
 ## Slide 66 — PivotTable field areas
 
-**TODO: add reference to specific file**
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Sales_pivot
+:::
 
 Create the first PivotTable together:
 
@@ -375,7 +377,7 @@ This is an optional feature. Prioritize Rows, Columns, Filters, Values, and aggr
 ## Slide 75 — Grouping dates
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Store_sales_pivot
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheets: Store_data | Store_pivot
 :::
 
 Explain that PivotTables can aggregate an actual date field automatically.
@@ -394,11 +396,10 @@ Emphasize that the source column must contain valid Excel dates. Blank cells or 
 
 ## Slide 76 — Exercise: Exporter pivot tables
 
-TODO: integrate Exporter.xlsx into Excel_in_class_exercises.xlsx (sheets: data + pivot)
 TODO: solution: create different pivot tables on the same sheet?
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Exporter.xlsx`](../materials/Exporter.xlsx){.teaching-button .teaching-button-exercise}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheets: Exporter_data | Exporter_pivot
 :::
 
 Complete this exercise in class only if sufficient time remains. Otherwise, assign it as homework.
@@ -482,11 +483,10 @@ Teaching procedure:
 
 ## Slide 78 — Exercise: Expeditioner pivot analysis
 
-TODO: integrate Exped_*.xlsx into Excel_in_class_exercises.xlsx (sheets: data + pivot) - also see Exped_Solution.pdf
 TODO: solution: create different pivot tables on the same sheet?
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise}/[Homework]{.teaching-label .teaching-label-homework} [`../materials/Exped.xlsx`](../materials/Exped.xlsx){.teaching-button .teaching-button-exercise}
+[In-class exercise]{.teaching-label .teaching-label-exercise}/[Homework]{.teaching-label .teaching-label-homework} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheets: Exped_data | Exped_pivot
 :::
 
 The workbook contains 1,000 sales transactions with information about:

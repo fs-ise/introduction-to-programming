@@ -79,9 +79,9 @@ In the Excel part, we have two goals:
 Start Excel and explain the following (without slides):
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Start
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Start
 :::
-<!-- see [solution](../materials/introduction_with_solutions.xlsx) -->
+<!-- see [solution](../materials/exercises_with_solutions.xlsx) -- Sheet: Start -->
 
 ![](../images/Excel_introduction_xlsx_1.png){fig-align="center" width="50%"}
 
@@ -94,7 +94,7 @@ Start Excel and explain the following (without slides):
 ## Slide 7: Future Value (first exercise)
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Future_Value
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Future_Value
 :::
 
 Task: Create a first spreadsheet and create the formula for future value.
@@ -128,7 +128,7 @@ Use `F4` to switch reference type.
 - Step 2: remove formulas, replace the hard-coded value in the first formula and copy it down. Use the `Formulas > Trace precedents` to show that it does not use the right cell. Illustrate use of an absolte reference (one dimension fixed), update cells, show precedents.
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Cost_Revenue
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Cost_Revenue
 :::
 
 Solution:
@@ -143,7 +143,7 @@ Solution:
 - Optional extension: What if we add a fixed cost for all? Charge everyone an additional 20€ on top? (add an absolute reference)
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Cost_Revenue_Painter
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Cost_Revenue_Painter
 :::
 
 Solution:
@@ -154,7 +154,7 @@ Solution:
 ## Slide 10 - Future Value (second exercise)
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Future_Value2
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Future_Value2
 :::
 
 Solution:
@@ -183,7 +183,7 @@ Always check and debug: for the exercises, but also in your job, when you build 
 ## Slide 13 - Charts illustration
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: with_plot
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: with_plot
 :::
 
 ![](../images/excel_charts_example.png){fig-align="center" width="90%"}
@@ -191,7 +191,7 @@ Always check and debug: for the exercises, but also in your job, when you build 
 ## Slide 14 - Exercise Coffee-shop charts
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: CoffeeShop
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: CoffeeShop
 :::
 
 ![](../images/excel_coffeeshop_charts.png){fig-align="center" width="90%"}
@@ -233,7 +233,7 @@ This ensures that language is set to English and parameters are separated by `,`
 ## Slide 18 - Formula illustration
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: simple
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: simple
 :::
 
 Add the `=SUM()` at the end, using a range of cells:
@@ -243,7 +243,7 @@ Add the `=SUM()` at the end, using a range of cells:
 ## Slide 19 - Sales statistics
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Sales
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Sales (conditionals)
 :::
 
 ![](../images/excel_sales_solution.png){fig-align="center" width="90%"}
@@ -251,7 +251,7 @@ Add the `=SUM()` at the end, using a range of cells:
 ## Slide 20 — DAX moving averages (first homework)
 
 ::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Moving Average
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Moving Average
 :::
 
 Before or after the break.
@@ -268,7 +268,7 @@ Before or after the break.
 Opens when selecting ribbon Formulas, Logical, IF
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: conditional_cost
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: conditional_cost
 :::
 
 Task: introduce conditional fixed cost and calculate annual profit (based on conditional fixed costs).
@@ -280,7 +280,7 @@ Solution:
 ## Slides 23–24 — VIP classification and credits
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: VIP
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: VIP
 :::
 
 Prefer nested `IF` functions for the VIP-status exercise (in part II).
@@ -290,7 +290,7 @@ Prefer nested `IF` functions for the VIP-status exercise (in part II).
 ## Slide 25/26 — Installment/annuity loans (Homework)
 
 ::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment | Annuity
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment | Annuity
 :::
 
 - Illustrate the repayment logic using the visualization: [materials/loans.html](../materials/loans.qmd).
@@ -322,7 +322,7 @@ With a fixed-principal installment loan, the principal is reduced more quickly a
 ## Slide 27 Exam
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Exam
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Exam
 :::
 
 ![](../images/excel_exam_solution.png){fig-align="center" width="60%"}
@@ -332,7 +332,7 @@ With a fixed-principal installment loan, the principal is reduced more quickly a
 **Solve together (before revealing slide 28, which contains the solutions).**
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Departments
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Department
 :::
 
 ![](../images/excel_special_if_solution.png)

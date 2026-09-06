@@ -10,7 +10,7 @@ event_id: null
 | -------------------: | ------------------------------------------------------------ | ------------------------------------------------------------------------ |
 | 0–15 min             | Review Homeworks <br> (if necessary: complete special IF functions) | Session 1 solutions                                     |
 | 15–55 min            | Introduce `VLOOKUP` and `HLOOKUP`                            | Slides 29–31 <br>Slide 32: Exercise **Bar sales**                        |
-| 55–85 min            | Explain `XLOOKUP` and contrast it with `VLOOKUP`             | Slide 33 <br>Slide 34: Exercise **Client lookup**; `Clients.xlsx`        |
+| 55–85 min            | Explain `XLOOKUP` and contrast it with `VLOOKUP`             | Slide 33 <br>Slide 34: Exercise **Client lookup**; `exercises.xlsx`, sheet `Clients` |
 | 85–90 min            | Introduce the lookup homework                                | Slides 35–36: **Christmas gift** and **Course grading**                  |
 | **Break**            |                                                              |                                                                          |
 | 0–15 min             | Introduce and create Excel Tables                            | Slides 37–39;                                                            |
@@ -18,7 +18,7 @@ event_id: null
 | 30–50 min            | Demonstrate dynamic tables, charts, and row operations       | Slides 43–44                                                             |
 | 50–65 min            | Add a Total Row and explain `SUBTOTAL`                       | Slides 45–46                                                             |
 | 65–75 min            | Introduce structured references                              | Slides 47–50                                                             |
-| 75–90 min            | Begin the Excel Tables exercise                              | Slides 51–52: Exercise **Excel tables**; `Sales_Table.xlsx`              |
+| 75–90 min            | Begin the Excel Tables exercise                              | Slides 51–52: Exercise **Excel tables**; `exercises.xlsx`, sheet `Sales_table` |
 
 : {tbl-colwidths="[20,40,40]"}
 
@@ -27,7 +27,7 @@ Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 ## Homework review: DAX moving averages
 
 ::: {.teaching-file}
-[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Moving Average
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Moving Average
 :::
 
 Start by briefly explaining the task (again):
@@ -41,7 +41,7 @@ Start by briefly explaining the task (again):
 ## Homework review: Installment loan
 
 ::: {.teaching-file}
-[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment
 :::
 
 Explain the payment schema introduced in the previous session.
@@ -57,7 +57,7 @@ This could be used in a What-if or scenario analysis.
 {{< pagebreak >}}
 
 ::: {.teaching-file}
-[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Annuity
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Annuity
 :::
 
 - Explain the `PMT(interest rate, term, loan amount)` function (payment).
@@ -83,7 +83,7 @@ If **Special IF functions** were not covered in the previous session: complete s
 Start with the practical example:
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Bar_Sales
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Bar_Sales
 :::
 
 - Scroll down (hide the price list initially) to start with a simple approach: filling in raw data
@@ -173,7 +173,7 @@ Contrast it with `VLOOKUP`:
 ## Slide 34 — Client lookup
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/Clients.xlsx`](../materials/Clients.xlsx){.teaching-button .teaching-button-exercise}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Clients
 :::
 
 We want to change the client number (type in different values) and then the following fields should update automatically (based on the list above):
@@ -195,7 +195,7 @@ Teaching sequence:
 ## Slide 35 — Christmas gift (Homework)
 
 ::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Gift
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Gift
 :::
 
 Students should retrieve two values based on customer status:
@@ -210,7 +210,7 @@ Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution.
 ## Slide 36 — Course grading (Homework)
 
 ::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/Excel_in_class_exercises.xlsx`](../materials/Excel_in_class_exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
 :::
 
 This one is similar to the client lookup.
@@ -233,7 +233,7 @@ Show the correct version to students: **images/excel_grading_assignment.png**
 ## Slides 38–39 — Introduction to Excel Tables
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/introduction.xlsx`](../materials/introduction.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Bike_sales
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Bike_sales
 :::
 
 Create the table together with the students.
@@ -462,7 +462,7 @@ After entering the formula once, Excel should copy it to the complete calculated
 ## Slides 51–52 — Excel Tables exercise
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise}/[Homework]{.teaching-label .teaching-label-homework}[`../materials/Sales_Table.xlsx`](../materials/Sales_Table.xlsx){.teaching-button .teaching-button-exercise}
+[In-class exercise]{.teaching-label .teaching-label-exercise}/[Homework]{.teaching-label .teaching-label-homework}[`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Sales_table
 :::
 
 This extended exercise can be completed in class, assigned as homework, or continued in Session 3.
@@ -471,7 +471,7 @@ Suggested checkpoints:
 
 ### Table exercise
 
-1. Open `Sales_Table.xlsx` and convert the data into an Excel Table.
+1. Open `exercises.xlsx`, sheet `Sales_table`, and convert the data into an Excel Table.
 2. Name the table `Sales`.
 3. Sort the table by region.
 4. Filter the table to show only 2020.
