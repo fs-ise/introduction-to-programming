@@ -54,6 +54,7 @@ Programming:
 
 ### Course structure
 
+- Show **excercises.xlsx** in Canvas for Download.
 - Tutoring sessions start with the **Python** part of the course.
 
 ::: {.callout-note}

@@ -70,7 +70,7 @@ Solution:
 ![](../images/excel_installment_loan_solution.png){fig-align="center" width="90%"}
 
 {{< pagebreak >}}
-<
+
 ::: {.teaching-file}
 [Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Annuity
 :::
