@@ -8,6 +8,23 @@ from pathlib import Path
 import yaml
 
 
+def escape_latex(value: str) -> str:
+    """Escape arbitrary text for use as a LaTeX command argument."""
+    replacements = {
+        "\\": r"\textbackslash{}",
+        "{": r"\{",
+        "}": r"\}",
+        "$": r"\$",
+        "&": r"\&",
+        "#": r"\#",
+        "_": r"\_",
+        "%": r"\%",
+        "~": r"\textasciitilde{}",
+        "^": r"\textasciicircum{}",
+    }
+    return "".join(replacements.get(character, character) for character in value)
+
+
 def read_note(path: Path) -> tuple[str, str]:
     """Return the title and body of a QMD file with YAML front matter."""
     source = path.read_text(encoding="utf-8")
@@ -36,11 +53,12 @@ def combine(output: Path, inputs: list[Path]) -> None:
     """Combine note files into one PDF-oriented Quarto source."""
     sections: list[str] = []
 
-    for session_number, path in enumerate(inputs, start=1):
+    for path in inputs:
         title, body = read_note(path)
+        footer_label = escape_latex(f"MLBD Teaching Notes - {title}")
         sections.append(
             f"""```{{=latex}}
-\\markright{{Session {session_number}}}
+\\renewcommand{{\\mlbdfooterlabel}}{{{footer_label}}}
 ```
 
 # {title}
@@ -60,36 +78,20 @@ format:
       - left=1.5cm
       - right=1.5cm
       - top=1.5cm
-      - bottom=1.8cm
-      - includeheadfoot
-      - headheight=14pt
-      - headsep=0.35cm
-      - footskip=0.7cm
+      - bottom=2.2cm
+      - includefoot
+      - footskip=0.9cm
     header-includes: |
-      \usepackage{fancyhdr}
+      \usepackage{scrlayer-scrpage}
       \usepackage{etoolbox}
 
-      % Session marks are inserted explicitly by combine_notes.py.
-      % Prevent section headings from overwriting them.
-      \renewcommand{\sectionmark}[1]{}
-
-      \pagestyle{fancy}
-      \fancyhf{}
-      \fancyhead[L]{MLBD Teaching Notes}
-      \fancyhead[R]{\nouppercase{\rightmark}}
-      \fancyfoot[C]{Page \thepage}
-
-      \renewcommand{\headrulewidth}{0.4pt}
-      \renewcommand{\footrulewidth}{0pt}
-
-      \fancypagestyle{plain}{%
-        \fancyhf{}%
-        \fancyhead[L]{MLBD Teaching Notes}%
-        \fancyhead[R]{\nouppercase{\rightmark}}%
-        \fancyfoot[C]{Page \thepage}%
-        \renewcommand{\headrulewidth}{0.4pt}%
-        \renewcommand{\footrulewidth}{0pt}%
-      }
+      % The optional arguments apply the same footer to plain.scrheadings,
+      % which KOMA uses for pages that would otherwise have a plain style.
+      \newcommand{\mlbdfooterlabel}{MLBD Teaching Notes}
+      \clearpairofpagestyles
+      \ifoot[\mlbdfooterlabel]{\mlbdfooterlabel}
+      \ofoot[\pagemark]{\pagemark}
+      \pagestyle{scrheadings}
 
       % Start every level-2 heading on a new page.
       \pretocmd{\subsection}{\clearpage}{}{}
