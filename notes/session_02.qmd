@@ -6,13 +6,6 @@ event_id: null
 
 <br>
 
-::: {.callout-important title="TODO"}
-- Check/test the vlookup limitation demo (xlookup)
-- Prep/clarify: `XLOOKUP(lookup_value, lookup_array, return_array)`
-- Vertical lookup: down
-- Horizontal lookup: to the right
-:::
-
 | Time                 | Topic/activity                                               | Materials                                                                |
 | -------------------: | ------------------------------------------------------------ | ------------------------------------------------------------------------ |
 | 0–15 min             | Review Homeworks <br> (if necessary: complete special IF functions) | Session 1 solutions                                     |
@@ -82,6 +75,11 @@ If **Special IF functions** were not covered in the previous session: complete s
 
 ## Slides 30–31 — `VLOOKUP` and `HLOOKUP`
 
+::: {.callout-important title="TODO"}
+- Vertical lookup: down
+- Horizontal lookup: to the right
+:::
+
 Start with the practical example:
 
 ::: {.teaching-file}
@@ -97,7 +95,7 @@ Start with the practical example:
 
 Whiteboard:
 
-```text
+```python
 =VLOOKUP(lookup_value, table_array, column_index_num, range_lookup)
 ```
 
@@ -107,7 +105,7 @@ Whiteboard:
 - Calculate total price
 - Copy formulas down
 
-![](../images/excel_bar_sales_solution.png){fig-align="center" width="60%"}
+![](../images/excel_bar_sales_solution.png){fig-align="center" width="80%"}
 
 {{< pagebreak >}}
 
@@ -149,14 +147,14 @@ Demonstration:
 
 Example:
 
-```text
+```python
 =XLOOKUP(D11,$B$3:$B$7,$C$3:$C$7)
 ```
 :::
 
 General form:
 
-```text
+```python
 =XLOOKUP(lookup_value, lookup_array, return_array)
 ```
 
@@ -218,7 +216,7 @@ Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution.
 This one is similar to the client lookup.
 We want to enter different StudentIDs and then the lookup functions should retrieve the different test scores and do the calculations of final grades.
 
-::: {.callout-important title="Error the slides"}
+::: {.callout-important title="Error on the slides"}
 
 On the slides, the contribution of homework should be **9.11** and the overall grade **73.61**.
 
@@ -332,7 +330,7 @@ Demonstrate how the drop-down menu can be used to calculate:
 
 Show the generated formula:
 
-```text
+```python
 =SUBTOTAL(109,[Cost])
 ```
 
@@ -347,7 +345,7 @@ Note: need to select/click function or insert the **Function numbers**! But do n
 
 General form:
 
-```text
+```python
 =SUBTOTAL(function_num,reference)
 ```
 
@@ -395,13 +393,13 @@ Note: structured references work regardless of where the table is located (name 
 
 Contrast:
 
-```text
+```python
 =SUM(E3:E7)
 ```
 
 with:
 
-```text
+```python
 =SUM(Bikesales[Cost])
 ```
 
@@ -433,7 +431,7 @@ Develop the formulas to illustrate name-based access to tables/cells:
 
 Examples:
 
-```text
+```python
 Bikesales[Cost]
 Bikesales[[#Totals],[Turnover]]
 Bikesales[[#Totals],[Turnover]:[Cost]]
@@ -453,7 +451,7 @@ Extend the example with current row formulas:
 
 Inside the table, `@` refers to the current row:
 
-```text
+```python
 =[@Turnover]-[@Cost]
 =[@Cost]/[@Sales]
 =[@Turnover]*1.19

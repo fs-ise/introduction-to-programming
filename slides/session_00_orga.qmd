@@ -64,29 +64,36 @@ Teaching interests
     Then choose **one** optional area where you would like to share a bit more.
 
     HIGHLIGHT items as optional
--->
 
 Please take a moment to think about the following questions.
 For each question, I’ll invite a few of you to briefly share your thoughts.
+-->
 
-<br>
+**1. Which sports do you do regularly? Please raise your hand.**
 
-**1. Have you programmed before?**
+* **Gym:** cardio, weights, classes
+* **Team sports:** soccer, basketball, volleyball, tennis, …
+* **Individual sports:** running, cycling, swimming, …
 
-- In which context did you use programming—for example, at university, at work, or for a personal project?
-- Or is this your **first programming course**?
+. . . 
 
-**2. Which programming languages or technical tools have you used?**
+**2. Have you programmed before?**
 
-- Was there something you found particularly **interesting or useful**?
-- Or something that felt especially **difficult or confusing**?
+* In which context—for example, at university, at work, or for a personal project?
+* Which **programming languages or technical tools** have you used?
+
+. . . 
 
 **3. What are your expectations for the course?**
 
-- What would you like to be able to **build, automate, or analyze** with Excel or Python?
-- What would make this course **worth it** for you?
+* What would you like to be able to **build, automate, or analyze** with Excel or Python?
+* What would make this course **worth it** for you?
 
+<br>
 
+::: {.learning_note .fragment style="position: static;"}
+**Please use your name tags.**
+:::
 
 # Introduction to Programming {data-stack-name="Introduction to Programming"}
 
@@ -171,7 +178,6 @@ Programming therefore involves more than writing code:
 
 ![](../images/curriculum.png){.absolute top=10 left=300 width="1000" height="1000"}
 
--->
 
 
 ## Why programming (and this course) matter
@@ -198,7 +204,6 @@ Programming therefore involves more than writing code:
 - Test assumptions systematically
 - Find, understand, and correct errors
 
-<!--
 ## What you should be able to do
 
 By the end of the course, you should be able to:
@@ -256,27 +261,31 @@ Contact:
 
 Join us for a hands-on workshop on setting up Python on macOS.
 
-**Date:** September 8, 2026
+**Date:** September 8, 2026  
 **Time:** 18:00 CET
 
-Please scan the QR code below to register for the workshop.
+Please scan the QR code below to register for the workshop:
 
-![](../images/qr-mac-session.png)
+<br>
+
+![](../images/qr-mac-session.png){fig-align="center" width=20%}
 
 ## For a successful course
 
 I hope you enjoy the course, learn a lot, and come away with skills that you can actually use.
 
 - I hope you **develop a good rhythm early** and find a way of learning that works well for you.
-- I wish you the **perseverance and confidence to keep going** when things do not work immediately — that is a normal part of learning to program.
-- I hope you **support each other, ask questions, and make good use of the tutoring sessions** — our tutors do an amazing job and are there for you.
+- I wish you the **perseverance and confidence to keep going** when things do not work immediately.
+- I hope you **support each other, ask questions, and make good use of the tutoring sessions**.
 - And, of course, I wish you **success in the course and in the exams**.
 
 <br>
 
-**Most importantly, I hope you finish the course thinking: “I can actually do this.”**
+![](../images/good_luck.png){fig-align=center width=40%}
 
 <!--
+**Most importantly, I hope you finish the course thinking: “I can actually do this.”**
+
 * Office hours: [booking page](https://outlook.office.com/bookwithme/user/42312b4f18fd4acbb4255b5ce301f5d0%40fs.de?anonymous&ismsaljsauthenabled)
 
 Individual circumstances:

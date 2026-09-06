@@ -25,8 +25,7 @@ event_id: null
 
 ## Introductory remarks
 
-- Start with a strong focus on programming (I love programming/Github stats, first student assistant job, ..., student coauthors, but also: teaching it in an accessible way; move research interests to the end: theses)
-
+Start with a strong focus on programming (I love programming/Github stats, first student assistant job, ..., student coauthors, but also: teaching it in an accessible way; move research interests to the end: theses)
 
 Programming:
 
@@ -41,24 +40,21 @@ Programming:
   - Testing: peer review (readability, understanding code, taking responsibility for code)
 - Chatgpt: ask for student votes and a few reactions (arguments)
 - Highlight:
-  - Testing: requires real-world experience (assumptions/requirements, typical interactions, events/exceptions that could be expected)
+  - Testing (ChatGPT makes errors): requires real-world experience (assumptions/requirements, typical interactions, events/exceptions that could be expected)
   - Understanding becomes the new bottleneck (not just generating code) - indeed, large code-bases that are hard to assess in their entirety can be a problem.
+  - ChatGPT performs better when we know more about programming and give more precise instructions, recognize problems
   - Responsibility (especially in mission-critical software) becomes more important
 
-TOOD: prep the storyline for "Why programming (and this course) matter"
-- Remove the "Why programming (and this course) matter" slide?
-Answer:
-- ChatGPT makes errors, we need to check and take responsibility
-- ChatGPT performs better when we know more about programming and give more precise instructions, recognize problems
-
-Develop the habit to solve and understand everything. Form learning groups. ASK me again and again
-
-## Course structure
+### Course structure
 
 - Tutoring sessions start with the **Python** part of the course.
 
-
 ## Successful course
+
+Develop the habit to solve and understand everything. Form learning groups. ASK me again and again
+
+Errors are a normal part of programming and learning
+Our tutors do an amazing job and are there for you
 
 - **This is a challenging course.** Previous cohorts have had some failures, so it pays to take it seriously from the beginning.
 - A good strategy is to **build a strong foundation early**: study consistently and aim to score close to the full **40 points in the Excel mid-term**.
@@ -139,6 +135,8 @@ Solution:
 
 ![](../images/excel_cost_profit_calculation.png){fig-align="center" width="100%"}
 
+
+## Slide 8: Continued example
 
 - Step 3: extend example: Cost depends two dimensions: assume I am a painter and paint appartments of different sizes with different colors (I will paint your appartment, penthouse etc. with the color you like, base colors are cheap, others more expensive, so it depends on both: size and color). Complex - we need an Excel table to understand what to charge. (small/medium/large  - no square meters, I see it immediately; if you order something with patterns, I will be rich). Illustrate formula copying (sizes will always in column XXX, so make XXX absolute. Prices will always be in row YYY, so make YYY absolute.)
 - Check: understanding/questions?
