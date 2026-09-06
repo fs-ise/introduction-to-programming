@@ -17,7 +17,9 @@ def read_note(path: Path) -> tuple[str, str]:
 
     try:
         yaml_end = next(
-            index for index, line in enumerate(lines[1:], start=1) if line.strip() == "---"
+            index
+            for index, line in enumerate(lines[1:], start=1)
+            if line.strip() == "---"
         )
     except StopIteration as error:
         raise ValueError(f"{path} has unterminated YAML front matter") from error
@@ -31,28 +33,74 @@ def read_note(path: Path) -> tuple[str, str]:
 
 
 def combine(output: Path, inputs: list[Path]) -> None:
-    sections = []
-    for path in inputs:
-        title, body = read_note(path)
-        sections.append(f"# {title}\n\n{body}")
+    """Combine note files into one PDF-oriented Quarto source."""
+    sections: list[str] = []
 
-    front_matter = """---
-title: "Teaching Notes"
+    for session_number, path in enumerate(inputs, start=1):
+        title, body = read_note(path)
+        sections.append(
+            f"""```{{=latex}}
+\\markright{{Session {session_number}}}
+```
+
+# {title}
+
+{body}"""
+        )
+
+    front_matter = r"""---
+title: "MLBD Teaching Notes"
+papersize: a4
 format:
   pdf:
     toc: true
     toc-depth: 1
     number-sections: false
     geometry:
-      - margin=1.5cm
-    include-in-header:
-      text: |
-        \\usepackage{etoolbox}
-        \\pretocmd{\\subsection}{\\clearpage}{}{}
----"""
+      - left=1.5cm
+      - right=1.5cm
+      - top=1.5cm
+      - bottom=1.8cm
+      - includeheadfoot
+      - headheight=14pt
+      - headsep=0.35cm
+      - footskip=0.7cm
+    header-includes: |
+      \usepackage{fancyhdr}
+      \usepackage{etoolbox}
+
+      % Session marks are inserted explicitly by combine_notes.py.
+      % Prevent section headings from overwriting them.
+      \renewcommand{\sectionmark}[1]{}
+
+      \pagestyle{fancy}
+      \fancyhf{}
+      \fancyhead[L]{MLBD Teaching Notes}
+      \fancyhead[R]{\nouppercase{\rightmark}}
+      \fancyfoot[C]{Page \thepage}
+
+      \renewcommand{\headrulewidth}{0.4pt}
+      \renewcommand{\footrulewidth}{0pt}
+
+      \fancypagestyle{plain}{%
+        \fancyhf{}%
+        \fancyhead[L]{MLBD Teaching Notes}%
+        \fancyhead[R]{\nouppercase{\rightmark}}%
+        \fancyfoot[C]{Page \thepage}%
+        \renewcommand{\headrulewidth}{0.4pt}%
+        \renewcommand{\footrulewidth}{0pt}%
+      }
+
+      % Start every level-2 heading on a new page.
+      \pretocmd{\subsection}{\clearpage}{}{}
+---
+"""
+
     page_break = "\n\n\\newpage\n\n"
+
+    output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(
-        front_matter + "\n\n" + page_break.join(sections) + "\n",
+        front_matter + page_break + page_break.join(sections) + "\n",
         encoding="utf-8",
     )
 
