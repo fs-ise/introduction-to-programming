@@ -348,37 +348,44 @@ Prefer nested `IF` functions for the VIP-status exercise (in part II).
 ## Slide 25/26 — Installment/annuity loans (Homework)
 
 ::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment | Annuity
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheets: Installment **and** Annuity
 :::
 
-- Illustrate the repayment logic using the visualization: [materials/loans.html](../materials/loans.qmd).
-  We could imagine that a loan adviser uses a similar interface to discuss this with her clients.
-  We also note that there are some parameters that we can adjust (principal, interest, payment periods) and others that are calculated (repayments).
-  It's the same principle in this interface and in your Excel sheet.
+**Allow sufficient explanation because this exercise has caused difficulties in previous cohorts.**
 
-- Important: **The whole table must be filled with formulas. Users will adjust the "number of periods" manually to visualize different scenarios.**
-- Interest: is always paid on the remainder (whole amount that is still owed) in the previous period.
-- Annuity: Use the `PMT()` function in the annuity field. Then, start by calculating the interest. The repayment is the remaining amount.
+<!--
+- Students should have a clear understanding of what the **data cells** (manually entered/modified parameters) and the **function cells** are. (similar to Hillier and Hillier: data/changing/output/objective cells)
+- Ask students to understand the `PMT(interest rate, term, loan amount)` function (payment).
+-->
+
+**Illustrate logic**
+
+- Use the visualization: [materials/loans.html](../materials/loans.qmd).
+- There are some parameters that we can adjust (principal, interest, payment periods) and others that are calculated (repayments).
+  It's the same principle in this interface and in your Excel sheet.
 
 ![](../images/excel_loans_illustration.png){fig-align="center" width="40%"}
 
-- Work through the repayment logic on the board.
-- Students then transfer the calculation to Excel as a homework.
-- From period 2 onward, repayment requires an `IF` condition.
-- Students should identify the need for the condition themselves.
-- Allow sufficient explanation because this exercise has caused difficulties in previous cohorts.
-
-::: {.callout-important}
-The repayment equals the fixed repayment amount or, when the remaining debt is lower, the remaining debt.
-:::
-
-- Insert formulas to make sure that when users modify the `amount`, `interest rate`, or `redemption`, the `payments table` is updated automatically.
-- In the **annuity loan** task, the `annuity` should also be updated automatically.
-- Students should have a clear understanding of what the **data cells** (manually entered/modified parameters) and the **function cells** are. (similar to Hillier and Hillier: data/changing/output/objective cells)
-- Ask students to understand the `PMT(interest rate, term, loan amount)` function (payment).
-
 ::: {.callout-note title="Understanding the difference between fixed installments and annuity loans"}
 With a fixed-principal installment loan, the principal is reduced more quickly at the beginning, which lowers the total interest paid. However, this also means that the initial payments are higher.
+:::
+
+**Excel sheet: Installment loan**
+
+- Work through the repayment logic in the Excel sheet: **hard-code values instead of adding formulas**.
+- Students then transfer the calculation to Excel as a homework.
+- Make sure the repayments will not be too much and exceed the remaining principal!
+- From period 2 onward, repayment requires an `IF` condition, but students should identify the need for the condition themselves.
+
+**Excel sheet: Annuity loan**
+
+- Annuity: Use the `PMT()` function in the annuity field. Then, start by calculating the interest. The repayment is the remaining amount.
+
+::: {.callout-important}
+- The whole table must be filled with formulas. Users will adjust the "number of periods" manually to visualize different scenarios.
+- Interest: is always paid on the remainder (whole amount that is still owed) in the **previous period**.
+- Insert formulas to make sure that when users modify the `amount`, `interest rate`, or `redemption`, the `payments table` is updated automatically.
+- In the **annuity loan** task, the `annuity` should also be updated automatically.
 :::
 
 ## Slide 27 Exam
@@ -391,7 +398,7 @@ With a fixed-principal installment loan, the principal is reduced more quickly a
 
 ![](../images/excel_exam_solution.png){fig-align="center" width="60%"}
 
-## Slide 28: Special IF functions
+### Slide 28: Special IF functions
 
 **Solve together (before revealing slide 28, which contains the solutions).**
 
