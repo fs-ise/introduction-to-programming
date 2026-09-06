@@ -3,9 +3,15 @@
 from __future__ import annotations
 
 import argparse
+import re
 from pathlib import Path
 
 import yaml
+
+
+def prepare_body_for_pdf(body: str) -> str:
+    """Convert HTML-only constructs used in notes to PDF-compatible Markdown."""
+    return re.sub(r"<br\s*/?>", r"\\newline ", body, flags=re.IGNORECASE)
 
 
 def escape_latex(value: str) -> str:
@@ -55,6 +61,7 @@ def combine(output: Path, inputs: list[Path]) -> None:
 
     for path in inputs:
         title, body = read_note(path)
+        body = prepare_body_for_pdf(body)
         footer_label = escape_latex(f"MLBD Teaching Notes - {title}")
         sections.append(
             f"""```{{=latex}}

@@ -1,6 +1,33 @@
 from pathlib import Path
 
-from scripts.combine_notes import combine
+from scripts.combine_notes import combine, prepare_body_for_pdf
+
+
+def test_prepare_body_for_pdf_converts_html_line_break_variants() -> None:
+    body = "First<br>Second<br/>Third<br />Fourth<BR>Fifth"
+
+    assert prepare_body_for_pdf(body) == (
+        r"First\newline Second\newline Third\newline Fourth\newline Fifth"
+    )
+
+
+def test_combine_converts_line_breaks_without_modifying_source(tmp_path: Path) -> None:
+    note = tmp_path / "note.qmd"
+    source = (
+        '---\ntitle: "Table note"\n---\n\n'
+        "| Time | Material |\n"
+        "|---|---|\n"
+        "| 35–55 min | Slides 7–10<br>Slides 7 and 10<br />Exercise |\n"
+    )
+    note.write_text(source, encoding="utf-8")
+    output = tmp_path / "notes.qmd"
+
+    combine(output, [note])
+
+    combined = output.read_text(encoding="utf-8")
+    assert r"Slides 7–10\newline Slides 7 and 10\newline Exercise" in combined
+    assert "<br" not in combined
+    assert note.read_text(encoding="utf-8") == source
 
 
 def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
