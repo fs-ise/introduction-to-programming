@@ -3,15 +3,11 @@
 from __future__ import annotations
 
 import argparse
-import re
 from pathlib import Path
 
 import yaml
 
-
-def prepare_body_for_pdf(body: str) -> str:
-    """Convert HTML-only constructs used in notes to PDF-compatible Markdown."""
-    return re.sub(r"<br\s*/?>", r"\\newline ", body, flags=re.IGNORECASE)
+HTML_BR_FILTER = Path(__file__).resolve().with_name("html_br_to_linebreak.lua")
 
 
 def escape_latex(value: str) -> str:
@@ -61,7 +57,6 @@ def combine(output: Path, inputs: list[Path]) -> None:
 
     for path in inputs:
         title, body = read_note(path)
-        body = prepare_body_for_pdf(body)
         footer_label = escape_latex(f"MLBD Teaching Notes - {title}")
         sections.append(
             f"""```{{=latex}}
@@ -73,9 +68,11 @@ def combine(output: Path, inputs: list[Path]) -> None:
 {body}"""
         )
 
-    front_matter = r"""---
+    front_matter = f"""---
 title: "MLBD Teaching Notes"
 papersize: a4
+filters:
+  - {HTML_BR_FILTER.as_posix()}
 format:
   pdf:
     toc: true
@@ -89,19 +86,19 @@ format:
       - includefoot
       - footskip=0.9cm
     header-includes: |
-      \usepackage{scrlayer-scrpage}
-      \usepackage{etoolbox}
+      \\usepackage{{scrlayer-scrpage}}
+      \\usepackage{{etoolbox}}
 
       % The optional arguments apply the same footer to plain.scrheadings,
       % which KOMA uses for pages that would otherwise have a plain style.
-      \newcommand{\mlbdfooterlabel}{MLBD Teaching Notes}
-      \clearpairofpagestyles
-      \ifoot[\mlbdfooterlabel]{\mlbdfooterlabel}
-      \ofoot[\pagemark]{\pagemark}
-      \pagestyle{scrheadings}
+      \\newcommand{{\\mlbdfooterlabel}}{{MLBD Teaching Notes}}
+      \\clearpairofpagestyles
+      \\ifoot[\\mlbdfooterlabel]{{\\mlbdfooterlabel}}
+      \\ofoot[\\pagemark]{{\\pagemark}}
+      \\pagestyle{{scrheadings}}
 
       % Start every level-2 heading on a new page.
-      \pretocmd{\subsection}{\clearpage}{}{}
+      \\pretocmd{{\\subsection}}{{\\clearpage}}{{}}{{}}
 ---
 """
 

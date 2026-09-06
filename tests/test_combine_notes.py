@@ -1,17 +1,9 @@
 from pathlib import Path
 
-from scripts.combine_notes import combine, prepare_body_for_pdf
+from scripts.combine_notes import HTML_BR_FILTER, combine
 
 
-def test_prepare_body_for_pdf_converts_html_line_break_variants() -> None:
-    body = "First<br>Second<br/>Third<br />Fourth<BR>Fifth"
-
-    assert prepare_body_for_pdf(body) == (
-        r"First\newline Second\newline Third\newline Fourth\newline Fifth"
-    )
-
-
-def test_combine_converts_line_breaks_without_modifying_source(tmp_path: Path) -> None:
+def test_combine_preserves_html_line_breaks_and_configures_filter(tmp_path: Path) -> None:
     note = tmp_path / "note.qmd"
     source = (
         '---\ntitle: "Table note"\n---\n\n'
@@ -25,8 +17,9 @@ def test_combine_converts_line_breaks_without_modifying_source(tmp_path: Path) -
     combine(output, [note])
 
     combined = output.read_text(encoding="utf-8")
-    assert r"Slides 7–10\newline Slides 7 and 10\newline Exercise" in combined
-    assert "<br" not in combined
+    assert "Slides 7–10<br>Slides 7 and 10<br />Exercise" in combined
+    assert f"filters:\n  - {HTML_BR_FILTER.as_posix()}" in combined
+    assert HTML_BR_FILTER.is_absolute()
     assert note.read_text(encoding="utf-8") == source
 
 

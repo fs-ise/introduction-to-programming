@@ -30,7 +30,7 @@ pdfs: $(SLIDES_PDF)
 
 notes: $(NOTES_PDF)
 
-$(NOTES_PDF): $(NOTES_QMD) scripts/combine_notes.py
+$(NOTES_PDF): $(NOTES_QMD) scripts/combine_notes.py scripts/html_br_to_linebreak.lua
 	@mkdir -p $(OUT_DIR) _pdf-tmp
 	@$(PYTHON) scripts/combine_notes.py $(NOTES_COMBINED) $(NOTES_QMD)
 	@$(QUARTO) render $(NOTES_COMBINED) --to pdf --output notes.pdf
