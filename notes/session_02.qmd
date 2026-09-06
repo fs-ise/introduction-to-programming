@@ -26,6 +26,10 @@ Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 
 ## Homework review: DAX moving averages
 
+::: {.callout-tip}
+Solve the homework in the "empty" sheet of the group's Excel file.
+:::
+
 ::: {.teaching-file}
 [Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Moving Average
 :::
@@ -46,28 +50,48 @@ Start by briefly explaining the task (again):
 
 Explain the payment schema introduced in the previous session.
 
+Solution:
+
+1. Redemption (start with `=$B$5`, copy to all cells)
+2. Remainder (start with amount-redemption, copy down, validate. fix: previous remainder-redemption; also update the redemption to use an IF statement)
+3. Interest rates
+4. Sum
+
+<!--
 - Q: Why should the fixed repayment amount not be copied through all 20 periods?
 - A: The final repayment must not exceed the remaining debt.
+-->
 
-Show how changes in `Loan amount`, `Interest rate` and `Redemption` are automatically reflected in the payments.
-This could be used in a What-if or scenario analysis.
+**Validation**:
 
-![](../images/excel_installment_loan_1_solution.png){fig-align="center" width="90%"}
+- Show how changes in `Loan amount`, `Interest rate` and `Redemption` are automatically reflected in the payments.
+  This could be used in a What-if or scenario analysis.
+
+![](../images/excel_installment_loan_solution.png){fig-align="center" width="90%"}
 
 {{< pagebreak >}}
-
+<
 ::: {.teaching-file}
 [Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Annuity
 :::
 
-- Explain the `PMT(interest rate, term, loan amount)` function (payment).
+1. Annuity: Explain the `PMT(interest rate, term, loan amount)` function (payment).
+2. Interest
+3. Redemption
+4. Remainder
+5. Sum
+
+**Validation**:
+
 - Show that the annuity and payments per period change when modifying the numbers of periods.
 
-![](../images/excel_installment_loan_2_solution.png){fig-align="center" width="90%"}
+![](../images/excel_annuity_loan_solution.png){fig-align="center" width="90%"}
 
 Add charts for the payments of installment loans and annuity loans.
 Briefly contrast the declining payments of a fixed-principal loan with the constant payments of an annuity loan.
 
+
+### Lecture
 
 ::: {.callout-important title="Slides"}
 If **Special IF functions** were not covered in the previous session: complete slide 28.
@@ -263,7 +287,7 @@ A table name identifies the table independently of its position in the worksheet
 
 ![](../images/excel_create_table.png){fig-align="center" width="70%"}
 
-## Slide 40 — Sorting and filtering
+### Slide 40 — Sorting and filtering
 
 Demonstrate:
 
@@ -274,7 +298,7 @@ Demonstrate:
 
 Emphasize that filtering hides records but does not delete them. This distinction becomes important for `SUBTOTAL`.
 
-## Slides 41–42 — Table design and styles
+### Slides 41–42 — Table design and styles
 
 With a cell inside the table selected, open **Table Design**.
 
@@ -389,7 +413,7 @@ In Python/Pandas, this will be the same. There are no cells with row and column 
 
 Note: structured references work regardless of where the table is located (name references).
 
-## Basic structured references
+### Basic structured references
 
 Contrast:
 
