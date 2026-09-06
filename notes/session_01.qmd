@@ -23,6 +23,13 @@ event_id: null
 
 : {tbl-colwidths="[10,40,30]"}
 
+::: {.callout-note}
+Open:
+
+- PPTX in VM
+- Excel: `exercises.xlsx` in VM (save a copy for the group to track its progress)
+:::
+
 ## Introductory remarks
 
 Start with a strong focus on programming (I love programming/Github stats, first student assistant job, ..., student coauthors, but also: teaching it in an accessible way; move research interests to the end: theses)
@@ -49,25 +56,20 @@ Programming:
 
 - Tutoring sessions start with the **Python** part of the course.
 
-## Successful course
+::: {.callout-note}
+Any questions?
+:::
 
-Develop the habit to solve and understand everything. Form learning groups. ASK me again and again
+### For a successful course
 
-Errors are a normal part of programming and learning
-Our tutors do an amazing job and are there for you
+I hope you enjoy the course, learn a lot, and develop skills you can actually use.
 
-- **This is a challenging course.** Previous cohorts have had some failures, so it pays to take it seriously from the beginning.
-- A good strategy is to **build a strong foundation early**: study consistently and aim to score close to the full **40 points in the Excel mid-term**.
-- Then, when we move on, **put in the effort to really understand Python rather than just getting code to run**.
-- Developing this learning rhythm early gives you the best chance to **pass both exams on the first attempt and achieve a strong overall result**.
-- **Do not get discouraged by errors.** Errors are a normal part of programming—even for experienced programmers.
-- What matters is how you respond: **test, interpret, understand, revise, and try again**.
-- **Perseverance builds confidence.** Working through problems yourself is how unfamiliar tasks gradually become manageable.
-- **Do not work in isolation.** Explain your solutions, compare approaches, ask others how they solved a problem, and support each other.
-- **Ask questions in class.** If something is unclear to you, there is a good chance others have the same question.
-- **Use the support available.** The tutors are there to help, and I will do my best to prepare you well throughout the course.
-- Of course, I hope you **score very well in the exams**. But the larger goal is that you leave the course **competent and confident enough to tackle programming tasks yourself and to work effectively with IT and programmers in organizations**.
-
+* **Develop a good learning rhythm early.** Work consistently and aim to understand and solve the tasks yourself.
+* **Expect errors.** They are a normal part of programming and learning: test, understand, revise, and try again.
+* **Do not work in isolation.** Form learning groups, compare solutions, and support each other.
+* **Ask questions—again and again.** In class, in tutorials, and whenever something remains unclear.
+* **Use the support available.** Our tutors do an excellent job and are there to help you.
+* **Keep going.** Perseverance and genuine understanding are the best preparation for success in the course and exams.
 
 ## Slide 1 - Excel basics
 
@@ -91,15 +93,20 @@ Start Excel and explain the following (without slides):
 - Some cells are used for entering data, others for formulas (we need to understand which type of cell is needed)
 - Illustrate data types: Add "€" to the numbers and show that the SUM/EXP no longer work.
 
+Important: distinguish
+
+- Data cells (plain values)
+- Calculated cells (formulas)
+
 ## Slide 7: Future Value (first exercise)
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Future_Value
 :::
 
-Task: Create a first spreadsheet and create the formula for future value.
+Task: Download the `exercises.docx` from Canvas and solve the first sheet: `Future_Value`.
 
-TBD: Illustration:
+Illustration:
 
 - 100€ - 5% interest
 - 100€ * 0.05 = 5€ earned
@@ -107,6 +114,8 @@ TBD: Illustration:
 - 100€ * 1.05 * 1.05 = .... amount after year 2
 - ...
 - 100€ * 1.05^n
+
+Reminder: "Scenarios" means that some cells are data cells that we want to change to automatically see what the updated outcome is.
 
 Solution:
 
@@ -118,14 +127,27 @@ Use keyboard instead of clicking (prepare/mention shortcuts)
 :::
 -->
 
+::: {.callout-note}
+Next: Sheet `Cost_Revenue` (slides only afterwards).
+:::
+
 ## Slide 8: Referencing cells (example: cost revenue calculation)
+
+::: {.callout-note}
+Remind students to raise questions when anything is unclear.
+:::
 
 **Key insight**: To copy formulas, we need to use appropriate relative, absolute, mixed references.
  
-Use `F4` to switch reference type.
+Setup:
 
-- Step 1: start by hard-coding `Revenue per unit`, and copy formula down. Use the `Formulas > Trace precedents` to show that it uses the right values
-- Step 2: remove formulas, replace the hard-coded value in the first formula and copy it down. Use the `Formulas > Trace precedents` to show that it does not use the right cell. Illustrate use of an absolte reference (one dimension fixed), update cells, show precedents.
+- Illustrate as a first example business (e.g., coffee cups).
+- Overall production/sales is on the left, per unit on the right.
+- Remember: we calculate per-unit reveue once and then reference it (instead of hardcoding)
+
+- Step 1: Write all formulas by hand. Point out that this will take long and likely introduce errors. Solution: copying formulas (Excel will automatically update the references)
+- Step 2: Clarify expectation (24000 in the next cell). Write the revenue formula and copy the fomula down. Value does not match. Use the `Formulas > Trace precedents` to show that it uses the right values
+- Step 3: Illustrate use of an absolute reference, update cells, verify results. (Use `F4` to switch reference type.)
 
 ::: {.teaching-file}
 [In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Cost_Revenue
@@ -136,26 +158,25 @@ Solution:
 ![](../images/excel_cost_profit_calculation.png){fig-align="center" width="100%"}
 
 
-## Slide 8: Continued example
-
-- Step 3: extend example: Cost depends two dimensions: assume I am a painter and paint appartments of different sizes with different colors (I will paint your appartment, penthouse etc. with the color you like, base colors are cheap, others more expensive, so it depends on both: size and color). Complex - we need an Excel table to understand what to charge. (small/medium/large  - no square meters, I see it immediately; if you order something with patterns, I will be rich). Illustrate formula copying (sizes will always in column XXX, so make XXX absolute. Prices will always be in row YYY, so make YYY absolute.)
-- Check: understanding/questions?
-- Optional extension: What if we add a fixed cost for all? Charge everyone an additional 20€ on top? (add an absolute reference)
-
-::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Cost_Revenue_Painter
+::: {.callout-note title="Write on the blackboard"}
+| Example | Reference |
+| ---- | --- |
+| A1 | Relative |
+| $A$1 | Absolute |
 :::
 
-Solution:
-
-![](../images/excel_cost-revenue-painter.png){fig-align="center" width="100%"}
-
+**Highlight**: Need to anticipate how a formula will be copied to use relative vs. absolute references appropriately.
 
 ## Slide 10 - Future Value (second exercise)
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Future_Value2
 :::
+
+**Note**: practice absolute references before introducing mixed references.  
+**Show slide 10**.
+**Explanation**: The "Scenario analysis" will be done in separate columns. The investment of `10000` remains the same.
+
 
 Solution:
 
@@ -164,7 +185,6 @@ Solution:
 ::: {.callout-note title="Exam advice"}
 Note: Write all formulas below in such a way that they can be copied down/right without modification.
 Hard-coding numbers in formulas for which there exist data cells in the sheet is considered a mistake.
-
 
 Highlight that **copied down/right** is important - illustrate what **without modification** means (e.g., copying down an absolute reference that should be relative/mixed), give examples for **hard-coding values**.
 :::
@@ -179,6 +199,34 @@ Always check and debug: for the exercises, but also in your job, when you build 
 - Show calculations (stopped?)
 :::
 
+## Slide 8: Continued example
+
+::: {.callout-note title="Shortcuts"}
+- `alt`+`m`+`p` : show precedents
+- `alt`+`m`+`a`+`Enter' : hide
+:::
+
+- Step 4: extend example: Cost depends two dimensions: assume I am a painter and paint appartments of different sizes with different colors (I will paint your appartment, penthouse etc. with the color you like, base colors are cheap, others more expensive, so it depends on both: size and color). Complex - we need an Excel table to understand what to charge. (small/medium/large  - no square meters, I see it immediately; if you order something with patterns, I will be rich). Illustrate formula copying **to the whole table** (sizes will always in column XXX, so make XXX absolute. Prices will always be in row YYY, so make YYY absolute.)
+- Check: understanding/questions?
+- Optional extension: What if we add a fixed cost for all? Charge everyone an additional 20€ on top? (add an absolute reference)
+
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Cost_Revenue_Painter
+:::
+
+Solution:
+
+![](../images/excel_cost-revenue-painter.png){fig-align="center" width="100%"}
+
+
+::: {.callout-note title="Update the blackboard"}
+| Example | Reference |
+| ---- | --- |
+| $A1 | Mixed, absolute column |
+| A$1 | Mixed, absolute row |
+:::
+
+**Show the table on the slide afterwards**
 
 ## Slide 13 - Charts illustration
 
@@ -193,6 +241,8 @@ Always check and debug: for the exercises, but also in your job, when you build 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: CoffeeShop
 :::
+
+**Explain** task by painting expected charts on the blackboard.
 
 ![](../images/excel_coffeeshop_charts.png){fig-align="center" width="90%"}
 
@@ -236,9 +286,16 @@ This ensures that language is set to English and parameters are separated by `,`
 [In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: simple
 :::
 
-Add the `=SUM()` at the end, using a range of cells:
+Add the `=SUM()` at the end, using a **range of cells**.  
+Then, add the formula for `Profie (per year).
 
 ![](../images/excel_formula_illustration.png){fig-align="center" width="90%"}
+
+Show the **evaluate formula** option (Formulas ribbon):
+
+Example: `=B15+SUM(C4:C23)`.
+
+Then show slide 17.
 
 ## Slide 19 - Sales statistics
 
@@ -298,6 +355,10 @@ Prefer nested `IF` functions for the VIP-status exercise (in part II).
   We also note that there are some parameters that we can adjust (principal, interest, payment periods) and others that are calculated (repayments).
   It's the same principle in this interface and in your Excel sheet.
 
+- Important: **The whole table must be filled with formulas. Users will adjust the "number of periods" manually to visualize different scenarios.**
+- Interest: is always paid on the remainder (whole amount that is still owed) in the previous period.
+- Annuity: Use the `PMT()` function in the annuity field. Then, start by calculating the interest. The repayment is the remaining amount.
+
 ![](../images/excel_loans_illustration.png){fig-align="center" width="40%"}
 
 - Work through the repayment logic on the board.
@@ -325,6 +386,8 @@ With a fixed-principal installment loan, the principal is reduced more quickly a
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Exam
 :::
 
+**Show** the task description on p.27 to explain the logic (conditional: more than 10 points in Exercise 5 to pass).
+
 ![](../images/excel_exam_solution.png){fig-align="center" width="60%"}
 
 ## Slide 28: Special IF functions
@@ -342,6 +405,9 @@ With a fixed-principal installment loan, the principal is reduced more quickly a
 ### Summary and announcements (next session)
 
 **Prepare the homework for next session (if this is tomorrow: do it today)!**
+
+- DAX moving averages
+- Loans: Installment and annuity
 
 ::: {.callout-tip title="Notes for improvement"}
 Take notes (improvements, common questions) on a separate paper and add to `feedback.qmd` after the session.
