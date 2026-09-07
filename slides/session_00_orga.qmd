@@ -333,3 +333,15 @@ And which should not?
 # References {data-state="hide-menubar"}
 
 -->
+
+## Feedback {data-state="hide-menubar"}
+
+Please take 1–2 minutes to reflect on today's session.
+
+::: {style="display: flex; justify-content: center;"}
+{{< qrcode https://forms.gle/5DMtes2VEk3ESk358 width=400 height=400 >}}
+:::
+
+::: {style="text-align: center;"}
+[Complete the short feedback survey](https://forms.gle/5DMtes2VEk3ESk358)
+:::

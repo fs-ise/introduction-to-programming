@@ -1,0 +1,6 @@
+title: QR Code
+author: Jakob Buhr
+version: 1.0.0
+contributes:
+  shortcodes:
+    - qrcode.lua
