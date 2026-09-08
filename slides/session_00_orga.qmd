@@ -54,7 +54,6 @@ Teaching interests
 :::
 :::
 
-
 ## About you
 
 <!--
@@ -69,22 +68,28 @@ Please take a moment to think about the following questions.
 For each question, I’ll invite a few of you to briefly share your thoughts.
 -->
 
-**1. Which sports do you do regularly? Please raise your hand.**
-
-* **Gym:** cardio, weights, classes
-* **Team sports:** soccer, basketball, volleyball, tennis, …
-* **Individual sports:** running, cycling, swimming, …
+**1. Where are you from?**
 
 . . . 
 
-**2. Have you programmed before?**
+**2. Which sports do you do?**
+
+<!--
+* **Gym:** cardio, weights, classes
+* **Team sports:** soccer, basketball, volleyball, tennis, …
+* **Individual sports:** running, cycling, swimming, …
+-->
+
+. . . 
+
+**3. Have you programmed before?**
 
 * In which context—for example, at university, at work, or for a personal project?
 * Which **programming languages or technical tools** have you used?
 
 . . . 
 
-**3. What are your expectations for the course?**
+**4. What are your expectations for the course?**
 
 * What would you like to be able to **build, automate, or analyze** with Excel or Python?
 * What would make this course **worth it** for you?

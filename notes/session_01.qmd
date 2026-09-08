@@ -319,7 +319,7 @@ Before or after the break.
 - Draft structure on the blackboard
 - Last step: create the visualization...
 
-![](../images/excel_moving_average_solution.png){fig-align="center" width="90%"}
+![](../images/excel_moving_averages_solution.png){fig-align="center" width="90%"}
 
 ## Slide 22 - IF Dialogue
 

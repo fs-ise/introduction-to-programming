@@ -24,7 +24,13 @@ event_id: null
 
 Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 
-## Homework review: DAX moving averages
+## Questions from last session (survey)
+
+::: {.callout-tip title="Follow-up"}
+Follow-up on questions/feedback from last session's survey.
+:::
+
+### Homework review: DAX moving averages
 
 ::: {.callout-tip}
 Solve the homework in the "empty" sheet of the group's Excel file.
@@ -37,7 +43,7 @@ Solve the homework in the "empty" sheet of the group's Excel file.
 Start by briefly explaining the task (again):
 
 - Discuss the spreadsheet structure before discussing individual formulas.
-- Check the starting periods for the 10-period and 20-period averages.
+- Check the starting periods for the 10-period and 20-period averages (sufficient historical data accumulation is needed / we cannot start in the first row with formulas1)
 - Emphasize that a longer moving average is smoother and reacts more slowly.
 
 ![](../images/excel_moving_averages_solution.png){fig-align="center" width="90%"}
@@ -50,24 +56,23 @@ Start by briefly explaining the task (again):
 
 Explain the payment schema introduced in the previous session.
 
-Solution:
+<!--
+**Solution:**
 
 1. Redemption (start with `=$B$5`, copy to all cells)
-2. Remainder (start with amount-redemption, copy down, validate. fix: previous remainder-redemption; also update the redemption to use an IF statement)
-3. Interest rates
-4. Sum
-
-<!--
-- Q: Why should the fixed repayment amount not be copied through all 20 periods?
-- A: The final repayment must not exceed the remaining debt.
+2. Remainder (start with amount-redemption, then based on previous period remainder)
+3. Validate principal repayment (does not stop, leads to negative values in remaining balance) and introduce conditional
+4. Interest rates
+5. Total payment
+6. Insert line chart
 -->
+
+![](../images/excel_installment_loan_solution.png){fig-align="center" width="90%"}
 
 **Validation**:
 
 - Show how changes in `Loan amount`, `Interest rate` and `Redemption` are automatically reflected in the payments.
   This could be used in a What-if or scenario analysis.
-
-![](../images/excel_installment_loan_solution.png){fig-align="center" width="90%"}
 
 {{< pagebreak >}}
 
@@ -75,17 +80,19 @@ Solution:
 [Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Annuity
 :::
 
+<!--
 1. Annuity: Explain the `PMT(interest rate, term, loan amount)` function (payment).
 2. Interest
-3. Redemption
+3. Principal repayment
 4. Remainder
 5. Sum
+-->
+
+![](../images/excel_annuity_loan_solution.png){fig-align="center" width="90%"}
 
 **Validation**:
 
 - Show that the annuity and payments per period change when modifying the numbers of periods.
-
-![](../images/excel_annuity_loan_solution.png){fig-align="center" width="90%"}
 
 Add charts for the payments of installment loans and annuity loans.
 Briefly contrast the declining payments of a fixed-principal loan with the constant payments of an annuity loan.
@@ -240,14 +247,12 @@ Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution.
 This one is similar to the client lookup.
 We want to enter different StudentIDs and then the lookup functions should retrieve the different test scores and do the calculations of final grades.
 
-::: {.callout-important title="Error on the slides"}
-
-On the slides, the contribution of homework should be **9.11** and the overall grade **73.61**.
-
-Show the correct version to students: **images/excel_grading_assignment.png**
-
 ![](../images/excel_grading_assignment.png)
 
+::: {.callout-important title="Error on the slides"}
+On the slides, the contribution of homework should be **9.11** and the overall grade **73.61** (as in the screenshot above).
+
+Show the correct version to students: PDF in Canvas (**images/excel_grading_assignment.png**)
 :::
 
 ::: {.teaching-break}
