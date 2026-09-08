@@ -34,6 +34,8 @@ Open:
 
 Start with a strong focus on programming (I love programming/Github stats, first student assistant job, ..., student coauthors, but also: teaching it in an accessible way; move research interests to the end: theses)
 
+Getting to know students
+
 Programming:
 
 - Definition
@@ -54,6 +56,7 @@ Programming:
 
 ### Course structure
 
+- Sit in rows where you can read the screen well
 - Show **excercises.xlsx** in Canvas for Download.
 - Tutoring sessions start with the **Python** part of the course.
 
@@ -174,10 +177,13 @@ Solution:
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Future_Value2
 :::
 
-**Note**: practice absolute references before introducing mixed references.  
+<!-- **Note**: practice absolute references before introducing mixed references. -->
+
 **Show slide 10**.
+
 **Explanation**: The "Scenario analysis" will be done in separate columns. The investment of `10000` remains the same.
 
+**Highlight**: We want to copy the formula to the right.
 
 Solution:
 
@@ -209,7 +215,6 @@ Always check and debug: for the exercises, but also in your job, when you build 
 
 - Step 4: extend example: Cost depends two dimensions: assume I am a painter and paint appartments of different sizes with different colors (I will paint your appartment, penthouse etc. with the color you like, base colors are cheap, others more expensive, so it depends on both: size and color). Complex - we need an Excel table to understand what to charge. (small/medium/large  - no square meters, I see it immediately; if you order something with patterns, I will be rich). Illustrate formula copying **to the whole table** (sizes will always in column XXX, so make XXX absolute. Prices will always be in row YYY, so make YYY absolute.)
 - Check: understanding/questions?
-- Optional extension: What if we add a fixed cost for all? Charge everyone an additional 20€ on top? (add an absolute reference)
 
 ::: {.teaching-file}
 [In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Cost_Revenue_Painter
@@ -288,7 +293,7 @@ This ensures that language is set to English and parameters are separated by `,`
 :::
 
 Add the `=SUM()` at the end, using a **range of cells**.  
-Then, add the formula for `Profie (per year).
+Then, add the formula for `Profit (per year)`.
 
 ![](../images/excel_formula_illustration.png){fig-align="center" width="90%"}
 

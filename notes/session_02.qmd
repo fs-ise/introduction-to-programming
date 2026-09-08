@@ -74,6 +74,8 @@ Explain the payment schema introduced in the previous session.
 - Show how changes in `Loan amount`, `Interest rate` and `Redemption` are automatically reflected in the payments.
   This could be used in a What-if or scenario analysis.
 
+**Typical error**: If the principal or interest repayments point to the same column (instead of the previous period), a "circular reference" error will be raised.
+
 {{< pagebreak >}}
 
 ::: {.teaching-file}
