@@ -28,6 +28,14 @@ event_id: null
 
 : {tbl-colwidths="[20,40,40]"}
 
+::: {.callout-tip title="Excel language settings"}
+Students should configure Excel to use **English function names** and **commas to separate function parameters**.
+
+[Excel language settings](../student_guide/language-settings.qmd)
+
+![](../images/qr_excel_language_settings.png){fig-align="center" width="18%"}
+:::
+
 ## Homework review: Christmas gift
 
 ::: {.teaching-file}

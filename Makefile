@@ -10,10 +10,11 @@ SLIDES_PDF := $(SLIDES_HTML:.html=.pdf)
 NOTES_QMD := $(addprefix notes/session_,$(addsuffix .qmd,01 02 03 04 05 06 07 08 09 10 11))
 NOTES_PDF := $(OUT_DIR)/notes.pdf
 NOTES_COMBINED := _pdf-tmp/notes.qmd
+QR_CODES := images/qr_excel_language_settings.png
 .PHONY: help site site-fast pdfs notes exercises exercises-assign exercises-solution all sync-events clean
 help:
 	@echo "Targets: site, pdfs, notes, exercises, all, sync-events, clean"
-site-fast:
+site-fast: $(QR_CODES)
 	$(QUARTO) render --no-clean
 site: exercises site-fast
 all: site pdfs notes
@@ -30,7 +31,10 @@ pdfs: $(SLIDES_PDF)
 
 notes: $(NOTES_PDF)
 
-$(NOTES_PDF): $(NOTES_QMD) scripts/combine_notes.py scripts/html_br_to_linebreak.lua
+$(QR_CODES): scripts/generate_qr_codes.js _extensions/jmbuhr/qrcode/qrcode.js
+	node scripts/generate_qr_codes.js
+
+$(NOTES_PDF): $(NOTES_QMD) $(QR_CODES) scripts/combine_notes.py scripts/html_br_to_linebreak.lua
 	@mkdir -p $(OUT_DIR) _pdf-tmp
 	@$(PYTHON) scripts/combine_notes.py $(NOTES_COMBINED) $(NOTES_QMD)
 	@$(QUARTO) render $(NOTES_COMBINED) --to pdf --output notes.pdf
