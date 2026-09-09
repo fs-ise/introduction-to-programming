@@ -1,0 +1,16 @@
+---
+title: "Student guide"
+sidebar: false
+---
+
+## Getting started
+
+You can find the course files on the [Materials](materials.qmd) page. You will need access to Excel and a Python environment; see the [Syllabus](syllabus.qmd) for the course requirements.
+
+## Getting help
+
+If you get stuck, review the relevant example, try the task again, and note where you are unsure. Ask questions in class or through the course communication channel—questions are always welcome.
+
+## Useful resources
+
+Helpful Excel and Python resources will be added here as the course progresses.

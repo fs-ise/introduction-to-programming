@@ -14,6 +14,8 @@ website:
     contents:
       - text: Home
         href: index.qmd
+      - text: Student guide
+        href: student_guide.qmd
       - text: Syllabus
         href: syllabus.qmd
       - text: Objectives
