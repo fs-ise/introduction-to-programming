@@ -1,0 +1,61 @@
+---
+title: "Excel language settings"
+sidebar: false
+---
+
+<!--
+[← Student guide](../student_guide.qmd)
+-->
+
+::: {.callout-important title="Required Excel configuration"}
+
+For this course, configure Excel so that formulas use:
+
+- English function names, such as `IF`, `AVERAGE`, and `VLOOKUP`
+- commas `,` to separate function arguments
+- periods `.` as decimal separators
+
+Your formulas should look like this:
+
+```excel
+=IF(A1>0,"Yes","No")
+```
+
+:::
+
+Configurations that use German function names such as `WENN`, or semicolons between function arguments, do not match the course materials.
+
+## Windows
+
+1. In Office or Excel, go to **File → Options → Language** and set the display language to English.
+2. In Windows, go to **Settings → Time & language → Language & region** and set the regional format to an English region, preferably **English (United States)**.
+3. Check that the resulting settings use a period `.` as the decimal symbol and a comma `,` as the list separator.
+4. Restart Excel after changing these settings.
+
+## macOS
+
+Excel for Mac follows the macOS language and regional settings:
+
+1. Open **System Settings → General → Language & Region**.
+2. Make English the preferred language.
+3. Set the region to **United States**, or another English region that uses `.` for decimals and `,` as the list separator.
+4. Restart Excel.
+
+You may keep your normal keyboard layout; changing the keyboard language is not required.
+
+## Excel for the web / Office Online
+
+1. Set your Microsoft 365 display language to English.
+2. In Excel for the web, use **File → Options → Regional Settings**, where available, and select **English (United States)**.
+3. The regional format controls which delimiters the web version uses in formulas.
+
+::: {.callout-tip title="Check your setup"}
+Enter these formulas in Excel:
+
+```excel
+=AVERAGE(1,2,3)
+=IF(1<2,"yes","no")
+```
+
+If both are accepted exactly as written, your Excel setup matches the course materials.
+:::

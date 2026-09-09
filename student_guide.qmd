@@ -5,7 +5,10 @@ sidebar: false
 
 ## Getting started
 
+<!--
 You can find the course files on the [Materials](materials.qmd) page. You will need access to Excel and a Python environment; see the [Syllabus](syllabus.qmd) for the course requirements.
+-->
+Before working with Excel, configure its [language and regional settings](student_guide/language-settings.qmd) to match the course materials.
 
 ## Getting help
 
