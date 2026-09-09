@@ -84,7 +84,7 @@ Explain the payment schema introduced in the previous session.
 
 **Typical error**: If the principal or interest repayments point to the same column (instead of the previous period), a "circular reference" error will be raised.
 
-{{< pagebreak >}}
+## Homework review: Annuity loan
 
 ::: {.teaching-file}
 [Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Annuity
