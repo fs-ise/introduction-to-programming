@@ -17,3 +17,5 @@ If you get stuck, review the relevant example, try the task again, and note wher
 ## Useful resources
 
 Helpful Excel and Python resources will be added here as the course progresses.
+
+- **[Interactive loan illustrations](materials/loans.qmd)** – Explore how installment loans and annuity loans develop over time.
