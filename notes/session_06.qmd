@@ -23,7 +23,7 @@ exped.loc[:, ['QUANTITY', 'REVENUE']].sum()
 exped.iloc[:, 5:7].sum()
 ```
 
-## Slide 39 — Mean, standard deviation, and correlation
+### Slide 39 — Mean, standard deviation, and correlation
 
 ```python
 exped.loc[:, ['QUANTITY', 'REVENUE']].mean()
@@ -31,7 +31,7 @@ exped['REVENUE'].std()
 exped.loc[:, ['QUANTITY', 'REVENUE']].corr()
 ```
 
-## Slide 40 — Statistical summaries
+### Slide 40 — Statistical summaries
 
 `describe()` is type-aware, so its summary depends on whether the selected data are numerical or categorical.
 
@@ -41,14 +41,14 @@ exped['REVENUE'].describe()
 exped['WHERE'].describe()
 ```
 
-## Slide 41 — Unique values and frequencies
+### Slide 41 — Unique values and frequencies
 
 ```python
 exped['WHERE'].unique()
 exped['WHERE'].value_counts()
 ```
 
-## Slide 42 — Descriptive statistics
+### Slide 42 — Descriptive statistics
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
@@ -78,7 +78,7 @@ temps.head()
 temps.plot()
 ```
 
-## Slide 44 — Selecting variables for a chart
+### Slide 44 — Selecting variables for a chart
 
 ```python
 temps.iloc[:, 1:4].plot()
@@ -88,7 +88,7 @@ temps.plot(
 )
 ```
 
-## Slide 45 — Formatting the x-axis
+### Slide 45 — Formatting the x-axis
 
 ```python
 temps.plot(
@@ -99,7 +99,7 @@ temps.plot(
 )
 ```
 
-## Slide 47 — Creating a bar chart
+### Slide 47 — Creating a bar chart
 
 ```python
 df = exped['WHERE'].value_counts()
@@ -108,7 +108,7 @@ df.dtypes
 df.plot(kind='bar')
 ```
 
-## Slide 48 — Creating pie charts
+### Slide 48 — Creating pie charts
 
 ```python
 df.plot(kind='pie', y='WHERE')
@@ -148,13 +148,13 @@ The comparison produces a Boolean Series with one value per row.
 exped.WHERE == 'London'
 ```
 
-## Slide 51 — Selecting rows based on a condition
+### Slide 51 — Selecting rows based on a condition
 
 ```python
 exped.loc[exped.WHERE == 'London']
 ```
 
-## Slide 52 — Combining conditions
+### Slide 52 — Combining conditions
 
 Use `&` for “and” and `|` for “or”. Each individual pandas condition needs parentheses when conditions are combined.
 
@@ -195,7 +195,7 @@ exped.groupby('HOW')['HOW'].count()
 exped.groupby('HOW')['REVENUE'].mean()
 ```
 
-## Slide 55 — Grouping by multiple columns
+### Slide 55 — Grouping by multiple columns
 
 ```python
 a = exped.groupby(['HOW', 'WHERE'])['REVENUE'].mean()

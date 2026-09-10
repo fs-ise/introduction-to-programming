@@ -445,13 +445,17 @@ Explain that the structured reference:
 
 Work through examples of structured references and explain them on the whiteboard:
 
+\footnotesize
+
 | Formula example | Explanation | General syntax |
-| --- | --- | --- |
+| ---- | --- | ---- |
 | `Bikesales[Cost]` | Refers to the `Cost` column | `TableName[ColumnName]` |
 | `Bikesales[[#Totals],[Turnover]]` | Refers to the `Turnover` cell in the totals row | `TableName[[#Item],[ColumnName]]` |
 | `Bikesales[[#Totals],[Turnover]:[Cost]]` | Refers to the totals-row cells from `Turnover` to `Cost` | `TableName[[#Item],[FirstColumn]:[LastColumn]]` |
 
-![](../images/excel_table_structured_refs.png){fig-align="center" width="80%"}
+\normalsize
+
+![](../images/excel_table_structured_refs.png){fig-align="center" width="90%"}
 
 Note: in `=ROWS(Bikesales[[#All],[Sales]])`, the `[#All]` also counts header and totals as rows.
 

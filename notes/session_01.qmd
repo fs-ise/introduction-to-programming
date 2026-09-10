@@ -40,8 +40,6 @@ Open:
 
 Start with a strong focus on programming (I love programming/Github stats, first student assistant job, ..., student coauthors, but also: teaching it in an accessible way; move research interests to the end: theses)
 
-Getting to know students
-
 Programming:
 
 - Definition
@@ -292,7 +290,7 @@ This ensures that language is set to English and parameters are separated by `,`
 
 :::
 
-## Slide 18 - Formula illustration
+### Slide 18 - Formula illustration
 
 ::: {.teaching-file}
 [In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: simple

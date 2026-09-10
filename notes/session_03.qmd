@@ -160,7 +160,7 @@ Connect this distinction to the PivotTable areas:
 - Dimensions usually appear in **Rows**, **Columns**, or **Filters**.
 - Facts usually appear in **Values**.
 
-## Slides 62–63 — Data cube and slicing
+### Slides 62–63 — Data cube and slicing
 
 Use the cube as a conceptual model.
 Explain:
@@ -171,7 +171,7 @@ Explain:
 - A PivotTable therefore presents a two-dimensional slice of a multidimensional dataset.
 - Filters fix the dimensions that are not currently shown in rows or columns.
 
-## Slide 64 — PivotTables in Excel
+### Slide 64 — PivotTables in Excel
 
 PivotTables implement the basic data-cube idea in Excel.
 
@@ -202,7 +202,7 @@ Before creating the PivotTable, briefly check that:
 - Numerical facts are stored as numbers.
 - Dates are stored as actual Excel dates.
 
-## Slide 66 — PivotTable field areas
+### Slide 66 — PivotTable field areas
 
 ::: {.teaching-file}
 [In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Sales_pivot
@@ -246,7 +246,7 @@ Emphasize:
 
 **SCREENSHOT:** Product filter with only selected products and the resulting PivotTable.
 
-## Slide 68 — Showing values as percentages
+### Slide 68 — Showing values as percentages
 
 Right-click a value and demonstrate:
 
@@ -314,7 +314,7 @@ Students should understand that adding fields increases the level of detail show
 
 Avoid spending much time on the visual details of the example. Focus on the field hierarchy.
 
-## Slide 71 — Using the same fact multiple times
+### Slide 71 — Using the same fact multiple times
 
 Drag `Turnover` into **Values** twice.
 
@@ -327,7 +327,7 @@ This demonstrates that the same source field can be used for different analytica
 
 Also show that the automatically created `Values` field can be moved between rows and columns.
 
-## Slide 72 — Using different facts
+### Slide 72 — Using different facts
 
 Add both:
 
@@ -357,7 +357,7 @@ Do not spend time on detailed chart formatting. Focus on the relationship betwee
 
 **SCREENSHOT:** PivotChart with visible field controls.
 
-## Slide 74 — Calculated fields
+### Slide 74 — Calculated fields
 
 Create a calculated field:
 

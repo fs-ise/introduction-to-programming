@@ -232,7 +232,7 @@ print(math.sin(5))
 print(math.sin(math.pi))
 ```
 
-## Slide 127 — Creating a dictionary
+### Slide 127 — Creating a dictionary
 
 Dictionaries use curly braces to associate unique keys with values.
 
@@ -364,7 +364,7 @@ students['student1']['courses'].append('Informatics')
 students['student1']
 ```
 
-## Slide 131 — Adding, changing, and deleting nested data
+### Slide 131 — Adding, changing, and deleting nested data
 
 ```python
 students['student3'] = {
@@ -389,7 +389,7 @@ students['student1'] = {'age': 25}
 
 The final assignment replaces the complete `student1` dictionary rather than changing only its age.
 
-## Slide 132 — Save and load dictionaries with JSON
+### Slide 132 — Save and load dictionaries with JSON
 
 Write mode creates or replaces the file and `json.dump()` serializes the dictionary; read mode opens it and `json.load()` reconstructs the data.
 

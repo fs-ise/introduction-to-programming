@@ -100,7 +100,7 @@ The pandas portion of the exam is “pure pandas”; it does not combine pandas 
 {{< include ../materials/session_11/MercedesBenz1.py >}}
 ```
 
-## Slide 148 — Stock-price collection
+### Slide 148 — Stock-price collection
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_11/Stocks.py`](../materials/session_11/Stocks.py){.teaching-button .teaching-button-exercise}

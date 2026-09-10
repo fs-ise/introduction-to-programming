@@ -1,5 +1,5 @@
 ---
-title: "Notes S-04/Python 1: Python and pandas basics"
+title: "Session 04/Python 1: Python and pandas basics"
 session_id: session-04
 event_id: null
 ---
@@ -62,7 +62,7 @@ Run these expressions individually in Spyder so that each result is visible.
 
 Note: operators explained on the following slide.
 
-## Slide 8 — Variables and reassignment
+### Slide 8 — Variables and reassignment
 
 Refer to a variable as **names bound to an object**
 
@@ -91,7 +91,7 @@ Explain step by step how Python approaches this statement.
 - Assignment: right side to the variable z.
 - Right side is a complex statement. Needs to be evaluated first....
 
-## Slide 10 — Output with `print()`
+### Slide 10 — Output with `print()`
 
 These examples contrast comma-separated output and string concatenation, demonstrate repetition, use `str()` for conversion, and use `end` to control the line ending.
 
@@ -195,9 +195,11 @@ The short alias `pd` is the conventional name used for pandas (programmers are o
 import pandas as pd
 ```
 
-## Slide 16 — Reading an Excel file into a DataFrame
+### Slide 16 — Reading an Excel file into a DataFrame
 
 **TODO: get and link Bikesales.xlsx file**
+
+Revisit the difference between absolute and relative file paths, referring to the explanation in the preparation booklet.
 
 The final expression displays the DataFrame in an interactive environment.
 
@@ -206,7 +208,7 @@ data = pd.read_excel('Bikesales.xlsx')
 data
 ```
 
-## Slide 17 — Inspecting a DataFrame
+### Slide 17 — Inspecting a DataFrame
 
 These expressions show the DataFrame dimensions, column names, and column data types.
 
@@ -237,7 +239,7 @@ print(os.getcwd())
 
 **TODO: where is it in spyder?**
 
-## Slide 19 — Reading CSV files
+### Slide 19 — Reading CSV files
 
 The relative path is resolved against the active working directory.
 
@@ -245,7 +247,7 @@ The relative path is resolved against the active working directory.
 data = pd.read_csv('Bikesales.csv')
 ```
 
-## Slide 20 — Loading, previewing, and exporting data
+### Slide 20 — Loading, previewing, and exporting data
 
 ::: {.teaching-file}
 [`../materials/Exped_Table.xlsx`](../materials/Exped_Table.xlsx){.teaching-button .teaching-button-exercise}
@@ -287,7 +289,7 @@ exped1.head()
 {{< include ../materials/session_04/countries.py >}}
 ```
 
-{{< pagebreak >}}
+### Exercise
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}

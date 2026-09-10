@@ -30,7 +30,7 @@ pd.pivot_table(
 )
 ```
 
-## Slide 59 — Filter the data before pivoting
+### Slide 59 — Filter the data before pivoting
 
 Both filtering forms are equivalent and prevent actual and target values from being aggregated together.
 
@@ -50,7 +50,7 @@ pd.pivot_table(
 )
 ```
 
-## Slide 60 — Apply multiple aggregation functions
+### Slide 60 — Apply multiple aggregation functions
 
 `aggfunc` can contain multiple aggregation functions.
 
@@ -87,7 +87,7 @@ pd.pivot_table(
 )
 ```
 
-## Slide 62 — Combine multiple filters
+### Slide 62 — Combine multiple filters
 
 Parentheses are required around the individual Pandas conditions.
 
@@ -125,13 +125,13 @@ pivot_df.loc['Total'] = pivot_df.sum()
 print(pivot_df)
 ```
 
-## Slide 64 — Plot a pivot table
+### Slide 64 — Plot a pivot table
 
 ```python
 pivot_df.plot(kind='bar')
 ```
 
-## Slide 65 — Use multiple row dimensions
+### Slide 65 — Use multiple row dimensions
 
 Passing a list to `index` creates a hierarchical row index.
 
@@ -166,7 +166,7 @@ pd.pivot_table(
 
 Input variables describe the observations, while the target variable is the value to predict. A predictive model learns their relationship; prediction error measures how closely its predictions match known targets. Scikit-learn uses a standardized workflow: construct an estimator, fit it, predict, and evaluate.
 
-## Slide 70 — Prepare input and output data
+### Slide 70 — Prepare input and output data
 
 `x` contains the predictor variables and `y` contains the target variable. The following demonstrations are sequential and reuse these arrays.
 
@@ -188,7 +188,7 @@ x = students.loc[
 y = students.loc[:, 'Performance'].values
 ```
 
-## Slide 71 — Linear regression
+### Slide 71 — Linear regression
 
 This constructs the estimator, fits it, predicts the known observations, calculates $R^2$, and finally predicts one new observation.
 
@@ -222,7 +222,7 @@ r2_score(y, y_pred)
 predictivemodel_rf.predict([[5, 5, 1]])
 ```
 
-## Slide 73 — Neural-network regression
+### Slide 73 — Neural-network regression
 
 ```python
 from sklearn.neural_network import MLPRegressor
@@ -296,7 +296,7 @@ x
 type(x)
 ```
 
-## Slide 82 — Type conversion
+### Slide 82 — Type conversion
 
 Use this solution when reviewing conversions:
 
