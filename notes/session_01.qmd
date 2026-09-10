@@ -24,9 +24,7 @@ event_id: null
 : {tbl-colwidths="[20,40,40]"}
 
 ::: {.callout-tip title="Excel language settings"}
-Students should configure Excel to use **English function names** and **commas to separate function parameters**.
-
-[Excel language settings](../student_guide/language-settings.qmd)
+Students should configure Excel to use **English function names** and **comma separators**:
 
 ![](../images/qr_excel_language_settings.png){fig-align="center" width="18%"}
 :::
@@ -357,6 +355,10 @@ Solution:
 Prefer nested `IF` functions for the VIP-status exercise (in part II).
 
 ![](../images/excel_vip_solution.png)
+
+**Solution**: Illustrate the nesting in part 2 on the blackboard:
+
+![](../images/excel_exercise_VIP_part2.png){fig-align="center" width="60%"}
 
 ## Slide 25/26 — Installment/annuity loans (Homework)
 

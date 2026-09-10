@@ -22,23 +22,19 @@ event_id: null
 
 : {tbl-colwidths="[20,40,40]"}
 
-::: {.callout-tip title="Excel language settings"}
-Students should configure Excel to use **English function names** and **commas to separate function parameters**.
+Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 
-[Excel language settings](../student_guide/language-settings.qmd)
+::: {.callout-tip title="Excel language settings"}
+Students should configure Excel to use **English function names** and **comma separators**:
 
 ![](../images/qr_excel_language_settings.png){fig-align="center" width="18%"}
 :::
 
-Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
-
-## Questions from last session (survey)
-
-::: {.callout-tip title="Follow-up"}
+::: {.callout-tip title="Survey follow-up"}
 Follow-up on questions/feedback from last session's survey.
 :::
 
-### Homework review: DAX moving averages
+## Homework review: DAX moving averages
 
 ::: {.callout-tip}
 Solve the homework in the "empty" sheet of the group's Excel file.
@@ -107,6 +103,7 @@ Explain the payment schema introduced in the previous session.
 Add charts for the payments of installment loans and annuity loans.
 Briefly contrast the declining payments of a fixed-principal loan with the constant payments of an annuity loan.
 
+Note: Other solutions are possible (including a `=MIN(...)`for the principal repayment).
 
 ### Lecture
 
@@ -114,12 +111,7 @@ Briefly contrast the declining payments of a fixed-principal loan with the const
 If **Special IF functions** were not covered in the previous session: complete slide 28.
 :::
 
-## Slides 30–31 — `VLOOKUP` and `HLOOKUP`
-
-::: {.callout-important title="TODO"}
-- Vertical lookup: down
-- Horizontal lookup: to the right
-:::
+## Slides 30–31 — `VLOOKUP`
 
 Start with the practical example:
 
@@ -166,31 +158,47 @@ Key points:
 - Approximate matching with `TRUE` should only be used deliberately and normally requires sorted lookup data.
 - Lock the lookup range before copying a formula down.
 
-`HLOOKUP` follows the same principle but searches in the first row instead of the first column. Mention it briefly; focus the practical work on vertical lookups.
+
+### Slide 34 — Client lookup
+
+::: {.teaching-file}
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Clients
+:::
+
+We want to change the client number (type in different values) and then the following fields should update automatically (based on the list above).
+
+Teaching sequence:
+
+- Identify the client-number column as the lookup array.
+- Create `VLOOKUP` formulas for the following fields (highlight in yellow):
+
+  - **Not Name**
+  - Address
+  - City
+  - State and ZIP code
+
+- Show that the name can be returned even though it is located to the left of the client number.
+- Change the client number to test all formulas.
+
+![](../images/excel_client_xlookup.png){fig-align="center" width="90%"}
+
+### Approximate range lookups
+
+![](../images/excel_illustration_approximate_range_lookup.png){fig-align="center" width="70%"}
+
+### `VLOOKUP` and `HLOOKUP`
+
+- `HLOOKUP` follows the same principle but searches in the first row instead of the first column.
+- Illustration: In the Bar_Sales table, copy the price list and paste it in transposed mode.
+  Replace `VLOOKUPs` with `HLOOKUPs`.
 
 ## Slide 33 — `XLOOKUP`
 
 ::: {.callout-important title="Limitation of VLOOKUP"}
-TODO: table is probably the Bar sales. - switch the price list (add an ID as the first column for plausibility)
-
-Funny illustration: With VLOOKUP, Microsoft built a formula that can only look to the right. This is why they needed to build the XLOOKUP 😊
-
-"VLOOKUP can only return values from columns to the right of the lookup column"
-
-Rearrange the columns in the lookup table (**TODO: CLARIFY WHICH ONE**) and show that the formula may fail or return the wrong column. This motivates the introduction of `XLOOKUP`.
-
-Demonstration:
-
-- First solve a lookup with `VLOOKUP`.
-- Move the return column to the left of the lookup column.
-- Show why `VLOOKUP` no longer works.
-- Replace it with `XLOOKUP`.
-
-Example:
-
-```python
-=XLOOKUP(D11,$B$3:$B$7,$C$3:$C$7)
-```
+- Funny illustration: With VLOOKUP, Microsoft built a formula that can only look to the right. This is why they needed to build the XLOOKUP 😊
+- "VLOOKUP can only return values from columns to the right of the lookup column"
+- In the Client example, we cannot retrieve the Names because they are left of ClientID
+- This motivates the introduction of `XLOOKUP`.
 :::
 
 General form:
@@ -210,28 +218,10 @@ Contrast it with `VLOOKUP`:
 | May break when columns are inserted or reordered        | More robust to structural changes                |
 
 
+### Revisiting Client exercise
 
-## Slide 34 — Client lookup
-
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Clients
-:::
-
-We want to change the client number (type in different values) and then the following fields should update automatically (based on the list above):
-
-- Name
-- Address
-- City
-- State and ZIP code
-
-Teaching sequence:
-
-- Identify the client-number column as the lookup array.
-- Create one `XLOOKUP` formula for each requested field.
-- Show that the name can be returned even though it is located to the left of the client number.
-- Change the client number to test all formulas.
-
-![](../images/excel_client_xlookup.png){fig-align="center" width="90%"}
+- Ask Students to fill in the formula to retrieve Names in the Clients sheet.
+- Next, the following lookups could be replaced with XLOOKUPs (in a copy of the sheet).
 
 ## Slide 35 — Christmas gift (Homework)
 
@@ -246,9 +236,9 @@ Students should retrieve two values based on customer status:
 
 **Formulas are needed for the ChristmasGift and Packaging columns (each retrieving the data from a different table).**
 
-Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution.
+Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution (demonstrate how to copy the spreadsheet).
 
-## Slide 36 — Course grading (Homework)
+### Slide 36 — Course grading (Homework)
 
 ::: {.teaching-file}
 [Homework]{.teaching-label .teaching-label-homework} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
@@ -257,7 +247,7 @@ Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution.
 This one is similar to the client lookup.
 We want to enter different StudentIDs and then the lookup functions should retrieve the different test scores and do the calculations of final grades.
 
-![](../images/excel_grading_assignment.png)
+![](../images/excel_grading_assignment.png){fig-align="center" width="60%"}
 
 ::: {.callout-important title="Error on the slides"}
 On the slides, the contribution of homework should be **9.11** and the overall grade **73.61** (as in the screenshot above).
@@ -333,7 +323,7 @@ Avoid spending too much time on visual formatting. The main purpose is to show t
 
 Demonstrate that:
 
-- A new row entered immediately below the table becomes part of the table.
+- A new row entered immediately below the table becomes part of the table (shortcut: **tab**).
 - Table formatting is applied automatically.
 - Formulas in calculated columns are copied automatically.
 - A chart based on the table expands when new data are added.
@@ -380,7 +370,9 @@ Key observation:
 
 ## Slide 46 — `SUBTOTAL` function numbers
 
-Note: need to select/click function or insert the **Function numbers**! But do not memorize them - a mapping table will be provided in the exam.
+::: {.callout-note}
+Need to select/click function or insert the **Function numbers**! But do not memorize them - a mapping table will be provided in the exam.
+:::
 
 General form:
 
@@ -451,30 +443,13 @@ Explain that the structured reference:
 
 ## Components
 
-A structured reference can contain:
+Work through examples of structured references and explain them on the whiteboard:
 
-- Table name
-- Item specifier
-- Column specifier
-
-Item specifiers:
-
-| Specifier    | Meaning      |
-| ------------: | ------------ |
-| `[#All]`     | Entire table |
-| `[#Data]`    | Data rows    |
-| `[#Headers]` | Header row   |
-| `[#Totals]`  | Total row    |
-
-Develop the formulas to illustrate name-based access to tables/cells:
-
-Examples:
-
-```python
-Bikesales[Cost]
-Bikesales[[#Totals],[Turnover]]
-Bikesales[[#Totals],[Turnover]:[Cost]]
-```
+| Formula example | Explanation | General syntax |
+| --- | --- | --- |
+| `Bikesales[Cost]` | Refers to the `Cost` column | `TableName[ColumnName]` |
+| `Bikesales[[#Totals],[Turnover]]` | Refers to the `Turnover` cell in the totals row | `TableName[[#Item],[ColumnName]]` |
+| `Bikesales[[#Totals],[Turnover]:[Cost]]` | Refers to the totals-row cells from `Turnover` to `Cost` | `TableName[[#Item],[FirstColumn]:[LastColumn]]` |
 
 ![](../images/excel_table_structured_refs.png){fig-align="center" width="80%"}
 
@@ -484,7 +459,7 @@ Note: in `=ROWS(Bikesales[[#All],[Sales]])`, the `[#All]` also counts header and
 
 Working with data tables raises the question: how can we use data within the table to calculate something?
 
-Extend the example with current row formulas:
+Extend the example with current row formulas (**note: automated formula copying in Excel Tables!**):
 
 ![](../images/excel_tables_current_row_ref.png){fig-align="center" width="80%"}
 
