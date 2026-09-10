@@ -489,8 +489,6 @@ Teaching procedure:
 
 ## Slide 78 — Exercise: Expeditioner pivot analysis
 
-TODO: solution: create different pivot tables on the same sheet?
-
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise}/[Homework]{.teaching-label .teaching-label-homework} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheets: Exped_data | Exped_pivot
 :::
@@ -504,7 +502,9 @@ The workbook contains 1,000 sales transactions with information about:
 - Quantity
 - Revenue
 
-First reproduce the report shown on the slide.
+First reproduce the report shown on the slide:
+
+![](../images/excel_pivot_exped_1.png){fig-align="center" width="60%"}
 
 Suggested initial field arrangement:
 
@@ -518,14 +518,67 @@ Suggested initial field arrangement:
 
 Use `Sum of REVENUE`.
 
-Then answer:
+{{< pagebreak >}}
 
-1. What was the value of catalog sales for London in the first quarter?
-2. What percentage of Tokyo's total annual sales were Tokyo Web sales in the fourth quarter?
-3. What percentage of Sydney's annual sales was its Catalog sales?
-4. What was the value of Camel saddle sales for Paris in 2002 by quarter?
-5. What was the value of catalog sales for London in January, and what are the underlying transactions?
-6. How many Elephant polo sticks were sold in New York in each month of 2002?
+### Question 1 — London catalog sales in Q1
+
+- Move `WHEN` from **Filters** to **Rows** so the dates can be grouped and compared.
+- Move `WHERE` from **Rows** to **Filters**, then filter it to London.
+- Right-click a date (or select a date and choose **Group Selection**), choose **Group**, select **Quarters**, and deselect **Months** if necessary.
+- In the `HOW` column field, show Catalog only. Read the Catalog value for Qtr1.
+
+![](../images/excel_pivot_exped_2.png){fig-align="center" width="30%"}
+
+### Question 2 — Tokyo Q4 Web sales as a percentage of annual sales
+
+- Filter `WHERE` to Tokyo.
+- Keep `HOW` in **Columns**, grouped `WHEN` / Quarters in **Rows**, and `REVENUE` in **Values**.
+- Open **Value Field Settings**, choose **Show Values As**, and select **% of Grand Total**. This makes every cell a share of Tokyo's annual total across all channels.
+- Read the Web value for Qtr4.
+
+![](../images/excel_pivot_exped_3.png){fig-align="center" width="80%"}
+
+### Question 3 — Sydney annual Catalog share
+
+- Filter `WHERE` to Sydney.
+- Keep `HOW` in **Columns**, grouped `WHEN` / Quarters in **Rows**, and `REVENUE` in **Values**.
+- In **Value Field Settings** > **Show Values As**, select **% of Grand Total**.
+- Use the **Grand Total** row in the Catalog column; this combines all quarters and therefore gives the annual Catalog share.
+
+![](../images/excel_pivot_exped_4.png){fig-align="center" width="40%"}
+
+### Question 4 — Camel saddle sales for Paris by quarter
+
+- Filter `WHAT` to Camel saddle and `WHERE` to Paris.
+- Put grouped `WHEN` / Quarters in **Rows**, keep `HOW` in **Columns**, and keep `REVENUE` in **Values** as **Sum of REVENUE**.
+- Read each quarter from the **Grand Total** column, which adds the sales channels for that quarter.
+
+![](../images/excel_pivot_exped_5.png){fig-align="center" width="50%"}
+
+### Question 5 — London January Catalog sales and source transactions
+
+- Filter `WHERE` to London and restrict `HOW` to Catalog.
+- Change the `WHEN` date grouping from Quarters to **Months**, then read the January value.
+
+![](../images/excel_pivot_exped_6.png){fig-align="center" width="30%"}
+
+::: {.callout-tip title="Inspecting results"}
+- To inspect the contributing records, double-click `411` (or use **Show Details**). Excel creates a new worksheet containing the source records behind that PivotTable cell.
+- The two records are Transaction 277 — 1/9/2002 — London — Hammock — Catalog — Quantity 5 — Revenue 275; and Transaction 114 — 1/9/2002 — London — Hat - polar — Catalog — Quantity 4 — Revenue 136. Check that `275 + 136 = 411`.
+
+![](../images/excel_pivot_exped_7.png){fig-align="center" width="80%"}
+:::
+
+{{< pagebreak >}}
+
+### Question 6 — Elephant polo stick quantities in New York by month
+
+- Filter `WHAT` to Elephant polo stick and `WHERE` to New York.
+- Group `WHEN` by **Months** in **Rows**.
+- Remove `REVENUE` from **Values**, add `QUANTITY`, and confirm that the calculation is **Sum of QUANTITY**. This reports units sold rather than sales value.
+- Read the quantities for the months displayed in the PivotTable; do not infer values for months that are absent.
+
+![](../images/excel_pivot_exped_8.png){fig-align="center" width="40%"}
 
 Skills required:
 
@@ -534,9 +587,6 @@ Skills required:
 - Showing values as percentages
 - Changing the aggregation from revenue to quantity
 - Drilling down to the underlying transactions by double-clicking a PivotTable value
-
-
-TBD: **SCREENSHOT:** Initial Expeditioner PivotTable and completed answers.
 
 ## Summary and announcements
 
