@@ -332,13 +332,13 @@ Complete this exercise in class only if sufficient time remains. Otherwise, assi
 
 ### Task 1 — Category sales by country
 
-![](../images/excel_pivot_exporter_task_1.png){fig-align="center" width="60%"}
+![](../images/excel_pivot_exporter_task_1.png){fig-align="center" width="80%"}
 
 ### Task 2 — Fruit-product sales by country
 
 - Filter for the fruit category.
 
-![](../images/excel_pivot_exporter_task_2.png){fig-align="center" width="60%"}
+![](../images/excel_pivot_exporter_task_2.png){fig-align="center" width="80%"}
 
 {{< pagebreak >}}
 
@@ -346,7 +346,7 @@ Complete this exercise in class only if sufficient time remains. Otherwise, assi
 
 Use column label filter to select `Germany` (or add `country` in Filters and select `Germany` there).
 
-![](../images/excel_pivot_exporter_task_3.png){fig-align="center" width="60%"}
+![](../images/excel_pivot_exporter_task_3.png){fig-align="center" width="80%"}
 
 ### Task 4 — Product sales by quarter and month
 
@@ -357,16 +357,16 @@ Group the date field (**right click on a date cell**) by:
 
 Then, expand Quarters to show Months.
 
-![](../images/excel_pivot_exporter_task_4.png){fig-align="center" width="60%"}
+![](../images/excel_pivot_exporter_task_4.png){fig-align="center" width="80%"}
 
 {{< pagebreak >}}
 
 ### Task 5 — European countries in Q4
 
-- Suggested field arrangement: Use `Country` filter to select European countries: `[Germany, France, United Kingdom]`.
+- Use `Country` filter to select European countries: `[Germany, France, United Kingdom]`.
 - Filter the grouped date field to Q4.
 
-![](../images/excel_pivot_exporter_task_5.png){fig-align="center" width="60%"}
+![](../images/excel_pivot_exporter_task_5.png){fig-align="center" width="80%"}
 
 <!--
 Teaching procedure:
