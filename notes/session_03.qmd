@@ -7,12 +7,13 @@ event_id: null
 <br>
 
 ::: {.callout-important title="TODO"}
-- Add screenshots of the completed PivotTables where marked with **SCREENSHOT**.
-- Check document for TODOs
+- Add solution for Exporter task (PR?). 
+- TODO: prep explanation of the cube concept (and how it matches to Excel!)
 :::
 
 ::: {.callout-tip title="Preparation"}
 - Print solutions for Excel Tables (previous session)
+- Upload [Excel cheatsheet](../materials/excel-cheat-sheet.pdf)
 :::
 
 | Time      | Topic/activity                                                | Materials                                      |
@@ -84,8 +85,6 @@ Emphasize that the lookup and return arrays are selected explicitly.
 [Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
 :::
 
-Change the `StudentID` and check that the workbook retrieves the corresponding scores and recalculates the final grade.
-
 ### `VLOOKUP` solution
 
 Review the sequence:
@@ -102,6 +101,8 @@ For the illustrated student, check:
 
 ![](../images/excel_grading_vlookup.png){fig-align="center" width="90%"}
 
+**Validation**: Change the `StudentID` and check that the workbook retrieves the corresponding scores and recalculates the final grade.
+
 {{< pagebreak >}}
 
 ### `XLOOKUP` solution
@@ -112,90 +113,19 @@ Emphasize that each score column has its own return array, while all formulas us
 
 ![](../images/excel_grading_xlookup.png){fig-align="center" width="90%"}
 
-::: {.callout-tip title="In-class exercise: Sales table"}
-Complete the in-class exercise **Sales table** if it was not completed in the previous session.
+::: {.callout-tip title="In-class exercise on Excel Tables: Sales table"}
+Complete the in-class exercise on Excel Tables **Sales table** if it was not completed in the previous session.
 
 Use the [teaching notes for Session 2](session_02.html#slides-5152-excel-tables-exercise).
 :::
 
-## Slides 54–60 — From data to management questions
+## Slides 54–60 — Pivot tables: From data to management questions
 
 ::: {.teaching-file}
 [In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheets: Sales_data | Sales_pivot
 :::
 
-Begin with the decisions and questions that the data should support (instead of the mechanics of PivotTables).
-
-Show that the same sales data can answer different questions by creating pivot tables for the following:
-
-**TODO: add detailed notes on how to complete the following:**
-
-- What is total turnover in 2020?
-- What is turnover by product group?
-- What is turnover by month?
-- What is turnover by region?
-- How do actual and target values compare?
-- How can several dimensions be combined in one report?
-
-Slides 56–61 are complementary for students.
-Select two or three examples and ask students:
-
-- Which number is being aggregated?
-- Which categories are used to divide the number?
-- Which values are fixed or filtered?
-- How would the table have to change for a different management question?
-
-Key message:
-
-> A PivotTable makes it possible to generate different analytical views from the same underlying records without manually constructing each summary table.
-
-## Slide 61 — Facts and dimensions
-
-Introduce the distinction using the table on the slide.
-
-| Type       | Purpose                                   | Examples                               |
-| ---------- | ----------------------------------------- | -------------------------------------- |
-| Dimensions | Describe, classify, group, or filter data | Region, product, category, month, year |
-| Facts      | Numerical values that can be aggregated   | Turnover, cost, profit, quantity       |
-
-Connect this distinction to the PivotTable areas:
-
-- Dimensions usually appear in **Rows**, **Columns**, or **Filters**.
-- Facts usually appear in **Values**.
-
-### Slides 62–63 — Data cube and slicing
-
-Use the cube as a conceptual model.
-Explain:
-
-- Each dimension provides a perspective on the data.
-- A fact is stored for combinations of dimension values.
-- A worksheet is two-dimensional.
-- A PivotTable therefore presents a two-dimensional slice of a multidimensional dataset.
-- Filters fix the dimensions that are not currently shown in rows or columns.
-
-### Slide 64 — PivotTables in Excel
-
-PivotTables implement the basic data-cube idea in Excel.
-
-In the example on the slide:
-
-- **Rows:** Region
-- **Columns:** Product
-- **Values:** Sum of Turnover
-- **Filters:** Month, Year, Category
-
-Point out how the field arrangement corresponds directly to the management question.
-
-## Slide 65 — Creating a PivotTable
-
-Demonstrate the process in Excel:
-
-1. Select a cell inside the source dataset.
-2. Choose **Insert → PivotTable**.
-3. Confirm the complete source range.
-4. Create the PivotTable in a new worksheet.
-5. Locate the **PivotTable Fields** panel.
+### Slide 65 — Creating a PivotTable
 
 Before creating the PivotTable, briefly check that:
 
@@ -205,34 +135,31 @@ Before creating the PivotTable, briefly check that:
 - Numerical facts are stored as numbers.
 - Dates are stored as actual Excel dates.
 
-### Slide 66 — PivotTable field areas
+Demonstrate the process in Excel: Select source dataset > choose **Insert → PivotTable**
 
-::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Sales_pivot
+Remember to explicitly refresh the data through the ribbon.
+
+::: {.callout-tip titl="Pro tip"}
+Insert an Excel Table first, then Insert a PivotTable (PivotTables could be created without an Excel Table, but the references are much clearer with object names)
 :::
 
-Create the first PivotTable together:
+### Example: Build the reports from the slides step by step
 
-| Area    | Field      |
-| ------- | ---------- |
-| Filters | `Month`    |
-| Filters | `Year`     |
-| Filters | `Category` |
-| Rows    | `Region`   |
-| Columns | `Product`  |
-| Values  | `Turnover` |
+Key message:
 
-Set:
+> A PivotTable makes it possible to generate different analytical views from the same underlying records without manually constructing each summary table.
 
-- `Year` to `2020`
-- `Category` to `Actual`
-- `Month` to `(All)`
-
-Confirm that Excel uses **Sum of Turnover** rather than Count of Turnover.
+Begin with the decisions and questions that the data should support (instead of the mechanics of PivotTables).
 
 Ask students to modify one field at a time and predict the resulting table before releasing the mouse button.
 
-## Slide 67 — Filtering PivotTables
+Show that the same sales data can answer different questions by creating pivot tables for the following:
+
+### What is total turnover in 2020?
+
+- Filter for `year = 2020`
+- Values: `Sum of turnover`
+- Filter for `category`, use `actual`
 
 Demonstrate two kinds of filters:
 
@@ -247,13 +174,31 @@ Emphasize:
 - It does not delete the underlying observations.
 - Grand totals are recalculated based on the active filter.
 
-**SCREENSHOT:** Product filter with only selected products and the resulting PivotTable.
+### What is turnover by product group in 2020?
 
-### Slide 68 — Showing values as percentages
+- Drag `product` to rows
 
-Right-click a value and demonstrate:
+### What is turnover in the first three months of 2020?
 
-**Show Values As → % of Grand Total**
+- Drag `month` to columns
+- Filter for first three months
+
+### What is turnover by region in the first three months of 2020?
+
+- Remove `product` from rows
+- Drag `region` to rows
+
+### What is the turnover in each region by product group in 2019 and 2020?
+
+- Columns: Remove `month`, add `product`
+- Rows: `region`, then `year`
+- Filter: `year`, for 2019 and 2020.
+
+### How can we show turnover as a percentage of total?
+
+- Right-click, `Show values as`, **try and interpret different options**
+- Undo
+- Select the right-click, `Value Field Settings', show option to display averages, ...
 
 Distinguish carefully between:
 
@@ -265,88 +210,33 @@ For example:
 - Aggregation: `Sum`
 - Display: `% of Grand Total`
 
-Restore the normal values after the demonstration.
+Explain a common error: When Excel interprets a numerical column as text, it may use `Count` instead of `Sum`.
 
-**SCREENSHOT:** Turnover displayed as a percentage of the grand total.
+### How do actual and target values compare?
 
-## Slide 69 — Value Field Settings
+- Drag `category` to columns
+- Remove filter for `category`
 
-Open **Value Field Settings** and change the aggregation from `Sum` to `Count`.
+### How can (sub)totals be modified?
 
-Discuss common aggregations:
+Through `Design` ribbon:
 
-| Aggregation | Interpretation                  |
-| ----------- | ------------------------------- |
-| Sum         | Total value of the observations |
-| Count       | Number of observations          |
-| Average     | Mean value per observation      |
-| Maximum     | Largest value                   |
-| Minimum     | Smallest value                  |
+- Subtotals
+- Grand totals (e.g., Off for rows and columns).
 
-Explain the common error:
-
-> When Excel interprets a numerical column as text, it may use `Count` instead of `Sum`.
-
-Restore **Sum of Turnover** before continuing.
-
-**SCREENSHOT:** Value Field Settings with the aggregation options.
+::: {.callout-tip title="Summary"}
+- Creating a PivotTable
+- Selecting columns/rows (first/second/third... order)
+- Filtering to select values
+- Changing Values (Sum, Percentage, ....)
+- Values selection: can include different attributes (e.g., cost and turnover) or differnt aggregations of the same attribute (e.g., sum and average of turnover)
+:::
 
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
 
-## Slide 70 — Adding dimensions
-
-Add `Category` below `Product` in the **Columns** area.
-
-Show that the order of fields matters:
-
-```text
-Product
-└── Category
-```
-
-is different from:
-
-```text
-Category
-└── Product
-```
-
-Students should understand that adding fields increases the level of detail shown in the PivotTable.
-
-Avoid spending much time on the visual details of the example. Focus on the field hierarchy.
-
-### Slide 71 — Using the same fact multiple times
-
-Drag `Turnover` into **Values** twice.
-
-Configure:
-
-- First field: `Sum of Turnover`
-- Second field: `Count of Turnover`
-
-This demonstrates that the same source field can be used for different analytical measures.
-
-Also show that the automatically created `Values` field can be moved between rows and columns.
-
-### Slide 72 — Using different facts
-
-Add both:
-
-- `Turnover`
-- `Cost`
-
-to the **Values** area.
-
-Explain that one PivotTable can present several measures for the same dimensional view.
-
-Ask:
-
-- Which measure is larger?
-- What additional measure would be required to analyze profitability?
-
-## Slide 73 — PivotCharts
+### Slide 73 — PivotCharts
 
 Create a PivotChart from the current PivotTable.
 
@@ -356,11 +246,11 @@ Demonstrate that:
 - PivotTable filters also change the chart.
 - Fields can be filtered directly through the chart controls.
 
-Do not spend time on detailed chart formatting. Focus on the relationship between the PivotTable and PivotChart.
-
-**SCREENSHOT:** PivotChart with visible field controls.
+<!-- **SCREENSHOT:** PivotChart with visible field controls. -->
 
 ### Slide 74 — Calculated fields
+
+**PivotTable Analyze → Fields, Items & Sets → Calculated Field**
 
 Create a calculated field:
 
@@ -369,21 +259,17 @@ Name: Profit
 Formula: =Turnover-Cost
 ```
 
-Show:
-
-**PivotTable Analyze → Fields, Items & Sets → Calculated Field**
-
 Add the calculated field and use it in the Values area.
 
 Key point:
 
 > Calculated fields refer to source-field names rather than worksheet cells.
 
-This is an optional feature. Prioritize Rows, Columns, Filters, Values, and aggregations if time is limited.
+<!-- **SCREENSHOT:** Calculated Field dialog with the `Profit` formula. -->
 
-**SCREENSHOT:** Calculated Field dialog with the `Profit` formula.
+### Slide 75 — Grouping dates
 
-## Slide 75 — Grouping dates
+**Important**: Create PivotTable for the `Store_data` sheet, which contains dates!
 
 ::: {.teaching-file}
 [In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheets: Store_data | Store_pivot
@@ -394,26 +280,55 @@ Explain that PivotTables can aggregate an actual date field automatically.
 Demonstrate:
 
 1. Place the date field in **Rows**.
-2. Right-click one of the dates.
-3. Select **Group**.
-4. Select `Months` and `Quarters`.
-5. Add `Years` when data from several years are present.
+2. Observe auto-grouping (years/quarters/months)
+3. Highlight that the original data is more granular
+4. Right-click one of the dates.
+6. Select **Group**.
+7. Unselect `Months`, `Quarters`, and `Years`. Select `Days`.
 
-Emphasize that the source column must contain valid Excel dates. Blank cells or invalid date values may prevent grouping.
+## Theory : Data warehouse concepts, including data cubes and facts vs dimensions
 
-**SCREENSHOT:** Date-grouping dialog with Months and Quarters selected.
+PivotTables implement the basic data-cube idea in Excel.
+
+
+### Slide 61 — Facts and dimensions
+
+Introduce the distinction using the table on the slide.
+
+| Type       | Purpose                                   | Examples                               |
+| ---------- | ----------------------------------------- | -------------------------------------- |
+| Dimensions | Describe, classify, group, or filter data | Region, product, category, month, year |
+| Facts      | Numerical values that can be aggregated   | Turnover, cost, profit, quantity       |
+
+Connect this distinction to the PivotTable areas:
+
+- Dimensions usually appear in **Rows**, **Columns**, or **Filters**.
+- Facts usually appear in **Values**.
+
+Revisit Slides 56–61. Select two or three examples and ask students:
+
+- Which number is being aggregated?
+- Which categories are used to divide the number?
+- Which values are fixed or filtered?
+
+### Slides 62–63 — Data cube and slicing
+
+Use the cube as a conceptual model.
+Explain:
+
+- Each dimension provides a perspective on the data.
+- A fact is stored for combinations of dimension values.
+- A worksheet is two-dimensional.
+- A PivotTable therefore presents a two-dimensional slice of a multidimensional dataset.
+- Filters fix the dimensions that are not currently shown in rows or columns.
 
 ## Slide 76 — Exercise: Exporter pivot tables
-
-TODO: solution: create different pivot tables on the same sheet?
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheets: Exporter_data | Exporter_pivot
 :::
 
 Complete this exercise in class only if sufficient time remains. Otherwise, assign it as homework.
-
-Students create five PivotTable views.
 
 ### Task 1 — Category sales by country
 
@@ -433,7 +348,7 @@ Suggested field arrangement:
 
 | Area    | Field      |
 | ------- | ---------- |
-| Filters | `Category` |
+| Filters | `Category` = `Fruit` |
 | Rows    | `Country`  |
 | Columns | `Product`  |
 | Values  | `Sales`    |
@@ -446,11 +361,9 @@ Suggested field arrangement:
 
 | Area    | Field     |
 | ------- | --------- |
-| Filters | `Country` |
+| Filters | `Country` = `Germany` |
 | Rows    | `Product` |
 | Values  | `Sales`   |
-
-Filter `Country` to `Germany`.
 
 ### Task 4 — Product sales by quarter and month
 
@@ -462,7 +375,7 @@ Suggested field arrangement:
 | Columns | `Product` |
 | Values  | `Sales`   |
 
-Group the date field by:
+Group the date field (right click on a date cell) by:
 
 - Quarters
 - Months
@@ -473,7 +386,7 @@ Suggested field arrangement:
 
 | Area    | Field      |
 | ------- | ---------- |
-| Filters | `Country`  |
+| Filters | `Country` in \[Germany, France, United Kingdom\]  |
 | Filters | `Date`     |
 | Rows    | `Category` |
 | Columns | `Product`  |
@@ -481,6 +394,7 @@ Suggested field arrangement:
 
 Select the relevant European countries and filter the grouped date field to Q4.
 
+<!--
 Teaching procedure:
 
 - Allow students to work independently first.
@@ -489,6 +403,7 @@ Teaching procedure:
 - Check the aggregation and active filters before comparing numerical results.
 
 **SCREENSHOT:** Completed Exporter PivotTables.
+-->
 
 ## Slide 78 — Exercise: Expeditioner pivot analysis
 
@@ -496,16 +411,8 @@ Teaching procedure:
 [In-class exercise]{.teaching-label .teaching-label-exercise}/[Homework]{.teaching-label .teaching-label-homework} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheets: Exped_data | Exped_pivot
 :::
 
-The workbook contains 1,000 sales transactions with information about:
-
-- When the item was sold
-- Where it was sold
-- What was sold
-- How it was sold
-- Quantity
-- Revenue
-
-First reproduce the report shown on the slide:
+- Briefly inspect the dataset and available attributes.
+- Reproduce the report shown on the slide:
 
 ![](../images/excel_pivot_exped_1.png){fig-align="center" width="60%"}
 
@@ -567,9 +474,11 @@ Use `Sum of REVENUE`.
 
 ::: {.callout-tip title="Inspecting results"}
 - To inspect the contributing records, double-click `411` (or use **Show Details**). Excel creates a new worksheet containing the source records behind that PivotTable cell.
-- The two records are Transaction 277 — 1/9/2002 — London — Hammock — Catalog — Quantity 5 — Revenue 275; and Transaction 114 — 1/9/2002 — London — Hat - polar — Catalog — Quantity 4 — Revenue 136. Check that `275 + 136 = 411`.
+- The two records are:
 
 ![](../images/excel_pivot_exped_7.png){fig-align="center" width="80%"}
+
+- Check that `275 + 136 = 411`.
 :::
 
 {{< pagebreak >}}
@@ -583,28 +492,40 @@ Use `Sum of REVENUE`.
 
 ![](../images/excel_pivot_exped_8.png){fig-align="center" width="40%"}
 
-Skills required:
-
-- Filtering several dimensions
-- Grouping dates
-- Showing values as percentages
-- Changing the aggregation from revenue to quantity
-- Drilling down to the underlying transactions by double-clicking a PivotTable value
-
 ## Summary and announcements
 
 Homework:
 
 - Complete the **Exporter** exercise if it was not finished.
 - Complete the **Expeditioner** exercise.
-- Save the completed workbooks.
 
-TODO: brief summary/review of the Excel part, collect questions for the Mid-term exam.
+Summarize/review the Excel part, collect questions for the Mid-term exam.
+
+Make sure students are prepared for the typical exam question the Pivot-table creator (giving a list of variables for fields `1`, `2`, `3`, `4`):
+
+![](../images/pivot-numbered.png){fig-align="center" width="30%"}
+
+Solve Mock exam (we will go through solutions very quickly next time; Solutions will be available on 2026-09-28 on Canvas).
 
 Next session:
 
 - Introduction to Python and pandas.
 - Transition from Excel tables and PivotTables to tabular data structures in Python.
+
+::: {.callout-tip title="Prepare and develop Excel skills"}
+
+Revisit the sports analogy: prepare and practice (beyond the exam).
+Others will judge your competence by how efficiently you use your sports equipment or the software.
+Know how to use your equipment (use shortcuts/prepare cheatsheet).
+Maybe you can solve the loan sheet in 1 minute.
+
+See [Excel cheatsheet](../materials/excel-cheat-sheet.pdf).
+
+<!--
+https://exceljet.net/shortcuts
+https://www.coursera.org/resources/excel-shortcuts-cheat-sheet
+-->
+:::
 
 ::: {.callout-tip title="Notes for improvement"}
 Take notes on timing, common errors, unclear instructions, and suitable stopping points on a separate paper and add them to `feedback.qmd` after the session.
