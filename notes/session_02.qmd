@@ -489,20 +489,30 @@ Suggested checkpoints:
 
 ### Table exercise
 
-1. Open `exercises.xlsx`, sheet `Sales_table`, and convert the data into an Excel Table.
+1. Open `exercises.xlsx`, sheet `Sales_table`, and convert the data into an Excel Table (insert > table, or **ctrl+t**).
 2. Name the table `Sales`.
-3. Sort the table by region.
-4. Filter the table to show only 2020.
+3. Sort the table by region (**alt+down**).
+4. Filter the table to show only 2020 (**alt+down** + **up** ...).
 5. Restore all years.
 6. Delete the records for Brazil.
+
+    Search, select values, right click, delete rows (do not press delete, which simply deletes values but not rows/records)
+
 7. Enable the **Total Row** and calculate (use drop-down at the end of the table):
+
+    Start with **View** > **Freeze Panes** > **Freeze Top Row** (for convenience)
+
    - Quantity: sum
    - Cost: sum
    - Turnover: average
    - Year: maximum
+
 8. **Outside the table**: Count the number of records:
 
    ```excel
+   =ROWS(Sales)
+
+   # Unneccesary column in the "official solution":
    =ROWS(Sales[Product])
    ```
 
@@ -514,15 +524,21 @@ Suggested checkpoints:
 
 10. Add the column `TOpU` for turnover per unit:
 
+    **Before solving this task: do a plausiblity check of the numbers. Conclude that Turnover, Cost, and Profit are likely given in 1000s.**
+
     ```excel
     =[@Turnover]*1000/[@Quantity]
     ```
+
+    Format: reduce decimals
 
 11. Add the column `QShare` and format it as a percentage:
 
     ```excel
     =[@Quantity]/SUM([Quantity])
     ```
+
+    Format: increase decimals
 
 12. In the **Total Row**, calculate (use drop-down at the end of the table):
 
@@ -536,6 +552,8 @@ Suggested checkpoints:
     =SUM(Sales[Profit])
     ```
 
+    **Validation check**: Should be the same as the corresponding total row column.
+
 14. **Outside the table**: Calculate total turnover in two ways:
 
     ```excel
@@ -543,13 +561,15 @@ Suggested checkpoints:
     ```
 
     ```excel
-    =Sales[[#Totals];[Profit]]+Sales[[#Totals];[Cost]]
+    =Sales[[#Totals],[Profit]]+Sales[[#Totals],[Cost]]
     ```
 
 15. **Outside the table**: Add all values from `Year` to `QShare` in the **Total Row**:
 
+    **Note: As stated in the task, this makes no sense! Just for practice.**
+
     ```excel
-    =SUM(Sales[[#Totals];[Year]:[QShare]])
+    =SUM(Sales[[#Totals],[Year]:[QShare]])
     ```
 
 16. **Outside the table**: Extract the unique regions in cell `L8`:
@@ -558,10 +578,12 @@ Suggested checkpoints:
     =UNIQUE(Sales[Region])
     ```
 
+    **Note:** The function automatically fills out the following cells.
+
 17. **Outside the table**: Calculate turnover by region in cell `M8` and fill the formula down:
 
     ```excel
-    =SUMIF(Sales[Region];L8;Sales[Turnover])
+    =SUMIF(Sales[Region], L8, Sales[Turnover])
     ```
 
 18. **Outside the table**: Create a chart showing total turnover by region.
