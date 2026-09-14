@@ -1,0 +1,127 @@
+---
+title: "Excel Cheat Sheet"
+subtitle: "Introduction to Programming"
+abstract: |
+  Working in Excel from the keyboard is often much faster than repeatedly reaching for the mouse. Becoming comfortable with keyboard shortcuts is part of developing fluent and efficient Excel skills. The shortcuts below form a practical core that will be useful in the course exercises and in professional Excel work; the list is deliberately not exhaustive.
+format:
+  pdf:
+    template: cheatsheet-template.tex
+    pdf-engine: lualatex
+    keep-tex: false
+    toc: false
+---
+
+```{=latex}
+\begin{shortcutbox}{Essentials}{teal}
+Undo & \key{Ctrl+Z} & \key{Cmd+Z} \\
+Redo & \key{Ctrl+Y} & \key{Cmd+Y} \\
+Copy & \key{Ctrl+C} & \key{Cmd+C} \\
+Cut & \key{Ctrl+X} & \key{Cmd+X} \\
+Paste & \key{Ctrl+V} & \key{Cmd+V} \\
+Paste Special\newline{\scriptsize\color{black!65}(also via right-click)} & \key{Ctrl+Alt+V} & \key{Ctrl+Cmd+V} \\
+Find & \key{Ctrl+F} & \key{Cmd+F} \\
+Save & \key{Ctrl+S} & \key{Cmd+S} \\
+\end{shortcutbox}
+
+\begin{shortcutbox}{Navigation and selection}{green}
+Move one cell & \key{$\leftarrow/\rightarrow/\uparrow/\downarrow$} & \key{$\leftarrow/\rightarrow/\uparrow/\downarrow$} \\
+Jump to data edge & \key{Ctrl+$\leftarrow/\rightarrow/\uparrow/\downarrow$} & \key{Cmd+$\leftarrow/\rightarrow/\uparrow/\downarrow$} \\
+Go to first cell & \key{Ctrl+Home} & \key{Ctrl+Home} \\
+Go to last used cell & \key{Ctrl+End} & \key{Ctrl+End} \\
+Select row & \key{Shift+Space} & \key{Shift+Space} \\
+Select column & \key{Ctrl+Space} & \key{Ctrl+Space} \\
+Current region / all & \key{Ctrl+A} & \key{Cmd+A} \\
+Extend one cell & \key{Shift+Arrow} & \key{Shift+Arrow} \\
+Extend to data edge & \key{Ctrl+Shift+Arrow} & \key{Cmd+Shift+Arrow} \\
+Previous sheet & \key{Ctrl+Page Up} & \key{Fn+Ctrl+$\uparrow$} \\
+Next sheet & \key{Ctrl+Page Down} & \key{Fn+Ctrl+$\downarrow$} \\
+\end{shortcutbox}
+
+\begin{shortcutbox}{Editing and data entry}{orange}
+Edit active cell & \key{F2} & \key{Ctrl+U} \\
+Cancel entry & \key{Esc} & \key{Esc} \\
+Confirm; stay in cell & \key{Ctrl+Enter} & \key{Ctrl+Return} \\
+Enter in selected cells & \key{Ctrl+Enter} & \key{Ctrl+Return} \\
+Fill down & \key{Ctrl+D} & \key{Cmd+D} \\
+Fill right & \key{Ctrl+R} & \key{Cmd+R} \\
+Current date & \key{Ctrl+;} & \key{Ctrl+;} \\
+Current time & \key{Ctrl+Shift+:} & \key{Cmd+;} \\
+\end{shortcutbox}
+
+\columnbreak
+\begin{shortcutbox}{Formulas}{green}
+Start a formula & \key{=} & \key{=} \\
+Cycle relative / absolute / mixed reference & \key{F4} & \key{Cmd+T} (or \key{Fn+F4}) \\
+AutoSum & \key{Alt+=} & \key{Shift+Cmd+T} \\
+Insert function & \key{Shift+F3} & \key{Fn+Shift+F3} \\
+Show / hide formulas & \key{Ctrl+`} & \key{Ctrl+`} \\
+Recalculate workbooks & \key{F9} & \key{Fn+F9} \\
+Accept function suggestion & \key{Tab} & \key{Tab} \\
+\end{shortcutbox}
+
+\begin{shortcutbox}{Formatting}{orange}
+Bold & \key{Ctrl+B} & \key{Cmd+B} \\
+Italic & \key{Ctrl+I} & \key{Cmd+I} \\
+Underline & \key{Ctrl+U} & \key{Cmd+U} \\
+General format & \key{Ctrl+Shift+\textasciitilde} & \key{Ctrl+Shift+\textasciitilde} \\
+Number format & \key{Ctrl+Shift+!} & \key{Ctrl+Shift+!} \\
+Currency format & \key{Ctrl+Shift+\$} & \key{Ctrl+Shift+\$} \\
+Percentage format & \key{Ctrl+Shift+\%} & \key{Ctrl+Shift+\%} \\
+Date format & \key{Ctrl+Shift+\#} & \key{Ctrl+Shift+\#} \\
+Time format & \key{Ctrl+Shift+@} & \key{Ctrl+Shift+@} \\
+\end{shortcutbox}
+
+\begin{shortcutbox}{Tables and filters}{teal}
+Create Excel table & \key{Ctrl+T} & \key{Cmd+T} \\
+Toggle AutoFilter & \key{Ctrl+Shift+L} & \key{Ctrl+Shift+L} \\
+Open filter menu & \key{Alt+$\downarrow$} & \key{Option+$\downarrow$} \\
+Select table row & \key{Shift+Space} & \key{Shift+Space} \\
+Select table column & \key{Ctrl+Space} & \key{Ctrl+Space} \\
+\end{shortcutbox}
+
+\columnbreak
+\begin{shortcutbox}{Rows, columns, and worksheets}{orange}
+Insert rows / columns & \key{Ctrl++} & \key{Cmd++} \\
+Delete rows / columns & \key{Ctrl+-} & \key{Cmd+-} \\
+Hide row & \key{Ctrl+9} & \key{Cmd+9} \\
+Hide column & \key{Ctrl+0} & \key{Cmd+0} \\
+Unhide row & \key{Ctrl+Shift+9} & \key{Cmd+Shift+9} \\
+Unhide column & \key{Ctrl+Shift+0} & \key{Cmd+Shift+0} \\
+Insert worksheet & \key{Shift+F11} & \key{Fn+Shift+F11} \\
+Previous worksheet & \key{Ctrl+Page Up} & \key{Fn+Ctrl+$\uparrow$} \\
+Next worksheet & \key{Ctrl+Page Down} & \key{Fn+Ctrl+$\downarrow$} \\
+\end{shortcutbox}
+
+\begin{shortcutbox}{Charts}{teal}
+Chart on current sheet & \key{Alt+F1} & \key{Fn+Option+F1} \\
+Chart on new sheet & \key{F11} & \key{Fn+F11} \\
+\end{shortcutbox}
+
+\begin{ribbonbox}{Ribbon shortcuts}{green}
+Press \key{Alt} once to show Ribbon KeyTips, then press the displayed letter.
+
+\vspace{2pt}
+\rowcolors{2}{white}{green!2}%
+\setlength{\tabcolsep}{2.2pt}%
+\renewcommand{\arraystretch}{1.13}%
+\begin{tabular}{@{}%
+  >{\raggedright\arraybackslash}p{.54\linewidth}%
+  >{\centering\arraybackslash}p{.42\linewidth}@{}}
+\rowcolor{green!11}\textbf{Ribbon tab}&\textbf{Windows}\\[-1pt]
+\midrule
+Home & \key{Alt $\rightarrow$ H} \\
+Insert & \key{Alt $\rightarrow$ N} \\
+Page Layout & \key{Alt $\rightarrow$ P} \\
+Formulas & \key{Alt $\rightarrow$ M} \\
+Data & \key{Alt $\rightarrow$ A} \\
+Review & \key{Alt $\rightarrow$ R} \\
+View & \key{Alt $\rightarrow$ W} \\
+\end{tabular}
+
+\vspace{2pt}
+{\color{black!65}\scriptsize Continue following the KeyTips shown in the Ribbon for commands within each tab.}
+\end{ribbonbox}
+
+\vfill
+{\scriptsize\textbf{Keyboard note.} \key{Ctrl} often corresponds to \key{Cmd} on Mac, but not universally. Function keys such as \key{F4} and \key{F11} may require \key{Fn}.\par}
+```

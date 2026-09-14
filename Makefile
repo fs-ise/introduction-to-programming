@@ -10,14 +10,15 @@ SLIDES_PDF := $(SLIDES_HTML:.html=.pdf)
 NOTES_QMD := $(addprefix notes/session_,$(addsuffix .qmd,01 02 03 04 05 06 07 08 09 10 11))
 NOTES_PDF := $(OUT_DIR)/notes.pdf
 NOTES_COMBINED := _pdf-tmp/notes.qmd
+CHEAT_SHEET_PDF := materials/excel-cheat-sheet.pdf
 QR_CODES := images/qr_excel_language_settings.png
-.PHONY: help site site-fast pdfs notes exercises exercises-assign exercises-solution all sync-events clean
+.PHONY: help site site-fast pdfs notes cheat-sheet exercises exercises-assign exercises-solution all sync-events clean
 help:
-	@echo "Targets: site, pdfs, notes, exercises, all, sync-events, clean"
+	@echo "Targets: site, pdfs, notes, cheat-sheet, exercises, all, sync-events, clean"
 site-fast: $(QR_CODES)
 	$(QUARTO) render --no-clean
 site: exercises site-fast
-all: site pdfs notes
+all: cheat-sheet site pdfs notes
 exercises-assign:
 	$(QUARTO) render exercises --profile assign --to ipynb --no-clean
 	$(QUARTO) render exercises --profile assign --to html --no-clean
@@ -30,6 +31,11 @@ exercises: exercises-assign exercises-solution
 pdfs: $(SLIDES_PDF)
 
 notes: $(NOTES_PDF)
+
+cheat-sheet:
+	$(QUARTO) render cheatsheet/excel-cheat-sheet.qmd --output-dir $(abspath materials)
+	@mkdir -p $(OUT_DIR)/materials
+	@cp $(CHEAT_SHEET_PDF) $(OUT_DIR)/materials/
 
 $(QR_CODES): scripts/generate_qr_codes.js _extensions/jmbuhr/qrcode/qrcode.js
 	node scripts/generate_qr_codes.js
@@ -49,4 +55,4 @@ $(SLIDES_DIR)/%.pdf: $(SRC_SLIDES_DIR)/%.qmd _quarto.yml scripts/decktape.sh
 sync-events:
 	$(PYTHON) scripts/sync_events.py
 clean:
-	rm -rf _site _freeze _pdf-tmp .quarto $(NOTES_COMBINED)
+	rm -rf _site _freeze _pdf-tmp .quarto $(NOTES_COMBINED) $(CHEAT_SHEET_PDF)

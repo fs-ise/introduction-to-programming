@@ -1,0 +1,95 @@
+\documentclass[a4paper,landscape]{article}
+
+\usepackage[landscape,a4paper,margin=9mm]{geometry}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{courseblue}{HTML}{153B5B}
+\definecolor{courseaccent}{HTML}{007A87}
+\definecolor{teal}{HTML}{2F7F78}
+\definecolor{green}{HTML}{527A5B}
+\definecolor{orange}{HTML}{A6652A}
+\definecolor{rulegray}{HTML}{AAB6BF}
+
+\setmainfont{Latin Modern Sans}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+\setlength{\columnsep}{5mm}
+\setlength{\columnseprule}{0.2pt}
+\def\columnseprulecolor{\color{rulegray}}
+\setlist{nosep,leftmargin=*}
+\emergencystretch=1em
+
+\newcommand{\key}[1]{\textnormal{#1}}
+\tcbset{shortcut callout/.style 2 args={%
+    title={#1},
+    colback=#2!5,
+    colbacktitle=#2!9,
+    colframe=#2!68,
+    coltitle=#2,
+    fonttitle=\bfseries\large,
+    boxrule=0.4pt,
+    leftrule=2.5pt,
+    arc=1pt,
+    boxsep=0pt,
+    left=3pt,
+    right=3pt,
+    top=2pt,
+    bottom=3pt,
+    lefttitle=5pt,
+    righttitle=5pt,
+    toptitle=2.5pt,
+    bottomtitle=2.5pt,
+    before skip=3pt,
+    after skip=7pt,
+    titlerule=0.4pt}}
+\newenvironment{shortcutbox}[2]{%
+  \begin{tcolorbox}[shortcut callout={#1}{#2}]
+  \rowcolors{2}{white}{#2!2}%
+  \scriptsize
+  \setlength{\tabcolsep}{2.2pt}%
+  \renewcommand{\arraystretch}{1.13}%
+  \begin{tabular}{@{}%
+    >{\raggedright\arraybackslash}p{.36\linewidth}%
+    >{\centering\arraybackslash}p{.30\linewidth}%
+    >{\centering\arraybackslash}p{.30\linewidth}@{}}
+  \rowcolor{#2!11}\textbf{Action}&\textbf{Windows}&\textbf{Mac}\\[-1pt]
+  \midrule
+}{%
+  \end{tabular}
+  \end{tcolorbox}
+}
+\newenvironment{ribbonbox}[2]{%
+  \begin{tcolorbox}[shortcut callout={#1}{#2}]
+  \scriptsize
+}{%
+  \end{tcolorbox}
+}
+
+\begin{document}
+\fontsize{9}{10.5}\selectfont
+\begin{center}
+  {\color{courseblue}\fontsize{20}{21}\selectfont\bfseries $title$}\par
+$if(subtitle)$
+  \vspace{1pt}{\small\color{courseaccent}\bfseries $subtitle$}\par
+$endif$
+\end{center}
+\vspace{2pt}
+$if(abstract)$
+{\small\color{black!70}$abstract$\par}
+\vspace{5pt}
+$endif$
+
+\begin{multicols*}{3}
+$body$
+\end{multicols*}
+
+\end{document}

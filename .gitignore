@@ -8,6 +8,7 @@ __pycache__/
 .server.pid
 notes/.notes-combined.qmd
 .cache/
+/materials/excel-cheat-sheet.pdf
 
 /.quarto/
 **/*.quarto_ipynb
