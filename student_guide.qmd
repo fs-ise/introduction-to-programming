@@ -19,3 +19,51 @@ If you get stuck, review the relevant example, try the task again, and note wher
 Helpful Excel and Python resources will be added here as the course progresses.
 
 - **[Interactive loan illustrations](materials/loans.qmd)** – Explore how installment loans and annuity loans develop over time.
+
+## Frequently asked questions
+
+### Setup
+
+#### What Excel setup do I need?
+
+Use Excel with English function names, commas between function arguments, and periods as decimal separators. Follow the [Excel language settings guide](student_guide/language-settings.qmd) to configure and check your setup.
+
+#### Why do Excel formulas from the course sometimes not work on my computer?
+
+The course formulas use English function names, commas as argument separators, and periods as decimal separators. If your settings differ, use the [Excel language settings guide](student_guide/language-settings.qmd) to fix them.
+
+#### What do I need for Python?
+
+You need Python and the course's Anaconda environment. Follow the setup and installation instructions provided through Canvas.
+
+#### Do I need both Python and Anaconda?
+
+Python is the programming language and runtime. Anaconda is a distribution that installs Python together with useful tools and packages. For this course, use the Anaconda setup provided through Canvas rather than installing the components separately.
+
+### Exam
+
+#### How is the course assessed?
+
+There is a 40-minute Excel exam worth 40 points and an 80-minute Python exam worth 80 points. Both are paper-based exams.
+
+#### Can I use aids such as a calculator, laptop, Excel, or Python during the exam?
+
+No. You will write Excel formulas on paper in the Excel exam and Python code on paper in the Python exam. Calculators, laptops, Excel, Python, and other aids are not permitted.
+
+#### Are past exams or mock exams available?
+
+A mock exam will be provided for the Excel part through Canvas. Check Canvas for mock exams and related exam-preparation materials for the Python part.
+
+### General course questions
+
+#### Where can I find the course materials?
+
+Course materials, exercises, announcements, and relevant organizational information are provided through Canvas.
+
+#### What if I miss a class?
+
+Review the corresponding materials and exercises in Canvas and catch up independently.
+
+#### Where will course announcements and updates be posted?
+
+Course announcements and updates will be posted in Canvas.
