@@ -20,7 +20,10 @@ jobs:
           python-version: '3.11'
       - name: Install Python render dependencies
         run: python -m pip install -r requirements.txt
-      - uses: quarto-dev/quarto-actions/setup@v2
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
       - run: make site-fast
       - uses: actions/upload-pages-artifact@v3
         with:
