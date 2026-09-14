@@ -8,6 +8,7 @@ from pathlib import Path
 import yaml
 
 HTML_BR_FILTER = Path(__file__).resolve().with_name("html_br_to_linebreak.lua")
+COURSE_CONFIG = Path(__file__).resolve().parents[1] / "course.yml"
 
 
 def escape_latex(value: str) -> str:
@@ -51,16 +52,26 @@ def read_note(path: Path) -> tuple[str, str]:
     return title, "\n".join(lines[yaml_end + 1 :]).strip()
 
 
+def read_course_title() -> str:
+    """Return the course title from the repository configuration."""
+    config = yaml.safe_load(COURSE_CONFIG.read_text(encoding="utf-8")) or {}
+    title = config.get("course", {}).get("title")
+    if not isinstance(title, str) or not title:
+        raise ValueError(f"{COURSE_CONFIG} has no course.title")
+    return title
+
+
 def combine(output: Path, inputs: list[Path]) -> None:
     """Combine note files into one PDF-oriented Quarto source."""
+    teaching_notes_title = f"{read_course_title()} Teaching Notes"
     sections: list[str] = []
 
     for path in inputs:
         title, body = read_note(path)
-        footer_label = escape_latex(f"MLBD Teaching Notes - {title}")
+        footer_label = escape_latex(f"{teaching_notes_title} - {title}")
         sections.append(
             f"""```{{=latex}}
-\\renewcommand{{\\mlbdfooterlabel}}{{{footer_label}}}
+\\renewcommand{{\\teachingnotesfooterlabel}}{{{footer_label}}}
 ```
 
 # {title}
@@ -69,7 +80,7 @@ def combine(output: Path, inputs: list[Path]) -> None:
         )
 
     front_matter = f"""---
-title: "MLBD Teaching Notes"
+title: "{teaching_notes_title}"
 papersize: a4
 filters:
   - {HTML_BR_FILTER.as_posix()}
@@ -91,9 +102,9 @@ format:
 
       % The optional arguments apply the same footer to plain.scrheadings,
       % which KOMA uses for pages that would otherwise have a plain style.
-      \\newcommand{{\\mlbdfooterlabel}}{{MLBD Teaching Notes}}
+      \\newcommand{{\\teachingnotesfooterlabel}}{{{escape_latex(teaching_notes_title)}}}
       \\clearpairofpagestyles
-      \\ifoot[\\mlbdfooterlabel]{{\\mlbdfooterlabel}}
+      \\ifoot[\\teachingnotesfooterlabel]{{\\teachingnotesfooterlabel}}
       \\ofoot[\\pagemark]{{\\pagemark}}
       \\pagestyle{{scrheadings}}
 
