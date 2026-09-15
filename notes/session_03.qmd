@@ -6,14 +6,10 @@ event_id: null
 
 <br>
 
-::: {.callout-important title="TODO"}
-- Add solution for Exporter task (PR?). 
-- TODO: prep explanation of the cube concept (and how it matches to Excel!)
-:::
-
 ::: {.callout-tip title="Preparation"}
 - Print solutions for Excel Tables (previous session)
 - Upload [Excel cheatsheet](../materials/excel-cheat-sheet.pdf)
+- Prep explanation of the cube concept (and how it matches to Excel!)
 :::
 
 | Time      | Topic/activity                                                | Materials                                      |
