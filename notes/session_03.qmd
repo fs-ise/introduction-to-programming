@@ -12,19 +12,21 @@ event_id: null
 - Prep explanation of the cube concept (and how it matches to Excel!)
 :::
 
+Last Excel session already!
+
 | Time      | Topic/activity                                                | Materials                                      |
 | --------: | ------------------------------------------------------------- | ---------------------------------------------- |
-| 0–20 min  | Review the **Christmas gift** and **Course grading** homework | Slides 36–37; sheets `Gift` and `Grading`      |
+| 0–20 min  | Review homework                                               | Slides 36–37; sheets `Gift` / `Grading`        |
 | 20–35 min | Complete the **Sales table** exercise, if necessary           | Slides 51–52; sheet `Sales_table`              |
 | 35–50 min | Motivate PivotTables through management questions             | Slides 54–60                                   |
-| 50–65 min | Explain facts, dimensions, data cubes, and slicing            | Slides 61–64                                   |
 | 65–90 min | Create the first PivotTable and explain the field areas       | Slides 65–66                                   |
 | **Break** |                                                               |                                                |
 | 0–20 min  | Filtering, aggregations, and displaying values                | Slides 67–69                                   |
 | 20–40 min | Multiple dimensions and measures; PivotCharts                 | Slides 70–73                                   |
 | 40–55 min | Calculated fields and date grouping                           | Slides 74–75                                   |
-| 55–85 min | Complete the **Exporter** exercise                            | Slide 76; `Exporter_data` and `Exporter_pivot` |
-| 85–90 min | Introduce the **Expeditioner** exercise                       | Slide 78; `Exped_data` and `Exped_pivot`       |
+| 50–65 min | Explain facts, dimensions, data cubes, and slicing            | Slides 61–64                                   |
+| 55–85 min | Complete the **Exporter** exercise                            | Slide 76; `Exporter_data` / `Exporter_pivot`   |
+| 85–90 min | Introduce the **Expeditioner** exercise                       | Slide 78; `Exped_data` / `Exped_pivot`         |
 
 : {tbl-colwidths="[20,40,40]"}
 
@@ -53,7 +55,7 @@ Review:
 
 - The lookup value is the customer status.
 - The lookup column must be the first column of the selected table.
-- The return-column number differs between the two lookup tables.
+- The return-column number is 2.
 - Use `FALSE` for an exact match.
 - Lock the lookup ranges before copying the formulas.
 
@@ -63,15 +65,13 @@ Review:
 
 ### `XLOOKUP` solution
 
-Copy the sheet before creating the alternative solution.
+Copy the sheet before creating the `XLOOKUP` solution.
 
 Contrast the formula structure with `VLOOKUP`:
 
 ```text
 =XLOOKUP(lookup_value,lookup_array,return_array)
 ```
-
-Emphasize that the lookup and return arrays are selected explicitly.
 
 ![](../images/excel_xlookup.png){fig-align="center" width="90%"}
 
@@ -88,16 +88,20 @@ Review the sequence:
 1. Retrieve the homework and exam scores.
 2. Calculate the contribution of each assessment component.
 3. Add the contributions to obtain the final course grade.
-4. Change the `StudentID` and confirm that all output cells update.
+
+![](../images/excel_grading_vlookup.png){fig-align="center" width="90%"}
+
+::: {.callout-note}
+- Lookup functions return one value, this means three lookups are required for the homework part
+- In Excel 365, it is possible to select a set of return columns `{3,5,7}`.
+:::
+
+**Validation**: Change the `StudentID` and check that the workbook retrieves the corresponding scores and recalculates the final grade.
 
 For the illustrated student, check:
 
 - Homework contribution: `9.11`
 - Final course grade: `73.61`
-
-![](../images/excel_grading_vlookup.png){fig-align="center" width="90%"}
-
-**Validation**: Change the `StudentID` and check that the workbook retrieves the corresponding scores and recalculates the final grade.
 
 {{< pagebreak >}}
 
@@ -120,6 +124,9 @@ Use the [teaching notes for Session 2](session_02.html#slides-5152-excel-tables-
 ::: {.teaching-file}
 [In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheets: Sales_data | Sales_pivot
 :::
+
+Refer to the Excel Table example (from previous session): highlight that manually writing formulas for aggregate and conditional statistics can be tedious (e.g., by product, region, time).
+PivotTables help for that.
 
 ### Slide 65 — Creating a PivotTable
 
@@ -162,7 +169,7 @@ Demonstrate two kinds of filters:
 - Report filters above the PivotTable
 - Filters attached to row or column labels
 
-Filter the product columns to retain only selected products.
+For demonstration: Filter the product columns to retain only selected products.
 
 Emphasize:
 
@@ -284,8 +291,11 @@ Demonstrate:
 
 ## Theory : Data warehouse concepts, including data cubes and facts vs dimensions
 
-PivotTables implement the basic data-cube idea in Excel.
 
+Typically, there are some attributes that we will use for the `values` and others that will be used for `rows`, `columns` and `filters`.
+For `values`, we need data that can be aggregated numerically (e.g., through sum functions), for the others, we prefer categorical data that allows us to group observations.
+These we refer to as facts and dimensions.
+This corresponds to the multi-dimensional hypercube analyses in Excel (a type of analysis that we will also see in other analytical software packages).
 
 ### Slide 61 — Facts and dimensions
 
@@ -295,11 +305,6 @@ Introduce the distinction using the table on the slide.
 | ---------- | ----------------------------------------- | -------------------------------------- |
 | Dimensions | Describe, classify, group, or filter data | Region, product, category, month, year |
 | Facts      | Numerical values that can be aggregated   | Turnover, cost, profit, quantity       |
-
-Connect this distinction to the PivotTable areas:
-
-- Dimensions usually appear in **Rows**, **Columns**, or **Filters**.
-- Facts usually appear in **Values**.
 
 Revisit Slides 56–61. Select two or three examples and ask students:
 
@@ -314,7 +319,6 @@ Explain:
 
 - Each dimension provides a perspective on the data.
 - A fact is stored for combinations of dimension values.
-- A worksheet is two-dimensional.
 - A PivotTable therefore presents a two-dimensional slice of a multidimensional dataset.
 - Filters fix the dimensions that are not currently shown in rows or columns.
 
@@ -325,6 +329,8 @@ Explain:
 :::
 
 Complete this exercise in class only if sufficient time remains. Otherwise, assign it as homework.
+
+**Note**: The tasks often leave it open if we select attributes for the rows or columns. It is specified unambiguously when we display the expected output table (as in the exam).
 
 ### Task 1 — Category sales by country
 
@@ -380,6 +386,8 @@ Teaching procedure:
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise}/[Homework]{.teaching-label .teaching-label-homework} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheets: Exped_data | Exped_pivot
 :::
+
+**Note**: Sales refers to the **REVENUE** column (unless we refer to the number of products).
 
 - Briefly inspect the dataset and available attributes.
 - Reproduce the report shown on the slide:
