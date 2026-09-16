@@ -82,3 +82,23 @@ def test_footer_title_is_latex_escaped(tmp_path: Path) -> None:
         r"50\% R\&D: \#1\_use of \$x\textasciicircum{}\{2\}\$, "
         r"\textasciitilde{} and \textbackslash{} paths}"
     ) in combined
+
+
+def test_checklist_appears_before_sessions(tmp_path: Path) -> None:
+    checklist = tmp_path / "teaching_checklist.qmd"
+    checklist.write_text(
+        "# Teaching checklist\n\n## Room setup\n\n- [ ] Check projector.\n",
+        encoding="utf-8",
+    )
+    note = tmp_path / "session_01.qmd"
+    note.write_text(
+        '---\ntitle: "Session 01"\n---\n\n## Topic\n', encoding="utf-8"
+    )
+    output = tmp_path / "notes.qmd"
+
+    combine(output, [note], checklist)
+
+    combined = output.read_text(encoding="utf-8")
+    assert combined.index("# Teaching checklist") < combined.index("# Session 01")
+    assert "- [ ] Check projector." in combined
+    assert combined.count("\n\n\\newpage\n\n") == 2

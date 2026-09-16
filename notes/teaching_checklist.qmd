@@ -1,0 +1,29 @@
+# Teaching checklist
+
+### Room and presentation setup
+
+- [ ] Arrive early and switch on the room equipment.
+- [ ] On the room's control panel, select **Source: Beamer**.
+- [ ] Check that the presentation appears correctly on the projector.
+- [ ] Open the course slides and required exercise files.
+- [ ] If technical problems persist, contact **Frankfurt School IT Support**:
+  - **Phone:** [+49 69 154008-111](tel:+4969154008111)
+  - **Email:** [111@fs.de](mailto:111@fs.de)
+
+### Student setup and technical issues
+
+- [ ] Check whether students can access Canvas and the course materials.
+- [ ] For Excel configuration issues, direct students to the existing [Student Guide](student_guide.qmd), particularly the [Excel language-settings instructions](student_guide/language-settings.qmd).
+- [ ] For Python or Anaconda installation problems, direct students to the setup instructions provided through Canvas.
+- [ ] Refer institutional account, network, and IT access problems to [Frankfurt School IT Support](mailto:111@fs.de).
+- [ ] Remind students that course-specific questions can be addressed in class, through tutors, or through the course communication channel.
+
+### Student advising and support resources
+
+- [ ] **Academic and organizational issues:** Direct students to their assigned study advisor for questions about their programme, examinations, and organizational difficulties. See [Student Services](https://www.frankfurt-school.de/students-alumni/student-services).
+- [ ] **LRS/dyslexia and other learning-related impairments:** Refer students to [Life & Health Counseling](https://www.frankfurt-school.de/en/students-alumni/life-and-health-counseling) for advice on available support and reasonable accommodations.
+- [ ] **Other health-related or accessibility needs:** Refer students to the same [Life & Health Counseling service](https://www.frankfurt-school.de/en/students-alumni/life-and-health-counseling).
+- [ ] **Personal difficulties, stress, or wellbeing:** Point students toward Coaching & Counselling and other support available through [Student Services](https://www.frankfurt-school.de/students-alumni/student-services).
+- [ ] **Student counselling contact:** Alexandra Rübesam, [+49 69 154008-810](tel:+4969154008810), [a.ruebesam@fs.de](mailto:a.ruebesam@fs.de).
+
+> Refer students to the appropriate professional service; do not independently assess disabilities or promise examination accommodations.

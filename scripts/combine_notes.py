@@ -52,6 +52,19 @@ def read_note(path: Path) -> tuple[str, str]:
     return title, "\n".join(lines[yaml_end + 1 :]).strip()
 
 
+def read_checklist(path: Path) -> tuple[str, str]:
+    """Return the title and body of a heading-led reusable QMD fragment."""
+    source = path.read_text(encoding="utf-8")
+    lines = source.splitlines()
+    if not lines or not lines[0].startswith("# "):
+        raise ValueError(f"{path} does not start with a level-1 heading")
+
+    title = lines[0][2:].strip()
+    if not title:
+        raise ValueError(f"{path} has an empty level-1 heading")
+    return title, "\n".join(lines[1:]).strip()
+
+
 def read_course_title() -> str:
     """Return the course title from the repository configuration."""
     config = yaml.safe_load(COURSE_CONFIG.read_text(encoding="utf-8")) or {}
@@ -61,13 +74,19 @@ def read_course_title() -> str:
     return title
 
 
-def combine(output: Path, inputs: list[Path]) -> None:
+def combine(
+    output: Path, inputs: list[Path], checklist: Path | None = None
+) -> None:
     """Combine note files into one PDF-oriented Quarto source."""
     teaching_notes_title = f"{read_course_title()} Teaching Notes"
     sections: list[str] = []
 
-    for path in inputs:
-        title, body = read_note(path)
+    sources = []
+    if checklist is not None:
+        sources.append(read_checklist(checklist))
+    sources.extend(read_note(path) for path in inputs)
+
+    for title, body in sources:
         footer_label = escape_latex(f"{teaching_notes_title} - {title}")
         sections.append(
             f"""```{{=latex}}
@@ -124,10 +143,11 @@ format:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--checklist", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("inputs", nargs="+", type=Path)
     arguments = parser.parse_args()
-    combine(arguments.output, arguments.inputs)
+    combine(arguments.output, arguments.inputs, arguments.checklist)
 
 
 if __name__ == "__main__":
