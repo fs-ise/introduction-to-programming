@@ -50,6 +50,8 @@ pd.pivot_table(
 )
 ```
 
+{{< needspace 8 >}}
+
 ### Slide 60 — Apply multiple aggregation functions
 
 `aggfunc` can contain multiple aggregation functions.
@@ -103,6 +105,8 @@ pd.pivot_table(
     aggfunc='sum',
 )
 ```
+
+{{< needspace 9 >}}
 
 ## Slide 63 — Store and extend a pivot table
 
@@ -276,6 +280,8 @@ predictivemodel_net.predict([[5, 5, 1]])
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
+
+{{< needspace 8 >}}
 
 ## Slide 80 — Integers and floating-point numbers
 

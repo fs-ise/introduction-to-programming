@@ -34,6 +34,8 @@ Students should configure Excel to use **English function names** and **comma se
 Follow-up on questions/feedback from last session's survey.
 :::
 
+{{< needspace 10 >}}
+
 ## Homework review: DAX moving averages
 
 ::: {.callout-tip}
@@ -79,6 +81,8 @@ Explain the payment schema introduced in the previous session.
   This could be used in a What-if or scenario analysis.
 
 **Typical error**: If the principal or interest repayments point to the same column (instead of the previous period), a "circular reference" error will be raised.
+
+{{< needspace 9 >}}
 
 ## Homework review: Annuity loan
 

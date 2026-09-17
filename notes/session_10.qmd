@@ -140,6 +140,8 @@ total = sumofSquares(numbers)
 print("Sum of the Square of List of Numbers:", total)
 ```
 
+{{< needspace 10 >}}
+
 ## Slides 121–122 — Functions
 
 Order, in-session: 4, 5, 1, 6 (if time permits).

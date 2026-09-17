@@ -275,6 +275,8 @@ exped1 = exped1.set_index('Transid')
 exped1.head()
 ```
 
+{{< needspace 10 >}}
+
 ## Slide 22 — Importing and exporting data
 
 ::: {.teaching-file}

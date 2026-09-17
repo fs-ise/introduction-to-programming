@@ -36,6 +36,8 @@ Students should configure Excel to use **English function names** and **comma se
 ![](../images/qr_excel_language_settings.png){fig-align="center" width="18%"}
 :::
 
+{{< needspace 9 >}}
+
 ## Homework review: Christmas gift
 
 ::: {.teaching-file}
@@ -344,6 +346,8 @@ Use column label filter to select `Germany` (or add `country` in Filters and sel
 
 ![](../images/excel_pivot_exporter_task_3.png){fig-align="center" width="80%"}
 
+{{< needspace 10 >}}
+
 ### Task 4 — Product sales by quarter and month
 
 Group the date field (**right click on a date cell**) by:
@@ -372,6 +376,8 @@ Teaching procedure:
 
 **SCREENSHOT:** Completed Exporter PivotTables.
 -->
+
+{{< needspace 11 >}}
 
 ## Slide 78 — Exercise: Expeditioner pivot analysis
 

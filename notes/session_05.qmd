@@ -29,6 +29,8 @@ exped['WHERE']
 exped.WHERE
 ```
 
+{{< needspace 10 >}}
+
 ### Slide 24 — Label-based selection with `loc`
 
 `loc` selects by row and column labels. The final expression selects rows using a condition applied to the `Turnover` column.
@@ -76,6 +78,8 @@ Selecting one row generally returns a Series, whereas selecting a range returns 
 exped.iloc[0]
 exped.iloc[0:2]
 ```
+
+{{< needspace 8 >}}
 
 ### Slide 28 — Comparing `loc` and `iloc`
 

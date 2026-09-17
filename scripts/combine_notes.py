@@ -8,7 +8,11 @@ from pathlib import Path
 import yaml
 
 HTML_BR_FILTER = Path(__file__).resolve().with_name("html_br_to_linebreak.lua")
-COURSE_CONFIG = Path(__file__).resolve().parents[1] / "course.yml"
+REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
+COURSE_CONFIG = REPOSITORY_ROOT / "course.yml"
+NEEDSPACE_SHORTCODE = (
+    REPOSITORY_ROOT / "_extensions" / "needspace" / "needspace.lua"
+)
 
 
 def escape_latex(value: str) -> str:
@@ -103,6 +107,8 @@ title: "{teaching_notes_title}"
 papersize: a4
 filters:
   - {HTML_BR_FILTER.as_posix()}
+shortcodes:
+  - {NEEDSPACE_SHORTCODE.as_posix()}
 format:
   pdf:
     toc: true

@@ -1,6 +1,10 @@
+import shutil
+import subprocess
 from pathlib import Path
 
-from scripts.combine_notes import HTML_BR_FILTER, combine
+import pytest
+
+from scripts.combine_notes import HTML_BR_FILTER, NEEDSPACE_SHORTCODE, combine
 
 
 NEEDSPACE_EXTENSION = (
@@ -24,7 +28,9 @@ def test_combine_preserves_html_line_breaks_and_configures_filter(tmp_path: Path
     combined = output.read_text(encoding="utf-8")
     assert "Slides 7–10<br>Slides 7 and 10<br />Exercise" in combined
     assert f"filters:\n  - {HTML_BR_FILTER.as_posix()}" in combined
+    assert f"shortcodes:\n  - {NEEDSPACE_SHORTCODE.as_posix()}" in combined
     assert HTML_BR_FILTER.is_absolute()
+    assert NEEDSPACE_SHORTCODE.is_absolute()
     assert note.read_text(encoding="utf-8") == source
 
 
@@ -127,3 +133,46 @@ def test_needspace_extension_supports_pdf_and_ignores_html() -> None:
     assert 'return pandoc.Str("")' in shortcode
     assert 'args[1] or "5"' in shortcode
     assert r'\\Needspace{%s\\baselineskip}' in shortcode
+
+
+def test_generated_document_renders_needspace_shortcode(tmp_path: Path) -> None:
+    required_commands = ["quarto", "pdftotext"]
+    latex_commands = ["xelatex", "lualatex", "pdflatex", "tectonic"]
+    missing = [command for command in required_commands if shutil.which(command) is None]
+    if not any(shutil.which(command) for command in latex_commands):
+        missing.append("a LaTeX engine")
+    if missing:
+        pytest.skip(f"PDF rendering tools unavailable: {', '.join(missing)}")
+
+    note = tmp_path / "note.qmd"
+    note.write_text(
+        '---\ntitle: "Shortcode integration"\n---\n\n'
+        "Before the pagination directive.\n\n"
+        "{{< needspace 3 >}}\n\n"
+        "After the pagination directive.\n",
+        encoding="utf-8",
+    )
+    combined = tmp_path / "notes.qmd"
+    combine(combined, [note])
+
+    rendered = subprocess.run(
+        ["quarto", "render", combined.name, "--to", "pdf", "--output", "notes.pdf"],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    render_log = rendered.stdout + rendered.stderr
+    assert rendered.returncode == 0, render_log
+    assert "Shortcode 'needspace' not found" not in render_log
+
+    extracted = subprocess.run(
+        ["pdftotext", "notes.pdf", "-"],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+        check=True,
+    ).stdout
+    assert "Before the pagination directive." in extracted
+    assert "After the pagination directive." in extracted
+    assert "needspace" not in extracted.lower()

@@ -48,6 +48,8 @@ exped['WHERE'].unique()
 exped['WHERE'].value_counts()
 ```
 
+{{< needspace 11 >}}
+
 ### Slide 42 — Descriptive statistics
 
 ::: {.teaching-file}
@@ -87,6 +89,8 @@ temps.plot(
     y=['Maximum', 'Average', 'Minimum'],
 )
 ```
+
+{{< needspace 8 >}}
 
 ### Slide 45 — Formatting the x-axis
 

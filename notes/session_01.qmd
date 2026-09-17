@@ -36,6 +36,8 @@ Open:
 - Excel: `exercises.xlsx` in VM (save a copy for the group to track its progress)
 :::
 
+{{< needspace 10 >}}
+
 ## Introductory remarks
 
 Start with a strong focus on programming (I love programming/Github stats, first student assistant job, ..., student coauthors, but also: teaching it in an accessible way; move research interests to the end: theses)
@@ -78,6 +80,8 @@ I hope you enjoy the course, learn a lot, and develop skills you can actually us
 * **Ask questions—again and again.** In class, in tutorials, and whenever something remains unclear.
 * **Use the support available.** Our tutors do an excellent job and are there to help you.
 * **Keep going.** Perseverance and genuine understanding are the best preparation for success in the course and exams.
+
+{{< needspace 9 >}}
 
 ## Slide 1 - Excel basics
 

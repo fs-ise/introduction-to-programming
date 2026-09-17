@@ -41,7 +41,7 @@ cheat-sheet:
 $(QR_CODES): scripts/generate_qr_codes.js _extensions/jmbuhr/qrcode/qrcode.js
 	node scripts/generate_qr_codes.js
 
-$(NOTES_PDF): $(TEACHING_CHECKLIST) $(NOTES_QMD) $(QR_CODES) scripts/combine_notes.py scripts/html_br_to_linebreak.lua
+$(NOTES_PDF): $(TEACHING_CHECKLIST) $(NOTES_QMD) $(QR_CODES) scripts/combine_notes.py scripts/html_br_to_linebreak.lua _extensions/needspace/needspace.lua _extensions/needspace/_extension.yml
 	@mkdir -p $(OUT_DIR) _pdf-tmp
 	@$(PYTHON) scripts/combine_notes.py --checklist $(TEACHING_CHECKLIST) $(NOTES_COMBINED) $(NOTES_QMD)
 	@$(QUARTO) render $(NOTES_COMBINED) --to pdf --output notes.pdf
