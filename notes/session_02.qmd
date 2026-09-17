@@ -140,8 +140,6 @@ Whiteboard:
 
 ![](../images/excel_bar_sales_solution.png){fig-align="center" width="80%"}
 
-{{< pagebreak >}}
-
 Continue on the slides (the general VLOOKUP formula).
 
 Explain the lookup process step by step:

@@ -117,7 +117,7 @@ format:
       - footskip=0.9cm
     header-includes: |
       \\usepackage{{scrlayer-scrpage}}
-      \\usepackage{{etoolbox}}
+      \\usepackage{{needspace}}
 
       % The optional arguments apply the same footer to plain.scrheadings,
       % which KOMA uses for pages that would otherwise have a plain style.
@@ -126,9 +126,6 @@ format:
       \\ifoot[\\teachingnotesfooterlabel]{{\\teachingnotesfooterlabel}}
       \\ofoot[\\pagemark]{{\\pagemark}}
       \\pagestyle{{scrheadings}}
-
-      % Start every level-2 heading on a new page.
-      \\pretocmd{{\\subsection}}{{\\clearpage}}{{}}{{}}
 ---
 """
 

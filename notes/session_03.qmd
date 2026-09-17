@@ -61,8 +61,6 @@ Review:
 
 ![](../images/excel_gift_vlookup.png){fig-align="center" width="90%"}
 
-{{< pagebreak >}}
-
 ### `XLOOKUP` solution
 
 Copy the sheet before creating the `XLOOKUP` solution.
@@ -102,8 +100,6 @@ For the illustrated student, check:
 
 - Homework contribution: `9.11`
 - Final course grade: `73.61`
-
-{{< pagebreak >}}
 
 ### `XLOOKUP` solution
 
@@ -342,8 +338,6 @@ Complete this exercise in class only if sufficient time remains. Otherwise, assi
 
 ![](../images/excel_pivot_exporter_task_2.png){fig-align="center" width="80%"}
 
-{{< pagebreak >}}
-
 ### Task 3 — Product sales in Germany
 
 Use column label filter to select `Germany` (or add `country` in Filters and select `Germany` there).
@@ -360,8 +354,6 @@ Group the date field (**right click on a date cell**) by:
 Then, expand Quarters to show Months.
 
 ![](../images/excel_pivot_exporter_task_4.png){fig-align="center" width="80%"}
-
-{{< pagebreak >}}
 
 ### Task 5 — European countries in Q4
 
@@ -435,8 +427,6 @@ Teaching procedure:
 
 - Filter `WHERE` to London and restrict `HOW` to Catalog.
 - Change the `WHEN` date grouping from Quarters to **Months**, then read the January value.
-
-{{< pagebreak >}}
 
 ::: {.callout-tip title="Inspecting results"}
 - To inspect the contributing records, double-click `411` (or use **Show Details**). Excel creates a new worksheet containing the source records behind that PivotTable cell.

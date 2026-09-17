@@ -3,6 +3,11 @@ from pathlib import Path
 from scripts.combine_notes import HTML_BR_FILTER, combine
 
 
+NEEDSPACE_EXTENSION = (
+    Path(__file__).resolve().parents[1] / "_extensions" / "needspace"
+)
+
+
 def test_combine_preserves_html_line_breaks_and_configures_filter(tmp_path: Path) -> None:
     note = tmp_path / "note.qmd"
     source = (
@@ -25,7 +30,11 @@ def test_combine_preserves_html_line_breaks_and_configures_filter(tmp_path: Path
 
 def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     first = tmp_path / "session_01.qmd"
-    first.write_text('---\ntitle: "Notes S-01/First"\n---\n\n## Topic one\n', encoding="utf-8")
+    first.write_text(
+        '---\ntitle: "Notes S-01/First"\n---\n\n'
+        "## Topic one\n\n### Topic one detail\n",
+        encoding="utf-8",
+    )
     second = tmp_path / "session_02.qmd"
     second.write_text('---\ntitle: "Notes S-02/Second"\n---\n\n## Topic two\n', encoding="utf-8")
     output = tmp_path / "notes.qmd"
@@ -38,7 +47,9 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     assert "left=1.5cm" in combined
     assert "bottom=2.2cm" in combined
     assert "footskip=0.9cm" in combined
-    assert r"\pretocmd{\subsection}{\clearpage}" in combined
+    assert r"\usepackage{needspace}" in combined
+    assert r"\pretocmd{\subsection}{\clearpage}" not in combined
+    assert r"\usepackage{etoolbox}" not in combined
     assert r"\usepackage{scrlayer-scrpage}" in combined
     assert "fancyhdr" not in combined
     assert r"\clearpairofpagestyles" in combined
@@ -60,6 +71,9 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     )
     assert "MLBD" not in combined
     assert combined.count("\n\n\\newpage\n\n") == 2
+    assert "## Topic one" in combined
+    assert "### Topic one detail" in combined
+    assert "## Topic two" in combined
     assert combined.index(
         r"Introduction to Programming Teaching Notes - Notes S-01/First"
     ) < combined.index("# Notes S-01/First")
@@ -102,3 +116,14 @@ def test_checklist_appears_before_sessions(tmp_path: Path) -> None:
     assert combined.index("# Teaching checklist") < combined.index("# Session 01")
     assert "- [ ] Check projector." in combined
     assert combined.count("\n\n\\newpage\n\n") == 2
+
+
+def test_needspace_extension_supports_pdf_and_ignores_html() -> None:
+    manifest = (NEEDSPACE_EXTENSION / "_extension.yml").read_text(encoding="utf-8")
+    shortcode = (NEEDSPACE_EXTENSION / "needspace.lua").read_text(encoding="utf-8")
+
+    assert "shortcodes:\n    - needspace.lua" in manifest
+    assert 'quarto.doc.is_format("pdf")' in shortcode
+    assert 'return pandoc.Str("")' in shortcode
+    assert 'args[1] or "5"' in shortcode
+    assert r'\\Needspace{%s\\baselineskip}' in shortcode
