@@ -23,8 +23,11 @@
 
 | Material | Type |
 |---|---|
+| [Bikesales](materials/session_04/Bikesales.csv) | CSV file |
+| [Bikesales](materials/session_04/Bikesales.xlsx) | Excel workbook |
 | [CircleArea1](materials/session_04/CircleArea1.py) | PY file |
 | [Countries](materials/session_04/countries.py) | PY file |
+| [Exped](materials/session_04/Exped.xlsx) | Excel workbook |
 | [FutureValue](materials/session_04/FutureValue.py) | PY file |
 | [Insurance](materials/session_04/insurance.py) | PY file |
 | [Spydertest](materials/session_04/Spydertest.py) | PY file |
@@ -58,6 +61,7 @@
 | [Fuel](materials/session_07/Fuel.py) | PY file |
 | [Homes Florida](materials/session_07/Homes_Florida.py) | PY file |
 | [Insurance2](materials/session_07/insurance2.py) | PY file |
+| [Sales](materials/session_07/Sales.xlsx) | Excel workbook |
 
 ## Session 08
 
