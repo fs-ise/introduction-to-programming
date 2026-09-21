@@ -4,7 +4,7 @@ session_id: session-08
 event_id: null
 ---
 
-TOOD: include visualization of IBAN
+TOOD: include visualization of IBAN (see https://monitorpay.ai/iban-format-by-country-complete-guide-to-structure-validation-bank-lookup/)
 
 Use the exercises to move from sequences to conditional logic, while keeping the stated homework decisions.
 

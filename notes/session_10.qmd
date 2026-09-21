@@ -4,7 +4,10 @@ session_id: session-10
 event_id: null
 ---
 
-TODO: Additional exercise (Insurance) - PR shares it
+TODO: Additional exercise (Insurance) (after page 116):
+
+- [`Versicherungsvertreter.py`](../materials/session_10/Versicherungsvertreter.py)
+- [`Versicherungsvertreter.docx`](../materials/session_10/Versicherungsvertreter.docx)
 
 Notes:
 

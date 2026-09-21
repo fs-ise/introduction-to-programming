@@ -42,6 +42,10 @@ Notes:
 
 TODO: explain spyder interface. If it does not work for some students, ask them to work together with someone where it works. Setup was supposed to be completed in the first sessions.
 
+{{< needspace 90 >}}
+
+## `spydertest.py`
+
 Walk through `spytertest.py` from Canvas with students at the start of the Python session.
 
 ```{python}
@@ -49,6 +53,8 @@ Walk through `spytertest.py` from Canvas with students at the start of the Pytho
 #| eval: false
 {{< include ../materials/session_04/Spydertest.py >}}
 ```
+
+{{< needspace 90 >}}
 
 ## Slide 5 — Basic arithmetic and string operations
 
