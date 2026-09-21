@@ -83,16 +83,20 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     assert "fancyhdr" not in combined
     assert r"\clearpairofpagestyles" in combined
     assert 'title: "Introduction to Programming Teaching Notes"' in combined
-    assert r"\ifoot[\teachingnotesfooterlabel]{\teachingnotesfooterlabel}" in combined
+    assert (
+        r"\ifoot[Introduction to Programming: Notes]"
+        r"{Introduction to Programming: Notes}" in combined
+    )
     assert r"\ofoot[\pagemark]{\pagemark}" in combined
     assert r"\pagestyle{scrheadings}" in combined
+    assert "teachingnotesfooterlabel" not in combined
     assert (
-        r"\renewcommand{\teachingnotesfooterlabel}"
-        r"{Introduction to Programming Teaching Notes - Notes S-01/First}" in combined
+        "Introduction to Programming Teaching Notes - Notes S-01/First"
+        not in combined
     )
     assert (
-        r"\renewcommand{\teachingnotesfooterlabel}"
-        r"{Introduction to Programming Teaching Notes - Notes S-02/Second}" in combined
+        "Introduction to Programming Teaching Notes - Notes S-02/Second"
+        not in combined
     )
     assert "MLBD" not in combined
     assert combined.count(r"\clearpage") == 2
@@ -102,12 +106,10 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     assert "## Topic one" in combined
     assert "### Topic one detail" in combined
     assert "## Topic two" in combined
-    assert combined.index(
-        r"Introduction to Programming Teaching Notes - Notes S-01/First"
-    ) < combined.index("# Notes S-01/First")
+    assert combined.count("Introduction to Programming: Notes") == 2
 
 
-def test_footer_title_is_latex_escaped(tmp_path: Path) -> None:
+def test_session_title_is_not_inserted_into_footer(tmp_path: Path) -> None:
     note = tmp_path / "note.qmd"
     note.write_text(
         '---\ntitle: "50% R&D: #1_use of $x^{2}$, ~ and \\\\ paths"\n'
@@ -119,12 +121,9 @@ def test_footer_title_is_latex_escaped(tmp_path: Path) -> None:
     combine(output, [note])
 
     combined = output.read_text(encoding="utf-8")
-    assert (
-        r"\renewcommand{\teachingnotesfooterlabel}"
-        r"{Introduction to Programming Teaching Notes - "
-        r"50\% R\&D: \#1\_use of \$x\textasciicircum{}\{2\}\$, "
-        r"\textasciitilde{} and \textbackslash{} paths}"
-    ) in combined
+    assert "Introduction to Programming: Notes" in combined
+    assert r"50\% R\&D" not in combined
+    assert r"\renewcommand{\teachingnotesfooterlabel}" not in combined
 
 
 def test_checklist_appears_before_sessions(tmp_path: Path) -> None:

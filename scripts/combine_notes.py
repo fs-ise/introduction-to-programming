@@ -14,23 +14,6 @@ COURSE_CONFIG = REPOSITORY_ROOT / "course.yml"
 NEEDSPACE_SHORTCODE = REPOSITORY_ROOT / "_extensions" / "needspace" / "needspace.lua"
 
 
-def escape_latex(value: str) -> str:
-    """Escape arbitrary text for use as a LaTeX command argument."""
-    replacements = {
-        "\\": r"\textbackslash{}",
-        "{": r"\{",
-        "}": r"\}",
-        "$": r"\$",
-        "&": r"\&",
-        "#": r"\#",
-        "_": r"\_",
-        "%": r"\%",
-        "~": r"\textasciitilde{}",
-        "^": r"\textasciicircum{}",
-    }
-    return "".join(replacements.get(character, character) for character in value)
-
-
 def session_page_prefix(session_id: object, path: Path) -> str:
     """Return a display prefix derived from a note's session ID."""
     if not isinstance(session_id, str) or not session_id:
@@ -106,12 +89,10 @@ def combine(output: Path, inputs: list[Path], checklist: Path | None = None) -> 
     sources.extend(read_note(path) for path in inputs)
 
     for title, body, page_prefix in sources:
-        footer_label = escape_latex(f"{teaching_notes_title} - {title}")
         sections.append(f"""```{{=latex}}
 \\clearpage
 \\renewcommand{{\\thepage}}{{{page_prefix}/p\\arabic{{page}}}}
 \\setcounter{{page}}{{1}}
-\\renewcommand{{\\teachingnotesfooterlabel}}{{{footer_label}}}
 ```
 
 # {title}
@@ -173,9 +154,8 @@ format:
 
       % The optional arguments apply the same footer to plain.scrheadings,
       % which KOMA uses for pages that would otherwise have a plain style.
-      \\newcommand{{\\teachingnotesfooterlabel}}{{{escape_latex(teaching_notes_title)}}}
       \\clearpairofpagestyles
-      \\ifoot[\\teachingnotesfooterlabel]{{\\teachingnotesfooterlabel}}
+      \\ifoot[Introduction to Programming: Notes]{{Introduction to Programming: Notes}}
       \\ofoot[\\pagemark]{{\\pagemark}}
       \\pagestyle{{scrheadings}}
 ---
