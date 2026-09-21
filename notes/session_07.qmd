@@ -192,6 +192,10 @@ Input variables describe the observations, while the target variable is the valu
 
 `x` contains the predictor variables and `y` contains the target variable. The following demonstrations are sequential and reuse these arrays.
 
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_07/Student_performance.csv`](../materials/session_07/Student_performance.csv){.teaching-button .teaching-button-demo}
+:::
+
 ```python
 import pandas as pd
 

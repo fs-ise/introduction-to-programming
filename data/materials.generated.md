@@ -4,7 +4,6 @@
 
 | Material | Type |
 |---|---|
-| [Excel cheat sheet](materials/excel-cheat-sheet.pdf) | PDF |
 | [Excel setup](materials/excel_setup.html) | Web page |
 | [Exercises](materials/exercises.xlsx) | Excel workbook |
 | [Loan illustrations](materials/loans.html) | Web page |
@@ -48,6 +47,7 @@
 | [Countries5](materials/session_06/countries5.py) | PY file |
 | [Countries6](materials/session_06/countries6.py) | PY file |
 | [Insurance1](materials/session_06/insurance1.py) | PY file |
+| [Temperatures](materials/session_06/temperatures.csv) | CSV file |
 
 ## Session 07
 
@@ -62,6 +62,7 @@
 | [Homes Florida](materials/session_07/Homes_Florida.py) | PY file |
 | [Insurance2](materials/session_07/insurance2.py) | PY file |
 | [Sales](materials/session_07/Sales.xlsx) | Excel workbook |
+| [Student performance](materials/session_07/Student_performance.csv) | CSV file |
 
 ## Session 08
 
@@ -123,4 +124,5 @@
 | [Cryptocurrencies](materials/session_11/Cryptocurrencies.py) | PY file |
 | [MercedesBenz1](materials/session_11/MercedesBenz1.py) | PY file |
 | [MercedesBenz2](materials/session_11/MercedesBenz2.py) | PY file |
+| [Stockprice](materials/session_11/Stockprice.csv) | CSV file |
 | [Stocks](materials/session_11/Stocks.py) | PY file |

@@ -90,6 +90,10 @@ exped['WHERE'].value_counts()
 
 With no explicit column selection, `plot()` includes all numerical columns by default.
 
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_06/temperatures.csv`](../materials/session_06/temperatures.csv){.teaching-button .teaching-button-demo}
+:::
+
 ```python
 import pandas as pd
 

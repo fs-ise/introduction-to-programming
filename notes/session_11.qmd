@@ -17,7 +17,7 @@ Keep API examples non-executable in rendered notes and select them according to 
 
 | Time      | Topic/activity | Materials |
 | --------: | -------------- | --------- |
-| 0–20 min  | Moving averages with loops | Slide 137; `Stockprice.csv` (missing) |
+| 0–20 min  | Moving averages with loops | Slide 137; `Stockprice.csv` |
 | 20–35 min | Semivariance functions | Slide 138 |
 | 35–50 min | Demo: REST and JSON | Slides 139–142 (unverifiable from notes); `5_REST.py` |
 | 50–68 min | **Exercise: Mercedes-Benz stock data** | Slide 143; `MercedesBenz1.py` |
@@ -34,6 +34,10 @@ Keep API examples non-executable in rendered notes and select them according to 
 ## Slide 137 — Calculate a moving average with a loop
 
 The loop calculates the mean of the preceding ten observations and writes it into the `MA10` column. The first ten positions remain empty because no complete ten-observation window is available.
+
+::: {.teaching-file}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_11/Stockprice.csv`](../materials/session_11/Stockprice.csv){.teaching-button .teaching-button-demo}
+:::
 
 ```python
 import pandas as pd
