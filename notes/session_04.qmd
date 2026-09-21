@@ -4,33 +4,27 @@ session_id: session-04
 event_id: null
 ---
 
-::: {.callout-note title="Preparation TODOs"}
-- TODO: Add the Spyder setup.
-- TODO: Use Anaconda and be prepared for questions.
-- TODO: Walk through `spytertest.py` from Canvas with students at the start of the Python session. Retain the original filename spelling; its repository path is not known.
-- TODO: Clarify the note “use `os.chdir()` for Spyder.”
-- TODO: Check whether pandas 3.0 is installed automatically.
+::: {.callout-note title="Preparation"}
 
-- TODO: check with PR: no explicit take-home/homework exercises in this session?
+- Transfer files to laptop/open environment
 
-The existing notes also identify these materials, but do not establish an exact page mapping:
-
-- [`Versicherungsvertreter.py`](../materials/session_04/Versicherungsvertreter.py)
-- [`Versicherungsvertreter.docx`](../materials/session_04/Versicherungsvertreter.docx)
-
-TODO: Confirm where these materials should be used. The original note referred to the second file as `Versicherungsvertreter.xslx`; the supplied inventory contains the Word document above instead.
 :::
+
+If Python does not work on student machines, a solution may be to use <https://peter-rossbach.github.io/Python-Werkstatt/>:
+
+![](../images/qr_python_werkstatt.png){width=20% fig-align="center"}
 
 Notes:
 
 - Rule: TBD?? in-class demo: directly hard-code solution; in-class exercise: include script !??
 - Note: solutions (of take-home exercises) are discussed by the tutors
 
-Prepare the Python environment before the session and plan to complete as many exercises as time permits.
+
+
+{{< needspace 90 >}}
 
 ## Slide 1 - Introductory discussion
 
-- Ask about prior programming experience.
 - Discuss why Python complements Excel for advanced analytics, regression, prediction, machine learning, and AI.
 - Contrast interpreted and compiled languages.
 - Motivate Python through **reusable libraries** and the “don't repeat yourself” principle.
@@ -39,11 +33,22 @@ Prepare the Python environment before the session and plan to complete as many e
   It is not just LOC, but the 99% of the code (the libraries) are often very well designed and maintained (if you pick the right libraries). Also, they are constantly updated so we get performance improvements, remaining bugs are fixed, and the documentation gets better.
   This means we can really "stand on the shoulders of giants". Pretty amazing.
 - On the whiteboard, illustrate an ML study as a small amount of course code built on a much larger body of imported, maintained library code. Emphasize that students orchestrate existing libraries and can “stand on the shoulders of giants.”
+
+<!--
 - Ask why students should not simply use ChatGPT: effective prompting still requires validation and improvement.
+-->
 
 ## Slides 2-4 - Shell, Scripts, IDE
 
-**TODO: include Spyder setup here.**
+TODO: explain spyder interface. If it does not work for some students, ask them to work together with someone where it works. Setup was supposed to be completed in the first sessions.
+
+Walk through `spytertest.py` from Canvas with students at the start of the Python session.
+
+```{python}
+#| echo: true
+#| eval: false
+{{< include ../materials/session_04/Spydertest.py >}}
+```
 
 ## Slide 5 — Basic arithmetic and string operations
 
@@ -83,6 +88,22 @@ a
 b
 a + b
 ```
+
+Highlight multiplication between a string and an integer:
+
+```python
+print("haha" * 4)
+```
+
+Use an example with `a = 54` to explain that strings and integers cannot be concatenated directly without conversion:
+
+```python
+a = 54
+print("This number is " + a) # throws an error
+print("This number is " + str(a))
+```
+
+<!-- Introduce `type(x)` and demonstrate that Python is dynamically typed. -->
 
 ## Slide 9 - Variable memory and CPU
 
@@ -187,6 +208,15 @@ Depending on available time, complete this exercise in class or assign it as hom
 
 ## Slide 15 — Importing pandas
 
+The installation:
+
+```sh
+pip install pandas
+```
+
+is probably unnecessary because pandas is typically already available in the Spyder environment. Verify this for the installation used in the course.
+
+
 pandas DataFrames are widely used to load, inspect, clean, and prepare tabular data for machine learning. Models commonly receive DataFrames (or similar formats) depending on the library.
 
 The short alias `pd` is the conventional name used for pandas (programmers are often lazy and prefer short names).
@@ -217,6 +247,20 @@ data.shape
 list(data)
 data.dtypes
 ```
+
+Consider using:
+
+```python
+data.columns
+```
+
+instead of:
+
+```python
+list(data)
+```
+
+{{< needspace 9 >}} 
 
 ## Slide 18 — Working directory and file paths
 

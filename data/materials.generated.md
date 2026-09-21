@@ -4,6 +4,7 @@
 
 | Material | Type |
 |---|---|
+| [Excel cheat sheet](materials/excel-cheat-sheet.pdf) | PDF |
 | [Excel setup](materials/excel_setup.html) | Web page |
 | [Exercises](materials/exercises.xlsx) | Excel workbook |
 | [Loan illustrations](materials/loans.html) | Web page |
@@ -26,8 +27,7 @@
 | [Countries](materials/session_04/countries.py) | PY file |
 | [FutureValue](materials/session_04/FutureValue.py) | PY file |
 | [Insurance](materials/session_04/insurance.py) | PY file |
-| [Versicherungsvertreter](materials/session_04/Versicherungsvertreter.docx) | Word document |
-| [Versicherungsvertreter](materials/session_04/Versicherungsvertreter.py) | PY file |
+| [Spydertest](materials/session_04/Spydertest.py) | PY file |
 
 ## Session 05
 
@@ -108,6 +108,8 @@
 | [Listmult](materials/session_10/Listmult.py) | PY file |
 | [SlotMachine](materials/session_10/SlotMachine.py) | PY file |
 | [StopLoop](materials/session_10/StopLoop.py) | PY file |
+| [Versicherungsvertreter](materials/session_10/Versicherungsvertreter.docx) | Word document |
+| [Versicherungsvertreter](materials/session_10/Versicherungsvertreter.py) | PY file |
 
 ## Session 11
 
