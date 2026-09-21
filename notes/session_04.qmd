@@ -6,20 +6,18 @@ event_id: null
 
 ::: {.callout-note title="Preparation"}
 
+TBD/TODO: install Spyder on Fedora machine?
+
+TODO: files currently missing in Canvas distribution? (contained in the Exercises_Excel.zip; which I removed/replaced by exercise.xlsx... provide the files separately?)
+
+- `Bikesales.xlsx`
+- `Exped_Table.xlsx`
+
 - Transfer files to laptop/open environment
+- Create a reminder to inform tutors about the exercises that we completed and those that should be discussed in the tutoring sessions
+- Open PPTX for animations
 
 :::
-
-If Python does not work on student machines, a solution may be to use <https://peter-rossbach.github.io/Python-Werkstatt/>:
-
-![](../images/qr_python_werkstatt.png){width=20% fig-align="center"}
-
-Notes:
-
-- Rule: TBD?? in-class demo: directly hard-code solution; in-class exercise: include script !??
-- Note: solutions (of take-home exercises) are discussed by the tutors
-
-
 
 | Time      | Topic/activity | Materials |
 | --------: | -------------- | --------- |
@@ -30,13 +28,23 @@ Notes:
 | 65–90 min | **Exercises: circle area and future value** | Slide 13; `CircleArea1.py`; `FutureValue.py` |
 | **Break** | | |
 | 0–15 min  | pandas and imports | Slide 15 |
-| 15–35 min | Reading and inspecting Excel data | Slides 16–17; `Bikesales.xlsx` (TODO: missing) |
+| 15–35 min | Reading and inspecting Excel data | Slides 16–17; `Bikesales.xlsx` |
 | 35–50 min | File paths and CSV input | Slides 18–19 |
-| 50–65 min | Loading, previewing, and exporting data | Slide 20; `Exped_Table.xlsx` (missing) |
+| 50–65 min | Loading, previewing, and exporting data | Slide 20; `Exped_Table.xlsx` |
 | 65–75 min | DataFrame indexes | Slide 21 |
 | 75–90 min | **Exercises: countries and insurance import/export**; unfinished work becomes homework | Slide 22; `countries.py`; `countries.csv`; `insurance.py`; `insurance.xlsx` |
 
 : {tbl-colwidths="[20,40,40]"}
+
+If Python does not work on student machines, a solution may be to use  
+<https://peter-rossbach.github.io/Python-Werkstatt/>:
+
+![](../images/qr_python_werkstatt.png){width=30% fig-align="center"}
+
+For Anaconda: See Canvas instructions:
+
+- `Installing Anaconda for Python_Windows.pdf`
+- `Installing Anaconda for Python_Mac.pdf`
 
 {{< needspace 90 >}}
 
@@ -57,7 +65,16 @@ Notes:
 
 ## Slides 2-4 - Shell, Scripts, IDE
 
-TODO: explain spyder interface. If it does not work for some students, ask them to work together with someone where it works. Setup was supposed to be completed in the first sessions.
+Explain spyder interface:
+
+![](../images/spyder-interface.png){width=90% fig-align="center"}
+
+::: {.callout-warning title="Do not work on environment setup in the session"}
+
+If it does not work for some students, ask them to work together with someone where it works.
+Setup was supposed to be completed in the first sessions.
+
+:::
 
 {{< needspace 90 >}}
 
@@ -166,7 +183,7 @@ x = 15
 x = x + 5
 print(x)
 ```
-Note: for the `x = x + 5`, the following slide provides an animated explanation.
+Note: for the `x = x + 5`, the **slide 12** provides an animated explanation.
 
 ```{python}
 x = 4
@@ -181,10 +198,16 @@ b = 2
 print(a // b)
 ```
 
+Note: Floor division returns the largest integer less than or equal to the result.
+
 ```{python}
 x = 17 / 2 % 2 * 3**3
 print(x)
 ```
+
+Note: Python evaluates according to operator precedence (like in mathematics): first, exponent (\*\*), then the others left-to-right (they have the same precedence).
+
+Example of a **multiple assignment**:
 
 ```{python}
 x, y = 2, 6
@@ -200,13 +223,11 @@ print(a, b, c)
 
 The final block intentionally raises a `NameError` because `c` is read before it has been assigned.
 
+TODO: is the "parallel assignment" (whats the right name?) really done in parallel or one after the other? could I define a variable in the first statement, which is then used in the second assignment?
+
 ## Slide 13 — Basic formula programs
 
-Depending on available time, complete this exercise in class or assign it as homework.
-
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise}
-:::
+::: {.callout-tip title="Exercises (in-class or homework): Circle"}
 
 ```{python}
 #| echo: true
@@ -214,9 +235,9 @@ Depending on available time, complete this exercise in class or assign it as hom
 {{< include ../materials/session_04/CircleArea1.py >}}
 ```
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise}
 :::
+
+::: {.callout-tip title="Exercise (in-class or homework): FutureValue"}
 
 ```{python}
 #| echo: true
@@ -224,21 +245,23 @@ Depending on available time, complete this exercise in class or assign it as hom
 {{< include ../materials/session_04/FutureValue.py >}}
 ```
 
+:::
 
 ::: {.teaching-break}
 ☕ Break — 10 minutes
 :::
 
+{{< needspace 10 >}} 
+
 ## Slide 15 — Importing pandas
 
-The installation:
+Pandas is already installed. We verified it in the spyder setup script.
+
+If we need additional libraries, install them as follows (in a shell):
 
 ```sh
 pip install pandas
 ```
-
-is probably unnecessary because pandas is typically already available in the Spyder environment. Verify this for the installation used in the course.
-
 
 pandas DataFrames are widely used to load, inspect, clean, and prepare tabular data for machine learning. Models commonly receive DataFrames (or similar formats) depending on the library.
 
