@@ -25,8 +25,6 @@ Slides are on [nextcloud](https://nc-2272638881871040784.nextcloud-ionos.com/ind
 ::: {.callout-important title="TODO"}
 - Use **win10_64** (not **windows-10-virtual**) for XLOOKUP support.
 - Document with instructions to configure Excel (language, separators)? PR: available in canvas? Plan how to present (slide?)
-- TBD: save the Excel sheets for each group (to track progress)?
-- TBD: survey with reflection/questions for the next sessions (maybe as a digital or offline paper submission option?)
 :::
 
 ::: {.callout-tip title="Principles"}
