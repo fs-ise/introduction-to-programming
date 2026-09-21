@@ -5,3 +5,4 @@ title: "Feedback"
 - Add an exercise for mixed references.
 - Links to the excel files/sheets and python scripts/data files should be on the slides
 - Slide 21: Correct the typo and spell **sophisticated** with `ph`.
+- Exped.xlsx: should Transid be an incrementing index? in this case, it does not differ from the default/artificial index... It may be a more reasonable example if the new index differs from the one created by default.

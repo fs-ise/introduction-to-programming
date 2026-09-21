@@ -32,6 +32,8 @@ TODO: `Traveltime.py` appears in the exercise table, but it is not present in th
 
 The additional `shape` and column-name checks inspect the dataset before constructing the pivot table.
 
+`Sales.xlsx` is provided in Canvas in `data.zip`.
+
 ```python
 import pandas as pd
 

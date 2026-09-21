@@ -13,7 +13,11 @@ Resources:
 TODO: illustrate Excel structured references (if they are helpful to understand)?
 TBD: illustrate label and index-based access in Python or on the whiteboard?
 
-Note: `exped` corresponds to dataset `Exped_tabls.xls`. `data` corresponds to `Bikestore.xlsx`.
+::: {.callout-note title="Session 4 datasets"}
+The files underlying the `data` and `exped` DataFrames are available in Canvas in `data.zip`. If Spyder or its Python console has been restarted since Session 4, reload the datasets before running these examples.
+:::
+
+Note: `exped` corresponds to `Exped.xlsx`; `data` corresponds to the Bikesales dataset.
 
 TODO/TBD: start by explaining label/position-based access based on a whiteboard illustration (leverage similarities to Excel. Run the operations in parallel (**but make sure the results are identical with the illustration**))
 See: https://chatgpt.com/c/6a6758fc-2954-83eb-a108-c91f378dfc7c

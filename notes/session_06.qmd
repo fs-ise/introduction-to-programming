@@ -12,6 +12,9 @@ Note: ML/prediction is not relevant for the exam.
 
 Focus on descriptive statistics, basic charts, filtering, and grouping; distinguish exam-relevant content from enrichment.
 
+::: {.callout-note title="Session 4 datasets"}
+The files underlying the `data` and `exped` DataFrames are available in Canvas in `data.zip`. If Spyder or its Python console has been restarted since Session 4, reload the datasets before running these examples.
+:::
 
 | Time      | Topic/activity | Materials |
 | --------: | -------------- | --------- |

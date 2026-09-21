@@ -6,10 +6,12 @@ event_id: null
 
 ::: {.callout-note title="Preparation"}
 
-TBD/TODO: install Spyder on Fedora machine?
+TBD/TODO:
 
+- install Spyder on Fedora machine?
+- plan: download files into working directory? avoid working in this repo and avoid copying files during the session
 
-- When distributing `exercises.xlsx` separately, provide students with a zip of `Bikesales.xlsx`, `Bikesales,csv`, `Exped.xlsx`, and `Sales.xlsx`.
+- Before the pandas exercises, introduce the `data.zip` archive available in Canvas. Confirm that it contains `Bikesales.xlsx`, `Bikesales.csv`, `Exped.xlsx`, and `Sales.xlsx`, and that students have extracted it.
 - Transfer files to laptop/open environment
 - Create a reminder to inform tutors about the exercises that we completed and those that should be discussed in the tutoring sessions
 - Open PPTX for animations
@@ -27,7 +29,7 @@ TBD/TODO: install Spyder on Fedora machine?
 | 0–15 min  | pandas and imports | Slide 15 |
 | 15–35 min | Reading and inspecting Excel data | Slides 16–17; `Bikesales.xlsx` |
 | 35–50 min | File paths and CSV input | Slides 18–19 |
-| 50–65 min | Loading, previewing, and exporting data | Slide 20; `Exped_Table.xlsx` |
+| 50–65 min | Loading, previewing, and exporting data | Slide 20; `Exped.xlsx` |
 | 65–75 min | DataFrame indexes | Slide 21 |
 | 75–90 min | **Exercises: countries and insurance import/export**; unfinished work becomes homework | Slide 22; `countries.py`; `countries.csv`; `insurance.py`; `insurance.xlsx` |
 
@@ -220,8 +222,6 @@ print(a, b, c)
 
 The final block intentionally raises a `NameError` because `c` is read before it has been assigned.
 
-TODO: is the "parallel assignment" (whats the right name?) really done in parallel or one after the other? could I define a variable in the first statement, which is then used in the second assignment?
-
 ## Slide 13 — Basic formula programs
 
 ::: {.callout-tip title="Exercises (in-class or homework): Circle"}
@@ -270,7 +270,15 @@ import pandas as pd
 
 ### Slide 16 — Reading an Excel file into a DataFrame
 
-**TODO: get and link Bikesales.xlsx file**
+::: {.teaching-file}
+[`../materials/session_04/Bikesales.xlsx`](../materials/session_04/Bikesales.xlsx){.teaching-button .teaching-button-exercise}
+:::
+
+::: {.callout-important title="Required datasets"}
+Download `data.zip` from Canvas and extract it into your working directory. The archive contains `Bikesales.csv`, `Bikesales.xlsx`, `Exped.xlsx`, and `Sales.xlsx`. Make sure Spyder's working directory points to the folder containing these files before running the examples.
+:::
+
+The `Bikesales.xlsx` file used below is provided in Canvas as part of `data.zip`.
 
 Revisit the difference between absolute and relative file paths, referring to the explanation in the preparation booklet.
 
@@ -309,7 +317,7 @@ list(data)
 
 This path is machine-specific. The raw-string prefix `r` prevents Windows backslashes from being interpreted as escape sequences.
 
-**TODO: select a suitable path here:**
+**When working on Linux, show this hypothetically:**
 
 ```python
 import os
@@ -324,11 +332,9 @@ import os
 print(os.getcwd())
 ```
 
-**TODO: where is it in spyder?**
-
 ### Slide 19 — Reading CSV files
 
-The relative path is resolved against the active working directory.
+The relative path is resolved against the active working directory. `Bikesales.csv` is included in the same Canvas `data.zip` archive.
 
 ```python
 data = pd.read_csv('Bikesales.csv')
@@ -337,8 +343,10 @@ data = pd.read_csv('Bikesales.csv')
 ### Slide 20 — Loading, previewing, and exporting data
 
 ::: {.teaching-file}
-[`../materials/Exped_Table.xlsx`](../materials/Exped_Table.xlsx){.teaching-button .teaching-button-exercise}
+[`../materials/session_04/Exped.xlsx`](../materials/session_04/Exped.xlsx){.teaching-button .teaching-button-exercise}
 :::
+
+`Exped.xlsx` is included in the Canvas `data.zip` archive. `head()` previews the first rows; `index=False` avoids writing the DataFrame index as an extra CSV column.
 
 `head()` previews the first rows; `index=False` avoids writing the DataFrame index as an extra CSV column.
 
@@ -351,8 +359,6 @@ exped.to_csv('Exped.csv', index=False)
 ```
 
 ## Slide 21 — Setting a DataFrame index
-
-**TODO: think: should Transid be an incrementing index? in this case, it does not differ from the default/artificial index... It may be a more reasonable example if the new index differs from the one created by default.**
 
 After `set_index()`, `Transid` supplies the row labels.
 
