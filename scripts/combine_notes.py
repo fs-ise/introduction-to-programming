@@ -142,13 +142,20 @@ format:
         }}%
       }}
 
+      % KOMA positions the page-number box at \\linewidth-\\rightindent.  Keep
+      % the box width and trailing space explicit so the heading can use the
+      % very same column boundary.
+      \\newcommand{{\\notesTOCPageNumberBox}}[1]{{\\makebox[8em][l]{{#1}}}}
       \\DeclareTOCStyleEntry[
         pagenumberwidth=8em,
-        rightindent=9em
+        rightindent=9em,
+        pagenumberbox=\\notesTOCPageNumberBox
       ]{{tocline}}{{section}}
 
       \\AfterTOCHead[toc]{{%
-        \\noindent\\textbf{{Section}}\\hfill\\textbf{{Pages start with}}\\par
+        \\noindent
+        \\makebox[\\dimexpr\\linewidth-9em\\relax][l]{{\\textbf{{Section}}}}%
+        \\notesTOCPageNumberBox{{\\textbf{{Pages start with}}}}\\par
         \\smallskip
       }}
 

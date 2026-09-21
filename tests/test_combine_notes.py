@@ -76,10 +76,22 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     assert r"\usepackage{etoolbox}" not in combined
     assert r"\usepackage{scrlayer-scrpage}" in combined
     assert r"\DeclareTOCStyleEntry[" in combined
+    assert (
+        r"\newcommand{\notesTOCPageNumberBox}[1]{\makebox[8em][l]{#1}}"
+        in combined
+    )
     assert "pagenumberwidth=8em" in combined
     assert "rightindent=9em" in combined
+    assert r"pagenumberbox=\notesTOCPageNumberBox" in combined
     assert r"\AfterTOCHead[toc]{%" in combined
-    assert r"\textbf{Section}\hfill\textbf{Pages start with}" in combined
+    assert (
+        r"\makebox[\dimexpr\linewidth-9em\relax][l]{\textbf{Section}}%"
+        in combined
+    )
+    assert (
+        r"\notesTOCPageNumberBox{\textbf{Pages start with}}\par" in combined
+    )
+    assert r"\textbf{Section}\hfill" not in combined
     assert "fancyhdr" not in combined
     assert r"\clearpairofpagestyles" in combined
     assert 'title: "Introduction to Programming Teaching Notes"' in combined
