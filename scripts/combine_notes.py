@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 from pathlib import Path
 
 import yaml
@@ -10,9 +11,7 @@ import yaml
 HTML_BR_FILTER = Path(__file__).resolve().with_name("html_br_to_linebreak.lua")
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 COURSE_CONFIG = REPOSITORY_ROOT / "course.yml"
-NEEDSPACE_SHORTCODE = (
-    REPOSITORY_ROOT / "_extensions" / "needspace" / "needspace.lua"
-)
+NEEDSPACE_SHORTCODE = REPOSITORY_ROOT / "_extensions" / "needspace" / "needspace.lua"
 
 
 def escape_latex(value: str) -> str:
@@ -32,8 +31,24 @@ def escape_latex(value: str) -> str:
     return "".join(replacements.get(character, character) for character in value)
 
 
-def read_note(path: Path) -> tuple[str, str]:
-    """Return the title and body of a QMD file with YAML front matter."""
+def session_page_prefix(session_id: object, path: Path) -> str:
+    """Return a display prefix derived from a note's session ID."""
+    if not isinstance(session_id, str) or not session_id:
+        raise ValueError(f"{path} has no session_id in its YAML front matter")
+
+    match = re.fullmatch(r"session-(\d+)([a-z]*)", session_id)
+    if match is None:
+        raise ValueError(
+            f"{path} has invalid session_id {session_id!r}; "
+            "expected session-N with an optional lowercase-letter suffix"
+        )
+
+    number, suffix = match.groups()
+    return f"Session-{int(number)}{suffix}"
+
+
+def read_note(path: Path) -> tuple[str, str, str]:
+    """Return the title, body, and page prefix of a front-matter QMD file."""
     source = path.read_text(encoding="utf-8")
     lines = source.splitlines()
     if not lines or lines[0].strip() != "---":
@@ -53,7 +68,8 @@ def read_note(path: Path) -> tuple[str, str]:
     if not isinstance(title, str) or not title:
         raise ValueError(f"{path} has no title in its YAML front matter")
 
-    return title, "\n".join(lines[yaml_end + 1 :]).strip()
+    page_prefix = session_page_prefix(metadata.get("session_id"), path)
+    return title, "\n".join(lines[yaml_end + 1 :]).strip(), page_prefix
 
 
 def read_checklist(path: Path) -> tuple[str, str]:
@@ -78,29 +94,29 @@ def read_course_title() -> str:
     return title
 
 
-def combine(
-    output: Path, inputs: list[Path], checklist: Path | None = None
-) -> None:
+def combine(output: Path, inputs: list[Path], checklist: Path | None = None) -> None:
     """Combine note files into one PDF-oriented Quarto source."""
     teaching_notes_title = f"{read_course_title()} Teaching Notes"
     sections: list[str] = []
 
     sources = []
     if checklist is not None:
-        sources.append(read_checklist(checklist))
+        title, body = read_checklist(checklist)
+        sources.append((title, body, "Checklist"))
     sources.extend(read_note(path) for path in inputs)
 
-    for title, body in sources:
+    for title, body, page_prefix in sources:
         footer_label = escape_latex(f"{teaching_notes_title} - {title}")
-        sections.append(
-            f"""```{{=latex}}
+        sections.append(f"""```{{=latex}}
+\\clearpage
+\\renewcommand{{\\thepage}}{{{page_prefix}/p\\arabic{{page}}}}
+\\setcounter{{page}}{{1}}
 \\renewcommand{{\\teachingnotesfooterlabel}}{{{footer_label}}}
 ```
 
 # {title}
 
-{body}"""
-        )
+{body}""")
 
     front_matter = f"""---
 title: "{teaching_notes_title}"
@@ -125,6 +141,16 @@ format:
       \\usepackage{{scrlayer-scrpage}}
       \\usepackage{{needspace}}
 
+      \\DeclareTOCStyleEntry[
+        pagenumberwidth=8em,
+        rightindent=9em
+      ]{{tocline}}{{section}}
+
+      \\AfterTOCHead[toc]{{%
+        \\noindent\\textbf{{Section}}\\hfill\\textbf{{Pages start with}}\\par
+        \\smallskip
+      }}
+
       % The optional arguments apply the same footer to plain.scrheadings,
       % which KOMA uses for pages that would otherwise have a plain style.
       \\newcommand{{\\teachingnotesfooterlabel}}{{{escape_latex(teaching_notes_title)}}}
@@ -135,11 +161,9 @@ format:
 ---
 """
 
-    page_break = "\n\n\\newpage\n\n"
-
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(
-        front_matter + page_break + page_break.join(sections) + "\n",
+        front_matter + "\n\n".join(sections) + "\n",
         encoding="utf-8",
     )
 
