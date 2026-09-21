@@ -21,6 +21,23 @@ Notes:
 
 
 
+| Time      | Topic/activity | Materials |
+| --------: | -------------- | --------- |
+| 0–15 min  | Python, libraries, scripts, and Spyder | Slides 1–4 |
+| 15–30 min | Demo: first Python script | Slide 4; `Spydertest.py` |
+| 30–50 min | Arithmetic, strings, and variables | Slides 5–8 |
+| 50–65 min | Memory, `print()`, and program output | Slides 9–11 |
+| 65–90 min | **Exercises: circle area and future value** | Slide 13; `CircleArea1.py`; `FutureValue.py` |
+| **Break** | | |
+| 0–15 min  | pandas and imports | Slide 15 |
+| 15–35 min | Reading and inspecting Excel data | Slides 16–17; `Bikesales.xlsx` (TODO: missing) |
+| 35–50 min | File paths and CSV input | Slides 18–19 |
+| 50–65 min | Loading, previewing, and exporting data | Slide 20; `Exped_Table.xlsx` (missing) |
+| 65–75 min | DataFrame indexes | Slide 21 |
+| 75–90 min | **Exercises: countries and insurance import/export**; unfinished work becomes homework | Slide 22; `countries.py`; `countries.csv`; `insurance.py`; `insurance.xlsx` |
+
+: {tbl-colwidths="[20,40,40]"}
+
 {{< needspace 90 >}}
 
 ## Slide 1 - Introductory discussion

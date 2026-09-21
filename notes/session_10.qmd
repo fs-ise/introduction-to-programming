@@ -16,6 +16,25 @@ Notes:
 
 Cover loop termination, functions, and dictionaries, while retaining the planned exercise order and exam guidance.
 
+| Time      | Topic/activity | Materials |
+| --------: | -------------- | --------- |
+| 0–12 min  | `break` and `continue` | Slide 115 |
+| 12–22 min | **Exercise: loop termination**; dice-game extension is homework | Slide 116; `StopLoop.py`; homework: `dicegame3.py` |
+| 22–42 min | Functions, parameters, returns, and scope | Slides 118–120 |
+| 42–62 min | **Exercises: count digits and factorial**; set function homework | Slides 121–122; `CountDigits.py`; `Factorial.py`; homework: `Listmult.py`, `Harshad.py` |
+| 62–72 min | **Exercises: combinations and slot machine** | Slides 121–122; `Combinations.py`; `SlotMachine.py` |
+| 72–77 min | External modules | Slide 125 |
+| 77–90 min | Dictionary basics | Slides 127–128 |
+| **Break** | | |
+| 0–25 min  | Nested dictionaries | Slide 129 |
+| 25–45 min | Accessing nested values | Slide 130 |
+| 45–62 min | Modifying nested data | Slide 131 |
+| 62–72 min | JSON persistence | Slide 132 |
+| 72–87 min | **Exercise: friends dictionary and persistence** | Slide 133; `Friends.py` (generates `friends.db`) |
+| 87–90 min | Functions and dictionaries review | Slides 118–133 |
+
+: {tbl-colwidths="[20,40,40]"}
+
 ## Slide 115 — `break` and `continue`
 
 `break` terminates the loop, whereas `continue` skips the rest of the current iteration.

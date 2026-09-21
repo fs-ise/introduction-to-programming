@@ -10,6 +10,24 @@ Python-Teil: Vorsichtig vorgehen (möglichst viele Studis mitnehmen)
 TODO: `Traveltime.py` appears in the exercise table, but it is not present in the supplied material inventory. Do not create or substitute a file until the source is located.
 :::
 
+| Time      | Topic/activity | Materials |
+| --------: | -------------- | --------- |
+| 0–25 min  | Pivot tables: filtering and aggregation | Slides 58–62 |
+| 25–40 min | Pivot tables: dimensions and plots | Slides 63–65 |
+| 40–55 min | **Exercise: insurance pivot table** | Slide 67; `insurance.xlsx`; `insurance2.py` |
+| 55–70 min | Prediction concepts and data preparation | Slides 68–70 |
+| 70–80 min | Regression model comparison | Slides 71–73 |
+| 80–85 min | **Exercise: Chipotle analysis** | Slides 74–75; `Chipotle.csv`; `Chipotle.py` |
+| 85–90 min | **Exercise: Florida housing analysis** | Slides 76–77; `Homes_Florida.xlsx`; `Homes_Florida.py` |
+| **Break** | | |
+| 0–25 min  | Numeric types and conversion | Slides 80–82 |
+| 25–40 min | Keyboard input and conversion | Slide 83 |
+| 40–82 min | **Exercises: interactive formulas**; prioritize circle area and currency, then distance, fuel, and annuity loan | Slides 84–85; `CircleArea2.py`; `Currency.py`; `Distance.py`; `Fuel.py`; `AnnuityLoan1.py` |
+| 82–87 min | Homework: exercises 4–6 | Slides 84–85 |
+| 87–90 min | Boolean values and wrap-up | Slide 86 |
+
+: {tbl-colwidths="[20,40,40]"}
+
 ## Slide 58 — Load the sales data and create a pivot table
 
 The additional `shape` and column-name checks inspect the dataset before constructing the pivot table.

@@ -20,6 +20,22 @@ See: https://chatgpt.com/c/6a6758fc-2954-83eb-a108-c91f378dfc7c
 
 ![](../images/pandas_label_vs_position.png){fig-align="center" width="60%"}
 
+| Time      | Topic/activity | Materials |
+| --------: | -------------- | --------- |
+| 0–15 min  | Column access and `loc` | Slides 23–24 |
+| 15–35 min | Row selection with `loc` | Slide 25 |
+| 35–55 min | Position-based selection with `iloc` | Slides 26–27 |
+| 55–70 min | `loc`, `iloc`, and sorted labels | Slides 28–30 |
+| 70–90 min | **Exercise: countries DataFrame selection** | Slide 31; `countries.csv`; `countries1.py` |
+| **Break** | | |
+| 0–25 min  | Adding rows and columns | Slides 32–33 |
+| 25–40 min | Deleting rows and columns | Slide 34 |
+| 40–60 min | Sorting and DataFrame functions | Slide 35 |
+| 60–85 min | **Exercise: modify and sort countries data** | Slide 36; `countries.csv`; `countries2.py` |
+| 85–90 min | Review and questions | Slides 23–36 |
+
+: {tbl-colwidths="[20,40,40]"}
+
 ## Slide 23 — Accessing a column
 
 Both forms select one column, but bracket notation is more general because it works with any column name.

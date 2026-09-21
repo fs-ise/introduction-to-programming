@@ -6,6 +6,24 @@ event_id: null
 
 Explain loop mechanics with sums and products, then distinguish the planned in-class and homework exercises.
 
+| Time      | Topic/activity | Materials |
+| --------: | -------------- | --------- |
+| 0–25 min  | Ranges and `for` loops | Slide 109 |
+| 25–35 min | Demo: loop sums and products | Slides 110–111; `for_demo.py` |
+| 35–48 min | **Exercise: message** | Slides 110–111; `Message.py` |
+| 48–65 min | **Exercise: average** | Slides 110–111; `Average.py` |
+| 65–85 min | **Exercise: Fibonacci** | Slides 110–111; `Fibonacci.py` |
+| 85–90 min | `for`-loop homework | Slides 110–111; homework: `Tens.py`, `MultipleSum.py`, `Frequencies.py`, `Triangle.py` |
+| **Break** | | |
+| 0–25 min  | Condition-controlled `while` loops | Slide 112 |
+| 25–40 min | **Exercise: number guessing 1** | Slides 113–114; `Guess1.py` |
+| 40–58 min | **Exercise: number guessing 2** | Slides 113–114; `Guess2.py` |
+| 58–78 min | **Exercise: repeated dice game** | Slides 113–114; `dicegame2.py` |
+| 78–87 min | Homework: shopping list and loan | Slides 113–114; homework: `ShoppingList.py`, `Loan.py` |
+| 87–90 min | Loop review and questions | Slides 109–114 |
+
+: {tbl-colwidths="[20,40,40]"}
+
 ## Slide 109 — Ranges and `for` loops
 
 `range()` accepts a start, an exclusive stop, and an optional step.

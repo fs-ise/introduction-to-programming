@@ -13,6 +13,24 @@ Note: ML/prediction is not relevant for the exam.
 Focus on descriptive statistics, basic charts, filtering, and grouping; distinguish exam-relevant content from enrichment.
 
 
+| Time      | Topic/activity | Materials |
+| --------: | -------------- | --------- |
+| 0–20 min  | Sums, means, standard deviation, and correlation | Slides 37–39 |
+| 20–35 min | Summaries, unique values, and frequencies | Slides 40–41 |
+| 35–50 min | **Exercise: countries descriptive statistics** | Slide 42; `countries.csv`; `countries3.py` |
+| 50–70 min | Line charts | Slides 43–45 |
+| 70–80 min | Bar and pie charts | Slides 47–48 |
+| 80–90 min | **Exercise: countries visualizations** | Slide 49; `countries.csv`; `countries4.py` |
+| **Break** | | |
+| 0–20 min  | Boolean conditions and row filtering | Slides 50–51 |
+| 20–35 min | Combined conditions | Slide 52 |
+| 35–55 min | **Exercise: countries conditional filtering** | Slide 53; `countries.csv`; `countries5.py` |
+| 55–70 min | Grouping by one or more columns | Slides 54–55 |
+| 70–87 min | **Exercises: countries and insurance grouping** | Slide 56; `countries.csv`; `countries6.py`; `insurance.xlsx`; `insurance1.py` |
+| 87–90 min | Exam-relevant pandas review | Slides 37–56 |
+
+: {tbl-colwidths="[20,40,40]"}
+
 ## Slide 37 — Summing DataFrame values
 
 The latter two expressions calculate the same sums using label-based and position-based selection.

@@ -8,6 +8,24 @@ TOOD: include visualization of IBAN (see https://monitorpay.ai/iban-format-by-co
 
 Use the exercises to move from sequences to conditional logic, while keeping the stated homework decisions.
 
+| Time      | Topic/activity | Materials |
+| --------: | -------------- | --------- |
+| 0–20 min  | Strings: creation and slicing | Slides 88–90 |
+| 20–40 min | **Exercises: strings 1–2**; exercise 3 is homework | Slides 91–92; `String1.py`; `String2.py`; homework: `String3.py` |
+| 40–52 min | **Exercise: IBAN** | Slides 91–92; `IBAN.py` |
+| 52–67 min | Lists: creation and slicing | Slides 93–94 |
+| 67–77 min | **Exercise: list 1**; exercise 2 is homework | Slide 97; `Listexercise1.py`; homework: `Listexercise2.py` |
+| 77–90 min | Tuples and mutability | Slides 98–99 |
+| **Break** | | |
+| 0–30 min  | Conditional branches | Slide 104 |
+| 30–45 min | **Exercise: odd/even** | Slides 105–107; `OddEven.py` |
+| 45–58 min | **Exercise: discount** | Slides 105–107; `Discount.py` |
+| 58–68 min | **Exercise: dice game and block placement** | Slides 105–107; `dicegame1.py` |
+| 68–78 min | **Exercise: temperature** | Slides 105–107; `Temperature.py` |
+| 78–90 min | Conditional homework and wrap-up | Slides 105–107; homework: `AnnuityLoan2.py`, `Grade.py`, `Tax.py` |
+
+: {tbl-colwidths="[20,40,40]"}
+
 ## Slide 88 — Creating strings
 
 Single and double quotation marks both create strings and allow the other kind of quote to appear inside a value.
