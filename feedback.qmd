@@ -3,3 +3,5 @@ title: "Feedback"
 ---
 
 - Add an exercise for mixed references.
+- Links to the excel files/sheets and python scripts/data files should be on the slides
+- Slide 21: Correct the typo and spell **sophisticated** with `ph`.
