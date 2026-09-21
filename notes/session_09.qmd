@@ -153,7 +153,7 @@ Note: 3–4 and 6–7 are homework.
 ```
 
 ::: {.teaching-break}
-☕ Break — 10 minutes
+Break — 10 minutes
 :::
 
 ## Slide 112 — `while` loops

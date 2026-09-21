@@ -245,7 +245,7 @@ TODO: is the "parallel assignment" (whats the right name?) really done in parall
 :::
 
 ::: {.teaching-break}
-☕ Break — 10 minutes
+Break — 10 minutes
 :::
 
 {{< needspace 10 >}} 

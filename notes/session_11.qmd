@@ -135,7 +135,7 @@ The pandas portion of the exam is “pure pandas”; it does not combine pandas 
 :::
 
 ::: {.teaching-break}
-☕ Break — 10 minutes
+Break — 10 minutes
 :::
 
 ## Slide 152 — JSON data retrieval

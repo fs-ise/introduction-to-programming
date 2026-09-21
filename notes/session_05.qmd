@@ -146,7 +146,7 @@ The loc (blue) may change its positions.
 - Guide students through selecting columns and rows with `iloc` and `loc`.
 
 ::: {.teaching-break}
-☕ Break — 10 minutes
+Break — 10 minutes
 :::
 
 ## Slide 32 — Adding rows and columns

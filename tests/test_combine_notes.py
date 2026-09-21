@@ -8,6 +8,7 @@ import pytest
 from scripts.combine_notes import (
     HTML_BR_FILTER,
     NEEDSPACE_SHORTCODE,
+    TEACHING_BREAK_FILTER,
     combine,
     session_page_prefix,
 )
@@ -33,6 +34,7 @@ def test_combine_preserves_html_line_breaks_and_configures_filter(
     combined = output.read_text(encoding="utf-8")
     assert "Slides 7–10<br>Slides 7 and 10<br />Exercise" in combined
     assert f"filters:\n  - {HTML_BR_FILTER.as_posix()}" in combined
+    assert f"  - {TEACHING_BREAK_FILTER.as_posix()}" in combined
     assert f"shortcodes:\n  - {NEEDSPACE_SHORTCODE.as_posix()}" in combined
     assert HTML_BR_FILTER.is_absolute()
     assert NEEDSPACE_SHORTCODE.is_absolute()
@@ -64,6 +66,15 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     assert "footskip=0.9cm" in combined
     assert r"\usepackage{needspace}" in combined
     assert r"\usepackage{fvextra}" in combined
+    assert r"\usepackage[skins]{tcolorbox}" in combined
+    assert r"\tcbuselibrary{breakable}" in combined
+    assert r"\newtcolorbox{teachingbreak}{%" in combined
+    assert "borderline north={0.4pt}{0pt}{gray!45}" in combined
+    assert "borderline south={0.4pt}{0pt}{gray!45}" in combined
+    assert "halign=center" in combined
+    assert r"fontupper=\bfseries" in combined
+    # tcolorbox is unbreakable unless its `breakable` option is enabled.
+    assert "        breakable," not in combined
     assert r"\AtBeginDocument{%" in combined
     assert r"\DefineVerbatimEnvironment{Highlighting}{Verbatim}{%" in combined
     assert r"commandchars=\\\{\},%" in combined
@@ -200,6 +211,62 @@ def test_needspace_extension_supports_pdf_and_ignores_html() -> None:
     assert r"\\Needspace{%s\\baselineskip}" in shortcode
 
 
+def test_teaching_break_filter_targets_only_latex_teaching_breaks(
+    tmp_path: Path,
+) -> None:
+    if shutil.which("pandoc") is not None:
+        pandoc_command = ["pandoc"]
+    elif shutil.which("quarto") is not None:
+        # Quarto distributions include Pandoc even when it is not on PATH.
+        pandoc_command = ["quarto", "pandoc"]
+    else:
+        pytest.skip("neither standalone nor Quarto-bundled Pandoc is available")
+
+    source = (
+        "::: {.teaching-break}\nBreak — 10 minutes\n:::\n\n"
+        "::: {.other-callout}\nKeep me unchanged.\n:::\n"
+    )
+    markdown = tmp_path / "break.md"
+    markdown.write_text(source, encoding="utf-8")
+
+    latex = subprocess.run(
+        [
+            *pandoc_command,
+            markdown.name,
+            "--lua-filter",
+            str(TEACHING_BREAK_FILTER),
+            "-t",
+            "latex",
+        ],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+        check=True,
+    ).stdout
+    assert r"\begin{teachingbreak}" in latex
+    assert "Break" in latex
+    assert "10 minutes" in latex
+    assert r"\end{teachingbreak}" in latex
+    assert "Keep me unchanged." in latex
+
+    html = subprocess.run(
+        [
+            *pandoc_command,
+            markdown.name,
+            "--lua-filter",
+            str(TEACHING_BREAK_FILTER),
+            "-t",
+            "html",
+        ],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+        check=True,
+    ).stdout
+    assert 'class="teaching-break"' in html
+    assert "Break — 10 minutes" in html
+
+
 def test_generated_document_renders_needspace_shortcode(tmp_path: Path) -> None:
     required_commands = ["quarto", "pdftotext"]
     latex_commands = ["xelatex", "lualatex", "pdflatex", "tectonic"]
@@ -268,6 +335,32 @@ def _render_pdf(combined: Path) -> tuple[str, Path]:
     render_log = rendered.stdout + rendered.stderr
     assert rendered.returncode == 0, render_log
     return render_log, combined.with_name("notes.pdf")
+
+
+def test_pdf_builds_with_quarto_callout_and_teaching_break(tmp_path: Path) -> None:
+    _pdf_tools_or_skip()
+    note = tmp_path / "note.qmd"
+    note.write_text(
+        '---\ntitle: "Callouts"\nsession_id: session-06\n---\n\n'
+        "::: {.callout-note}\nA standard Quarto callout.\n:::\n\n"
+        "::: {.teaching-break}\nBreak — 10 minutes\n:::\n",
+        encoding="utf-8",
+    )
+    combined = tmp_path / "notes.qmd"
+    combine(combined, [note])
+
+    render_log, pdf = _render_pdf(combined)
+    assert "I do not know the key '/tcb/breakable'" not in render_log
+
+    extracted = subprocess.run(
+        ["pdftotext", pdf.name, "-"],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+        check=True,
+    ).stdout
+    assert "A standard Quarto callout." in extracted
+    assert "Break — 10 minutes" in extracted
 
 
 def test_long_highlighted_code_wraps_inside_pdf_text_area(tmp_path: Path) -> None:

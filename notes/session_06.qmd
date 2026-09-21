@@ -159,7 +159,7 @@ Only line and bar plots are relevant to the exam; see the document listing exam-
 :::
 
 ::: {.teaching-break}
-☕ Break — 10 minutes
+Break — 10 minutes
 :::
 
 ## Slide 50 — Creating a Boolean condition

@@ -234,7 +234,7 @@ Through `Design` ribbon:
 :::
 
 ::: {.teaching-break}
-☕ Break — 10 minutes
+Break — 10 minutes
 :::
 
 ### Slide 73 — PivotCharts

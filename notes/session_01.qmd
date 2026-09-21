@@ -261,7 +261,7 @@ Solution:
 ![](../images/excel_coffeeshop_charts.png){fig-align="center" width="90%"}
 
 ::: {.teaching-break}
-☕ Break — 10 minutes
+Break — 10 minutes
 :::
 
 ## Slide 16 — Formula syntax and functions

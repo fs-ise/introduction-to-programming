@@ -258,7 +258,7 @@ Show the correct version to students: PDF in Canvas (**images/excel_grading_assi
 :::
 
 ::: {.teaching-break}
-☕ Break — 10 minutes
+Break — 10 minutes
 :::
 
 ## Slides 38–39 — Introduction to Excel Tables

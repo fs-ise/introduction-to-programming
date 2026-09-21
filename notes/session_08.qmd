@@ -200,7 +200,7 @@ mytupel[2] = 5
 ```
 
 ::: {.teaching-break}
-☕ Break — 10 minutes
+Break — 10 minutes
 :::
 
 ## Slide 104 — Conditional statements

@@ -9,6 +9,7 @@ from pathlib import Path
 import yaml
 
 HTML_BR_FILTER = Path(__file__).resolve().with_name("html_br_to_linebreak.lua")
+TEACHING_BREAK_FILTER = Path(__file__).resolve().with_name("teaching_break.lua")
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 COURSE_CONFIG = REPOSITORY_ROOT / "course.yml"
 NEEDSPACE_SHORTCODE = REPOSITORY_ROOT / "_extensions" / "needspace" / "needspace.lua"
@@ -104,6 +105,7 @@ title: "{teaching_notes_title}"
 papersize: a4
 filters:
   - {HTML_BR_FILTER.as_posix()}
+  - {TEACHING_BREAK_FILTER.as_posix()}
 shortcodes:
   - {NEEDSPACE_SHORTCODE.as_posix()}
 format:
@@ -122,6 +124,28 @@ format:
       \\usepackage{{scrlayer-scrpage}}
       \\usepackage{{needspace}}
       \\usepackage{{fvextra}}
+      \\usepackage[skins]{{tcolorbox}}
+      \\tcbuselibrary{{breakable}}
+
+      % A restrained, unbreakable callout for breaks in the teaching schedule.
+      \\newtcolorbox{{teachingbreak}}{{%
+        enhanced,
+        colback=gray!8,
+        frame hidden,
+        boxrule=0pt,
+        borderline north={{0.4pt}}{{0pt}}{{gray!45}},
+        borderline south={{0.4pt}}{{0pt}}{{gray!45}},
+        arc=1.5mm,
+        outer arc=1.5mm,
+        left=5mm,
+        right=5mm,
+        top=3mm,
+        bottom=3mm,
+        before skip=6mm,
+        after skip=6mm,
+        halign=center,
+        fontupper=\\bfseries
+      }}
 
       % Pandoc defines Highlighting in its template, after header-includes has
       % been processed.  Delay the customization so that it replaces Pandoc's

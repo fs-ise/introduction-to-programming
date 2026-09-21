@@ -428,7 +428,7 @@ with open('students.db', 'r', encoding='utf-8') as file:
 ```
 
 ::: {.teaching-break}
-☕ Break — 10 minutes
+Break — 10 minutes
 :::
 
 ## Slide 133 — Dictionaries and persistence

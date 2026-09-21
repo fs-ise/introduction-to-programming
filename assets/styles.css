@@ -89,6 +89,13 @@
   border-radius: 0.4rem;
 }
 
+.teaching-break::before {
+  content: "☕";
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-weight: normal;
+}
+
 /* Semantic colors shared by teaching-file labels and their file buttons. */
 :root {
   --teaching-demo-color: #0b5ed7;

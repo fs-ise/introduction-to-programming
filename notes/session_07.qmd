@@ -296,7 +296,7 @@ predictivemodel_net.predict([[5, 5, 1]])
 ```
 
 ::: {.teaching-break}
-☕ Break — 10 minutes
+Break — 10 minutes
 :::
 
 {{< needspace 8 >}}
