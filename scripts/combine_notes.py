@@ -140,6 +140,26 @@ format:
     header-includes: |
       \\usepackage{{scrlayer-scrpage}}
       \\usepackage{{needspace}}
+      \\usepackage{{fvextra}}
+
+      % Pandoc defines Highlighting in its template, after header-includes has
+      % been processed.  Delay the customization so that it replaces Pandoc's
+      % definition, and configure its plain verbatim environment separately.
+      \\AtBeginDocument{{%
+        \\DefineVerbatimEnvironment{{Highlighting}}{{Verbatim}}{{%
+          commandchars=\\\\\\{{\\}},%
+          breaklines=true,%
+          breaknonspaceingroup=true,%
+          breakanywhere=true,%
+          breaksymbolleft={{}}%
+        }}%
+        \\RecustomVerbatimEnvironment{{verbatim}}{{Verbatim}}{{%
+          breaklines=true,%
+          breaknonspaceingroup=true,%
+          breakanywhere=true,%
+          breaksymbolleft={{}}%
+        }}%
+      }}
 
       \\DeclareTOCStyleEntry[
         pagenumberwidth=8em,

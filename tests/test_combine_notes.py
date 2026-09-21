@@ -1,5 +1,6 @@
 import shutil
 import subprocess
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import pytest
@@ -62,6 +63,15 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     assert "bottom=2.2cm" in combined
     assert "footskip=0.9cm" in combined
     assert r"\usepackage{needspace}" in combined
+    assert r"\usepackage{fvextra}" in combined
+    assert r"\AtBeginDocument{%" in combined
+    assert r"\DefineVerbatimEnvironment{Highlighting}{Verbatim}{%" in combined
+    assert r"commandchars=\\\{\},%" in combined
+    assert r"\RecustomVerbatimEnvironment{verbatim}{Verbatim}{%" in combined
+    assert combined.count("breaklines=true,%") == 2
+    assert combined.count("breaknonspaceingroup=true,%") == 2
+    assert combined.count("breakanywhere=true,%") == 2
+    assert combined.count("breaksymbolleft={}%") == 2
     assert r"\pretocmd{\subsection}{\clearpage}" not in combined
     assert r"\usepackage{etoolbox}" not in combined
     assert r"\usepackage{scrlayer-scrpage}" in combined
@@ -222,3 +232,109 @@ def test_generated_document_renders_needspace_shortcode(tmp_path: Path) -> None:
     assert "Before the pagination directive." in extracted
     assert "After the pagination directive." in extracted
     assert "needspace" not in extracted.lower()
+
+
+def _pdf_tools_or_skip() -> None:
+    required_commands = ["quarto", "pdftotext"]
+    latex_commands = ["xelatex", "lualatex", "pdflatex", "tectonic"]
+    missing = [
+        command for command in required_commands if shutil.which(command) is None
+    ]
+    if not any(shutil.which(command) for command in latex_commands):
+        missing.append("a LaTeX engine")
+    if missing:
+        pytest.skip(f"PDF rendering tools unavailable: {', '.join(missing)}")
+
+
+def _render_pdf(combined: Path) -> tuple[str, Path]:
+    rendered = subprocess.run(
+        ["quarto", "render", combined.name, "--to", "pdf", "--output", "notes.pdf"],
+        cwd=combined.parent,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    render_log = rendered.stdout + rendered.stderr
+    assert rendered.returncode == 0, render_log
+    return render_log, combined.with_name("notes.pdf")
+
+
+def test_long_highlighted_code_wraps_inside_pdf_text_area(tmp_path: Path) -> None:
+    _pdf_tools_or_skip()
+    long_token = "https://example.invalid/" + "unbroken-path-segment-" * 14
+    note = tmp_path / "note.qmd"
+    note.write_text(
+        '---\ntitle: "Code wrapping"\nsession_id: session-04\n---\n\n'
+        "```python\n"
+        'short_value = "unchanged"\n'
+        f'long_value = "{long_token}"\n'
+        "```\n",
+        encoding="utf-8",
+    )
+    combined = tmp_path / "notes.qmd"
+    combine(combined, [note])
+
+    render_log, pdf = _render_pdf(combined)
+    assert "Overfull \\hbox" not in render_log
+
+    text = subprocess.run(
+        ["pdftotext", "-layout", pdf.name, "-"],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+        check=True,
+    ).stdout
+    assert long_token in "".join(text.split())
+    assert 'short_value = "unchanged"' in text
+
+    bbox_xml = subprocess.run(
+        ["pdftotext", "-bbox-layout", pdf.name, "-"],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+        check=True,
+    ).stdout
+    root = ET.fromstring(bbox_xml)
+    pages = [element for element in root.iter() if element.tag.endswith("page")]
+    assert pages
+    page_width = float(pages[0].attrib["width"])
+    code_words = [
+        word
+        for word in root.iter()
+        if word.tag.endswith("word")
+        and (word.text or "").strip()
+        and (
+            "example.invalid" in (word.text or "")
+            or "unbroken-path" in (word.text or "")
+        )
+    ]
+    assert code_words
+    assert len({round(float(word.attrib["yMin"]), 1) for word in code_words}) > 1
+    # The document has 1.5 cm margins; tolerate a few points of glyph overhang.
+    assert max(float(word.attrib["xMax"]) for word in code_words) < page_width - 35
+
+
+def test_pdf_with_only_plain_fenced_code_builds(tmp_path: Path) -> None:
+    _pdf_tools_or_skip()
+    long_token = "plain_" * 80
+    note = tmp_path / "note.qmd"
+    note.write_text(
+        '---\ntitle: "Plain code"\nsession_id: session-05\n---\n\n'
+        "```\n"
+        f"{long_token}\n"
+        "```\n",
+        encoding="utf-8",
+    )
+    combined = tmp_path / "notes.qmd"
+    combine(combined, [note])
+
+    render_log, pdf = _render_pdf(combined)
+    assert "Overfull \\hbox" not in render_log
+    extracted = subprocess.run(
+        ["pdftotext", pdf.name, "-"],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+        check=True,
+    ).stdout
+    assert long_token in "".join(extracted.split())
