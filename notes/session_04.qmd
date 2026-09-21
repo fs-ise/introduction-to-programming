@@ -8,11 +8,8 @@ event_id: null
 
 TBD/TODO: install Spyder on Fedora machine?
 
-TODO: files currently missing in Canvas distribution? (contained in the Exercises_Excel.zip; which I removed/replaced by exercise.xlsx... provide the files separately?)
 
-- `Bikesales.xlsx`
-- `Exped_Table.xlsx`
-
+- When distributing `exercises.xlsx` separately, provide students with a zip of `Bikesales.xlsx`, `Bikesales,csv`, `Exped.xlsx`, and `Sales.xlsx`.
 - Transfer files to laptop/open environment
 - Create a reminder to inform tutors about the exercises that we completed and those that should be discussed in the tutoring sessions
 - Open PPTX for animations
