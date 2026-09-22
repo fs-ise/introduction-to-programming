@@ -14,6 +14,11 @@ const QR_RENDERER = path.join(ROOT, "_extensions/jmbuhr/qrcode/qrcode.js");
 const QR_CODES = [
   {
     destination:
+      "https://fs-ise.github.io/introduction-to-programming/materials/excel-cheat-sheet.pdf",
+    output: path.join(ROOT, "images/qr_excel_cheat_sheet.png"),
+  },
+  {
+    destination:
       "https://fs-ise.github.io/introduction-to-programming/student_guide/language-settings.html",
     output: path.join(ROOT, "images/qr_excel_language_settings.png"),
   },
@@ -63,6 +68,33 @@ function encodeGrayscalePng(pixels, width, height) {
   ]);
 }
 
+function pngImageData(png) {
+  let header;
+  const imageChunks = [];
+  let offset = 8;
+  while (offset < png.length) {
+    const length = png.readUInt32BE(offset);
+    const type = png.toString("ascii", offset + 4, offset + 8);
+    const data = png.subarray(offset + 8, offset + 8 + length);
+    if (type === "IHDR") header = data;
+    if (type === "IDAT") imageChunks.push(data);
+    offset += length + 12;
+  }
+  return Buffer.concat([header, zlib.inflateSync(Buffer.concat(imageChunks))]);
+}
+
+function writePngIfChanged(output, png) {
+  if (
+    fs.existsSync(output) &&
+    pngImageData(fs.readFileSync(output)).equals(pngImageData(png))
+  ) {
+    const now = new Date();
+    fs.utimesSync(output, now, now);
+    return;
+  }
+  fs.writeFileSync(output, png);
+}
+
 function renderQrCode(destination) {
   const pixels = Buffer.alloc(IMAGE_SIZE * IMAGE_SIZE, 255);
   const context = {
@@ -107,6 +139,6 @@ function renderQrCode(destination) {
 }
 
 for (const { destination, output } of QR_CODES) {
-  fs.writeFileSync(output, renderQrCode(destination));
+  writePngIfChanged(output, renderQrCode(destination));
   process.stdout.write(`Generated ${path.relative(ROOT, output)} for ${destination}\n`);
 }

@@ -12,7 +12,7 @@ TEACHING_CHECKLIST := notes/teaching_checklist.qmd
 NOTES_PDF := $(OUT_DIR)/notes.pdf
 NOTES_COMBINED := _pdf-tmp/notes.qmd
 CHEAT_SHEET_PDF := materials/excel-cheat-sheet.pdf
-QR_CODES := images/qr_excel_language_settings.png
+QR_CODES := images/qr_excel_cheat_sheet.png images/qr_excel_language_settings.png
 .PHONY: help site site-fast pdfs notes cheat-sheet exercises exercises-assign exercises-solution all sync-events clean
 help:
 	@echo "Targets: site, pdfs, notes, cheat-sheet, exercises, all, sync-events, clean"

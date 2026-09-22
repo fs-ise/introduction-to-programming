@@ -27,3 +27,17 @@
 - [ ] **Student counselling contact:** Alexandra Rübesam, [+49 69 154008-810](tel:+4969154008810), [a.ruebesam@fs.de](mailto:a.ruebesam@fs.de).
 
 > Refer students to the appropriate professional service; do not independently assess disabilities or promise examination accommodations.
+
+{{< pagebreak >}}
+
+## Excel cheat sheet
+
+Excel keyboard shortcuts for Windows and macOS.
+
+::: {.content-visible when-format="html"}
+[![](images/qr_excel_cheat_sheet.png){width=2.7cm fig-alt="QR code linking to the Excel cheat sheet"}](https://fs-ise.github.io/introduction-to-programming/materials/excel-cheat-sheet.pdf)
+:::
+
+::: {.content-visible when-format="pdf"}
+[![](../images/qr_excel_cheat_sheet.png){width=2.7cm fig-alt="QR code linking to the Excel cheat sheet"}](https://fs-ise.github.io/introduction-to-programming/materials/excel-cheat-sheet.pdf)
+:::
