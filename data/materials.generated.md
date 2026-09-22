@@ -5,28 +5,37 @@
 | Material | Type |
 |---|---|
 | [Excel setup](materials/excel_setup.html) | Web page |
-| [Exercises](materials/exercises.xlsx) | Excel workbook |
 | [Loan illustrations](materials/loans.html) | Web page |
 
 ## Data
 
 | Material | Type |
 |---|---|
+| [Bikesales](materials/data/Bikesales.csv) | CSV file |
+| [Bikesales](materials/data/Bikesales.xlsx) | Excel workbook |
 | [Chipotle](materials/data/Chipotle.csv) | CSV file |
 | [Countries](materials/data/countries.csv) | CSV file |
+| [Exped](materials/data/Exped.xlsx) | Excel workbook |
 | [Homes Florida](materials/data/Homes_Florida.xlsx) | Excel workbook |
 | [Insurance](materials/data/insurance.xlsx) | Excel workbook |
+| [Sales](materials/data/Sales.xlsx) | Excel workbook |
+| [Stockprice](materials/data/Stockprice.csv) | CSV file |
 | [Stocks](materials/data/Stocks.csv) | CSV file |
+| [Student performance](materials/data/Student_performance.csv) | CSV file |
+| [Temperatures](materials/data/temperatures.csv) | CSV file |
+
+## Session 01
+
+| Material | Type |
+|---|---|
+| [Exercises](materials/session_01/exercises.xlsx) | Excel workbook |
 
 ## Session 04
 
 | Material | Type |
 |---|---|
-| [Bikesales](materials/session_04/Bikesales.csv) | CSV file |
-| [Bikesales](materials/session_04/Bikesales.xlsx) | Excel workbook |
 | [CircleArea1](materials/session_04/CircleArea1.py) | PY file |
 | [Countries](materials/session_04/countries.py) | PY file |
-| [Exped](materials/session_04/Exped.xlsx) | Excel workbook |
 | [FutureValue](materials/session_04/FutureValue.py) | PY file |
 | [Insurance](materials/session_04/insurance.py) | PY file |
 | [Spydertest](materials/session_04/Spydertest.py) | PY file |
@@ -47,7 +56,6 @@
 | [Countries5](materials/session_06/countries5.py) | PY file |
 | [Countries6](materials/session_06/countries6.py) | PY file |
 | [Insurance1](materials/session_06/insurance1.py) | PY file |
-| [Temperatures](materials/session_06/temperatures.csv) | CSV file |
 
 ## Session 07
 
@@ -61,8 +69,6 @@
 | [Fuel](materials/session_07/Fuel.py) | PY file |
 | [Homes Florida](materials/session_07/Homes_Florida.py) | PY file |
 | [Insurance2](materials/session_07/insurance2.py) | PY file |
-| [Sales](materials/session_07/Sales.xlsx) | Excel workbook |
-| [Student performance](materials/session_07/Student_performance.csv) | CSV file |
 
 ## Session 08
 
@@ -124,5 +130,4 @@
 | [Cryptocurrencies](materials/session_11/Cryptocurrencies.py) | PY file |
 | [MercedesBenz1](materials/session_11/MercedesBenz1.py) | PY file |
 | [MercedesBenz2](materials/session_11/MercedesBenz2.py) | PY file |
-| [Stockprice](materials/session_11/Stockprice.csv) | CSV file |
 | [Stocks](materials/session_11/Stocks.py) | PY file |

@@ -36,13 +36,13 @@ Keep API examples non-executable in rendered notes and select them according to 
 The loop calculates the mean of the preceding ten observations and writes it into the `MA10` column. The first ten positions remain empty because no complete ten-observation window is available.
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_11/Stockprice.csv`](../materials/session_11/Stockprice.csv){.teaching-button .teaching-button-demo}
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/data/Stockprice.csv`](../materials/data/Stockprice.csv){.teaching-button .teaching-button-demo}
 :::
 
 ```python
 import pandas as pd
 
-data = pd.read_csv('Stockprice.csv')
+data = pd.read_csv("data/Stockprice.csv")
 data.head()
 
 data['MA10'] = None

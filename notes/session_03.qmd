@@ -41,7 +41,7 @@ Students should configure Excel to use **English function names** and **comma se
 ## Homework review: Christmas gift
 
 ::: {.teaching-file}
-[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Gift
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/session_01/exercises_with_solutions.xlsx`](../materials/session_01/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Gift
 :::
 
 Students should retrieve two values based on customer status:
@@ -78,7 +78,7 @@ Contrast the formula structure with `VLOOKUP`:
 ## Homework review: Course grading
 
 ::: {.teaching-file}
-[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/session_01/exercises_with_solutions.xlsx`](../materials/session_01/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
 :::
 
 ### `VLOOKUP` solution
@@ -120,7 +120,7 @@ Use the [teaching notes for Session 2](session_02.html#slides-5152-excel-tables-
 ## Slides 54–60 — Pivot tables: From data to management questions
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheets: Sales_data | Sales_pivot
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheets: Sales_data | Sales_pivot
 :::
 
 Refer to the Excel Table example (from previous session): highlight that manually writing formulas for aggregate and conditional statistics can be tedious (e.g., by product, region, time).
@@ -273,7 +273,7 @@ Key point:
 **Important**: Create PivotTable for the `Store_data` sheet, which contains dates!
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheets: Store_data | Store_pivot
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheets: Store_data | Store_pivot
 :::
 
 Explain that PivotTables can aggregate an actual date field automatically.
@@ -323,7 +323,7 @@ Explain:
 ## Slide 76 — Exercise: Exporter pivot tables
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheets: Exporter_data | Exporter_pivot
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheets: Exporter_data | Exporter_pivot
 :::
 
 Complete this exercise in class only if sufficient time remains. Otherwise, assign it as homework.
@@ -382,7 +382,7 @@ Teaching procedure:
 ## Slide 78 — Exercise: Expeditioner pivot analysis
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise}/[Homework]{.teaching-label .teaching-label-homework} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheets: Exped_data | Exped_pivot
+[In-class exercise]{.teaching-label .teaching-label-exercise}/[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheets: Exped_data | Exped_pivot
 :::
 
 **Note**: Sales refers to the **REVENUE** column (unless we refer to the number of products).

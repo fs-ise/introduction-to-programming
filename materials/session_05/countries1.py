@@ -1,6 +1,6 @@
 import pandas as pd
 
-countries = pd.read_csv('countries.csv')
+countries = pd.read_csv('data/countries.csv')
 
 countries['Country']
 countries.Country
@@ -12,4 +12,3 @@ countries.iloc[[11, 6, 14], [0, 3]]
 countries.loc[:, ['Country', 'GDP']]
 countries.loc[2:5, ['Country', 'GDP']]
 countries.loc[4:13, ['Country', 'Continent', 'Area']]
-

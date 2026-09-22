@@ -1,6 +1,6 @@
 import pandas as pd
 
-houses = pd.read_excel('Homes_Florida.xlsx')
+houses = pd.read_excel('data/Homes_Florida.xlsx')
 
 #1 Erzeugen Sie eine neue Spalte namens Profit, die den bei den Haustransaktionen erzielten Gewinn enthält.
 houses['Profit'] = houses.Sales_Price - houses.Purchase_Price
@@ -77,7 +77,6 @@ from sklearn.metrics import r2_score
 r2_score(y, forecasts)
 
 forecastmodel.predict([[5, 2000, 3]])
-
 
 
 

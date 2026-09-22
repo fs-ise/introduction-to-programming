@@ -6,12 +6,8 @@ event_id: null
 
 ::: {.callout-note title="Preparation"}
 
-TBD/TODO:
-
 - install Spyder on Fedora machine?
-- plan: download files into working directory? avoid working in this repo and avoid copying files during the session
-
-- Before the pandas exercises, introduce the `data.zip` archive available in Canvas. Confirm that it contains `Bikesales.xlsx`, `Bikesales.csv`, `Exped.xlsx`, and `Sales.xlsx`, and that students have extracted it.
+- Before the pandas exercises, introduce the `data.zip` archive available in Canvas. Confirm that students have extracted its datasets into a `data/` folder.
 - Transfer files to laptop/open environment
 - Create a reminder to inform tutors about the exercises that we completed and those that should be discussed in the tutoring sessions
 - Open PPTX for animations
@@ -271,11 +267,11 @@ import pandas as pd
 ### Slide 16 — Reading an Excel file into a DataFrame
 
 ::: {.teaching-file}
-[`../materials/session_04/Bikesales.xlsx`](../materials/session_04/Bikesales.xlsx){.teaching-button .teaching-button-exercise}
+[`../materials/data/Bikesales.xlsx`](../materials/data/Bikesales.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
 ::: {.callout-important title="Required datasets"}
-Download `data.zip` from Canvas and extract it into your working directory. The archive contains `Bikesales.csv`, `Bikesales.xlsx`, `Exped.xlsx`, and `Sales.xlsx`. Make sure Spyder's working directory points to the folder containing these files before running the examples.
+Download `data.zip` from Canvas and extract its files into a `data/` folder. The archive contains `Bikesales.csv`, `Bikesales.xlsx`, `Exped.xlsx`, and `Sales.xlsx`.
 :::
 
 The `Bikesales.xlsx` file used below is provided in Canvas as part of `data.zip`.
@@ -285,7 +281,7 @@ Revisit the difference between absolute and relative file paths, referring to th
 The final expression displays the DataFrame in an interactive environment.
 
 ```python
-data = pd.read_excel('Bikesales.xlsx')
+data = pd.read_excel("data/Bikesales.xlsx")
 data
 ```
 
@@ -315,16 +311,13 @@ list(data)
 
 ## Slide 18 — Working directory and file paths
 
-This path is machine-specific. The raw-string prefix `r` prevents Windows backslashes from being interpreted as escape sequences.
+::: {.callout-important title="Working directory"}
+During classroom demonstrations, the instructor selects the repository's `materials/` directory as the working directory in Spyder. A **relative file path** is interpreted relative to the current working directory, which can be selected in Spyder and is not necessarily the directory containing the Python script currently open in the editor.
 
-**When working on Linux, show this hypothetically:**
+Students should select their own working directory—for example, the folder containing their downloaded course materials—and adapt relative paths to their own folder structure. If they reproduce the course folder structure and select its parent `materials/` directory, the example paths work without modification. They should not copy an instructor-specific absolute path.
+:::
 
-```python
-import os
-os.chdir(r'D:\Dropbox\Lehre\Introduction to Programming\Presentation')
-```
-
-Note:
+Check the active working directory with:
 
 ```python
 import os
@@ -332,30 +325,38 @@ import os
 print(os.getcwd())
 ```
 
-### Slide 19 — Reading CSV files
-
-The relative path is resolved against the active working directory. `Bikesales.csv` is included in the same Canvas `data.zip` archive.
+With `materials/` selected in Spyder, the instructor can use:
 
 ```python
-data = pd.read_csv('Bikesales.csv')
+import pandas as pd
+
+data = pd.read_excel("data/Bikesales.xlsx")
+```
+
+### Slide 19 — Reading CSV files
+
+The relative path is resolved against the active working directory. `Bikesales.csv` is in the archive's `data/` folder.
+
+```python
+data = pd.read_csv("data/Bikesales.csv")
 ```
 
 ### Slide 20 — Loading, previewing, and exporting data
 
 ::: {.teaching-file}
-[`../materials/session_04/Exped.xlsx`](../materials/session_04/Exped.xlsx){.teaching-button .teaching-button-exercise}
+[`../materials/data/Exped.xlsx`](../materials/data/Exped.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
-`Exped.xlsx` is included in the Canvas `data.zip` archive. `head()` previews the first rows; `index=False` avoids writing the DataFrame index as an extra CSV column.
-
-`head()` previews the first rows; `index=False` avoids writing the DataFrame index as an extra CSV column.
+`Exped.xlsx` is included in the Canvas `data.zip` archive. `head()` previews the first rows; `index=False` avoids writing the DataFrame index as an extra CSV column. Generated files go in `outputs/`, separate from input data.
 
 ```python
-os.chdir(r'D:\Dropbox\Lehre\Introduction to Programming\Presentation')
-exped = pd.read_excel('Exped.xlsx')
+import os
+
+os.makedirs("outputs", exist_ok=True)
+exped = pd.read_excel("data/Exped.xlsx")
 exped.head()
 
-exped.to_csv('Exped.csv', index=False)
+exped.to_csv("outputs/Exped.csv", index=False)
 ```
 
 ## Slide 21 — Setting a DataFrame index
@@ -380,7 +381,7 @@ exped1.head()
 
 ```{python}
 #| echo: true
-#| eval: true
+#| eval: false
 {{< include ../materials/session_04/countries.py >}}
 ```
 
@@ -394,7 +395,7 @@ exped1.head()
 
 ```{python}
 #| echo: true
-#| eval: true
+#| eval: false
 {{< include ../materials/session_04/insurance.py >}}
 ```
 

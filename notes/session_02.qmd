@@ -43,7 +43,7 @@ Solve the homework in the "empty" sheet of the group's Excel file.
 :::
 
 ::: {.teaching-file}
-[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Moving Average
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/session_01/exercises_with_solutions.xlsx`](../materials/session_01/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Moving Average
 :::
 
 Start by briefly explaining the task (again):
@@ -57,7 +57,7 @@ Start by briefly explaining the task (again):
 ## Homework review: Installment loan
 
 ::: {.teaching-file}
-[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/session_01/exercises_with_solutions.xlsx`](../materials/session_01/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Installment
 :::
 
 Explain the payment schema introduced in the previous session.
@@ -87,7 +87,7 @@ Explain the payment schema introduced in the previous session.
 ## Homework review: Annuity loan
 
 ::: {.teaching-file}
-[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/exercises_with_solutions.xlsx`](../materials/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Annuity
+[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/session_01/exercises_with_solutions.xlsx`](../materials/session_01/exercises_with_solutions.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Annuity
 :::
 
 <!--
@@ -120,7 +120,7 @@ If **Special IF functions** were not covered in the previous session: complete s
 Start with the practical example:
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Bar_Sales
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Bar_Sales
 :::
 
 - Scroll down (hide the price list initially) to start with a simple approach: filling in raw data
@@ -164,7 +164,7 @@ Key points:
 ### Slide 34 — Client lookup
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Clients
+[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Clients
 :::
 
 We want to change the client number (type in different values) and then the following fields should update automatically (based on the list above).
@@ -228,7 +228,7 @@ Contrast it with `VLOOKUP`:
 ## Slide 35 — Christmas gift (Homework)
 
 ::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Gift
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Gift
 :::
 
 Students should retrieve two values based on customer status:
@@ -243,7 +243,7 @@ Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution (demonstrate
 ### Slide 36 — Course grading (Homework)
 
 ::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
+[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
 :::
 
 This one is similar to the client lookup.
@@ -264,7 +264,7 @@ Break — 10 minutes
 ## Slides 38–39 — Introduction to Excel Tables
 
 ::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Bike_sales
+[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: Bike_sales
 :::
 
 Create the table together with the students.
@@ -482,7 +482,7 @@ After entering the formula once, Excel should copy it to the complete calculated
 ## Slides 51–52 — Excel Tables exercise
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise}/[Homework]{.teaching-label .teaching-label-homework}[`../materials/exercises.xlsx`](../materials/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Sales_table
+[In-class exercise]{.teaching-label .teaching-label-exercise}/[Homework]{.teaching-label .teaching-label-homework}[`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Sales_table
 :::
 
 This extended exercise can be completed in class, assigned as homework, or continued in Session 3.

@@ -1,6 +1,6 @@
 import pandas as pd
 
-countries = pd.read_csv('countries.csv')
+countries = pd.read_csv('data/countries.csv')
 
 countries['Area'].sum()
 countries['GDP'].mean()
@@ -19,5 +19,4 @@ countries.loc[:, ['Country', 'Continent']].describe()
 
 len(countries['Continent'].unique())
 countries['Continent'].value_counts()
-
 

@@ -1,5 +1,6 @@
 import pandas as pd
 import requests
+import os
 
 r = requests.get('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=YOURKEY')
 data = r.json()
@@ -22,6 +23,7 @@ data = r.json()
 #data
 nel_asa = data["Global Quote"]["05. price"]
 
-stocks = pd.read_csv("Stocks.csv")
+stocks = pd.read_csv("data/Stocks.csv")
 stocks.loc[len(stocks)] = [date_, ibm, dt_bank, xiaomi, nel_asa]
-stocks.to_csv("Stocks.csv", index=False)
+os.makedirs("outputs", exist_ok=True)
+stocks.to_csv("outputs/Stocks.csv", index=False)

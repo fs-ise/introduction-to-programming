@@ -1,6 +1,6 @@
 import pandas as pd
 
-insurance = pd.read_excel('insurance.xlsx')
+insurance = pd.read_excel('data/insurance.xlsx')
 
 pd.options.display.float_format = '{:.2f}'.format
 pd.pivot_table(insurance, index = 'State', values = 'InsuredValue', aggfunc = 'mean')
@@ -29,4 +29,3 @@ print(pivot_df)
 pivot_df = pd.pivot_table(insurance, index = 'Location', columns = 'State',
                           values = 'InsuredValue', aggfunc = 'count', fill_value=0)
 pivot_df.plot(kind='bar')
-

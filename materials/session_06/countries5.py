@@ -1,6 +1,6 @@
 import pandas as pd
 
-countries = pd.read_csv('countries.csv')
+countries = pd.read_csv('data/countries.csv')
 
 countries.loc[countries.Area > 8000]
 
@@ -18,7 +18,6 @@ df.plot(kind='pie', y='Continent')
 
 df = countries.loc[countries.Continent == 'Europe', 'GDP']
 df.plot(kind='density')
-
 
 
 
