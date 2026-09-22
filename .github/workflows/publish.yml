@@ -24,7 +24,10 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           tinytex: true
-      - run: make site-fast
+      - name: Build site
+        run: |
+          make cheat-sheet
+          make site-fast
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
