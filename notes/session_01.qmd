@@ -23,12 +23,6 @@ event_id: null
 
 : {tbl-colwidths="[20,40,40]"}
 
-::: {.callout-tip title="Excel language settings"}
-Students should configure Excel to use **English function names** and **comma separators**:
-
-![](../images/qr_excel_language_settings.png){fig-align="center" width="18%"}
-:::
-
 ::: {.callout-note}
 Open:
 
@@ -81,7 +75,7 @@ I hope you enjoy the course, learn a lot, and develop skills you can actually us
 * **Use the support available.** Our tutors do an excellent job and are there to help you.
 * **Keep going.** Perseverance and genuine understanding are the best preparation for success in the course and exams.
 
-{{< needspace 9 >}}
+{{< needspace 20 >}}
 
 ## Slide 1 - Excel basics
 

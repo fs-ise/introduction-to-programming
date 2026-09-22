@@ -30,14 +30,34 @@
 
 {{< pagebreak >}}
 
+## Excel language settings
+
+Configuring Excel to use **English function names** and **comma separators**:
+
+::: {.content-visible when-format="html"}
+
+![](images/qr_excel_language_settings.png){width="4cm" fig-align="center" fig-alt="QR code linking to the Excel language-settings guide"}
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
+![](../images/qr_excel_language_settings.png){width="4cm" fig-align="center" fig-alt="QR code linking to the Excel language-settings guide"}
+
+:::
+
 ## Excel cheat sheet
 
 Excel keyboard shortcuts for Windows and macOS.
 
 ::: {.content-visible when-format="html"}
-[![](images/qr_excel_cheat_sheet.png){width=2.7cm fig-alt="QR code linking to the Excel cheat sheet"}](https://fs-ise.github.io/introduction-to-programming/materials/excel-cheat-sheet.pdf)
+
+![](images/qr_excel_cheat_sheet.png){width="4cm" fig-align="center" fig-alt="QR code linking to the Excel cheat sheet"}
+
 :::
 
 ::: {.content-visible when-format="pdf"}
-[![](../images/qr_excel_cheat_sheet.png){width=2.7cm fig-alt="QR code linking to the Excel cheat sheet"}](https://fs-ise.github.io/introduction-to-programming/materials/excel-cheat-sheet.pdf)
+
+![](../images/qr_excel_cheat_sheet.png){width="4cm" fig-align="center" fig-alt="QR code linking to the Excel cheat sheet"}
+
 :::

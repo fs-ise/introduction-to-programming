@@ -24,12 +24,6 @@ event_id: null
 
 Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 
-::: {.callout-tip title="Excel language settings"}
-Students should configure Excel to use **English function names** and **comma separators**:
-
-![](../images/qr_excel_language_settings.png){fig-align="center" width="18%"}
-:::
-
 ::: {.callout-tip title="Survey follow-up"}
 Follow-up on questions/feedback from last session's survey.
 :::
