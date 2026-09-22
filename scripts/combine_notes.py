@@ -69,6 +69,19 @@ def read_checklist(path: Path) -> tuple[str, str]:
     return title, "\n".join(lines[1:]).strip()
 
 
+def read_groups(path: Path) -> tuple[str, str]:
+    """Return the title and body of the shared Groups section fragment."""
+    source = path.read_text(encoding="utf-8")
+    lines = source.splitlines()
+    if not lines or not lines[0].startswith("## "):
+        raise ValueError(f"{path} does not start with a level-2 heading")
+
+    title = lines[0][3:].strip()
+    if not title:
+        raise ValueError(f"{path} has an empty level-2 heading")
+    return title, "\n".join(lines[1:]).strip()
+
+
 def read_course_title() -> str:
     """Return the course title from the repository configuration."""
     config = yaml.safe_load(COURSE_CONFIG.read_text(encoding="utf-8")) or {}
@@ -78,12 +91,20 @@ def read_course_title() -> str:
     return title
 
 
-def combine(output: Path, inputs: list[Path], checklist: Path | None = None) -> None:
+def combine(
+    output: Path,
+    inputs: list[Path],
+    checklist: Path | None = None,
+    groups: Path | None = None,
+) -> None:
     """Combine note files into one PDF-oriented Quarto source."""
     teaching_notes_title = f"{read_course_title()} Teaching Notes"
     sections: list[str] = []
 
     sources = []
+    if groups is not None:
+        title, body = read_groups(groups)
+        sources.append((title, body, "Groups"))
     if checklist is not None:
         title, body = read_checklist(checklist)
         sources.append((title, body, "Checklist"))
@@ -201,11 +222,12 @@ format:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--groups", type=Path)
     parser.add_argument("--checklist", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("inputs", nargs="+", type=Path)
     arguments = parser.parse_args()
-    combine(arguments.output, arguments.inputs, arguments.checklist)
+    combine(arguments.output, arguments.inputs, arguments.checklist, arguments.groups)
 
 
 if __name__ == "__main__":

@@ -176,6 +176,33 @@ def test_checklist_appears_before_sessions(tmp_path: Path) -> None:
     assert combined.index(session_page) < combined.index("# Session 01")
 
 
+def test_groups_appear_before_checklist_and_sessions(tmp_path: Path) -> None:
+    groups = tmp_path / "_groups.qmd"
+    groups.write_text(
+        "## Groups\n\n| Date | E3 |\n|---|---|\n| Monday | Room: T6 A |\n",
+        encoding="utf-8",
+    )
+    checklist = tmp_path / "teaching_checklist.qmd"
+    checklist.write_text(
+        "# Teaching checklist\n\n- [ ] Check projector.\n", encoding="utf-8"
+    )
+    note = tmp_path / "session_01.qmd"
+    note.write_text(
+        '---\ntitle: "Session 01"\nsession_id: session-01\n---\n\n## Topic\n',
+        encoding="utf-8",
+    )
+    output = tmp_path / "notes.qmd"
+
+    combine(output, [note], checklist=checklist, groups=groups)
+
+    combined = output.read_text(encoding="utf-8")
+    assert combined.index("# Groups") < combined.index("# Teaching checklist")
+    assert combined.index("# Teaching checklist") < combined.index("# Session 01")
+    assert "| Monday | Room: T6 A |" in combined
+    assert combined.count(r"\clearpage") == 3
+    assert r"\renewcommand{\thepage}{Groups/p\arabic{page}}" in combined
+
+
 @pytest.mark.parametrize(
     ("session_id", "expected"),
     [

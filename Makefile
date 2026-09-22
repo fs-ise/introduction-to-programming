@@ -9,6 +9,7 @@ SLIDES_HTML := $(patsubst $(SRC_SLIDES_DIR)/%.qmd,$(SLIDES_DIR)/%.html,$(SLIDES_
 SLIDES_PDF := $(SLIDES_HTML:.html=.pdf)
 NOTES_QMD := $(addprefix notes/session_,$(addsuffix .qmd,01 02 03 04 05 06 07 08 09 10 11))
 TEACHING_CHECKLIST := notes/teaching_checklist.qmd
+GROUP_SCHEDULE := _groups.qmd
 NOTES_PDF := $(OUT_DIR)/notes.pdf
 NOTES_COMBINED := _pdf-tmp/notes.qmd
 CHEAT_SHEET_PDF := materials/excel-cheat-sheet.pdf
@@ -41,9 +42,9 @@ cheat-sheet:
 $(QR_CODES): scripts/generate_qr_codes.js _extensions/jmbuhr/qrcode/qrcode.js
 	node scripts/generate_qr_codes.js
 
-$(NOTES_PDF): $(TEACHING_CHECKLIST) $(NOTES_QMD) $(QR_CODES) scripts/combine_notes.py scripts/html_br_to_linebreak.lua scripts/teaching_break.lua _extensions/needspace/needspace.lua _extensions/needspace/_extension.yml
+$(NOTES_PDF): $(GROUP_SCHEDULE) $(TEACHING_CHECKLIST) $(NOTES_QMD) $(QR_CODES) scripts/combine_notes.py scripts/html_br_to_linebreak.lua scripts/teaching_break.lua _extensions/needspace/needspace.lua _extensions/needspace/_extension.yml
 	@mkdir -p $(OUT_DIR) _pdf-tmp
-	@$(PYTHON) scripts/combine_notes.py --checklist $(TEACHING_CHECKLIST) $(NOTES_COMBINED) $(NOTES_QMD)
+	@$(PYTHON) scripts/combine_notes.py --groups $(GROUP_SCHEDULE) --checklist $(TEACHING_CHECKLIST) $(NOTES_COMBINED) $(NOTES_QMD)
 	@$(QUARTO) render $(NOTES_COMBINED) --to pdf --output notes.pdf
 	@mv notes.pdf $(NOTES_PDF)
 	@rm -f $(NOTES_COMBINED)
