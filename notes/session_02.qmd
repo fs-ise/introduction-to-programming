@@ -390,6 +390,12 @@ The first argument encodes the aggregation function:
 | `COUNT`   |                             2 |                           102 |
 | ...       |                           ... |                           ... |
 
+**Important**: Difference between numbers 1-11 and 101-111 is **manually hidden rows NOT filtered-out rows (they are always excluded from SUBTOTALs)**.
+
+| Function numbers | Manually hidden rows | Filtered-out rows |
+|---|---|---|
+| 1–11 | Included | Excluded |
+| 101–111 | Excluded | Excluded |
 
 ::: {.callout-important title="Important distinction"}
 Filtered-out rows are excluded by `SUBTOTAL`.
