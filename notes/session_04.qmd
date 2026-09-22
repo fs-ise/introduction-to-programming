@@ -6,7 +6,7 @@ event_id: null
 
 ::: {.callout-note title="Preparation"}
 
-- install Spyder on Fedora machine?
+- Install Spyder on the machine and run `Spydersetup.py`.
 - Before the pandas exercises, introduce the `data.zip` archive available in Canvas. Confirm that students have extracted its datasets into a `data/` folder.
 - Transfer files to laptop/open environment
 - Create a reminder to inform tutors about the exercises that we completed and those that should be discussed in the tutoring sessions
@@ -49,7 +49,7 @@ For Anaconda: See Canvas instructions:
 - Contrast interpreted and compiled languages.
 - Motivate Python through **reusable libraries** and the “don't repeat yourself” principle.
   Don't repeat yourself principle of programming: by using Python libraries (modularization of code), we benefit from the code written by others.
-  Illustration (whiteboard): the Python code that is involved in a typical ML studyis roughly 2 million LOC. 99.99% is imported (Pandas, scikitlearn, ...) and a few hundred LOC are our code (tip of the iceberg, we orchestrate existing libraries). For the sake of the argument, we simply ignore all of the other code, the Python core or the code that runs the OS and operates the hardware.
+  Illustration (whiteboard): the Python code that is involved in a typical ML study is roughly 2 million LOC. 99.99% is imported (Pandas, scikitlearn, ...) and a few hundred LOC are our code (tip of the iceberg, we orchestrate existing libraries). For the sake of the argument, we simply ignore all of the other code, the Python core or the code that runs the OS and operates the hardware.
   It is not just LOC, but the 99% of the code (the libraries) are often very well designed and maintained (if you pick the right libraries). Also, they are constantly updated so we get performance improvements, remaining bugs are fixed, and the documentation gets better.
   This means we can really "stand on the shoulders of giants". Pretty amazing.
 - On the whiteboard, illustrate an ML study as a small amount of course code built on a much larger body of imported, maintained library code. Emphasize that students orchestrate existing libraries and can “stand on the shoulders of giants.”
@@ -295,19 +295,7 @@ list(data)
 data.dtypes
 ```
 
-Consider using:
-
-```python
-data.columns
-```
-
-instead of:
-
-```python
-list(data)
-```
-
-{{< needspace 9 >}} 
+{{< needspace 15 >}} 
 
 ## Slide 18 — Working directory and file paths
 
@@ -321,7 +309,6 @@ Check the active working directory with:
 
 ```python
 import os
-
 print(os.getcwd())
 ```
 
@@ -329,8 +316,13 @@ With `materials/` selected in Spyder, the instructor can use:
 
 ```python
 import pandas as pd
-
 data = pd.read_excel("data/Bikesales.xlsx")
+```
+
+**Windows**: The raw-string prefix `r` prevents backslashes from being interpreted as escape sequences:
+
+```python
+os.chdir(r'D:\Dropbox\Lehre\Introduction to Programming\Presentation')
 ```
 
 ### Slide 19 — Reading CSV files
