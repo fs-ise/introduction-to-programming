@@ -233,6 +233,8 @@ Break — 10 minutes
 
 ### Slide 73 — PivotCharts
 
+Do-it-yourself: pp.55-60.
+
 Create a PivotChart from the current PivotTable.
 
 Demonstrate that:
@@ -293,6 +295,8 @@ This corresponds to the multi-dimensional hypercube analyses in Excel (a type of
 
 Introduce the distinction using the table on the slide.
 
+Typically, there are some attributes we use for values (numerical, that can be summarized, facts), others for rows and columns (for grouping, filtering, dimensions).
+
 | Type       | Purpose                                   | Examples                               |
 | ---------- | ----------------------------------------- | -------------------------------------- |
 | Dimensions | Describe, classify, group, or filter data | Region, product, category, month, year |
@@ -320,6 +324,7 @@ Explain:
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheets: Exporter_data | Exporter_pivot
 :::
 
+**Leave enought time (10 min) for the summary.**  
 Complete this exercise in class only if sufficient time remains. Otherwise, assign it as homework.
 
 **Note**: The tasks often leave it open if we select attributes for the rows or columns. It is specified unambiguously when we display the expected output table (as in the exam).
@@ -371,6 +376,10 @@ Teaching procedure:
 **SCREENSHOT:** Completed Exporter PivotTables.
 -->
 
+::: {.callout-warn title="Typical mistake"}
+Never use IDs (like `OrderID`) in a PivotTable. It is a string that can neither be aggregated nor grouped meaningfully.
+:::
+
 {{< needspace 11 >}}
 
 ## Slide 78 — Exercise: Expeditioner pivot analysis
@@ -383,6 +392,10 @@ Teaching procedure:
 
 - Briefly inspect the dataset and available attributes.
 - Reproduce the report shown on the slide:
+
+::: {.callout-tip}
+To replace the generic **Column Labels**/**Row Labels**, select **Report** > **Layout** > **Show in tabular form**.
+:::
 
 ![](../images/excel_pivot_exped_start.png){fig-align="center" width="70%"}
 
@@ -460,6 +473,12 @@ Make sure students are prepared for the typical exam question the Pivot-table cr
 ![](../images/pivot-numbered.png){fig-align="center" width="30%"}
 
 Solve Mock exam (we will go through solutions very quickly next time; Solutions will be available on 2026-09-28 on Canvas).
+
+End on a positive note for the exam
+
+- You solved the exercises
+- I feel we have not lost anyone, you kept working and asking the right questions
+- Continue to work together, form groups, seize the momentum for the Python sessions!
 
 Next session:
 

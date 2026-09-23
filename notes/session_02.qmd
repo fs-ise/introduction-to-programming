@@ -502,8 +502,6 @@ Suggested checkpoints:
 
 7. Enable the **Total Row** and calculate (use drop-down at the end of the table):
 
-    Start with **View** > **Freeze Panes** > **Freeze Top Row** (for convenience)
-
    - Quantity: sum
    - Cost: sum
    - Turnover: average
