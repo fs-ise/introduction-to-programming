@@ -41,6 +41,27 @@ For Anaconda: See Canvas instructions:
 - `Installing Anaconda for Python_Windows.pdf`
 - `Installing Anaconda for Python_Mac.pdf`
 
+## Install packages using Anaconda
+
+Use this sequence in **Anaconda PowerShell Prompt**:
+
+```powershell
+# 1. Show environments
+conda info --envs
+
+# 2. Activate the environment used by Spyder
+conda activate <environment-name>
+
+# 3. Install the package
+conda install <package-name>
+
+# Example
+conda activate mlbd
+conda install inquirer
+```
+
+Then restart the Spyder kernel/IDE so it picks up the installed package.
+
 {{< needspace 90 >}}
 
 ## Slide 1 - Introductory discussion
