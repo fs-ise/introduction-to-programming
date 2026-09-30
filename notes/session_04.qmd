@@ -54,6 +54,12 @@ For Anaconda: See Canvas instructions:
   This means we can really "stand on the shoulders of giants". Pretty amazing.
 - On the whiteboard, illustrate an ML study as a small amount of course code built on a much larger body of imported, maintained library code. Emphasize that students orchestrate existing libraries and can “stand on the shoulders of giants.”
 
+Show PyPI website
+
+Show package installation: **Anaconda prompt (as Administrator)** > **`conda install requests`**
+
+Mention `pip`, `uv` alternatives
+
 <!--
 - Ask why students should not simply use ChatGPT: effective prompting still requires validation and improvement.
 -->
@@ -63,6 +69,14 @@ For Anaconda: See Canvas instructions:
 Explain spyder interface:
 
 ![](../images/spyder-interface.png){width=90% fig-align="center"}
+
+::: {.callout-note title="Spyder working directory"}
+For the exercises, work from the `materials/` directory and keep this as Spyder's **current working directory**.
+
+Spyder may otherwise change the working directory when running a script (especially an unsaved script). To prevent this, open **Tools → Preferences → Run** and configure the working directory to use the **current working directory**, rather than the directory of the file being executed.
+
+:::
+
 
 ::: {.callout-warning title="Do not work on environment setup in the session"}
 
