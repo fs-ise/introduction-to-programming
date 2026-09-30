@@ -6,12 +6,12 @@ event_id: null
 
 ::: {.callout-note title="Preparation"}
 
-- Install Spyder on the machine and run `Spydersetup.py`.
+- Install Spyder on the machine and run `Spydersetup.py` (Note: students already completed `Spydersetup.py` in the setup sessions!)
 - Before the pandas exercises, introduce the `data.zip` archive available in Canvas. Confirm that students have extracted its datasets into a `data/` folder.
 - Transfer files to laptop/open environment
 - Create a reminder to inform tutors about the exercises that we completed and those that should be discussed in the tutoring sessions
 - Open PPTX for animations
-
+- Inform students about recent materials (e.g., List of relevant Excel functions; Mock exam solutions)
 :::
 
 | Time      | Topic/activity | Materials |
@@ -75,11 +75,7 @@ Then restart the Spyder kernel/IDE so it picks up the installed package.
   This means we can really "stand on the shoulders of giants". Pretty amazing.
 - On the whiteboard, illustrate an ML study as a small amount of course code built on a much larger body of imported, maintained library code. Emphasize that students orchestrate existing libraries and can “stand on the shoulders of giants.”
 
-Show PyPI website
-
-Show package installation: **Anaconda prompt (as Administrator)** > **`conda install requests`**
-
-Mention `pip`, `uv` alternatives
+Show PyPI website; `pandas` project (popularity, commits, develoeprs, tests)
 
 <!--
 - Ask why students should not simply use ChatGPT: effective prompting still requires validation and improvement.
@@ -108,9 +104,7 @@ Setup was supposed to be completed in the first sessions.
 
 {{< needspace 90 >}}
 
-## `spydertest.py`
-
-Walk through `spytertest.py` from Canvas with students at the start of the Python session.
+## Quick Walk through: `spytertest.py` (Canvas) at the start of the session
 
 {{< teaching-file ../materials/session_04/Spydertest.py kind="demo" >}}
 
@@ -137,7 +131,7 @@ Note: operators explained on the following slide.
 
 Refer to a variable as **names bound to an object**
 
-Python allows a variable to be reassigned to values of different types (dynamic typing), while multiple assignment sets several variables in one statement.
+Python allows a variable to be reassigned to values of different types (**dynamic typing**), while **multiple assignment** sets several variables in one statement.
 
 ```python
 x = 4
@@ -165,8 +159,8 @@ Use an example with `a = 54` to explain that strings and integers cannot be conc
 
 ```python
 a = 54
-print("This number is " + a) # throws an error
-print("This number is " + str(a))
+print("This number is " + a)         # throws an error
+print("This number is " + str(a))    # solution: explicit type conversion
 ```
 
 <!-- Introduce `type(x)` and demonstrate that Python is dynamically typed. -->
@@ -179,6 +173,12 @@ Explain step by step how Python approaches this statement.
 - Right side is a complex statement. Needs to be evaluated first....
 
 ### Slide 10 — Output with `print()`
+
+::: {.callout-tip}
+Point students towards the tooltips provided in Spyder when typing `print(` in editor or console.
+Read and try parameters `end`, `sep`.
+Then point to the slides.
+:::
 
 These examples contrast comma-separated output and string concatenation, demonstrate repetition, use `str()` for conversion, and use `end` to control the line ending.
 
@@ -232,6 +232,7 @@ print(x)
 ```
 
 Note: Python evaluates according to operator precedence (like in mathematics): first, exponent (\*\*), then the others left-to-right (they have the same precedence).
+**Illustrate this by iteratively replacing results and verifying whether the result stays the same.**
 
 Example of a **multiple assignment**:
 
@@ -249,6 +250,19 @@ print(a, b, c)
 
 The final block intentionally raises a `NameError` because `c` is read before it has been assigned.
 
+::: {.callout-tip title="Important learning"}
+Multiple assignments retrieve variables and complete calculations simultaneously.
+There is a difference between the two:
+
+```python
+c, b = a, c+1
+# and 
+c = a
+b = c+1
+# The second will not raise an error!
+```
+:::
+
 ## Slide 13 — Basic formula programs
 
 ::: {.callout-tip title="Exercises (in-class or homework): Circle"}
@@ -263,21 +277,37 @@ The final block intentionally raises a `NameError` because `c` is read before it
 
 :::
 
+::: {.callout-warning title="Typical error"}
+
+```python
+future_value = investment(...)**...
+# leaving out "*" raises an int not callable.
+# patterns like `name()` are interpreted as function calls (like `print()`)
+
+```
+
+:::
+
 ::: {.teaching-break}
 Break — 10 minutes
 :::
 
 {{< needspace 10 >}} 
 
+::: {.callout-important title="Student errors"}
+In this part, students typicall need assistance in setting up the working directory.
+
+- Clarify expectation: this takes time, we will do it together
+- Give a clear example (my directory, store all files and scripts, how to select it as the working directory in Spyder)
+- Script must be stored in the working directory (check/compare!), otherwise, Spyder will automatically set the working directory to the directory of the script
+- Ask students to help each other
+- Announce the exercise (p.22) early, explain `data.head()`, etc., and be available to help with setup afterwards. 
+- Praise for perseverence
+:::
+
 ## Slide 15 — Importing pandas
 
 Pandas is already installed. We verified it in the spyder setup script.
-
-If we need additional libraries, install them as follows (in a shell):
-
-```sh
-pip install pandas
-```
 
 pandas DataFrames are widely used to load, inspect, clean, and prepare tabular data for machine learning. Models commonly receive DataFrames (or similar formats) depending on the library.
 
@@ -299,23 +329,11 @@ Download `data.zip` from Canvas and extract its files into a `data/` folder. The
 
 The `Bikesales.xlsx` file used below is provided in Canvas as part of `data.zip`.
 
-Revisit the difference between absolute and relative file paths, referring to the explanation in the preparation booklet.
-
 The final expression displays the DataFrame in an interactive environment.
 
 ```python
 data = pd.read_excel("data/Bikesales.xlsx")
 data
-```
-
-### Slide 17 — Inspecting a DataFrame
-
-These expressions show the DataFrame dimensions, column names, and column data types.
-
-```python
-data.shape
-list(data)
-data.dtypes
 ```
 
 {{< needspace 15 >}} 
@@ -348,6 +366,16 @@ data = pd.read_excel("data/Bikesales.xlsx")
 os.chdir(r'D:\Dropbox\Lehre\Introduction to Programming\Presentation')
 ```
 
+### Slide 17 — Inspecting a DataFrame
+
+These expressions show the DataFrame dimensions, column names, and column data types.
+
+```python
+data.shape
+list(data)
+data.dtypes
+```
+
 ### Slide 19 — Reading CSV files
 
 The relative path is resolved against the active working directory. `Bikesales.csv` is in the archive's `data/` folder.
@@ -367,7 +395,6 @@ data = pd.read_csv("data/Bikesales.csv")
 ```python
 import os
 
-os.makedirs("outputs", exist_ok=True)
 exped = pd.read_excel("data/Exped.xlsx")
 exped.head()
 
