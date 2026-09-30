@@ -199,6 +199,36 @@ print(mylist)
 mytupel[2] = 5
 ```
 
+::: {.callout-note title="TODO"}
+
+Compare mutable vs immutable types using strings and integers?
+
+```python
+# Lists are mutable
+a = [1, 2, 3]
+b = a
+a.append(4)
+
+print(b)  # [1, 2, 3, 4]
+
+# Strings are immutable
+a = "Hello"
+b = a
+a = a + " World"
+
+print(b)  # "Hello"
+
+# Integers are immutable
+a = 10
+b = a
+a = a + 5
+
+print(b)  # 10
+```
+
+:::
+
+
 ::: {.teaching-break}
 Break — 10 minutes
 :::
