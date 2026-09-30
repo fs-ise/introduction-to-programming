@@ -77,15 +77,7 @@ exped['WHERE'].value_counts()
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_06/countries3.py`](../materials/session_06/countries3.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_06/countries3.py >}}
-```
+{{< teaching-file ../materials/session_06/countries3.py >}}
 
 - Explain variance and the mean if students need a refresher.
 
@@ -151,15 +143,7 @@ df.plot(kind='pie', subplots=True, legend=True)
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_06/countries4.py`](../materials/session_06/countries4.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_06/countries4.py >}}
-```
+{{< teaching-file ../materials/session_06/countries4.py >}}
 
 ::: {.callout-important title="Exam relevance"}
 Only line and bar plots are relevant to the exam; see the document listing exam-relevant topics.
@@ -205,15 +189,7 @@ exped.loc[
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_06/countries5.py`](../materials/session_06/countries5.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_06/countries5.py >}}
-```
+{{< teaching-file ../materials/session_06/countries5.py >}}
 
 - Connect filtering conditions to the resulting summaries and visualizations.
 
@@ -237,29 +213,13 @@ a
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_06/countries6.py`](../materials/session_06/countries6.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_06/countries6.py >}}
-```
+{{< teaching-file ../materials/session_06/countries6.py >}}
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_06/insurance1.py`](../materials/session_06/insurance1.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_06/insurance1.py >}}
-```
+{{< teaching-file ../materials/session_06/insurance1.py >}}
 
 - Demonstrate grouping with both the country and insurance datasets.
 

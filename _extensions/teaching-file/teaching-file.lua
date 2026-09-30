@@ -2,6 +2,7 @@ local kinds = {
   exercise = { label = "In-class exercise" },
   demo = { label = "In-class demo" },
   homework = { label = "Homework" },
+  ["homework-solution"] = { label = "Homework solution", style = "homework" },
 }
 
 local function teaching_file(args, kwargs)
@@ -18,8 +19,9 @@ local function teaching_file(args, kwargs)
   local kind_config = kinds[kind]
   if kind_config == nil then
     error("teaching-file shortcode: unknown kind '" .. kind ..
-      "' (expected exercise, demo, or homework)")
+      "' (expected exercise, demo, homework, or homework-solution)")
   end
+  local style = kind_config.style or kind
 
   local input_dir = pandoc.path.directory(quarto.doc.input_file or "")
   local source_path = pandoc.path.join({ input_dir, path })
@@ -32,13 +34,13 @@ local function teaching_file(args, kwargs)
 
   local label = pandoc.Span(
     kind_config.label,
-    pandoc.Attr("", { "teaching-label", "teaching-label-" .. kind })
+    pandoc.Attr("", { "teaching-label", "teaching-label-" .. style })
   )
   local link = pandoc.Link(
     { pandoc.Code(pandoc.path.filename(path)) },
     path,
     "",
-    pandoc.Attr("", { "teaching-button", "teaching-button-" .. kind })
+    pandoc.Attr("", { "teaching-button", "teaching-button-" .. style })
   )
   local download = pandoc.Div(
     { pandoc.Para({ label, pandoc.Space(), link }) },

@@ -171,15 +171,7 @@ pd.pivot_table(
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/insurance2.py`](../materials/session_07/insurance2.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_07/insurance2.py >}}
-```
+{{< teaching-file ../materials/session_07/insurance2.py >}}
 
 
 ## Slides 68–69 — Prediction concepts
@@ -271,15 +263,7 @@ predictivemodel_net.predict([[5, 5, 1]])
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/Chipotle.csv`](../materials/data/Chipotle.csv){.teaching-button .teaching-button-exercise}
 :::
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/Chipotle.py`](../materials/session_07/Chipotle.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_07/Chipotle.py >}}
-```
+{{< teaching-file ../materials/session_07/Chipotle.py >}}
 
 ## Slides 76–77 — Florida housing analysis
 
@@ -287,15 +271,7 @@ predictivemodel_net.predict([[5, 5, 1]])
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/Homes_Florida.xlsx`](../materials/data/Homes_Florida.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/Homes_Florida.py`](../materials/session_07/Homes_Florida.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_07/Homes_Florida.py >}}
-```
+{{< teaching-file ../materials/session_07/Homes_Florida.py >}}
 
 ::: {.teaching-break}
 Break — 10 minutes
@@ -362,65 +338,17 @@ type(age)
 
 ## Slides 84–85 — Interactive formula programs
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/CircleArea2.py`](../materials/session_07/CircleArea2.py){.teaching-button .teaching-button-exercise}
-:::
+{{< teaching-file ../materials/session_07/CircleArea2.py >}}
 
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_07/CircleArea2.py >}}
-```
+{{< teaching-file ../materials/session_07/Currency.py >}}
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/Currency.py`](../materials/session_07/Currency.py){.teaching-button .teaching-button-exercise}
-:::
+{{< teaching-file ../materials/session_07/Distance.py >}}
 
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_07/Currency.py >}}
-```
+{{< teaching-file ../materials/session_07/Traveltime.py >}}
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/Distance.py`](../materials/session_07/Distance.py){.teaching-button .teaching-button-exercise}
-:::
+{{< teaching-file ../materials/session_07/Fuel.py >}}
 
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_07/Distance.py >}}
-```
-
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/Traveltime.py`](../materials/session_07/Traveltime.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_07/Traveltime.py >}}
-```
-
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/Fuel.py`](../materials/session_07/Fuel.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_07/Fuel.py >}}
-```
-
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_07/AnnuityLoan1.py`](../materials/session_07/AnnuityLoan1.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_07/AnnuityLoan1.py >}}
-```
+{{< teaching-file ../materials/session_07/AnnuityLoan1.py >}}
 
 - Assign exercises 4, 5, and 6 as homework.
 

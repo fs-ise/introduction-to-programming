@@ -137,15 +137,7 @@ The loc (blue) may change its positions.
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_05/countries1.py`](../materials/session_05/countries1.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_05/countries1.py >}}
-```
+{{< teaching-file ../materials/session_05/countries1.py >}}
 
 - Guide students through selecting columns and rows with `iloc` and `loc`.
 
@@ -203,15 +195,7 @@ data['Cost'].pct_change()
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_05/countries2.py`](../materials/session_05/countries2.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_05/countries2.py >}}
-```
+{{< teaching-file ../materials/session_05/countries2.py >}}
 
 - Use the exercise sequence to add, sort, calculate, and then remove data.
 

@@ -56,101 +56,37 @@ for i in ['apple', 'orange']:
 
 Explain loops using $\sum_i^n$ and $\prod_i^n$.
 
-::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_09/for_demo.py`](../materials/session_09/for_demo.py){.teaching-button .teaching-button-demo}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_09/for_demo.py >}}
-```
+{{< teaching-file ../materials/session_09/for_demo.py kind="demo" >}}
 
 Note: 3–4 and 6–7 are homework.
 
 1. Write a program that will ask the user for a message and the number of times they want that message displayed.
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Message.py`](../materials/session_09/Message.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_09/Message.py >}}
-```
+{{< teaching-file ../materials/session_09/Message.py >}}
 
 2. Write a program that will calculate the average (mean) of a set of numbers.
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Average.py`](../materials/session_09/Average.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_09/Average.py >}}
-```
+{{< teaching-file ../materials/session_09/Average.py >}}
 
 3. Write a program that will output the numbers from 1 to 100.
 
-::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_09/Tens.py`](../materials/session_09/Tens.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_09/Tens.py >}}
-```
+{{< teaching-file ../materials/session_09/Tens.py kind="homework" >}}
 
 4. If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
 
-::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_09/MultipleSum.py`](../materials/session_09/MultipleSum.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_09/MultipleSum.py >}}
-```
+{{< teaching-file ../materials/session_09/MultipleSum.py kind="homework" >}}
 
 5. Write a program that generates a list containing the Fibonacci sequence.
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Fibonacci.py`](../materials/session_09/Fibonacci.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_09/Fibonacci.py >}}
-```
+{{< teaching-file ../materials/session_09/Fibonacci.py >}}
 
 6. Write a program to generate n random numbers between 1 and 10.
 
-::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_09/Frequencies.py`](../materials/session_09/Frequencies.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_09/Frequencies.py >}}
-```
+{{< teaching-file ../materials/session_09/Frequencies.py kind="homework" >}}
 
 7. Write a program that displays a word entered by the user as a triangle of letters.
 
-::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_09/Triangle.py`](../materials/session_09/Triangle.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_09/Triangle.py >}}
-```
+{{< teaching-file ../materials/session_09/Triangle.py kind="homework" >}}
 
 ::: {.teaching-break}
 Break — 10 minutes
@@ -182,65 +118,25 @@ Assign exercise 1, 5 as homework.
 
 1. Create a program that will keep track of items for a shopping list.
 
-::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_09/ShoppingList.py`](../materials/session_09/ShoppingList.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_09/ShoppingList.py >}}
-```
+{{< teaching-file ../materials/session_09/ShoppingList.py kind="homework" >}}
 
 2. Write a Python program to guess a number between 1 to 10.
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Guess1.py`](../materials/session_09/Guess1.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_09/Guess1.py >}}
-```
+{{< teaching-file ../materials/session_09/Guess1.py >}}
 
 3. Rewrite the program to have the user guess a number between 1 to 100
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/Guess2.py`](../materials/session_09/Guess2.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_09/Guess2.py >}}
-```
+{{< teaching-file ../materials/session_09/Guess2.py >}}
 
 4. Expand the previously created dice game.
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_09/dicegame2.py`](../materials/session_09/dicegame2.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_09/dicegame2.py >}}
-```
+{{< teaching-file ../materials/session_09/dicegame2.py >}}
 
 5. Write a program to create the history of a loan.
 
 Note: Remind students that exercise 5 is the same task they completed in Excel.
 
-::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_09/Loan.py`](../materials/session_09/Loan.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_09/Loan.py >}}
-```
+{{< teaching-file ../materials/session_09/Loan.py kind="homework" >}}
 
 ## Summary and announcements
 

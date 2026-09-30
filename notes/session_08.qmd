@@ -57,57 +57,25 @@ s[:6] + s[6:]
 
 1. Write a Python program to calculate the length of a string you type in. Furthermore, it should output the first and the last character.
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/String1.py`](../materials/session_08/String1.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_08/String1.py >}}
-```
+{{< teaching-file ../materials/session_08/String1.py >}}
 
 <br>
 
 2. Write a Python program to insert a string in the middle of a string.
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/String2.py`](../materials/session_08/String2.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_08/String2.py >}}
-```
+{{< teaching-file ../materials/session_08/String2.py >}}
 
 <br>
 
 3. Write a program that at first asks for two strings...
 
-::: {.teaching-file}
-[Homework solution]{.teaching-label .teaching-label-homework} [`../materials/session_08/String3.py`](../materials/session_08/String3.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_08/String3.py >}}
-```
+{{< teaching-file ../materials/session_08/String3.py kind="homework-solution" >}}
 
 <br>
 
 4. The International Bank Account Number (IBAN) is a standardized international numbering system developed to identify bank accounts across national borders....
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/IBAN.py`](../materials/session_08/IBAN.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_08/IBAN.py >}}
-```
+{{< teaching-file ../materials/session_08/IBAN.py >}}
 
 ::: {.callout-note title="TODO"}
 Include a visualization of the IBAN procedure.
@@ -141,29 +109,13 @@ x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 1. Perform the following list operations:
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Listexercise1.py`](../materials/session_08/Listexercise1.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_08/Listexercise1.py >}}
-```
+{{< teaching-file ../materials/session_08/Listexercise1.py >}}
 
 2. Write a program that creates an empty list named x at first.
 
 - Assign exercise 2 as homework.
 
-::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_08/Listexercise2.py`](../materials/session_08/Listexercise2.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_08/Listexercise2.py >}}
-```
+{{< teaching-file ../materials/session_08/Listexercise2.py kind="homework" >}}
 
 ## Slide 98 — Creating and slicing tuples
 
@@ -288,43 +240,19 @@ PR: exercises 3, 5, 6, 7: homework (for the tutorial).
 
 1. Write a program to determine if a number entered is odd or even.
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/OddEven.py`](../materials/session_08/OddEven.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_08/OddEven.py >}}
-```
+{{< teaching-file ../materials/session_08/OddEven.py >}}
 
 <br>
 
 2. Write a program that calculates a discount based on the purchase amount.
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/Discount.py`](../materials/session_08/Discount.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_08/Discount.py >}}
-```
+{{< teaching-file ../materials/session_08/Discount.py >}}
 
 <br>
 
 3. Extend the program which calculates the annual payment of an annuity loan by a rating parameter.
 
-::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_08/AnnuityLoan2.py`](../materials/session_08/AnnuityLoan2.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_08/AnnuityLoan2.py >}}
-```
+{{< teaching-file ../materials/session_08/AnnuityLoan2.py kind="homework" >}}
 
 <br>
 
@@ -332,57 +260,25 @@ PR: exercises 3, 5, 6, 7: homework (for the tutorial).
 
 **Explain exercise 4 in class, emphasizing the importance of whether code is inside or outside an `if` block.**
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_08/dicegame1.py`](../materials/session_08/dicegame1.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_08/dicegame1.py >}}
-```
+{{< teaching-file ../materials/session_08/dicegame1.py >}}
 
 <br>
 
 5. Write a program to convert temperatures between celsius and fahrenheit.
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-homework} [`../materials/session_08/Temperature.py`](../materials/session_08/Temperature.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_08/Temperature.py >}}
-```
+{{< teaching-file ../materials/session_08/Temperature.py kind="homework" >}}
 
 <br>
 
 6. Write a program to calculate the grades A-F based on the final percentage score:
 
-::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_08/Grade.py`](../materials/session_08/Grade.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_08/Grade.py >}}
-```
+{{< teaching-file ../materials/session_08/Grade.py kind="homework" >}}
 
 <br>
 
 7. Write a program to calculate income tax (T) and net income for any taxable income (X)
 
-::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_08/Tax.py`](../materials/session_08/Tax.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_08/Tax.py >}}
-```
+{{< teaching-file ../materials/session_08/Tax.py kind="homework" >}}
 
 ## Summary and announcements
 

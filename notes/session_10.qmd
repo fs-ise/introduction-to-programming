@@ -61,29 +61,13 @@ print("The end")
 
 1. Extend the code to end the loop when the user enters 0.
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/StopLoop.py`](../materials/session_10/StopLoop.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_10/StopLoop.py >}}
-```
+{{< teaching-file ../materials/session_10/StopLoop.py >}}
 
 2. Expand the dice game again.
 
 Assign exercise 2 as homework.
 
-::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_10/dicegame3.py`](../materials/session_10/dicegame3.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_10/dicegame3.py >}}
-```
+{{< teaching-file ../materials/session_10/dicegame3.py kind="homework" >}}
 
 
 ::: {.callout-note title="Additional exercise TODO"}
@@ -171,75 +155,27 @@ Assign 2,3 as homework.
 
 1. Write a function count_digits(int)
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/CountDigits.py`](../materials/session_10/CountDigits.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_10/CountDigits.py >}}
-```
+{{< teaching-file ../materials/session_10/CountDigits.py >}}
 
 2. Write a Python function to multiply all the numbers in a list.
 
-::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_10/Listmult.py`](../materials/session_10/Listmult.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_10/Listmult.py >}}
-```
+{{< teaching-file ../materials/session_10/Listmult.py kind="homework" >}}
 
 3. Write a function isHarshad(int)
 
-::: {.teaching-file}
-[Homework]{.teaching-label .teaching-label-homework} [`../materials/session_10/Harshad.py`](../materials/session_10/Harshad.py){.teaching-button .teaching-button-homework}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_10/Harshad.py >}}
-```
+{{< teaching-file ../materials/session_10/Harshad.py kind="homework" >}}
 
 4. Write a Python function to calculate the factorial of a number (n!).
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/Factorial.py`](../materials/session_10/Factorial.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_10/Factorial.py >}}
-```
+{{< teaching-file ../materials/session_10/Factorial.py >}}
 
 5. Extend the program by adding a function which calculates the number of possible combinations
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/Combinations.py`](../materials/session_10/Combinations.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_10/Combinations.py >}}
-```
+{{< teaching-file ../materials/session_10/Combinations.py >}}
 
 6. Write a program that simulates a slotmachine
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/SlotMachine.py`](../materials/session_10/SlotMachine.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_10/SlotMachine.py >}}
-```
+{{< teaching-file ../materials/session_10/SlotMachine.py >}}
 
 ::: {.callout-important title="Exam relevance"}
 At least one exam exercise will cover functions.
@@ -433,15 +369,7 @@ Break — 10 minutes
 
 ## Slide 133 — Dictionaries and persistence
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_10/Friends.py`](../materials/session_10/Friends.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_10/Friends.py >}}
-```
+{{< teaching-file ../materials/session_10/Friends.py >}}
 
 - Dictionaries are less relevant to the exam; do not announce this explicitly at the beginning. They may appear in a multiple-choice question.
 

@@ -86,15 +86,7 @@ semivariance(data['price'])
 
 ## General teaching notes
 
-::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_11/5_REST.py`](../materials/session_11/5_REST.py){.teaching-button .teaching-button-demo}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_11/5_REST.py >}}
-```
+{{< teaching-file ../materials/session_11/5_REST.py kind="demo" >}}
 
 - Explain why JSON is relevant to applications.
 - Choose API examples according to the remaining time.
@@ -110,29 +102,13 @@ The pandas portion of the exam is “pure pandas”; it does not combine pandas 
 
 ## Slide 143 — Stock-market API
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_11/MercedesBenz1.py`](../materials/session_11/MercedesBenz1.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_11/MercedesBenz1.py >}}
-```
+{{< teaching-file ../materials/session_11/MercedesBenz1.py >}}
 
 {{< needspace 10 >}}
 
 ### Slide 148 — Stock-price collection
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_11/Stocks.py`](../materials/session_11/Stocks.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_11/Stocks.py >}}
-```
+{{< teaching-file ../materials/session_11/Stocks.py >}}
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/Stocks.csv`](../materials/data/Stocks.csv){.teaching-button .teaching-button-exercise}
@@ -144,27 +120,11 @@ Break — 10 minutes
 
 ## Slide 152 — JSON data retrieval
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_11/MercedesBenz2.py`](../materials/session_11/MercedesBenz2.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_11/MercedesBenz2.py >}}
-```
+{{< teaching-file ../materials/session_11/MercedesBenz2.py >}}
 
 ## Slide 155 — Cryptocurrency API analysis
 
-::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_11/Cryptocurrencies.py`](../materials/session_11/Cryptocurrencies.py){.teaching-button .teaching-button-exercise}
-:::
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_11/Cryptocurrencies.py >}}
-```
+{{< teaching-file ../materials/session_11/Cryptocurrencies.py >}}
 
 ## Slide 159 — Weather API
 
