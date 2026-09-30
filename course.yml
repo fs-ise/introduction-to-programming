@@ -19,7 +19,601 @@ instructor:
   online_meeting_url: https://teams.microsoft.com/meet/35117082310591?p=f5NP6xsZSwVGssoMjB
   bookings_url: https://outlook.office.com/bookwithme/user/42312b4f18fd4acbb4255b5ce301f5d0%40fs.de?anonymous&ismsaljsauthenabled
 schedule:
-  handbook_event_match: null
+  handbook_event_match: "Introduction to Programming"
   timezone: Europe/Berlin
   source_path: data/events.yaml
-events: []
+events:
+  - event_id: 298937-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-09-07
+    start: '09:30'
+    end: '11:00'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_01.html
+  - event_id: 298938-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-09-07
+    start: '11:15'
+    end: '12:45'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_01.html
+  - event_id: 302347-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-09-07
+    start: '14:00'
+    end: '15:30'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_02.html
+  - event_id: 302348-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-09-07
+    start: '15:45'
+    end: '17:15'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_02.html
+  - event_id: 298939-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-09-08
+    start: '09:30'
+    end: '11:00'
+    location: 'T7 B. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_03.html
+  - event_id: 298940-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-09-08
+    start: '11:15'
+    end: '12:45'
+    location: 'T7 B. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_03.html
+  - event_id: 299931-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-09-08
+    start: '14:00'
+    end: '15:30'
+    location: 'T7 B. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_04.html
+  - event_id: 299932-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-09-08
+    start: '15:45'
+    end: '17:15'
+    location: 'T7 B. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_04.html
+  - event_id: 302345-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-09-09
+    start: '09:30'
+    end: '11:00'
+    location: 'T7 B. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_05.html
+  - event_id: 302346-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-09-09
+    start: '11:15'
+    end: '12:45'
+    location: 'T7 B. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_05.html
+  - event_id: 298915-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-09-09
+    start: '14:00'
+    end: '15:30'
+    location: 'T6 B. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_06.html
+  - event_id: 298914-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-09-09
+    start: '15:45'
+    end: '17:15'
+    location: 'T6 B. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_06.html
+  - event_id: 298917-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-09-16
+    start: '09:30'
+    end: '11:00'
+    location: 'T7 B. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_07.html
+  - event_id: 298918-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-09-16
+    start: '11:15'
+    end: '12:45'
+    location: 'T7 B. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_07.html
+  - event_id: 298942-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-09-16
+    start: '14:00'
+    end: '15:30'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_08.html
+  - event_id: 298943-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-09-16
+    start: '15:45'
+    end: '17:15'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_08.html
+  - event_id: 298920-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-09-23
+    start: '09:30'
+    end: '11:00'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_09.html
+  - event_id: 298919-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-09-23
+    start: '11:15'
+    end: '12:45'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_09.html
+  - event_id: 302349-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-09-23
+    start: '14:00'
+    end: '15:30'
+    location: 'T6 B. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_10.html
+  - event_id: 302350-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-09-23
+    start: '15:45'
+    end: '17:15'
+    location: 'T6 B. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_10.html
+  - event_id: 298944-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-09-30
+    start: '09:30'
+    end: '11:00'
+    location: 'T7 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_11.html
+  - event_id: 298941-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-09-30
+    start: '11:15'
+    end: '12:45'
+    location: 'T7 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_11.html
+  - event_id: 302351-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-09-30
+    start: '14:00'
+    end: '15:30'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_12.html
+  - event_id: 302352-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-09-30
+    start: '15:45'
+    end: '17:15'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_12.html
+  - event_id: 302353-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-10-08
+    start: '09:30'
+    end: '11:00'
+    location: 'T6 B. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_13.html
+  - event_id: 302354-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-10-08
+    start: '11:15'
+    end: '12:45'
+    location: 'T6 B. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_13.html
+  - event_id: 298945-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-10-08
+    start: '14:00'
+    end: '15:30'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_14.html
+  - event_id: 298946-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-10-08
+    start: '15:45'
+    end: '17:15'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_14.html
+  - event_id: 298921-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-10-09
+    start: '14:00'
+    end: '15:30'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_15.html
+  - event_id: 298922-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-10-09
+    start: '15:45'
+    end: '17:15'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_15.html
+  - event_id: 302357-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-10-26
+    start: '09:30'
+    end: '11:00'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_16.html
+  - event_id: 302358-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-10-26
+    start: '11:15'
+    end: '12:45'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_16.html
+  - event_id: 298948-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-10-27
+    start: '09:30'
+    end: '11:00'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_17.html
+  - event_id: 298947-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-10-27
+    start: '11:15'
+    end: '12:45'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_17.html
+  - event_id: 298925-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-10-27
+    start: '14:00'
+    end: '15:30'
+    location: 'T6 B. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_18.html
+  - event_id: 298926-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-10-27
+    start: '15:45'
+    end: '17:15'
+    location: 'T6 B. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_18.html
+  - event_id: 298928-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-11-02
+    start: '14:00'
+    end: '15:30'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_19.html
+  - event_id: 298927-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-11-02
+    start: '15:45'
+    end: '17:15'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_19.html
+  - event_id: 298958-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-11-03
+    start: '09:30'
+    end: '11:00'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_20.html
+  - event_id: 298957-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-11-03
+    start: '11:15'
+    end: '12:45'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_20.html
+  - event_id: 302355-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-11-03
+    start: '14:00'
+    end: '15:30'
+    location: 'T6 B. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_21.html
+  - event_id: 302356-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-11-03
+    start: '15:45'
+    end: '17:15'
+    location: 'T6 B. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_21.html
+  - event_id: 298930-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-11-09
+    start: '09:30'
+    end: '11:00'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_22.html
+  - event_id: 298929-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-11-09
+    start: '11:15'
+    end: '12:45'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_22.html
+  - event_id: 298949-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-11-09
+    start: '14:00'
+    end: '15:30'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_23.html
+  - event_id: 298950-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-11-09
+    start: '15:45'
+    end: '17:15'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_23.html
+  - event_id: 302359-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-11-10
+    start: '14:00'
+    end: '15:30'
+    location: 'T8 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_24.html
+  - event_id: 302360-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-11-10
+    start: '15:45'
+    end: '17:15'
+    location: 'T8 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_24.html
+  - event_id: 302366-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-11-16
+    start: '09:30'
+    end: '11:00'
+    location: 'T7 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_25.html
+  - event_id: 302363-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-11-16
+    start: '11:15'
+    end: '12:45'
+    location: 'T7 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_25.html
+  - event_id: 298931-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-11-16
+    start: '14:00'
+    end: '15:30'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_26.html
+  - event_id: 298932-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-11-16
+    start: '15:45'
+    end: '17:15'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_26.html
+  - event_id: 298952-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-11-19
+    start: '14:00'
+    end: '15:30'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_27.html
+  - event_id: 298951-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-11-19
+    start: '15:45'
+    end: '17:15'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_27.html
+  - event_id: 302361-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-11-23
+    start: '14:00'
+    end: '15:30'
+    location: 'T7 B. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_28.html
+  - event_id: 302362-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-11-23
+    start: '15:45'
+    end: '17:15'
+    location: 'T7 B. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_28.html
+  - event_id: 298936-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-11-24
+    start: '09:30'
+    end: '11:00'
+    location: 'T8 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_29.html
+  - event_id: 298935-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-11-24
+    start: '11:15'
+    end: '12:45'
+    location: 'T8 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_29.html
+  - event_id: 298953-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-11-24
+    start: '14:00'
+    end: '15:30'
+    location: 'T6 B. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_30.html
+  - event_id: 298954-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-11-24
+    start: '15:45'
+    end: '17:15'
+    location: 'T6 B. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_30.html
+  - event_id: 298933-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-12-03
+    start: '09:30'
+    end: '11:00'
+    location: 'T6 B. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_31.html
+  - event_id: 298934-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-12-03
+    start: '11:15'
+    end: '12:45'
+    location: 'T6 B. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_31.html
+  - event_id: 302365-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-12-03
+    start: '14:00'
+    end: '15:30'
+    location: 'T8 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_32.html
+  - event_id: 302364-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-12-03
+    start: '15:45'
+    end: '17:15'
+    location: 'T8 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_32.html
+  - event_id: 298955-1926698564-0@timeedit.com
+    type: lecture
+    date: 2026-12-04
+    start: '09:30'
+    end: '11:00'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: slides
+        path: slides/session_33.html
+  - event_id: 298956-1926698564-0@timeedit.com
+    type: exercise
+    date: 2026-12-04
+    start: '11:15'
+    end: '12:45'
+    location: 'T6 A. Room capacity: 72'
+    materials:
+      - type: exercise
+        path: exercises/session_33.html
