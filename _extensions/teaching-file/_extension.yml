@@ -1,0 +1,6 @@
+title: Teaching File
+author: Frankfurt School of Finance & Management
+version: 1.0.0
+contributes:
+  shortcodes:
+    - teaching-file.lua

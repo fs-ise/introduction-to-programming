@@ -91,11 +91,7 @@ Setup was supposed to be completed in the first sessions.
 
 Walk through `spytertest.py` from Canvas with students at the start of the Python session.
 
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_04/Spydertest.py >}}
-```
+{{< teaching-file ../materials/session_04/Spydertest.py kind="demo" >}}
 
 {{< needspace 90 >}}
 
@@ -236,21 +232,13 @@ The final block intentionally raises a `NameError` because `c` is read before it
 
 ::: {.callout-tip title="Exercises (in-class or homework): Circle"}
 
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_04/CircleArea1.py >}}
-```
+{{< teaching-file ../materials/session_04/CircleArea1.py >}}
 
 :::
 
 ::: {.callout-tip title="Exercise (in-class or homework): FutureValue"}
 
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_04/FutureValue.py >}}
-```
+{{< teaching-file ../materials/session_04/FutureValue.py >}}
 
 :::
 
@@ -383,13 +371,7 @@ exped1.head()
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
-<!-- ../materials/session_04/countries.py -->
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_04/countries.py >}}
-```
+{{< teaching-file ../materials/session_04/countries.py >}}
 
 ### Exercise
 
@@ -397,13 +379,7 @@ exped1.head()
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
-<!-- ../materials/session_04/insurance.py -->
-
-```{python}
-#| echo: true
-#| eval: false
-{{< include ../materials/session_04/insurance.py >}}
-```
+{{< teaching-file ../materials/session_04/insurance.py >}}
 
 - Complete all exercises as time permits.
 - If time is short, assign unfinished exercises as homework.

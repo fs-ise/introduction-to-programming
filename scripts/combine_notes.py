@@ -13,6 +13,9 @@ TEACHING_BREAK_FILTER = Path(__file__).resolve().with_name("teaching_break.lua")
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 COURSE_CONFIG = REPOSITORY_ROOT / "course.yml"
 NEEDSPACE_SHORTCODE = REPOSITORY_ROOT / "_extensions" / "needspace" / "needspace.lua"
+TEACHING_FILE_SHORTCODE = (
+    REPOSITORY_ROOT / "_extensions" / "teaching-file" / "teaching-file.lua"
+)
 
 
 def session_page_prefix(session_id: object, path: Path) -> str:
@@ -129,6 +132,7 @@ filters:
   - {TEACHING_BREAK_FILTER.as_posix()}
 shortcodes:
   - {NEEDSPACE_SHORTCODE.as_posix()}
+  - {TEACHING_FILE_SHORTCODE.as_posix()}
 format:
   pdf:
     toc: true

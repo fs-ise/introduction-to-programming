@@ -9,6 +9,7 @@ from scripts.combine_notes import (
     HTML_BR_FILTER,
     NEEDSPACE_SHORTCODE,
     TEACHING_BREAK_FILTER,
+    TEACHING_FILE_SHORTCODE,
     combine,
     session_page_prefix,
 )
@@ -36,8 +37,10 @@ def test_combine_preserves_html_line_breaks_and_configures_filter(
     assert f"filters:\n  - {HTML_BR_FILTER.as_posix()}" in combined
     assert f"  - {TEACHING_BREAK_FILTER.as_posix()}" in combined
     assert f"shortcodes:\n  - {NEEDSPACE_SHORTCODE.as_posix()}" in combined
+    assert f"  - {TEACHING_FILE_SHORTCODE.as_posix()}" in combined
     assert HTML_BR_FILTER.is_absolute()
     assert NEEDSPACE_SHORTCODE.is_absolute()
+    assert TEACHING_FILE_SHORTCODE.is_absolute()
     assert note.read_text(encoding="utf-8") == source
 
 
