@@ -3,7 +3,8 @@
 ### Room and presentation setup
 
 - [ ] Arrive early and switch on the room equipment.
-- [ ] On the room's control panel, select **Source: Beamer**.
+- [ ] On the room's control panel, select **Share content, Desktop**.
+- [ ] Windows: `Win`+`p`, Erweitert, duplizieren (to show IDE as well)
 - [ ] Check that the presentation appears correctly on the projector.
 - [ ] Open the course slides and required exercise files.
 - [ ] If technical problems persist, contact **Frankfurt School IT Support**:

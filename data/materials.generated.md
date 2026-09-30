@@ -4,6 +4,7 @@
 
 | Material | Type |
 |---|---|
+| [Excel cheat sheet](materials/excel-cheat-sheet.pdf) | PDF |
 | [Excel setup](materials/excel_setup.html) | Web page |
 | [Loan illustrations](materials/loans.html) | Web page |
 
@@ -69,6 +70,7 @@
 | [Fuel](materials/session_07/Fuel.py) | PY file |
 | [Homes Florida](materials/session_07/Homes_Florida.py) | PY file |
 | [Insurance2](materials/session_07/insurance2.py) | PY file |
+| [Traveltime](materials/session_07/Traveltime.py) | PY file |
 
 ## Session 08
 
