@@ -1,0 +1,113 @@
+---
+title: "IBAN construction and verification"
+format:
+  revealjs:
+    controls: false
+    progress: false
+    slide-number: false
+    center: false
+    transition: none
+    background-transition: none
+    width: 1600
+    height: 1400
+    margin: 0.02
+title-slide-attributes:
+  data-visibility: hidden
+---
+
+```{=html}
+<style>
+  .reveal .iban-stage-stack {
+    position: relative;
+    width: 100%;
+    height: 1340px;
+    overflow: hidden;
+  }
+
+  .reveal .iban-stage-stack > img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    object-fit: contain;
+  }
+</style>
+
+<div class="iban-stage-stack">
+  <img
+    src="../../images/iban_steps_0.svg"
+    alt="IBAN construction: input values"
+    class="fragment fade-out"
+    data-fragment-index="1">
+
+  <img
+    src="../../images/iban_steps_1.svg"
+    alt="IBAN construction: map DE to 1314"
+    class="fragment current-visible"
+    data-fragment-index="1">
+
+  <img
+    src="../../images/iban_steps_2.svg"
+    alt="IBAN construction: concatenate the strings"
+    class="fragment current-visible"
+    data-fragment-index="2">
+
+  <img
+    src="../../images/iban_steps_3.svg"
+    alt="IBAN construction: convert the concatenated string to an integer"
+    class="fragment current-visible"
+    data-fragment-index="3">
+
+  <img
+    src="../../images/iban_steps_4.svg"
+    alt="IBAN construction: calculate modulo 97"
+    class="fragment current-visible"
+    data-fragment-index="4">
+
+  <img
+    src="../../images/iban_steps_5.svg"
+    alt="IBAN construction: calculate check digits 88"
+    class="fragment current-visible"
+    data-fragment-index="5">
+
+  <img
+    src="../../images/iban_steps_6.svg"
+    alt="IBAN construction: assemble the completed IBAN"
+    class="fragment current-visible"
+    data-fragment-index="6">
+
+  <img
+    src="../../images/iban_steps_7.svg"
+    alt="IBAN verification: start with the completed IBAN"
+    class="fragment current-visible"
+    data-fragment-index="7">
+
+  <img
+    src="../../images/iban_steps_8.svg"
+    alt="IBAN verification: move the first four characters to the end"
+    class="fragment current-visible"
+    data-fragment-index="8">
+
+  <img
+    src="../../images/iban_steps_9.svg"
+    alt="IBAN verification: replace DE with 1314"
+    class="fragment current-visible"
+    data-fragment-index="9">
+
+  <img
+    src="../../images/iban_steps_10.svg"
+    alt="IBAN verification: convert the verification string to an integer"
+    class="fragment current-visible"
+    data-fragment-index="10">
+
+  <img
+    src="../../images/iban_steps_11.svg"
+    alt="IBAN verification: modulo 97 gives 1 and the checksum is valid"
+    class="fragment"
+    data-fragment-index="11">
+</div>
+```

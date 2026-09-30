@@ -4,8 +4,6 @@ session_id: session-08
 event_id: null
 ---
 
-TOOD: include visualization of IBAN (see https://monitorpay.ai/iban-format-by-country-complete-guide-to-structure-validation-bank-lookup/)
-
 Use the exercises to move from sequences to conditional logic, while keeping the stated homework decisions.
 
 | Time      | Topic/activity | Materials |
@@ -75,11 +73,11 @@ s[:6] + s[6:]
 
 4. The International Bank Account Number (IBAN) is a standardized international numbering system developed to identify bank accounts across national borders....
 
-{{< teaching-file ../materials/session_08/IBAN.py >}}
+**Illustrate logic**
 
-::: {.callout-note title="TODO"}
-Include a visualization of the IBAN procedure.
-:::
+- Use the visualization: [IBAN construction and verification](../materials/session_08/iban.qmd).
+
+{{< teaching-file ../materials/session_08/IBAN.py >}}
 
 ## Slide 93 — Creating lists
 

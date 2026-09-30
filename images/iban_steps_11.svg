@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1400" viewBox="0 0 1600 1400" role="img" aria-labelledby="title desc">
+<title id="title">IBAN construction and verification, stage 12</title>
+<desc id="desc">Calculate remainder 1 modulo 97 and confirm that the checksum is valid.</desc>
+<style>text { font-family: Arial, Helvetica, sans-serif; } .mono { font-family: Consolas, "Liberation Mono", monospace; }</style>
+<rect width="1600" height="1400" fill="#FFFFFF"/>
+<rect x="35" y="25" width="1530" height="725" rx="16" fill="#FBFDFE" stroke="#B8CEDF" stroke-width="2"/>
+<text x="80" y="78" font-size="36" font-weight="700" fill="#00549F" text-anchor="start" class="">CREATE IBAN</text>
+<text x="105" y="135" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Bank code</text>
+<text x="500" y="135" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">50070010</text>
+<text x="105" y="180" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Account number</text>
+<text x="500" y="180" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">0175526303</text>
+<text x="105" y="225" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Map country code</text>
+<text x="500" y="225" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">DE</text>
+<text x="560" y="225" font-size="29" font-weight="700" fill="#00549F" text-anchor="start" class="mono">→  1314</text>
+<text x="105" y="292" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Concatenate</text>
+<text x="500" y="292" font-size="29" font-weight="600" fill="#17212B" text-anchor="start" class="mono">&#x27;50070010&#x27; + &#x27;0175526303&#x27;</text>
+<text x="500" y="332" font-size="29" font-weight="600" fill="#17212B" text-anchor="start" class="mono">+ &#x27;1314&#x27; + &#x27;00&#x27;</text>
+<text x="500" y="372" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">= &#x27;500700100175526303131400&#x27;</text>
+<text x="105" y="430" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Convert to integer</text>
+<text x="500" y="430" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">500700100175526303131400</text>
+<text x="105" y="492" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Calculate mod 97</text>
+<text x="500" y="492" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">500700100175526303131400 mod 97 = 10</text>
+<text x="105" y="554" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Calculate check digits</text>
+<rect x="490" y="516" width="260" height="52" rx="8" fill="#FFF3CD"/>
+<text x="510" y="554" font-size="31" font-weight="700" fill="#9A6700" text-anchor="start" class="mono">98 − 10 = 88</text>
+<text x="105" y="625" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Assemble IBAN</text>
+<text x="500" y="625" font-size="45" font-weight="700" fill="#00549F" text-anchor="start" class="mono">DE</text>
+<text x="558" y="625" font-size="45" font-weight="700" fill="#9A6700" text-anchor="start" class="mono">88</text>
+<text x="636" y="625" font-size="45" font-weight="700" fill="#5B4B8A" text-anchor="start" class="mono">5007 0010</text>
+<text x="895" y="625" font-size="45" font-weight="700" fill="#2F6F73" text-anchor="start" class="mono">0175 5263 03</text>
+<text x="525" y="672" font-size="18" font-weight="600" fill="#00549F" text-anchor="middle" class="">Country code</text>
+<text x="583" y="707" font-size="18" font-weight="600" fill="#9A6700" text-anchor="middle" class="">Check digits</text>
+<text x="748" y="672" font-size="18" font-weight="600" fill="#5B4B8A" text-anchor="middle" class="">Bank code</text>
+<text x="1055" y="672" font-size="18" font-weight="600" fill="#2F6F73" text-anchor="middle" class="">Account number</text>
+<rect x="35" y="780" width="1530" height="590" rx="16" fill="#FCFEFC" stroke="#BED8CA" stroke-width="2"/>
+<text x="80" y="833" font-size="36" font-weight="700" fill="#00549F" text-anchor="start" class="">VERIFY IBAN</text>
+<text x="105" y="890" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Completed IBAN</text>
+<text x="500" y="890" font-size="34" font-weight="700" fill="#00549F" text-anchor="start" class="mono">DE</text>
+<text x="558" y="890" font-size="34" font-weight="700" fill="#9A6700" text-anchor="start" class="mono">88</text>
+<text x="636" y="890" font-size="34" font-weight="700" fill="#5B4B8A" text-anchor="start" class="mono">5007 0010</text>
+<text x="895" y="890" font-size="34" font-weight="700" fill="#2F6F73" text-anchor="start" class="mono">0175 5263 03</text>
+<text x="105" y="946" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Move first 4 characters</text>
+<text x="105" y="980" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">to the end</text>
+<text x="500" y="968" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">&#x27;500700100175526303DE88&#x27;</text>
+<text x="105" y="1035" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Replace letters</text>
+<text x="500" y="1035" font-size="29" font-weight="700" fill="#00549F" text-anchor="start" class="mono">DE → 1314</text>
+<text x="500" y="1075" font-size="29" font-weight="600" fill="#17212B" text-anchor="start" class="mono">&#x27;500700100175526303DE88&#x27;</text>
+<text x="500" y="1115" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">→ &#x27;500700100175526303131488&#x27;</text>
+<text x="105" y="1173" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Convert to integer</text>
+<text x="500" y="1173" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">500700100175526303131488</text>
+<text x="105" y="1235" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Calculate mod 97</text>
+<text x="500" y="1235" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">500700100175526303131488 mod 97 = </text>
+<rect x="1190" y="1197" width="62" height="50" rx="8" fill="#E8F5EC"/>
+<text x="1205" y="1235" font-size="31" font-weight="700" fill="#18794E" text-anchor="start" class="mono">1</text>
+<text x="105" y="1297" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Result</text>
+<text x="500" y="1297" font-size="31" font-weight="700" fill="#18794E" text-anchor="start" class="">Checksum valid ✓</text>
+<text x="500" y="1340" font-size="20" font-weight="400" fill="#52616B" text-anchor="start" class="">A valid checksum does not confirm that the bank account exists.</text>
+</svg>
