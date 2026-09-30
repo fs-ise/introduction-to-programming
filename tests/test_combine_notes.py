@@ -11,6 +11,7 @@ from scripts.combine_notes import (
     TEACHING_BREAK_FILTER,
     TEACHING_FILE_SHORTCODE,
     combine,
+    remove_rooms_from_groups,
     session_page_prefix,
 )
 
@@ -181,10 +182,15 @@ def test_checklist_appears_before_sessions(tmp_path: Path) -> None:
 
 def test_groups_appear_before_checklist_and_sessions(tmp_path: Path) -> None:
     groups = tmp_path / "_groups.qmd"
-    groups.write_text(
-        "## Groups\n\n| Date | E3 |\n|---|---|\n| Monday | Room: T6 A |\n",
-        encoding="utf-8",
+    groups_source = (
+        "## Groups\n\n"
+        "Schedule room allocations may change.\n\n"
+        "| Date | E3 | E4 | E5 |\n"
+        "|---|---|---|---|\n"
+        "| Monday | <span class=\"session-chip session-04\">Session 04</span>"
+        "<br>09:30–11:00<br>11:15–12:45<br>Room: T6 A | | |\n"
     )
+    groups.write_text(groups_source, encoding="utf-8")
     checklist = tmp_path / "teaching_checklist.qmd"
     checklist.write_text(
         "# Teaching checklist\n\n- [ ] Check projector.\n", encoding="utf-8"
@@ -201,9 +207,36 @@ def test_groups_appear_before_checklist_and_sessions(tmp_path: Path) -> None:
     combined = output.read_text(encoding="utf-8")
     assert combined.index("# Groups") < combined.index("# Teaching checklist")
     assert combined.index("# Teaching checklist") < combined.index("# Session 01")
-    assert "| Monday | Room: T6 A |" in combined
+    assert "| Date | E3 | E4 | E5 |" in combined
+    assert "Session 04" in combined
+    assert "09:30–11:00" in combined
+    assert "11:15–12:45" in combined
+    assert "T6 A" not in combined
+    assert "Room:" not in combined
+    assert "Schedule room allocations may change." in combined
+    assert groups.read_text(encoding="utf-8") == groups_source
     assert combined.count(r"\clearpage") == 3
     assert r"\renewcommand{\thepage}{Groups/p\arabic{page}}" in combined
+
+
+@pytest.mark.parametrize("room", ["T6 A", "T7 B", "tbc BSc tower"])
+def test_remove_rooms_from_groups_only_changes_room_table_segments(room: str) -> None:
+    body = (
+        "The room allocations are provisional.\n\n"
+        "| Date | E3 |\n"
+        "|---|---|\n"
+        "| Monday | <span class=\"session-chip session-04\">Session 04</span>"
+        f"<br>09:30–11:00<br>11:15–12:45<br>Room: {room} |\n"
+    )
+
+    result = remove_rooms_from_groups(body)
+
+    assert "The room allocations are provisional." in result
+    assert "Session 04" in result
+    assert "09:30–11:00" in result
+    assert "11:15–12:45" in result
+    assert room not in result
+    assert "Room:" not in result
 
 
 @pytest.mark.parametrize(

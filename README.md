@@ -7,7 +7,7 @@ The course is configured for the **2026-WiSe** semester as a **6 ECTS Bachelor-l
 ## Key files
 
 - `course.yml` defines course metadata such as title, semester, credits, language, instructor, repository URL, and schedule settings.
-- `_groups.qmd` is the single source of truth for the group schedule and is included on the homepage and in the generated teaching-notes PDF.
+- `_groups.qmd` is the single source of truth for group dates, times, rooms, and assignments. The homepage shows the full schedule, while the generated teaching-notes PDF omits rooms.
 - `index.qmd` defines the course homepage, session table, and links to notes.
 - `teaching_notes.qmd` lists instructor notes for each session on the website.
 - `assets/styles.css` contains website-level styling, including the session color chips used in the group schedule.
@@ -21,7 +21,7 @@ The course is configured for the **2026-WiSe** semester as a **6 ECTS Bachelor-l
 Run commands from the repository root:
 
 - `make site` renders exercises and the website.
-- `make notes` creates `_site/notes.pdf`, including the current group schedule.
+- `make notes` creates `_site/notes.pdf`, including the current group schedule without room assignments.
 - `make pdfs` creates slide PDFs with Decktape.
 - `make exercises` creates assignment and solution variants.
 - `make sync-events` regenerates generated schedule data when handbook schedule data are configured.
@@ -31,7 +31,7 @@ Run commands from the repository root:
 
 ## Maintenance notes
 
-- Make all changes to group dates, times, rooms, or assignments exclusively in `_groups.qmd`; the schedule is reused by `index.qmd` and `_site/notes.pdf`.
+- Make all changes to group dates, times, rooms, or assignments exclusively in `_groups.qmd`; the website includes this full schedule. The instructor `notes.pdf` intentionally omits rooms so printed notes do not become stale when room assignments change.
 - Update `index.qmd` when the session overview changes.
 - Keep each `notes/session_XX.qmd` aligned with the matching row in the session table.
 - If a session number appears multiple times in the group schedule, reuse the same `session-XX` CSS class so the color remains consistent.

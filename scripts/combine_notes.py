@@ -85,6 +85,19 @@ def read_groups(path: Path) -> tuple[str, str]:
     return title, "\n".join(lines[1:]).strip()
 
 
+def remove_rooms_from_groups(body: str) -> str:
+    """Remove trailing room segments from cells in a Groups Markdown table."""
+    room_segment = re.compile(r"<br\s*/?>[ \t]*Room:[^|]*?([ \t]*)$")
+    lines = []
+    for line in body.splitlines():
+        if line.lstrip().startswith("|") and line.rstrip().endswith("|"):
+            cells = line.split("|")
+            cells = [room_segment.sub(r"\1", cell) for cell in cells]
+            line = "|".join(cells)
+        lines.append(line)
+    return "\n".join(lines)
+
+
 def read_course_title() -> str:
     """Return the course title from the repository configuration."""
     config = yaml.safe_load(COURSE_CONFIG.read_text(encoding="utf-8")) or {}
@@ -107,7 +120,7 @@ def combine(
     sources = []
     if groups is not None:
         title, body = read_groups(groups)
-        sources.append((title, body, "Groups"))
+        sources.append((title, remove_rooms_from_groups(body), "Groups"))
     if checklist is not None:
         title, body = read_checklist(checklist)
         sources.append((title, body, "Checklist"))
