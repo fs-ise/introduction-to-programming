@@ -16,6 +16,9 @@ NEEDSPACE_SHORTCODE = REPOSITORY_ROOT / "_extensions" / "needspace" / "needspace
 TEACHING_FILE_SHORTCODE = (
     REPOSITORY_ROOT / "_extensions" / "teaching-file" / "teaching-file.lua"
 )
+QRCODE_SHORTCODE = (
+    REPOSITORY_ROOT / "_extensions" / "jmbuhr" / "qrcode" / "qrcode.lua"
+)
 
 
 def session_page_prefix(session_id: object, path: Path) -> str:
@@ -146,6 +149,7 @@ filters:
 shortcodes:
   - {NEEDSPACE_SHORTCODE.as_posix()}
   - {TEACHING_FILE_SHORTCODE.as_posix()}
+  - {QRCODE_SHORTCODE.as_posix()}
 format:
   pdf:
     toc: true
@@ -162,6 +166,8 @@ format:
       \\usepackage{{scrlayer-scrpage}}
       \\usepackage{{needspace}}
       \\usepackage{{fvextra}}
+      \\usepackage{{xcolor}}
+      \\usepackage{{qrcode}}
       \\usepackage[skins]{{tcolorbox}}
       \\tcbuselibrary{{breakable}}
 

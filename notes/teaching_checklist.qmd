@@ -13,52 +13,33 @@
 
 ### Student setup and technical issues
 
-- [ ] Check whether students can access Canvas and the course materials.
-- [ ] For Excel configuration issues, direct students to the existing [Student Guide](student_guide.qmd), particularly the [Excel language-settings instructions](student_guide/language-settings.qmd).
-- [ ] For Python or Anaconda installation problems, direct students to the setup instructions provided through Canvas.
-- [ ] Refer institutional account, network, and IT access problems to [Frankfurt School IT Support](mailto:111@fs.de).
-- [ ] Remind students that course-specific questions can be addressed in class, through tutors, or through the course communication channel.
+- [ ] Verify that the student can access Canvas and the course resources.
+- [ ] Distinguish course/setup questions from institutional IT problems.
+- [ ] Point the student to the appropriate resource below.
+
+| Issue, instruction, and resource | QR |
+| -------------------------------- | :--: |
+| **Course-specific questions**<br>Ask in class, a tutorial, or the course communication channel. | |
+| **Course resources (TODO: this should point to Canvas)**<br>Open the student guide.<br><https://fs-ise.github.io/introduction-to-programming/student_guide.html> | {{< qrcode https://fs-ise.github.io/introduction-to-programming/student_guide.html width=280 height=280 >}} |
+| **Excel language/regional settings**<br>Follow the language-settings guide.<br><https://fs-ise.github.io/introduction-to-programming/student_guide/language-settings.html> | {{< qrcode https://fs-ise.github.io/introduction-to-programming/student_guide/language-settings.html width=280 height=280 >}} |
+| **Python/Anaconda setup**<br>Follow the setup instructions on Canvas | |
+| **FS account, network, or IT**<br>Contact Frankfurt School IT Support.<br>[111@fs.de](mailto:111@fs.de) ; [+49 69 154008-111](tel:+4969154008111) | |
+
+: {tbl-colwidths="[60,40]"}
 
 ### Student advising and support resources
 
-- [ ] **Academic and organizational issues:** Direct students to their assigned study advisor for questions about their programme, examinations, and organizational difficulties. See [Student Services](https://www.frankfurt-school.de/students-alumni/student-services).
-- [ ] **Dyslexia and other learning-related impairments:** Refer students to [Life & Health Counseling](https://www.frankfurt-school.de/en/students-alumni/life-and-health-counseling) for advice on available support and reasonable accommodations.
-- [ ] **Other health-related or accessibility needs:** Refer students to the same [Life & Health Counseling service](https://www.frankfurt-school.de/en/students-alumni/life-and-health-counseling).
-- [ ] **Personal difficulties, stress, or wellbeing:** Point students toward Coaching & Counselling and other support available through [Student Services](https://www.frankfurt-school.de/students-alumni/student-services).
-- [ ] **Student counselling contact:** Alexandra Rübesam, [+49 69 154008-810](tel:+4969154008810), [a.ruebesam@fs.de](mailto:a.ruebesam@fs.de).
+- [ ] Identify the type of issue.
+- [ ] Refer the student to the appropriate professional service below.
+- [ ] Do not independently assess disabilities or promise accommodations.
+
+| Situation, referral, and resource | QR |
+| --------------------------------- | :--: |
+| **Programme, examination, or organizational questions**<br>Refer to Student Services or the assigned study advisor.<br><https://www.frankfurt-school.de/students-alumni/student-services> | {{< qrcode https://www.frankfurt-school.de/students-alumni/student-services width=280 height=280 >}} |
+| **Dyslexia, learning/accessibility, or other health-related needs**<br>Refer to Life & Health Counseling.<br><https://www.frankfurt-school.de/en/students-alumni/life-and-health-counseling> | {{< qrcode https://www.frankfurt-school.de/en/students-alumni/life-and-health-counseling width=280 height=280 >}} |
+| **Personal difficulties, stress, or wellbeing**<br>Refer to Student Services / counselling.<br><https://www.frankfurt-school.de/students-alumni/student-services> | {{< qrcode https://www.frankfurt-school.de/students-alumni/student-services width=280 height=280 >}} |
+| **Student counselling contact**<br>Refer to Alexandra Rübesam.<br>[+49 69 154008-810](tel:+4969154008810); [a.ruebesam@fs.de](mailto:a.ruebesam@fs.de) | |
+
+: {tbl-colwidths="[60,40]"}
 
 > Refer students to the appropriate professional service; do not independently assess disabilities or promise examination accommodations.
-
-{{< pagebreak >}}
-
-## Excel language settings
-
-Configuring Excel to use **English function names** and **comma separators**:
-
-::: {.content-visible when-format="html"}
-
-![](images/qr_excel_language_settings.png){width="4cm" fig-align="center" fig-alt="QR code linking to the Excel language-settings guide"}
-
-:::
-
-::: {.content-visible when-format="pdf"}
-
-![](../images/qr_excel_language_settings.png){width="4cm" fig-align="center" fig-alt="QR code linking to the Excel language-settings guide"}
-
-:::
-
-## Excel cheat sheet
-
-Excel keyboard shortcuts for Windows and macOS.
-
-::: {.content-visible when-format="html"}
-
-![](images/qr_excel_cheat_sheet.png){width="4cm" fig-align="center" fig-alt="QR code linking to the Excel cheat sheet"}
-
-:::
-
-::: {.content-visible when-format="pdf"}
-
-![](../images/qr_excel_cheat_sheet.png){width="4cm" fig-align="center" fig-alt="QR code linking to the Excel cheat sheet"}
-
-:::

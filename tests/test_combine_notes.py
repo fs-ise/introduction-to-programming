@@ -8,6 +8,7 @@ import pytest
 from scripts.combine_notes import (
     HTML_BR_FILTER,
     NEEDSPACE_SHORTCODE,
+    QRCODE_SHORTCODE,
     TEACHING_BREAK_FILTER,
     TEACHING_FILE_SHORTCODE,
     combine,
@@ -39,9 +40,11 @@ def test_combine_preserves_html_line_breaks_and_configures_filter(
     assert f"  - {TEACHING_BREAK_FILTER.as_posix()}" in combined
     assert f"shortcodes:\n  - {NEEDSPACE_SHORTCODE.as_posix()}" in combined
     assert f"  - {TEACHING_FILE_SHORTCODE.as_posix()}" in combined
+    assert f"  - {QRCODE_SHORTCODE.as_posix()}" in combined
     assert HTML_BR_FILTER.is_absolute()
     assert NEEDSPACE_SHORTCODE.is_absolute()
     assert TEACHING_FILE_SHORTCODE.is_absolute()
+    assert QRCODE_SHORTCODE.is_absolute()
     assert note.read_text(encoding="utf-8") == source
 
 
@@ -70,6 +73,8 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     assert "footskip=0.9cm" in combined
     assert r"\usepackage{needspace}" in combined
     assert r"\usepackage{fvextra}" in combined
+    assert r"\usepackage{xcolor}" in combined
+    assert r"\usepackage{qrcode}" in combined
     assert r"\usepackage[skins]{tcolorbox}" in combined
     assert r"\tcbuselibrary{breakable}" in combined
     assert r"\newtcolorbox{teachingbreak}{%" in combined
