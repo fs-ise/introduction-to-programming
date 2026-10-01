@@ -24,6 +24,8 @@ Python-Teil: Vorsichtig vorgehen (möglichst viele Studis mitnehmen)
 
 : {tbl-colwidths="[20,40,40]"}
 
+{{< needspace 20 >}}
+
 ## Slide 58 — Load the sales data and create a pivot table
 
 The additional `shape` and column-name checks inspect the dataset before constructing the pivot table.
@@ -45,6 +47,8 @@ pd.pivot_table(
     aggfunc='sum',
 )
 ```
+
+{{< needspace 10 >}}
 
 ## Slide 59 — Filter the data before pivoting
 
@@ -80,6 +84,8 @@ pd.pivot_table(
     aggfunc=['sum', 'mean', 'std'],
 )
 ```
+
+{{< needspace 10 >}}
 
 ## Slide 61 — Add products as a column dimension
 
@@ -151,6 +157,8 @@ print(pivot_df)
 pivot_df.plot(kind='bar')
 ```
 
+{{< needspace 10 >}}
+
 ## Slide 65 — Use multiple row dimensions
 
 Passing a list to `index` creates a hierarchical row index.
@@ -203,6 +211,8 @@ x = students.loc[
 
 y = students.loc[:, 'Performance'].values
 ```
+
+{{< needspace 10 >}}
 
 ## Slide 71 — Linear regression
 
@@ -257,13 +267,17 @@ r2_score(y, y_pred)
 predictivemodel_net.predict([[5, 5, 1]])
 ```
 
+{{< needspace 30 >}}
+
 ## Slides 74–75 — Chipotle analysis
 
 ::: {.teaching-file}
 [`../materials/data/Chipotle.csv`](../materials/data/Chipotle.csv){.teaching-button .teaching-button-exercise}
 :::
 
-{{< teaching-file ../materials/session_07/Chipotle.py >}}
+{{< teaching-file ../materials/session_07/Chipotle.py max-lines="45" >}}
+
+{{< needspace 60 >}}
 
 ## Slides 76–77 — Florida housing analysis
 
@@ -297,6 +311,8 @@ x = 0.0000000000234234
 x
 type(x)
 ```
+
+{{< needspace 10 >}}
 
 ## Slide 82 — Type conversion
 

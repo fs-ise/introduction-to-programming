@@ -76,6 +76,8 @@ exped.loc[1, ['WHERE', 'WHAT', 'HOW']]
 exped.loc[1:3, ['WHEN', 'WHERE']]
 ```
 
+{{< needspace 10 >}}
+
 ## Slide 26 — Position-based selection with `iloc`
 
 `iloc` uses zero-based integer positions. Negative positions count from the end, and the end of a slice is excluded.
@@ -131,6 +133,8 @@ The loc (blue) may change its positions.
 
 <!-- see also: https://proclusacademy.com/blog/practical/slice-pandas-dataframes-using-iloc-loc/ -->
 
+{{< needspace 30 >}}
+
 ## Slide 31 — DataFrame selection
 
 ::: {.teaching-file}
@@ -170,6 +174,8 @@ data = data.drop('Profit', axis=1)
 data = data.drop('Gross_turnover', axis=1)
 ```
 
+{{< needspace 10 >}}
+
 ## Slide 35 — Sorting and useful DataFrame functions
 
 `sort_values()` can sort by one column or by several columns in priority order. `len()` counts rows, while `pct_change()` calculates proportional change from one row to the next.
@@ -198,6 +204,8 @@ data['Cost'].pct_change()
 {{< teaching-file ../materials/session_05/countries2.py >}}
 
 - Use the exercise sequence to add, sort, calculate, and then remove data.
+
+{{< needspace 10 >}}
 
 ## Summary and announcements
 

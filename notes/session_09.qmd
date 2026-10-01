@@ -24,6 +24,8 @@ Explain loop mechanics with sums and products, then distinguish the planned in-c
 
 : {tbl-colwidths="[20,40,40]"}
 
+{{< needspace 10 >}}
+
 ## Slide 109 — Ranges and `for` loops
 
 `range()` accepts a start, an exclusive stop, and an optional step.
@@ -51,6 +53,8 @@ for i in ['apple', 'orange']:
 ```
 
 `for` can iterate over ranges and directly over list elements.
+
+{{< needspace 10 >}}
 
 ## Slides 110–111 — `for` loops
 
@@ -111,6 +115,8 @@ while names[0] != 'Jens':
     print(names[0])
     names.remove(names[0])
 ```
+
+{{< needspace 10 >}}
 
 ## Slides 113–114 — `while` loops
 

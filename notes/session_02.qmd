@@ -222,6 +222,8 @@ Contrast it with `VLOOKUP`:
 - Ask Students to fill in the formula to retrieve Names in the Clients sheet.
 - Next, the following lookups could be replaced with XLOOKUPs (in a copy of the sheet).
 
+{{< needspace 10 >}}
+
 ## Slide 35 — Christmas gift (Homework)
 
 ::: {.teaching-file}
@@ -236,6 +238,8 @@ Students should retrieve two values based on customer status:
 **Formulas are needed for the ChristmasGift and Packaging columns (each retrieving the data from a different table).**
 
 Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution (demonstrate how to copy the spreadsheet).
+
+{{< needspace 10 >}}
 
 ## Slide 36 — Course grading (Homework)
 
@@ -482,6 +486,8 @@ Inside the table, `@` refers to the current row:
 
 After entering the formula once, Excel should copy it to the complete calculated column.
 
+{{< needspace 30 >}}
+
 ## Slides 51–52 — Excel Tables exercise
 
 ::: {.teaching-file}
@@ -489,10 +495,6 @@ After entering the formula once, Excel should copy it to the complete calculated
 :::
 
 This extended exercise can be completed in class, assigned as homework, or continued in Session 3.
-
-Suggested checkpoints:
-
-### Table exercise
 
 1. Open `exercises.xlsx`, sheet `Sales_table`, and convert the data into an Excel Table (insert > table, or **ctrl+t**).
 2. Name the table `Sales`.
@@ -594,6 +596,8 @@ Suggested checkpoints:
 Solution:
 
 ![](../images/excel_sales_table_solution.png){fig-align="center" width="100%"}
+
+{{< needspace 15 >}}
 
 ## Summary and announcements
 

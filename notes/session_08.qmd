@@ -26,6 +26,8 @@ Use the exercises to move from sequences to conditional logic, while keeping the
 
 : {tbl-colwidths="[20,40,40]"}
 
+{{< needspace 10 >}}
+
 ## Slide 88 — Creating strings
 
 Single and double quotation marks both create strings and allow the other kind of quote to appear inside a value.
@@ -81,6 +83,8 @@ s[:6] + s[6:]
 Include a visualization of the IBAN procedure.
 :::
 
+{{< needspace 10 >}}
+
 ## Slide 93 — Creating lists
 
 Lists may contain different data types and may themselves contain other lists.
@@ -104,6 +108,8 @@ This list is used for the indexing and slicing examples shown on the slide.
 ```python
 x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
+
+{{< needspace 10 >}}
 
 ## Slide 97 — List operations
 
@@ -133,6 +139,8 @@ tuple1[1]
 tuple2[2:4]
 tuple4[1][2:4]
 ```
+
+{{< needspace 10 >}}
 
 ## Slide 99 — Mutable lists and immutable tuples
 
@@ -185,6 +193,8 @@ print(b)  # 10
 Break — 10 minutes
 :::
 
+{{< needspace 10 >}}
+
 ## Slide 104 — Conditional statements
 
 Assign suitable values to `x`, `y`, and `time` before running the relevant examples.
@@ -233,6 +243,8 @@ The final condition can also use a chained comparison:
 if 11 <= time <= 13:
     print("It is noon!")
 ```
+
+{{< needspace 10 >}}
 
 ## Slides 105–107 — Conditional logic
 

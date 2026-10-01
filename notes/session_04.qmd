@@ -403,7 +403,7 @@ exped1 = exped1.set_index('Transid')
 exped1.head()
 ```
 
-{{< needspace 10 >}}
+{{< needspace 40 >}}
 
 ## Slide 22 — Importing and exporting data
 

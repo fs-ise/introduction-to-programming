@@ -245,6 +245,8 @@ Solution:
 
 ![](../images/excel_charts_example.png){fig-align="center" width="90%"}
 
+{{< needspace 10 >}}
+
 ## Slide 14 - Exercise Coffee-shop charts
 
 ::: {.teaching-file}
@@ -328,6 +330,8 @@ Before or after the break.
 - Last step: create the visualization...
 
 ![](../images/excel_moving_averages_solution.png){fig-align="center" width="90%"}
+
+{{< needspace 10 >}}
 
 ## Slide 22 - IF Dialogue
 

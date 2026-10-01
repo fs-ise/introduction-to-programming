@@ -30,7 +30,7 @@ Last Excel session already!
 
 : {tbl-colwidths="[20,40,40]"}
 
-{{< needspace 9 >}}
+{{< needspace 30 >}}
 
 ## Homework review: Christmas gift
 
@@ -68,6 +68,8 @@ Contrast the formula structure with `VLOOKUP`:
 ```
 
 ![](../images/excel_xlookup.png){fig-align="center" width="90%"}
+
+{{< needspace 30 >}}
 
 ## Homework review: Course grading
 
@@ -283,6 +285,8 @@ Demonstrate:
 6. Select **Group**.
 7. Unselect `Months`, `Quarters`, and `Years`. Select `Days`.
 
+{{< needspace 10 >}}
+
 ## Theory : Data warehouse concepts, including data cubes and facts vs dimensions
 
 
@@ -338,6 +342,8 @@ Complete this exercise in class only if sufficient time remains. Otherwise, assi
 - Filter for the fruit category.
 
 ![](../images/excel_pivot_exporter_task_2.png){fig-align="center" width="80%"}
+
+{{< needspace 10 >}}
 
 ### Task 3 — Product sales in Germany
 

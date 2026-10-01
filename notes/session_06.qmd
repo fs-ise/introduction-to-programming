@@ -34,6 +34,8 @@ The files underlying the `data` and `exped` DataFrames are available in Canvas i
 
 : {tbl-colwidths="[20,40,40]"}
 
+{{< needspace 30 >}}
+
 ## Slide 37 — Summing DataFrame values
 
 The latter two expressions calculate the same sums using label-based and position-based selection.
@@ -69,7 +71,7 @@ exped['WHERE'].unique()
 exped['WHERE'].value_counts()
 ```
 
-{{< needspace 11 >}}
+{{< needspace 20 >}}
 
 ## Slide 42 — Descriptive statistics
 
@@ -129,6 +131,8 @@ df.dtypes
 df.plot(kind='bar')
 ```
 
+{{< needspace 10 >}}
+
 ## Slide 48 — Creating pie charts
 
 ```python
@@ -167,6 +171,8 @@ exped.WHERE == 'London'
 exped.loc[exped.WHERE == 'London']
 ```
 
+{{< needspace 10 >}}
+
 ## Slide 52 — Combining conditions
 
 Use `&` for “and” and `|` for “or”. Each individual pandas condition needs parentheses when conditions are combined.
@@ -182,6 +188,8 @@ exped.loc[
     | (exped.REVENUE >= 2500)
 ]
 ```
+
+{{< needspace 20 >}}
 
 ## Slide 53 — Conditional filtering
 
@@ -200,12 +208,16 @@ exped.groupby('HOW')['HOW'].count()
 exped.groupby('HOW')['REVENUE'].mean()
 ```
 
+{{< needspace 10 >}}
+
 ## Slide 55 — Grouping by multiple columns
 
 ```python
 a = exped.groupby(['HOW', 'WHERE'])['REVENUE'].mean()
 a
 ```
+
+{{< needspace 20 >}}
 
 ## Slide 56 — Grouping and aggregation
 
@@ -226,6 +238,8 @@ a
 ::: {.callout-note title="Exam relevance"}
 Machine learning and prediction are not relevant to the exam.
 :::
+
+{{< needspace 10 >}}
 
 ## Summary and announcements
 
