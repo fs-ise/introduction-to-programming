@@ -83,8 +83,8 @@ def test_shortcode_builds_display_only_python_code_and_file_link():
     assert "pandoc.Link" in implementation
     assert "io.open" in implementation
     assert "quarto.Callout" in implementation
-    assert "title = title" in implementation
-    assert "content = { code }" in implementation
+    assert "title = make_title" in implementation
+    assert "content = { make_code(contents) }" in implementation
 
 
 def test_shortcode_renders_callout_options_and_explicit_kinds(tmp_path: Path):
@@ -172,3 +172,191 @@ def test_shortcode_rejects_invalid_callout_value(tmp_path: Path):
 
     assert result.returncode != 0
     assert "callout must be 'true' or 'false'" in result.stdout + result.stderr
+
+
+def _render_shortcode(
+    tmp_path: Path,
+    source_lines: list[str],
+    output_format: str,
+    options: str = "",
+) -> str:
+    """Render one teaching-file shortcode and return the generated document."""
+    quarto = shutil.which("quarto")
+    if quarto is None:
+        pytest.skip("Quarto is not available")
+
+    (tmp_path / "sample.py").write_text(
+        "\n".join(source_lines) + "\n", encoding="utf-8"
+    )
+    shortcode = ROOT / "_extensions/teaching-file/teaching-file.lua"
+    source = tmp_path / "split.qmd"
+    source.write_text(
+        f"---\nshortcodes:\n  - {shortcode.as_posix()}\n---\n\n"
+        f"{{{{< teaching-file sample.py {options} >}}}}\n",
+        encoding="utf-8",
+    )
+    suffix = "tex" if output_format == "latex" else output_format
+    output = tmp_path / f"split.{suffix}"
+    subprocess.run(
+        [quarto, "render", source.name, "--to", output_format, "--output", output.name],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+        check=True,
+    )
+    return output.read_text(encoding="utf-8")
+
+
+def _numbered_source(line_count: int) -> list[str]:
+    # Deliberately omit blank lines so chunk boundaries are deterministic.
+    return [f"source_line_{number:03} = {number}" for number in range(1, line_count + 1)]
+
+
+def test_short_file_is_one_latex_callout(tmp_path: Path):
+    rendered = _render_shortcode(tmp_path, _numbered_source(8), "latex")
+    assert rendered.count("In-class exercise") == 1
+    assert "continued from previous page" not in rendered
+
+
+def test_long_file_remains_one_html_callout(tmp_path: Path):
+    rendered = _render_shortcode(
+        tmp_path, _numbered_source(30), "html", 'max-lines="10"'
+    )
+    assert rendered.count("In-class exercise") == 1
+    assert "continued from previous page" not in rendered
+    assert rendered.count("source_line_001") == 1
+    assert rendered.count("source_line_030") == 1
+
+
+def test_long_file_splits_in_latex_without_changing_source_order(tmp_path: Path):
+    source_lines = _numbered_source(23)
+    rendered = _render_shortcode(
+        tmp_path, source_lines, "latex", 'split="true" max-lines="10"'
+    )
+
+    assert rendered.count("In-class exercise") == 3
+    assert rendered.count("continued from previous page") == 2
+    assert rendered.count(r"\newpage{}") == 2
+    first_title = rendered.index("In-class exercise")
+    assert r"\Needspace{" in rendered[:first_title]
+    assert r"\newpage{}" not in rendered[:first_title]
+
+    positions = []
+    for line in source_lines:
+        # LaTeX escaping and syntax-highlighting commands can occur within a
+        # line, so the unique numeric suffix is the stable rendered marker.
+        marker = line.split("_")[2].split()[0]
+        assert rendered.count(marker) == 1
+        positions.append(rendered.index(marker))
+    assert positions == sorted(positions)
+
+
+def test_split_false_disables_latex_splitting(tmp_path: Path):
+    rendered = _render_shortcode(
+        tmp_path,
+        _numbered_source(25),
+        "latex",
+        'split="false" max-lines="10"',
+    )
+    assert rendered.count("In-class exercise") == 1
+    assert "continued from previous page" not in rendered
+
+
+def test_custom_max_lines_is_honored(tmp_path: Path):
+    rendered = _render_shortcode(
+        tmp_path, _numbered_source(13), "latex", 'max-lines="5"'
+    )
+    assert rendered.count("In-class exercise") == 3
+    assert rendered.count("continued from previous page") == 2
+
+
+def test_long_lines_consume_more_of_latex_chunk_budget(tmp_path: Path):
+    short_render = _render_shortcode(
+        tmp_path, [f"value_{number} = {number}" for number in range(4)], "latex",
+        'max-lines="4"',
+    )
+    long_render = _render_shortcode(
+        tmp_path,
+        [f'long_{number} = "{"x" * 150}"' for number in range(4)],
+        "latex",
+        'max-lines="4"',
+    )
+
+    assert short_render.count("In-class exercise") == 1
+    assert long_render.count("In-class exercise") == 4
+    assert long_render.count("continued from previous page") == 3
+
+
+@pytest.mark.parametrize(
+    ("options", "message"),
+    [
+        ('split="sometimes"', "split must be 'auto', 'true', or 'false'"),
+        ('max-lines="many"', "max-lines must be a positive integer"),
+        ('max-lines="0"', "max-lines must be a positive integer"),
+        ('max-lines="-2"', "max-lines must be a positive integer"),
+    ],
+)
+def test_invalid_split_options_fail_clearly(
+    tmp_path: Path, options: str, message: str
+):
+    quarto = shutil.which("quarto")
+    if quarto is None:
+        pytest.skip("Quarto is not available")
+    (tmp_path / "sample.py").write_text("pass\n", encoding="utf-8")
+    shortcode = ROOT / "_extensions/teaching-file/teaching-file.lua"
+    (tmp_path / "invalid.qmd").write_text(
+        f"---\nshortcodes:\n  - {shortcode.as_posix()}\n---\n\n"
+        f"{{{{< teaching-file sample.py {options} >}}}}\n",
+        encoding="utf-8",
+    )
+    result = subprocess.run(
+        [quarto, "render", "invalid.qmd", "--to", "html"],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+    )
+    assert result.returncode != 0
+    assert message in result.stdout + result.stderr
+
+
+def test_homes_florida_pdf_callout_stays_inside_page(tmp_path: Path):
+    """Regression test for the visibly overflowing Session 7 callout."""
+    quarto = shutil.which("quarto")
+    if quarto is None:
+        pytest.skip("Quarto is not available")
+    fitz = pytest.importorskip("fitz", reason="PyMuPDF is needed for PDF geometry")
+
+    source_file = ROOT / "materials/session_07/Homes_Florida.py"
+    (tmp_path / source_file.name).write_bytes(source_file.read_bytes())
+    shortcode = ROOT / "_extensions/teaching-file/teaching-file.lua"
+    (tmp_path / "regression.qmd").write_text(
+        "---\nformat: pdf\nheader-includes: |\n"
+        "  \\usepackage{needspace}\nshortcodes:\n"
+        f"  - {shortcode.as_posix()}\n---\n\n"
+        f"{{{{< teaching-file {source_file.name} >}}}}\n",
+        encoding="utf-8",
+    )
+    subprocess.run(
+        [quarto, "render", "regression.qmd", "--to", "pdf"],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+        check=True,
+    )
+
+    document = fitz.open(tmp_path / "regression.pdf")
+    pages = [page for page in document if source_file.name in page.get_text()]
+    assert len(pages) >= 2, "The long file should produce continuation callouts"
+    assert "import pandas as pd" in " ".join(pages[0].get_text().split())
+    assert all(
+        "continued from previous page" in " ".join(page.get_text().split())
+        for page in pages[1:]
+    )
+    for page in pages:
+        # Filled drawing paths include the callout and code backgrounds. Every
+        # such rectangle must be wholly contained by the physical MediaBox.
+        filled_rectangles = [
+            drawing["rect"] for drawing in page.get_drawings() if drawing["fill"]
+        ]
+        assert filled_rectangles
+        assert all(page.rect.contains(rect) for rect in filled_rectangles)
