@@ -106,7 +106,7 @@ Setup was supposed to be completed in the first sessions.
 
 ## Quick Walk through: `spytertest.py` (Canvas) at the start of the session
 
-{{< teaching-file ../materials/session_04/Spydertest.py kind="demo" >}}
+{{< teaching-file ../materials/session_04/Spydertest.py kind="demo"  max-lines="800" >}}
 
 {{< needspace 10 >}}
 
