@@ -28,7 +28,7 @@ Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 Follow-up on questions/feedback from last session's survey.
 :::
 
-{{< needspace 10 >}}
+{{< needspace 30 >}}
 
 ## Homework review: DAX moving averages
 
@@ -47,6 +47,8 @@ Start by briefly explaining the task (again):
 - Emphasize that a longer moving average is smoother and reacts more slowly.
 
 ![](../images/excel_moving_averages_solution.png){fig-align="center" width="90%"}
+
+{{< needspace 30 >}}
 
 ## Homework review: Installment loan
 
@@ -109,6 +111,8 @@ Note: Other solutions are possible (including a `=MIN(...)`for the principal rep
 If **Special IF functions** were not covered in the previous session: complete slide 28.
 :::
 
+{{< needspace 30 >}}
+
 ## Slides 30–31 — `VLOOKUP`
 
 Start with the practical example:
@@ -154,8 +158,7 @@ Key points:
 - Approximate matching with `TRUE` should only be used deliberately and normally requires sorted lookup data.
 - Lock the lookup range before copying a formula down.
 
-
-### Slide 34 — Client lookup
+## Slide 34 — Client lookup
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Clients
@@ -234,7 +237,7 @@ Students should retrieve two values based on customer status:
 
 Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution (demonstrate how to copy the spreadsheet).
 
-### Slide 36 — Course grading (Homework)
+## Slide 36 — Course grading (Homework)
 
 ::: {.teaching-file}
 [Homework]{.teaching-label .teaching-label-homework} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
@@ -288,7 +291,7 @@ A table name identifies the table independently of its position in the worksheet
 
 ![](../images/excel_create_table.png){fig-align="center" width="70%"}
 
-### Slide 40 — Sorting and filtering
+## Slide 40 — Sorting and filtering
 
 Demonstrate:
 
@@ -299,7 +302,7 @@ Demonstrate:
 
 Emphasize that filtering hides records but does not delete them. This distinction becomes important for `SUBTOTAL`.
 
-### Slides 41–42 — Table design and styles
+## Slides 41–42 — Table design and styles
 
 With a cell inside the table selected, open **Table Design**.
 

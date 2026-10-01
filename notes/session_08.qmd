@@ -41,7 +41,7 @@ y = '"A quotation!"'
 print(y)
 ```
 
-### Slide 90 — Slicing strings
+## Slide 90 — Slicing strings
 
 The two complementary slices reconstruct the original string.
 
@@ -97,7 +97,7 @@ list4 = [
 ]
 ```
 
-### Slide 94 — Prepare a list for slicing
+## Slide 94 — Prepare a list for slicing
 
 This list is used for the indexing and slicing examples shown on the slide.
 

@@ -106,7 +106,7 @@ The pandas portion of the exam is “pure pandas”; it does not combine pandas 
 
 {{< needspace 10 >}}
 
-### Slide 148 — Stock-price collection
+## Slide 148 — Stock-price collection
 
 {{< teaching-file ../materials/session_11/Stocks.py >}}
 

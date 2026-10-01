@@ -120,7 +120,7 @@ Use the [teaching notes for Session 2](session_02.html#slides-5152-excel-tables-
 Refer to the Excel Table example (from previous session): highlight that manually writing formulas for aggregate and conditional statistics can be tedious (e.g., by product, region, time).
 PivotTables help for that.
 
-### Slide 65 — Creating a PivotTable
+## Slide 65 — Creating a PivotTable
 
 Before creating the PivotTable, briefly check that:
 
@@ -231,7 +231,7 @@ Through `Design` ribbon:
 Break — 10 minutes
 :::
 
-### Slide 73 — PivotCharts
+## Slide 73 — PivotCharts
 
 Do-it-yourself: pp.55-60.
 
@@ -245,7 +245,7 @@ Demonstrate that:
 
 <!-- **SCREENSHOT:** PivotChart with visible field controls. -->
 
-### Slide 74 — Calculated fields
+## Slide 74 — Calculated fields
 
 **PivotTable Analyze → Fields, Items & Sets → Calculated Field**
 
@@ -264,7 +264,7 @@ Key point:
 
 <!-- **SCREENSHOT:** Calculated Field dialog with the `Profit` formula. -->
 
-### Slide 75 — Grouping dates
+## Slide 75 — Grouping dates
 
 **Important**: Create PivotTable for the `Store_data` sheet, which contains dates!
 
@@ -291,7 +291,7 @@ For `values`, we need data that can be aggregated numerically (e.g., through sum
 These we refer to as facts and dimensions.
 This corresponds to the multi-dimensional hypercube analyses in Excel (a type of analysis that we will also see in other analytical software packages).
 
-### Slide 61 — Facts and dimensions
+## Slide 61 — Facts and dimensions
 
 Introduce the distinction using the table on the slide.
 
@@ -308,7 +308,7 @@ Revisit Slides 56–61. Select two or three examples and ask students:
 - Which categories are used to divide the number?
 - Which values are fixed or filtered?
 
-### Slides 62–63 — Data cube and slicing
+## Slides 62–63 — Data cube and slicing
 
 Use the cube as a conceptual model.
 Explain:

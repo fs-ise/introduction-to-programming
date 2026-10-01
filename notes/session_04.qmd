@@ -108,7 +108,7 @@ Setup was supposed to be completed in the first sessions.
 
 {{< teaching-file ../materials/session_04/Spydertest.py kind="demo" >}}
 
-{{< needspace 90 >}}
+{{< needspace 10 >}}
 
 ## Slide 5 — Basic arithmetic and string operations
 
@@ -127,7 +127,7 @@ Run these expressions individually in Spyder so that each result is visible.
 
 Note: operators explained on the following slide.
 
-### Slide 8 — Variables and reassignment
+## Slide 8 — Variables and reassignment
 
 Refer to a variable as **names bound to an object**
 
@@ -172,7 +172,7 @@ Explain step by step how Python approaches this statement.
 - Assignment: right side to the variable z.
 - Right side is a complex statement. Needs to be evaluated first....
 
-### Slide 10 — Output with `print()`
+## Slide 10 — Output with `print()`
 
 ::: {.callout-tip}
 Point students towards the tooltips provided in Spyder when typing `print(` in editor or console.
@@ -309,7 +309,7 @@ The short alias `pd` is the conventional name used for pandas (programmers are o
 import pandas as pd
 ```
 
-### Slide 16 — Reading an Excel file into a DataFrame
+## Slide 16 — Reading an Excel file into a DataFrame
 
 ::: {.teaching-file}
 [`../materials/data/Bikesales.xlsx`](../materials/data/Bikesales.xlsx){.teaching-button .teaching-button-exercise}
@@ -358,7 +358,7 @@ data = pd.read_excel("data/Bikesales.xlsx")
 os.chdir(r'D:\Dropbox\Lehre\Introduction to Programming\Presentation')
 ```
 
-### Slide 17 — Inspecting a DataFrame
+## Slide 17 — Inspecting a DataFrame
 
 These expressions show the DataFrame dimensions, column names, and column data types.
 
@@ -368,7 +368,7 @@ list(data)
 data.dtypes
 ```
 
-### Slide 19 — Reading CSV files
+## Slide 19 — Reading CSV files
 
 The relative path is resolved against the active working directory. `Bikesales.csv` is in the archive's `data/` folder.
 
@@ -376,7 +376,7 @@ The relative path is resolved against the active working directory. `Bikesales.c
 data = pd.read_csv("data/Bikesales.csv")
 ```
 
-### Slide 20 — Loading, previewing, and exporting data
+## Slide 20 — Loading, previewing, and exporting data
 
 ::: {.teaching-file}
 [`../materials/data/Exped.xlsx`](../materials/data/Exped.xlsx){.teaching-button .teaching-button-exercise}

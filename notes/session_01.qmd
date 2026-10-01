@@ -91,18 +91,19 @@ Start Excel and explain the following (without slides):
 :::
 <!-- see [solution](../materials/session_01/exercises_with_solutions.xlsx) -- Sheet: Start -->
 
-![](../images/Excel_introduction_xlsx_1.png){fig-align="center" width="50%"}
+![](../images/Excel_introduction_xlsx_1.png){fig-align="center" width="40%"}
 
 - Rows, columns, cells, entering values like numbers, text, boolean values
 - Entering formulas in the cell or the bar
 - Selecting cells by typing "=A1+A2" vs. by clicking on cells
-- Some cells are used for entering data, others for formulas (we need to understand which type of cell is needed)
 - Illustrate data types: Add "€" to the numbers and show that the SUM/EXP no longer work.
 
-Important: distinguish
+::: {.callout-important title="Types of cells"}
+Understand which type of cell is needed:
 
 - Data cells (plain values)
 - Calculated cells (formulas)
+:::
 
 ## Slide 7: Future Value (first exercise)
 
@@ -125,7 +126,7 @@ Reminder: "Scenarios" means that some cells are data cells that we want to chang
 
 Solution:
 
-![](../images/Excel_future_value_1.png){fig-align="center" width="50%"}
+![](../images/Excel_future_value_1.png){fig-align="center" width="40%"}
 
 <!--
 ::: {.callout-tip title="Pro tips"}
@@ -288,7 +289,7 @@ This ensures that language is set to English and parameters are separated by `,`
 
 :::
 
-### Slide 18 - Formula illustration
+## Slide 18 - Formula illustration
 
 ::: {.teaching-file}
 [In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: simple
@@ -311,7 +312,7 @@ Then show slide 17.
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Sales (conditionals)
 :::
 
-![](../images/excel_sales_solution.png){fig-align="center" width="90%"}
+![](../images/excel_sales_solution.png){fig-align="center" width="80%"}
 
 ## Slide 20 — DAX moving averages (first homework)
 
@@ -355,6 +356,8 @@ Prefer nested `IF` functions for the VIP-status exercise (in part II).
 **Solution**: Illustrate the nesting in part 2 on the blackboard:
 
 ![](../images/excel_exercise_VIP_part2.png){fig-align="center" width="60%"}
+
+{{< needspace 15 >}}
 
 ## Slide 25/26 — Installment/annuity loans (Homework)
 
@@ -409,7 +412,7 @@ With a fixed-principal installment loan, the principal is reduced more quickly a
 
 ![](../images/excel_exam_solution.png){fig-align="center" width="60%"}
 
-### Slide 28: Special IF functions
+## Slide 28: Special IF functions
 
 **Solve together (before revealing slide 28, which contains the solutions).**
 
@@ -419,7 +422,8 @@ With a fixed-principal installment loan, the principal is reduced more quickly a
 
 ![](../images/excel_special_if_solution.png)
 
-<br><br><br>
+
+{{< needspace 10 >}}
 
 ### Summary and announcements (next session)
 
