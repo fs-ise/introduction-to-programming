@@ -344,11 +344,11 @@ type(age)
 
 {{< teaching-file ../materials/session_07/Distance.py >}}
 
-{{< teaching-file ../materials/session_07/Traveltime.py >}}
+{{< teaching-file ../materials/session_07/Traveltime.py kind="homework" >}}
 
-{{< teaching-file ../materials/session_07/Fuel.py >}}
+{{< teaching-file ../materials/session_07/Fuel.py kind="homework" >}}
 
-{{< teaching-file ../materials/session_07/AnnuityLoan1.py >}}
+{{< teaching-file ../materials/session_07/AnnuityLoan1.py kind="homework" >}}
 
 - Assign exercises 4, 5, and 6 as homework.
 

@@ -22,7 +22,7 @@ Use the exercises to move from sequences to conditional logic, while keeping the
 | 45–58 min | **Exercise: discount** | Slides 105–107; `Discount.py` |
 | 58–68 min | **Exercise: dice game and block placement** | Slides 105–107; `dicegame1.py` |
 | 68–78 min | **Exercise: temperature** | Slides 105–107; `Temperature.py` |
-| 78–90 min | Conditional homework and wrap-up | Slides 105–107; homework: `AnnuityLoan2.py`, `Grade.py`, `Tax.py` |
+| 78–90 min | Conditional homework and wrap-up | Slides 105–107; homework: `AnnuityLoan2.py`, `Temperature.py`, `Grade.py`, `Tax.py` |
 
 : {tbl-colwidths="[20,40,40]"}
 

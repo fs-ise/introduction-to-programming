@@ -43,6 +43,21 @@ def test_sessions_use_shortcode_for_python_teaching_files():
             assert (session_path.parent / path).is_file(), path
 
 
+def test_session_07_interactive_formula_homework_mapping():
+    session = (ROOT / "notes/session_07.qmd").read_text()
+
+    for filename in ("Traveltime.py", "Fuel.py", "AnnuityLoan1.py"):
+        assert re.search(
+            rf"teaching-file ../materials/session_07/{filename} kind=\"homework\"",
+            session,
+        )
+
+    for filename in ("CircleArea2.py", "Currency.py", "Distance.py"):
+        assert re.search(
+            rf"teaching-file ../materials/session_07/{filename}\s*>", session
+        )
+
+
 def test_dataset_buttons_remain_separate_and_valid():
     dataset_buttons = []
     for session_path in SESSIONS:
