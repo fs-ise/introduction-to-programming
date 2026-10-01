@@ -275,7 +275,7 @@ predictivemodel_net.predict([[5, 5, 1]])
 [`../materials/data/Chipotle.csv`](../materials/data/Chipotle.csv){.teaching-button .teaching-button-exercise}
 :::
 
-{{< teaching-file ../materials/session_07/Chipotle.py max-lines="45" >}}
+{{< teaching-file ../materials/session_07/Chipotle.py >}}
 
 {{< needspace 60 >}}
 

@@ -218,6 +218,16 @@ def test_short_file_is_one_latex_callout(tmp_path: Path):
     assert "continued from previous page" not in rendered
 
 
+def test_default_max_lines_is_45(tmp_path: Path):
+    at_threshold = _render_shortcode(tmp_path, _numbered_source(45), "latex")
+    over_threshold = _render_shortcode(tmp_path, _numbered_source(46), "latex")
+
+    assert at_threshold.count("In-class exercise") == 1
+    assert "continued from previous page" not in at_threshold
+    assert over_threshold.count("In-class exercise") == 2
+    assert over_threshold.count("continued from previous page") == 1
+
+
 def test_long_file_remains_one_html_callout(tmp_path: Path):
     rendered = _render_shortcode(
         tmp_path, _numbered_source(30), "html", 'max-lines="10"'
