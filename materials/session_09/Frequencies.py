@@ -1,4 +1,3 @@
-
 import random
 
 n = int(input("How many random numbers do you want to generate? "))

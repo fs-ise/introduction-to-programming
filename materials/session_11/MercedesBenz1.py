@@ -1,4 +1,3 @@
-
 import pandas as pd
 
 stockdata = pd.read_csv('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MBG.DEX&outputsize=full&apikey=YOURKEY&datatype=csv')

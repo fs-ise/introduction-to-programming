@@ -11,5 +11,3 @@ df.plot(kind='pie')
 
 countries.plot(kind='density', y='GDP')
 countries.plot(kind='box', y='GDP')
-
-

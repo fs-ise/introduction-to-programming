@@ -1,4 +1,3 @@
-
 lat1 = float(input("Enter the latitude of the first location: "))
 long1 = float(input("Enter the longitude of the first location: "))
 lat2 = float(input("Enter the latitude of the second location: "))

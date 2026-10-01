@@ -1,4 +1,3 @@
-
 an = input('Enter the account number: ')
 bc = input('Enter the bank code: ')
 cc = input('Enter the county code as a number (e.g. 1314 for DE): ')

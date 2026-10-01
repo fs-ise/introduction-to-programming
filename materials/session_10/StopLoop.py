@@ -4,6 +4,3 @@ while True:
     if n==0:
         break
     items.append(n)
-
-
-

@@ -13,7 +13,7 @@ input()
 import pandas as pd
 
 data = {'Number': [1, 10, 10, 7],
-        'Name': ['Manuel Neuer', 'Toni Kroos', 'Lionel Messi', 'Cristiano Ronaldo'], 
+        'Name': ['Manuel Neuer', 'Toni Kroos', 'Lionel Messi', 'Cristiano Ronaldo'],
         'Position': ['Goalkeeper', 'Midfielder', 'Forward', 'Striker'],
         'Goals': [0, 14, 30, 26]}
 df = pd.DataFrame(data)

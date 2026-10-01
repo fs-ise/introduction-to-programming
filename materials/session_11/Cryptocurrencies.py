@@ -1,16 +1,15 @@
-
 import requests
 import pandas as pd
 
 r = requests.get('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=eur&days=30')
 data = r.json()
 btc = pd.DataFrame(data['prices'], columns=['time','price'])
-btc.head(3) 
+btc.head(3)
 
 r = requests.get('https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=eur&days=30')
 data = r.json()
 eth = pd.DataFrame(data['prices'], columns=['time','price'])
-eth.head(3) 
+eth.head(3)
 
 compare = pd.DataFrame(btc.time)
 compare['BTC'] = btc.price

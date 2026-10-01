@@ -10,4 +10,3 @@ def combinations(n,k):
 n = int(input("Enter n: "))
 k = int(input("Enter k: "))
 print ("Combinations =", combinations(n,k))
-

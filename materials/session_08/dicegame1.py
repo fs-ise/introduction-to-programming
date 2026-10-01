@@ -1,4 +1,3 @@
-
 import random
 
 stake = int(input('How much money would you like to invest? '))
@@ -12,4 +11,3 @@ if dice1 == dice2:
     print("You get", payout, "Euro!")
 else:
     print("Unfortunately they lost!!! The throw brought", dice1, "and", dice2)
-

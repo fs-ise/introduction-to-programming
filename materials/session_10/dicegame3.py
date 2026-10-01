@@ -1,4 +1,3 @@
-
 import random
 
 stake = int(input('How much money would you like to invest? '))
@@ -26,5 +25,3 @@ while continue_:
     else:
         print("Unfortunately you have lost!!!")
         continue_ = False
-
-
