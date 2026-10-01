@@ -292,7 +292,7 @@ future_value = investment(...)**...
 Break — 10 minutes
 :::
 
-{{< needspace 10 >}} 
+{{< pagebreak >}} 
 
 ::: {.callout-important title="Student errors"}
 In this part, students typicall need assistance in setting up the working directory.
