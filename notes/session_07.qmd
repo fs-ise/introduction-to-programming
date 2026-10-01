@@ -338,6 +338,8 @@ type(age)
 
 ## Slides 84–85 — Interactive formula programs
 
+Assign exercises `Traveltime.py`, `Fuel.py` and `AnnuityLoan1.py` as homework.
+
 {{< teaching-file ../materials/session_07/CircleArea2.py >}}
 
 {{< teaching-file ../materials/session_07/Currency.py >}}
@@ -350,7 +352,6 @@ type(age)
 
 {{< teaching-file ../materials/session_07/AnnuityLoan1.py kind="homework" >}}
 
-- Assign exercises 4, 5, and 6 as homework.
 
 ## Slide 86 — Boolean values
 
