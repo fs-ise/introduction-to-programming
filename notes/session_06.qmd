@@ -74,7 +74,7 @@ exped['WHERE'].value_counts()
 ### Slide 42 — Descriptive statistics
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_06/countries3.py >}}
@@ -140,7 +140,7 @@ df.plot(kind='pie', subplots=True, legend=True)
 ## Slide 49 — Basic visualizations
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_06/countries4.py >}}
@@ -186,7 +186,7 @@ exped.loc[
 ## Slide 53 — Conditional filtering
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_06/countries5.py >}}
@@ -210,13 +210,13 @@ a
 ## Slide 56 — Grouping and aggregation
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_06/countries6.py >}}
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
+[`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_06/insurance1.py >}}

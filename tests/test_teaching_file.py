@@ -8,7 +8,9 @@ import pytest
 
 ROOT = Path(__file__).parents[1]
 SESSIONS = tuple(ROOT / "notes" / f"session_{number:02}.qmd" for number in range(4, 12))
-SHORTCODE_PATTERN = re.compile(r"\{\{< teaching-file ([^ >]+\.py)(?: kind=\"([^\"]+)\")? >\}\}")
+SHORTCODE_PATTERN = re.compile(
+    r"\{\{<\s*teaching-file\s+([^\s>]+\.py)([^>]*)>\}\}"
+)
 LEGACY_FILE_PATTERN = re.compile(
     r"::: \{\.teaching-file\}\s+.*?\[`([^`]+)`\]\(([^)]+)\).*?\s+:::", re.DOTALL
 )
@@ -65,23 +67,29 @@ def test_shortcode_builds_display_only_python_code_and_file_link():
     assert '{ "python" }, { eval = "false" }' in implementation
     assert "pandoc.Link" in implementation
     assert "io.open" in implementation
+    assert "quarto.Callout" in implementation
+    assert "title = title" in implementation
+    assert "content = { code }" in implementation
 
 
-def test_shortcode_renders_default_and_explicit_kinds(tmp_path: Path):
+def test_shortcode_renders_callout_options_and_explicit_kinds(tmp_path: Path):
     quarto = shutil.which("quarto")
     if quarto is None:
         pytest.skip("Quarto is not available")
 
     sample = tmp_path / "sample.py"
-    sample.write_text('message = "teaching-file smoke test"\n', encoding="utf-8")
+    sample.write_text(
+        'raise RuntimeError("teaching-file code must not be evaluated")\n',
+        encoding="utf-8",
+    )
     source = tmp_path / "smoke.qmd"
     shortcode = ROOT / "_extensions/teaching-file/teaching-file.lua"
     source.write_text(
         f"---\nshortcodes:\n  - {shortcode.as_posix()}\n---\n\n"
         "{{< teaching-file sample.py >}}\n\n"
-        '{{< teaching-file sample.py kind="demo" >}}\n\n'
-        '{{< teaching-file sample.py kind="homework" >}}\n\n'
-        '{{< teaching-file sample.py kind="homework-solution" >}}\n',
+        '{{< teaching-file sample.py kind="homework" callout="TrUe" >}}\n\n'
+        '{{< teaching-file sample.py callout="false" >}}\n\n'
+        '{{< teaching-file sample.py kind="demo" callout="FALSE" >}}\n',
         encoding="utf-8",
     )
 
@@ -94,8 +102,58 @@ def test_shortcode_renders_default_and_explicit_kinds(tmp_path: Path):
     )
 
     rendered = (tmp_path / "smoke.html").read_text(encoding="utf-8")
-    assert "In-class exercise" in rendered
+    assert rendered.count("In-class exercise") == 2
     assert "In-class demo" in rendered
-    assert "Homework" in rendered
-    assert "Homework solution" in rendered
-    assert "teaching-file smoke test" in rendered
+    assert rendered.count("Homework") == 1
+    assert rendered.count('href="sample.py"') == 4
+    assert rendered.count("teaching-file code must not be evaluated") == 4
+    callouts = re.findall(
+        r'class="(?=[^"]*\bcallout\b)(?=[^"]*\bcallout-tip\b)[^"]*"',
+        rendered,
+    )
+    # Only the default and callout="TrUe" instances are Quarto callouts. The
+    # two false instances remain an unboxed download row and code block.
+    assert len(callouts) == 2
+
+    titles = re.findall(
+        r'<div class="[^"]*\bcallout-title-container\b[^"]*">(.*?)</div>',
+        rendered,
+        re.DOTALL,
+    )
+    assert len(titles) == 2
+    assert "In-class exercise" in titles[0]
+    assert "Homework" in titles[1]
+    assert all("sample.py" in title for title in titles)
+    assert all('href="sample.py"' in title for title in titles)
+
+    # Callout titles replace the download row rather than duplicating it in
+    # the body; only the two callout=false instances retain this standalone row.
+    teaching_rows = re.findall(
+        r'class="(?=[^"]*\bteaching-file\b)[^"]*"', rendered
+    )
+    assert len(teaching_rows) == 2
+
+
+def test_shortcode_rejects_invalid_callout_value(tmp_path: Path):
+    quarto = shutil.which("quarto")
+    if quarto is None:
+        pytest.skip("Quarto is not available")
+
+    (tmp_path / "sample.py").write_text("pass\n", encoding="utf-8")
+    shortcode = ROOT / "_extensions/teaching-file/teaching-file.lua"
+    source = tmp_path / "invalid.qmd"
+    source.write_text(
+        f"---\nshortcodes:\n  - {shortcode.as_posix()}\n---\n\n"
+        '{{< teaching-file sample.py callout="sometimes" >}}\n',
+        encoding="utf-8",
+    )
+
+    result = subprocess.run(
+        [quarto, "render", source.name, "--to", "html"],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+    )
+
+    assert result.returncode != 0
+    assert "callout must be 'true' or 'false'" in result.stdout + result.stderr

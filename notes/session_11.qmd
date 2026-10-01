@@ -111,7 +111,7 @@ The pandas portion of the exam is “pure pandas”; it does not combine pandas 
 {{< teaching-file ../materials/session_11/Stocks.py >}}
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/Stocks.csv`](../materials/data/Stocks.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/Stocks.csv`](../materials/data/Stocks.csv){.teaching-button .teaching-button-exercise}
 :::
 
 ::: {.teaching-break}

@@ -265,17 +265,9 @@ b = c+1
 
 ## Slide 13 — Basic formula programs
 
-::: {.callout-tip title="Exercises (in-class or homework): Circle"}
-
 {{< teaching-file ../materials/session_04/CircleArea1.py >}}
 
-:::
-
-::: {.callout-tip title="Exercise (in-class or homework): FutureValue"}
-
 {{< teaching-file ../materials/session_04/FutureValue.py >}}
-
-:::
 
 ::: {.callout-warning title="Typical error"}
 
@@ -416,7 +408,7 @@ exped1.head()
 ## Slide 22 — Importing and exporting data
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_04/countries.py >}}
@@ -424,7 +416,7 @@ exped1.head()
 ### Exercise
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
+[`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_04/insurance.py >}}

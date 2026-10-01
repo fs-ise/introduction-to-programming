@@ -5,6 +5,23 @@ local kinds = {
   ["homework-solution"] = { label = "Homework solution", style = "homework" },
 }
 
+local function parse_boolean(value, name, default)
+  local text = pandoc.utils.stringify(value)
+  if text == "" then
+    return default
+  end
+
+  text = string.lower(text)
+  if text == "true" then
+    return true
+  elseif text == "false" then
+    return false
+  end
+
+  error("teaching-file shortcode: " .. name .. " must be 'true' or 'false' (got '" ..
+    text .. "')")
+end
+
 local function teaching_file(args, kwargs)
   kwargs = kwargs or {}
   local path = pandoc.utils.stringify(args[1] or "")
@@ -22,6 +39,7 @@ local function teaching_file(args, kwargs)
       "' (expected exercise, demo, homework, or homework-solution)")
   end
   local style = kind_config.style or kind
+  local use_callout = parse_boolean(kwargs["callout"], "callout", true)
 
   local input_dir = pandoc.path.directory(quarto.doc.input_file or "")
   local source_path = pandoc.path.join({ input_dir, path })
@@ -46,10 +64,19 @@ local function teaching_file(args, kwargs)
     { pandoc.Para({ label, pandoc.Space(), link }) },
     pandoc.Attr("", { "teaching-file" })
   )
+  local title = pandoc.Inlines({ label, pandoc.Space(), link })
   local code = pandoc.CodeBlock(
     contents,
     pandoc.Attr("", { "python" }, { eval = "false" })
   )
+
+  if use_callout then
+    return quarto.Callout({
+      type = "tip",
+      title = title,
+      content = { code },
+    })
+  end
 
   return pandoc.Blocks({ download, code })
 end
