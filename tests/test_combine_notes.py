@@ -4,6 +4,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import pytest
+import yaml
 
 from scripts.combine_notes import (
     HTML_BR_FILTER,
@@ -17,6 +18,7 @@ from scripts.combine_notes import (
 )
 
 NEEDSPACE_EXTENSION = Path(__file__).resolve().parents[1] / "_extensions" / "needspace"
+REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_combine_preserves_html_line_breaks_and_configures_filter(
@@ -68,6 +70,7 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     combined = output.read_text(encoding="utf-8")
     assert "toc-depth: 1" in combined
     assert "papersize: a4" in combined
+    assert "knitr:\n  opts_chunk:\n    fig.align: center\n" in combined
     assert "left=1.5cm" in combined
     assert "bottom=2.2cm" in combined
     assert "footskip=0.9cm" in combined
@@ -139,6 +142,18 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     assert "### Topic one detail" in combined
     assert "## Topic two" in combined
     assert combined.count("Introduction to Programming: Notes") == 2
+
+
+def test_exercise_profiles_inherit_figure_alignment_default() -> None:
+    exercises = REPOSITORY_ROOT / "exercises"
+    project = yaml.safe_load((exercises / "_quarto.yml").read_text(encoding="utf-8"))
+
+    assert project["execute"]["fig-align"] == "center"
+    for profile in ("assign", "solution"):
+        profile_config = yaml.safe_load(
+            (exercises / f"_quarto-{profile}.yml").read_text(encoding="utf-8")
+        )
+        assert "fig-align" not in profile_config.get("execute", {})
 
 
 def test_session_title_is_not_inserted_into_footer(tmp_path: Path) -> None:

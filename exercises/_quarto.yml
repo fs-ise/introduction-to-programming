@@ -6,3 +6,5 @@ profile:
 format:
   html: default
   ipynb: default
+execute:
+  fig-align: center
