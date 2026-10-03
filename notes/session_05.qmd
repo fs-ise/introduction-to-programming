@@ -4,25 +4,33 @@ session_id: session-05
 event_id: null
 ---
 
-Resources:
 
-- [Good explanation](https://proclusacademy.com/blog/practical/slice-pandas-dataframes-using-iloc-loc/)
-- [Kaggle exercise](https://www.kaggle.com/learn/pandas?trk=public_profile_certification-title)
-- [pandas tutorial](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html)
+```{mermaid}
+%%| out-width: 50%
+flowchart
 
-TODO: illustrate Excel structured references (if they are helpful to understand)?
-TBD: illustrate label and index-based access in Python or on the whiteboard?
+  subgraph LEFT[Selecting data]
+    direction TB
+    A1["15 min<br/>Column access and loc"]
+    A2["20 min<br/>Row selection with loc"]
+    A3["20 min<br/>Position-based selection<br/>with iloc"]
+    A4["15 min<br/>loc, iloc, and sorted labels"]
+    A5["20 min<br/>Exercise<br/>Countries DataFrame selection"]
 
-::: {.callout-note title="Session 4 datasets"}
-The files underlying the `data` and `exped` DataFrames are available in Canvas in `data.zip`. If Spyder or its Python console has been restarted since Session 4, reload the datasets before running these examples.
-:::
+    A1 --> A2 --> A3 --> A4 --> A5
+  end
 
-Note: `exped` corresponds to `Exped.xlsx`; `data` corresponds to the Bikesales dataset.
+  subgraph RIGHT[Modifying and sorting data]
+    direction TB
+    B1["25 min<br/>Adding rows and columns"]
+    B2["15 min<br/>Deleting rows and columns"]
+    B3["20 min<br/>Sorting and DataFrame functions"]
+    B4["25 min<br/>Exercise<br/>Modify and sort countries data"]
+    B5["5 min<br/>Review and questions"]
 
-TODO/TBD: start by explaining label/position-based access based on a whiteboard illustration (leverage similarities to Excel. Run the operations in parallel (**but make sure the results are identical with the illustration**))
-See: https://chatgpt.com/c/6a6758fc-2954-83eb-a108-c91f378dfc7c
-
-![](../images/pandas_label_vs_position.png){fig-align="center" width="60%"}
+    B1 --> B2 --> B3 --> B4 --> B5
+  end
+```
 
 | Time      | Topic/activity | Materials |
 | --------: | -------------- | --------- |
@@ -39,6 +47,22 @@ See: https://chatgpt.com/c/6a6758fc-2954-83eb-a108-c91f378dfc7c
 | 85–90 min | Review and questions | Slides 23–36 |
 
 : {tbl-colwidths="[20,40,40]"}
+
+{{< pagebreak >}}
+
+::: {.callout-note title="Session 4 datasets"}
+`exped` corresponds to `Exped.xlsx`; `data` corresponds to the Bikesales dataset.
+
+The files underlying the `data` and `exped` DataFrames are available in Canvas in `data.zip`. If Spyder or its Python console has been restarted since Session 4, reload the datasets before running these examples.
+:::
+
+TODO: illustrate Excel structured references (if they are helpful to understand)?
+TBD: illustrate label and index-based access in Python or on the whiteboard?
+
+TODO/TBD: start by explaining label/position-based access based on a whiteboard illustration (leverage similarities to Excel. Run the operations in parallel (**but make sure the results are identical with the illustration**))
+See: https://chatgpt.com/c/6a6758fc-2954-83eb-a108-c91f378dfc7c
+
+![](../images/pandas_label_vs_position.png){fig-align="center" width="60%"}
 
 ## Slide 23 — Accessing a column
 

@@ -1,0 +1,15 @@
+---
+title: Resources
+---
+
+## General resources
+
+Add reusable readings, software setup instructions, and support links here.
+
+Use accessible link text and remove this page if the course does not need shared resources.
+
+## Pandas
+
+- [Good explanation](https://proclusacademy.com/blog/practical/slice-pandas-dataframes-using-iloc-loc/)
+- [Kaggle exercise](https://www.kaggle.com/learn/pandas?trk=public_profile_certification-title)
+- [pandas tutorial](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html)

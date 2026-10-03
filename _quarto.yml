@@ -20,14 +20,15 @@ website:
         href: syllabus.qmd
       - text: Objectives
         href: objectives.qmd
-      - text: Teaching notes
-        href: teaching_notes.qmd
       - text: Materials
         href: materials.qmd
+      - href: resources.qmd
 
 format:
   html:
     theme: cosmo
+    mermaid:
+      theme: neutral
     toc: false
     css:
       - assets/styles.css
