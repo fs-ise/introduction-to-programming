@@ -1,8 +1,9 @@
 -- Apply the shared Mermaid configuration while leaving chart-local init
 -- directives in control. Quarto 1.8 bundles Mermaid 11.6, which supports the
 -- native handDrawn look used by assets/mermaid-init.json. Its flowchart
--- renderer does not yet support wrappingWidth or minNodeWidth, so the shared
--- config uses extra node padding as the closest supported width control.
+-- renderer does not make wrappingWidth or minNodeWidth available reliably, so
+-- node sizing is left to Mermaid's normal layout with intentionally compact
+-- node padding.
 
 local script = debug.getinfo(1, "S").source:sub(2)
 local root = pandoc.path.directory(pandoc.path.directory(script))

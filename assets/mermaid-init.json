@@ -23,6 +23,7 @@
     "curve": "linear",
     "rankSpacing": 30,
     "nodeSpacing": 40,
-    "padding": 30
+    "padding": 8,
+    "diagramPadding": 5
   }
 }

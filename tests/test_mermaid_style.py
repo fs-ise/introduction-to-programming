@@ -33,13 +33,13 @@ def test_shared_mermaid_config_uses_native_neutral_hand_drawn_look() -> None:
     assert config["themeVariables"]["lineColor"] == "#555555"
     assert config["themeVariables"]["clusterBkg"] == "#f7f7f7"
     assert config["themeVariables"]["edgeLabelBackground"] == "#ffffff"
-    # Quarto 1.8 embeds Mermaid 11.6. That release supports spacing, curves,
-    # and padding, but predates flowchart.wrappingWidth and minNodeWidth.
+    # Keep flowchart sizing on Mermaid's supported spacing and padding options.
     assert config["flowchart"] == {
         "curve": "linear",
         "rankSpacing": 30,
         "nodeSpacing": 40,
-        "padding": 30,
+        "padding": 8,
+        "diagramPadding": 5,
     }
 
 
