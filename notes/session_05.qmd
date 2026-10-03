@@ -7,16 +7,6 @@ event_id: null
 ```{mermaid}
 %%| fig-width: 6
 
-%%{init: {
-  "flowchart": {
-    "wrappingWidth": 220,
-    "minNodeWidth": 180,
-    "rankSpacing": 30,
-    "nodeSpacing": 40,
-    "curve": "linear"
-  }
-}}%%
-
 flowchart
 
   subgraph RIGHT["Modifying and sorting data"]

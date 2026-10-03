@@ -21,7 +21,8 @@
   },
   "flowchart": {
     "curve": "linear",
-    "rankSpacing": 25,
-    "nodeSpacing": 20
+    "rankSpacing": 30,
+    "nodeSpacing": 40,
+    "padding": 30
   }
 }
