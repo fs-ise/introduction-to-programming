@@ -6,7 +6,8 @@ event_id: null
 
 
 ```{mermaid}
-%%| out-width: 50%
+%%| fig-width: 5
+
 flowchart
 
   subgraph LEFT[Selecting data]
