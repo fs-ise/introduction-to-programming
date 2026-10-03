@@ -55,7 +55,7 @@ Review:
 - Use `FALSE` for an exact match.
 - Lock the lookup ranges before copying the formulas.
 
-![](../images/excel_gift_vlookup.png){fig-align="center" width="90%"}
+![](../images/excel_gift_vlookup.png){width="90%"}
 
 ### `XLOOKUP` solution
 
@@ -67,7 +67,7 @@ Contrast the formula structure with `VLOOKUP`:
 =XLOOKUP(lookup_value,lookup_array,return_array)
 ```
 
-![](../images/excel_xlookup.png){fig-align="center" width="90%"}
+![](../images/excel_xlookup.png){width="90%"}
 
 {{< needspace 30 >}}
 
@@ -85,7 +85,7 @@ Review the sequence:
 2. Calculate the contribution of each assessment component.
 3. Add the contributions to obtain the final course grade.
 
-![](../images/excel_grading_vlookup.png){fig-align="center" width="90%"}
+![](../images/excel_grading_vlookup.png){width="90%"}
 
 ::: {.callout-note}
 - Lookup functions return one value, this means three lookups are required for the homework part
@@ -105,7 +105,7 @@ Copy the sheet and replace the `VLOOKUP` formulas with `XLOOKUP`.
 
 Emphasize that each score column has its own return array, while all formulas use the same StudentID lookup array.
 
-![](../images/excel_grading_xlookup.png){fig-align="center" width="90%"}
+![](../images/excel_grading_xlookup.png){width="90%"}
 
 ::: {.callout-tip title="In-class exercise on Excel Tables: Sales table"}
 Complete the in-class exercise on Excel Tables **Sales table** if it was not completed in the previous session.
@@ -335,13 +335,13 @@ Complete this exercise in class only if sufficient time remains. Otherwise, assi
 
 ### Task 1 — Category sales by country
 
-![](../images/excel_pivot_exporter_task_1.png){fig-align="center" width="80%"}
+![](../images/excel_pivot_exporter_task_1.png){width="80%"}
 
 ### Task 2 — Fruit-product sales by country
 
 - Filter for the fruit category.
 
-![](../images/excel_pivot_exporter_task_2.png){fig-align="center" width="80%"}
+![](../images/excel_pivot_exporter_task_2.png){width="80%"}
 
 {{< needspace 10 >}}
 
@@ -349,7 +349,7 @@ Complete this exercise in class only if sufficient time remains. Otherwise, assi
 
 Use column label filter to select `Germany` (or add `country` in Filters and select `Germany` there).
 
-![](../images/excel_pivot_exporter_task_3.png){fig-align="center" width="80%"}
+![](../images/excel_pivot_exporter_task_3.png){width="80%"}
 
 {{< needspace 10 >}}
 
@@ -362,14 +362,14 @@ Group the date field (**right click on a date cell**) by:
 
 Then, expand Quarters to show Months.
 
-![](../images/excel_pivot_exporter_task_4.png){fig-align="center" width="80%"}
+![](../images/excel_pivot_exporter_task_4.png){width="80%"}
 
 ### Task 5 — European countries in Q4
 
 - Use `Country` filter to select European countries: `[Germany, France, United Kingdom]`.
 - Filter the grouped date field to Q4.
 
-![](../images/excel_pivot_exporter_task_5.png){fig-align="center" width="80%"}
+![](../images/excel_pivot_exporter_task_5.png){width="80%"}
 
 <!--
 Teaching procedure:
@@ -403,11 +403,11 @@ Never use IDs (like `OrderID`) in a PivotTable. It is a string that can neither 
 To replace the generic **Column Labels**/**Row Labels**, select **Report** > **Layout** > **Show in tabular form**.
 :::
 
-![](../images/excel_pivot_exped_start.png){fig-align="center" width="70%"}
+![](../images/excel_pivot_exped_start.png){width="70%"}
 
 ### Question 1 — London catalog sales in Q1
 
-![](../images/excel_pivot_exped_1.png){fig-align="center" width="70%"}
+![](../images/excel_pivot_exped_1.png){width="70%"}
 
 - Move `WHEN` from **Filters** to **Rows** so the dates can be grouped and compared.
 - Move `WHERE` from **Rows** to **Filters**, then filter it to London.
@@ -416,7 +416,7 @@ To replace the generic **Column Labels**/**Row Labels**, select **Report** > **L
 
 ### Question 2 — Tokyo Q4 Web sales as a percentage of annual sales
 
-![](../images/excel_pivot_exped_2.png){fig-align="center" width="70%"}
+![](../images/excel_pivot_exped_2.png){width="70%"}
 
 - Filter `WHERE` to Tokyo.
 - Keep `HOW` in **Columns**, grouped `WHEN` / Quarters in **Rows**, and `REVENUE` in **Values**.
@@ -425,7 +425,7 @@ To replace the generic **Column Labels**/**Row Labels**, select **Report** > **L
 
 ### Question 3 — Sydney annual Catalog share
 
-![](../images/excel_pivot_exped_3.png){fig-align="center" width="70%"}
+![](../images/excel_pivot_exped_3.png){width="70%"}
 
 - Filter `WHERE` to Sydney.
 - Keep `HOW` in **Columns**, grouped `WHEN` / Quarters in **Rows**, and `REVENUE` in **Values**.
@@ -434,7 +434,7 @@ To replace the generic **Column Labels**/**Row Labels**, select **Report** > **L
 
 ### Question 4 — Camel saddle sales for Paris by quarter
 
-![](../images/excel_pivot_exped_4.png){fig-align="center" width="70%"}
+![](../images/excel_pivot_exped_4.png){width="70%"}
 
 - Filter `WHAT` to Camel saddle and `WHERE` to Paris.
 - Put grouped `WHEN` / Quarters in **Rows**, keep `HOW` in **Columns**, and keep `REVENUE` in **Values** as **Sum of REVENUE**.
@@ -442,7 +442,7 @@ To replace the generic **Column Labels**/**Row Labels**, select **Report** > **L
 
 ### Question 5 — London January Catalog sales and source transactions
 
-![](../images/excel_pivot_exped_5.png){fig-align="center" width="70%"}
+![](../images/excel_pivot_exped_5.png){width="70%"}
 
 - Filter `WHERE` to London and restrict `HOW` to Catalog.
 - Change the `WHEN` date grouping from Quarters to **Months**, then read the January value.
@@ -451,14 +451,14 @@ To replace the generic **Column Labels**/**Row Labels**, select **Report** > **L
 - To inspect the contributing records, double-click `411` (or use **Show Details**). Excel creates a new worksheet containing the source records behind that PivotTable cell.
 - The two records are:
 
-![](../images/excel_pivot_exped_5_detail.png){fig-align="center" width="70%"}
+![](../images/excel_pivot_exped_5_detail.png){width="70%"}
 
 - Check that `275 + 136 = 411`.
 :::
 
 ### Question 6 — Elephant polo stick quantities in New York by month
 
-![](../images/excel_pivot_exped_6.png){fig-align="center" width="70%"}
+![](../images/excel_pivot_exped_6.png){width="70%"}
 
 - Filter `WHAT` to Elephant polo stick and `WHERE` to New York.
 - Group `WHEN` by **Months** in **Rows**.
@@ -476,7 +476,7 @@ Summarize/review the Excel part, collect questions for the Mid-term exam.
 
 Make sure students are prepared for the typical exam question the Pivot-table creator (giving a list of variables for fields `1`, `2`, `3`, `4`):
 
-![](../images/pivot-numbered.png){fig-align="center" width="30%"}
+![](../images/pivot-numbered.png){width="30%"}
 
 Solve Mock exam (we will go through solutions very quickly next time; Solutions will be available on 2026-09-28 on Canvas).
 

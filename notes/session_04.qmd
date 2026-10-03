@@ -34,7 +34,7 @@ event_id: null
 If Python does not work on student machines, a solution may be to use  
 <https://peter-rossbach.github.io/Python-Werkstatt/>:
 
-![](../images/qr_python_werkstatt.png){width=30% fig-align="center"}
+![](../images/qr_python_werkstatt.png){width=30%}
 
 For Anaconda: See Canvas instructions:
 
@@ -85,7 +85,7 @@ Show PyPI website; `pandas` project (popularity, commits, develoeprs, tests)
 
 Explain spyder interface:
 
-![](../images/spyder-interface.png){width=90% fig-align="center"}
+![](../images/spyder-interface.png){width=90%}
 
 ::: {.callout-note title="Spyder working directory"}
 For the exercises, work from the `materials/` directory and keep this as Spyder's **current working directory**.

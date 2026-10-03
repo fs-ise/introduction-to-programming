@@ -68,9 +68,11 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     combine(output, [first, second])
 
     combined = output.read_text(encoding="utf-8")
+    metadata = yaml.safe_load(combined.split("---", 2)[1])
     assert "toc-depth: 1" in combined
     assert "papersize: a4" in combined
-    assert "knitr:\n  opts_chunk:\n    fig.align: center\n" in combined
+    assert metadata["format"]["pdf"]["fig-align"] == "center"
+    assert "knitr" not in metadata
     assert "left=1.5cm" in combined
     assert "bottom=2.2cm" in combined
     assert "footskip=0.9cm" in combined

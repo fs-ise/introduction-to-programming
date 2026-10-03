@@ -91,7 +91,7 @@ Start Excel and explain the following (without slides):
 :::
 <!-- see [solution](../materials/session_01/exercises_with_solutions.xlsx) -- Sheet: Start -->
 
-![](../images/Excel_introduction_xlsx_1.png){fig-align="center" width="40%"}
+![](../images/Excel_introduction_xlsx_1.png){width="40%"}
 
 - Rows, columns, cells, entering values like numbers, text, boolean values
 - Entering formulas in the cell or the bar
@@ -126,7 +126,7 @@ Reminder: "Scenarios" means that some cells are data cells that we want to chang
 
 Solution:
 
-![](../images/Excel_future_value_1.png){fig-align="center" width="40%"}
+![](../images/Excel_future_value_1.png){width="40%"}
 
 <!--
 ::: {.callout-tip title="Pro tips"}
@@ -162,7 +162,7 @@ Setup:
 
 Solution:
 
-![](../images/excel_cost_profit_calculation.png){fig-align="center" width="100%"}
+![](../images/excel_cost_profit_calculation.png){width="100%"}
 
 
 ::: {.callout-note title="Write on the blackboard"}
@@ -190,7 +190,7 @@ Solution:
 
 Solution:
 
-![](../images/future_value_abs_rel_refs.png){fig-align="center" width="80%"}
+![](../images/future_value_abs_rel_refs.png){width="80%"}
 
 ::: {.callout-note title="Exam advice"}
 Note: Write all formulas below in such a way that they can be copied down/right without modification.
@@ -225,7 +225,7 @@ Always check and debug: for the exercises, but also in your job, when you build 
 
 Solution:
 
-![](../images/excel_cost-revenue-painter.png){fig-align="center" width="100%"}
+![](../images/excel_cost-revenue-painter.png){width="100%"}
 
 
 ::: {.callout-note title="Update the blackboard"}
@@ -243,7 +243,7 @@ Solution:
 [In-class demo]{.teaching-label .teaching-label-demo} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-demo} -- Sheet: with_plot
 :::
 
-![](../images/excel_charts_example.png){fig-align="center" width="90%"}
+![](../images/excel_charts_example.png){width="90%"}
 
 {{< needspace 10 >}}
 
@@ -255,7 +255,7 @@ Solution:
 
 **Explain** task by painting expected charts on the blackboard.
 
-![](../images/excel_coffeeshop_charts.png){fig-align="center" width="90%"}
+![](../images/excel_coffeeshop_charts.png){width="90%"}
 
 ::: {.teaching-break}
 Break — 10 minutes
@@ -300,7 +300,7 @@ This ensures that language is set to English and parameters are separated by `,`
 Add the `=SUM()` at the end, using a **range of cells**.  
 Then, add the formula for `Profit (per year)`.
 
-![](../images/excel_formula_illustration.png){fig-align="center" width="90%"}
+![](../images/excel_formula_illustration.png){width="90%"}
 
 Show the **evaluate formula** option (Formulas ribbon):
 
@@ -314,7 +314,7 @@ Then show slide 17.
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Sales (conditionals)
 :::
 
-![](../images/excel_sales_solution.png){fig-align="center" width="80%"}
+![](../images/excel_sales_solution.png){width="80%"}
 
 ## Slide 20 — DAX moving averages (first homework)
 
@@ -329,7 +329,7 @@ Before or after the break.
 - Draft structure on the blackboard
 - Last step: create the visualization...
 
-![](../images/excel_moving_averages_solution.png){fig-align="center" width="90%"}
+![](../images/excel_moving_averages_solution.png){width="90%"}
 
 {{< needspace 10 >}}
 
@@ -345,7 +345,7 @@ Task: introduce conditional fixed cost and calculate annual profit (based on con
 
 Solution:
 
-![](../images/excel_cost_revenue_conditional_if.png){fig-align="center" width="90%"}
+![](../images/excel_cost_revenue_conditional_if.png){width="90%"}
 
 ## Slides 23–24 — VIP classification and credits
 
@@ -359,7 +359,7 @@ Prefer nested `IF` functions for the VIP-status exercise (in part II).
 
 **Solution**: Illustrate the nesting in part 2 on the blackboard:
 
-![](../images/excel_exercise_VIP_part2.png){fig-align="center" width="60%"}
+![](../images/excel_exercise_VIP_part2.png){width="60%"}
 
 {{< needspace 15 >}}
 
@@ -382,7 +382,7 @@ Prefer nested `IF` functions for the VIP-status exercise (in part II).
 - There are some parameters that we can adjust (principal, interest, payment periods) and others that are calculated (repayments).
   It's the same principle in this interface and in your Excel sheet.
 
-![](../images/excel_loans_illustration.png){fig-align="center" width="40%"}
+![](../images/excel_loans_illustration.png){width="40%"}
 
 ::: {.callout-note title="Understanding the difference between fixed installments and annuity loans"}
 With a fixed-principal installment loan, the principal is reduced more quickly at the beginning, which lowers the total interest paid. However, this also means that the initial payments are higher.
@@ -414,7 +414,7 @@ With a fixed-principal installment loan, the principal is reduced more quickly a
 
 **Show** the task description on p.27 to explain the logic (conditional: more than 10 points in Exercise 5 to pass).
 
-![](../images/excel_exam_solution.png){fig-align="center" width="60%"}
+![](../images/excel_exam_solution.png){width="60%"}
 
 ## Slide 28: Special IF functions
 

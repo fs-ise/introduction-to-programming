@@ -62,7 +62,7 @@ TBD: illustrate label and index-based access in Python or on the whiteboard?
 TODO/TBD: start by explaining label/position-based access based on a whiteboard illustration (leverage similarities to Excel. Run the operations in parallel (**but make sure the results are identical with the illustration**))
 See: https://chatgpt.com/c/6a6758fc-2954-83eb-a108-c91f378dfc7c
 
-![](../images/pandas_label_vs_position.png){fig-align="center" width="60%"}
+![](../images/pandas_label_vs_position.png){width="60%"}
 
 ## Slide 23 — Accessing a column
 

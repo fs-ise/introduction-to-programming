@@ -150,11 +150,9 @@ shortcodes:
   - {NEEDSPACE_SHORTCODE.as_posix()}
   - {TEACHING_FILE_SHORTCODE.as_posix()}
   - {QRCODE_SHORTCODE.as_posix()}
-knitr:
-  opts_chunk:
-    fig.align: center
 format:
   pdf:
+    fig-align: center
     toc: true
     toc-depth: 1
     number-sections: false
