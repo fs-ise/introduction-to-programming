@@ -28,6 +28,7 @@ def test_shared_mermaid_config_uses_native_neutral_hand_drawn_look() -> None:
     assert config["theme"] == "base"
     assert config["look"] == "handDrawn"
     assert config["handDrawnSeed"] != 0
+    assert config["themeCSS"] == ".nodeLabel { min-width: 240px; }"
     assert config["themeVariables"]["primaryColor"] == "#ffffff"
     assert config["themeVariables"]["primaryTextColor"] == "#222222"
     assert config["themeVariables"]["lineColor"] == "#555555"
