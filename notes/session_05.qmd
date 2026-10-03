@@ -4,11 +4,21 @@ session_id: session-05
 event_id: null
 ---
 
-
 ```{mermaid}
 %%| fig-width: 5
 
 flowchart
+
+  subgraph RIGHT[Modifying and sorting data]
+    direction TB
+    B1["25 min<br/>Adding rows and columns"]
+    B2["15 min<br/>Deleting rows and columns"]
+    B3["20 min<br/>Sorting and DataFrame functions"]
+    B4["25 min<br/>Exercise<br/>Modify and sort countries data"]
+    B5["5 min<br/>Review and questions"]
+
+    B1 --> B2 --> B3 --> B4 --> B5
+  end
 
   subgraph LEFT[Selecting data]
     direction TB
@@ -21,16 +31,6 @@ flowchart
     A1 --> A2 --> A3 --> A4 --> A5
   end
 
-  subgraph RIGHT[Modifying and sorting data]
-    direction TB
-    B1["25 min<br/>Adding rows and columns"]
-    B2["15 min<br/>Deleting rows and columns"]
-    B3["20 min<br/>Sorting and DataFrame functions"]
-    B4["25 min<br/>Exercise<br/>Modify and sort countries data"]
-    B5["5 min<br/>Review and questions"]
-
-    B1 --> B2 --> B3 --> B4 --> B5
-  end
 ```
 
 | Time      | Topic/activity | Materials |

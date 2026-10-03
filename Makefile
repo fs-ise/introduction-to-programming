@@ -44,7 +44,7 @@ $(NOTES_PDF): $(GROUP_SCHEDULE) $(TEACHING_CHECKLIST) $(NOTES_QMD) scripts/combi
 	@$(QUARTO) render $(NOTES_COMBINED) --to pdf --output notes.pdf
 	@mv notes.pdf $(NOTES_PDF)
 	@rm -f $(NOTES_COMBINED)
-$(SLIDES_DIR)/%.pdf: $(SRC_SLIDES_DIR)/%.qmd _quarto.yml scripts/decktape.sh
+$(SLIDES_DIR)/%.pdf: $(SRC_SLIDES_DIR)/%.qmd _quarto.yml slides/_metadata.yml assets/mermaid.css scripts/decktape.sh
 	@mkdir -p $(SLIDES_DIR)
 	$(QUARTO) render $< --profile pdf --output-dir $(abspath _pdf-tmp)
 	@mv _pdf-tmp/slides/$*.html $(SLIDES_DIR)/$*-pdf.html

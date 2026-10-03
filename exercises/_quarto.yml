@@ -4,7 +4,9 @@ project:
 profile:
   default: assign
 format:
-  html: default
+  html:
+    css:
+      - ../assets/mermaid.css
   ipynb: default
 execute:
   fig-align: center

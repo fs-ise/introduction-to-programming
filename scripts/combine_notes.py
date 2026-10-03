@@ -23,6 +23,81 @@ QRCODE_SHORTCODE = (
     REPOSITORY_ROOT / "_extensions" / "jmbuhr" / "qrcode" / "qrcode.lua"
 )
 
+ACADEMIC_MERMAID_INIT = """%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "background": "#ffffff",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#222222",
+    "primaryBorderColor": "#999999",
+    "lineColor": "#777777",
+    "secondaryColor": "#ffffff",
+    "tertiaryColor": "#f7f7f7",
+    "clusterBkg": "#f7f7f7",
+    "clusterBorder": "#cccccc",
+    "edgeLabelBackground": "#ffffff"
+  },
+  "flowchart": {
+    "curve": "linear"
+  }
+}}%%"""
+
+
+def inject_academic_mermaid_config(markdown: str) -> str:
+    """Inject the static-rendering theme into unconfigured Mermaid fences."""
+    lines = markdown.splitlines(keepends=True)
+    opening = re.compile(
+        r"^(?P<indent>[ \t]*)(?P<fence>`{3,}|~{3,})"
+        r"\{mermaid(?:[ ,][^}]*)?\}(?:[ \t].*)?[\r\n]*$"
+    )
+    explicit_init = re.compile(r"^[ \t]*%%\{[ \t]*init[ \t]*:", re.IGNORECASE)
+    cell_option = re.compile(r"^[ \t]*%%\|")
+    transformed: list[str] = []
+    index = 0
+
+    while index < len(lines):
+        match = opening.match(lines[index])
+        if match is None:
+            transformed.append(lines[index])
+            index += 1
+            continue
+
+        fence = match.group("fence")
+        closing = re.compile(
+            rf"^[ \t]*{re.escape(fence[0])}{{{len(fence)},}}[ \t]*[\r\n]*$"
+        )
+        end = index + 1
+        while end < len(lines) and closing.match(lines[end]) is None:
+            end += 1
+
+        # An unterminated fence is left untouched rather than consuming the
+        # remainder of the generated document as Mermaid source.
+        if end == len(lines):
+            transformed.extend(lines[index:])
+            break
+
+        block = lines[index : end + 1]
+        if any(explicit_init.match(line) for line in block[1:-1]):
+            transformed.extend(block)
+            index = end + 1
+            continue
+
+        insert_at = 1
+        while insert_at < len(block) - 1 and cell_option.match(block[insert_at]):
+            insert_at += 1
+
+        newline = "\r\n" if lines[index].endswith("\r\n") else "\n"
+        indent = match.group("indent")
+        directive = "".join(
+            indent + line + newline for line in ACADEMIC_MERMAID_INIT.splitlines()
+        )
+        transformed.extend(block[:insert_at])
+        transformed.append(directive)
+        transformed.extend(block[insert_at:])
+        index = end + 1
+
+    return "".join(transformed)
+
 
 def session_page_prefix(session_id: object, path: Path) -> str:
     """Return a display prefix derived from a note's session ID."""
@@ -156,6 +231,7 @@ shortcodes:
   - {QRCODE_SHORTCODE.as_posix()}
 format:
   pdf:
+    mermaid-format: png
     fig-align: center
     toc: true
     toc-depth: 1
@@ -242,10 +318,8 @@ format:
 """
 
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(
-        front_matter + "\n\n".join(sections) + "\n",
-        encoding="utf-8",
-    )
+    combined = front_matter + "\n\n".join(sections) + "\n"
+    output.write_text(inject_academic_mermaid_config(combined), encoding="utf-8")
 
 
 def main() -> None:

@@ -1,0 +1,16 @@
+/* Repository-wide academic Mermaid style for browser-rendered diagrams.
+   This file is loaded after the website, notes, exercise, and slide styles;
+   the combined notes PDF receives the same palette at source-generation time. */
+:root {
+  --mermaid-bg-color: #ffffff;
+  --mermaid-edge-color: #777777;
+  --mermaid-node-bg-color: #ffffff;
+  --mermaid-node-fg-color: #999999;
+  --mermaid-label-bg-color: #ffffff;
+  --mermaid-label-fg-color: #222222;
+  --mermaid-fg-color: #222222;
+  /* Quarto also uses these foreground variants for structural fills. */
+  --mermaid-fg-color--lighter: #d5d5d5;
+  --mermaid-fg-color--lightest: #f7f7f7;
+  --mermaid-font-family: inherit;
+}

@@ -27,11 +27,10 @@ website:
 format:
   html:
     theme: cosmo
-    mermaid:
-      theme: neutral
     toc: false
     css:
       - assets/styles.css
+      - assets/mermaid.css
     include-after-body: assets/repo-actions-bottom.html
     grid:
       sidebar-width: 280px

@@ -7,6 +7,7 @@ import pytest
 import yaml
 
 from scripts.combine_notes import (
+    ACADEMIC_MERMAID_INIT,
     CENTER_CAPTIONLESS_IMAGES_FILTER,
     HTML_BR_FILTER,
     NEEDSPACE_SHORTCODE,
@@ -14,6 +15,7 @@ from scripts.combine_notes import (
     TEACHING_BREAK_FILTER,
     TEACHING_FILE_SHORTCODE,
     combine,
+    inject_academic_mermaid_config,
     remove_rooms_from_groups,
     session_page_prefix,
 )
@@ -50,6 +52,77 @@ def test_combine_preserves_html_line_breaks_and_configures_filter(
     assert TEACHING_FILE_SHORTCODE.is_absolute()
     assert QRCODE_SHORTCODE.is_absolute()
     assert CENTER_CAPTIONLESS_IMAGES_FILTER.is_absolute()
+    assert note.read_text(encoding="utf-8") == source
+
+
+def test_inject_mermaid_config_after_cell_options_and_preserve_fences() -> None:
+    markdown = """Before
+
+````{mermaid}
+%%| fig-width: 5
+%%| label: fig-example
+flowchart LR
+  A --> B
+````
+
+~~~{python}
+print("unchanged")
+~~~
+"""
+
+    transformed = inject_academic_mermaid_config(markdown)
+
+    assert transformed.startswith("Before\n\n````{mermaid}\n%%| fig-width: 5\n")
+    assert f"%%| label: fig-example\n{ACADEMIC_MERMAID_INIT}\nflowchart LR" in transformed
+    assert transformed.endswith('~~~{python}\nprint("unchanged")\n~~~\n')
+    assert transformed.count(ACADEMIC_MERMAID_INIT) == 1
+
+
+def test_inject_mermaid_config_respects_explicit_init() -> None:
+    markdown = """```{mermaid}
+%%| fig-width: 5
+%%{init: {"theme": "dark"}}%%
+flowchart TB
+  A --> B
+```
+"""
+
+    assert inject_academic_mermaid_config(markdown) == markdown
+
+
+def test_inject_mermaid_config_preserves_indentation_and_line_endings() -> None:
+    markdown = "   ~~~~{mermaid}\r\n   sequenceDiagram\r\n   A->>B: Hi\r\n   ~~~~\r\n"
+
+    transformed = inject_academic_mermaid_config(markdown)
+
+    assert "   %%{init: {\r\n" in transformed
+    assert transformed.startswith("   ~~~~{mermaid}\r\n")
+    assert transformed.endswith("   ~~~~\r\n")
+
+
+def test_combine_injects_mermaid_without_modifying_source(tmp_path: Path) -> None:
+    note = tmp_path / "note.qmd"
+    source = """---
+title: Diagram note
+session_id: session-05
+---
+
+```{mermaid}
+%%| fig-width: 5
+flowchart
+  subgraph LEFT[Selecting data]
+    A --> B
+  end
+```
+"""
+    note.write_text(source, encoding="utf-8")
+    output = tmp_path / "notes.qmd"
+
+    combine(output, [note])
+
+    combined = output.read_text(encoding="utf-8")
+    assert f"%%| fig-width: 5\n{ACADEMIC_MERMAID_INIT}\nflowchart" in combined
+    assert "mermaid-format: png" in combined
     assert note.read_text(encoding="utf-8") == source
 
 
