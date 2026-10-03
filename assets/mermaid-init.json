@@ -1,0 +1,27 @@
+{
+  "theme": "base",
+  "look": "handDrawn",
+  "handDrawnSeed": 17,
+  "themeVariables": {
+    "background": "#ffffff",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#222222",
+    "primaryBorderColor": "#555555",
+    "lineColor": "#555555",
+    "secondaryColor": "#ffffff",
+    "secondaryBorderColor": "#777777",
+    "tertiaryColor": "#f7f7f7",
+    "tertiaryBorderColor": "#aaaaaa",
+    "clusterBkg": "#f7f7f7",
+    "clusterBorder": "#aaaaaa",
+    "edgeLabelBackground": "#ffffff",
+    "textColor": "#222222",
+    "mainBkg": "#ffffff",
+    "nodeBorder": "#555555"
+  },
+  "flowchart": {
+    "curve": "linear",
+    "rankSpacing": 25,
+    "nodeSpacing": 20
+  }
+}

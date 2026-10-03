@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import yaml
@@ -5,19 +6,35 @@ import yaml
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 MERMAID_CSS = REPOSITORY_ROOT / "assets" / "mermaid.css"
+MERMAID_CONFIG = REPOSITORY_ROOT / "assets" / "mermaid-init.json"
 
 
 def test_html_mermaid_palette_uses_light_structural_fills() -> None:
     css = MERMAID_CSS.read_text(encoding="utf-8")
 
     assert "--mermaid-bg-color: #ffffff" in css
-    assert "--mermaid-edge-color: #777777" in css
+    assert "--mermaid-edge-color: #555555" in css
     assert "--mermaid-node-bg-color: #ffffff" in css
-    assert "--mermaid-node-fg-color: #999999" in css
+    assert "--mermaid-node-fg-color: #555555" in css
     assert "--mermaid-label-fg-color: #222222" in css
-    assert "--mermaid-fg-color--lighter: #d5d5d5" in css
+    assert "--mermaid-fg-color--lighter: #777777" in css
     assert "--mermaid-fg-color--lightest: #f7f7f7" in css
     assert "--mermaid-font-family: inherit" in css
+
+
+def test_shared_mermaid_config_uses_native_neutral_hand_drawn_look() -> None:
+    config = json.loads(MERMAID_CONFIG.read_text(encoding="utf-8"))
+
+    assert config["theme"] == "base"
+    assert config["look"] == "handDrawn"
+    assert config["handDrawnSeed"] != 0
+    assert config["themeVariables"]["primaryColor"] == "#ffffff"
+    assert config["themeVariables"]["primaryTextColor"] == "#222222"
+    assert config["themeVariables"]["lineColor"] == "#555555"
+    assert config["themeVariables"]["clusterBkg"] == "#f7f7f7"
+    assert config["themeVariables"]["edgeLabelBackground"] == "#ffffff"
+    assert config["flowchart"]["rankSpacing"] == 25
+    assert config["flowchart"]["nodeSpacing"] == 20
 
 
 def test_mermaid_css_loads_last_in_each_html_output() -> None:
@@ -34,3 +51,5 @@ def test_mermaid_css_loads_last_in_each_html_output() -> None:
     assert notes["format"]["html"]["css"][-1] == "../assets/mermaid.css"
     assert exercises["format"]["html"]["css"][-1] == "../assets/mermaid.css"
     assert slides["format"]["revealjs"]["css"][-1] == "../assets/mermaid.css"
+    assert root["filters"] == ["scripts/mermaid_style.lua"]
+    assert exercises["filters"] == ["../scripts/mermaid_style.lua"]

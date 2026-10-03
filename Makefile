@@ -38,13 +38,13 @@ cheat-sheet:
 	@mkdir -p $(OUT_DIR)/materials
 	@cp $(CHEAT_SHEET_PDF) $(OUT_DIR)/materials/
 
-$(NOTES_PDF): $(GROUP_SCHEDULE) $(TEACHING_CHECKLIST) $(NOTES_QMD) scripts/combine_notes.py scripts/html_br_to_linebreak.lua scripts/teaching_break.lua scripts/center_captionless_images.lua _extensions/needspace/needspace.lua _extensions/needspace/_extension.yml _extensions/teaching-file/teaching-file.lua _extensions/teaching-file/_extension.yml _extensions/jmbuhr/qrcode/qrcode.lua _extensions/jmbuhr/qrcode/_extension.yml
+$(NOTES_PDF): $(GROUP_SCHEDULE) $(TEACHING_CHECKLIST) $(NOTES_QMD) assets/mermaid-init.json scripts/combine_notes.py scripts/html_br_to_linebreak.lua scripts/teaching_break.lua scripts/center_captionless_images.lua _extensions/needspace/needspace.lua _extensions/needspace/_extension.yml _extensions/teaching-file/teaching-file.lua _extensions/teaching-file/_extension.yml _extensions/jmbuhr/qrcode/qrcode.lua _extensions/jmbuhr/qrcode/_extension.yml
 	@mkdir -p $(OUT_DIR) _pdf-tmp
 	@$(PYTHON) scripts/combine_notes.py --groups $(GROUP_SCHEDULE) --checklist $(TEACHING_CHECKLIST) $(NOTES_COMBINED) $(NOTES_QMD)
 	@$(QUARTO) render $(NOTES_COMBINED) --to pdf --output notes.pdf
 	@mv notes.pdf $(NOTES_PDF)
 	@rm -f $(NOTES_COMBINED)
-$(SLIDES_DIR)/%.pdf: $(SRC_SLIDES_DIR)/%.qmd _quarto.yml slides/_metadata.yml assets/mermaid.css scripts/decktape.sh
+$(SLIDES_DIR)/%.pdf: $(SRC_SLIDES_DIR)/%.qmd _quarto.yml slides/_metadata.yml assets/mermaid.css assets/mermaid-init.json scripts/mermaid_style.lua scripts/decktape.sh
 	@mkdir -p $(SLIDES_DIR)
 	$(QUARTO) render $< --profile pdf --output-dir $(abspath _pdf-tmp)
 	@mv _pdf-tmp/slides/$*.html $(SLIDES_DIR)/$*-pdf.html

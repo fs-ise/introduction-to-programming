@@ -5,28 +5,38 @@ event_id: null
 ---
 
 ```{mermaid}
-%%| fig-width: 5
+%%| fig-width: 6
+
+%%{init: {
+  "flowchart": {
+    "wrappingWidth": 220,
+    "minNodeWidth": 180,
+    "rankSpacing": 30,
+    "nodeSpacing": 40,
+    "curve": "linear"
+  }
+}}%%
 
 flowchart
 
-  subgraph RIGHT[Modifying and sorting data]
+  subgraph RIGHT["Modifying and sorting data"]
     direction TB
-    B1["25 min<br/>Adding rows and columns"]
-    B2["15 min<br/>Deleting rows and columns"]
-    B3["20 min<br/>Sorting and DataFrame functions"]
-    B4["25 min<br/>Exercise<br/>Modify and sort countries data"]
-    B5["5 min<br/>Review and questions"]
+    B1["<b>Add rows/columns</b> (25 min)"]
+    B2["<b>Delete rows/columns</b> (15 min)"]
+    B3["<b>Sort and DataFrame functions</b> (20 min)"]
+    B4["<b>💻 Exercise: Modify and sort</b> (25 min)<br/>countries2.py"]
+    B5["<b>Review and questions</b> (5 min)"]
 
     B1 --> B2 --> B3 --> B4 --> B5
   end
 
-  subgraph LEFT[Selecting data]
+  subgraph LEFT["Selecting data"]
     direction TB
-    A1["15 min<br/>Column access and loc"]
-    A2["20 min<br/>Row selection with loc"]
-    A3["20 min<br/>Position-based selection<br/>with iloc"]
-    A4["15 min<br/>loc, iloc, and sorted labels"]
-    A5["20 min<br/>Exercise<br/>Countries DataFrame selection"]
+    A1["<b>Column access and loc</b> (15 min)"]
+    A2["<b>Row selection with loc</b> (20 min)"]
+    A3["<b>Position-based selection with iloc</b> (20 min)"]
+    A4["<b>loc, iloc, and sorted labels</b> (15 min)"]
+    A5["<b>💻 Exercise: DataFrame selection</b> (20 min)<br/>countries1.py"]
 
     A1 --> A2 --> A3 --> A4 --> A5
   end

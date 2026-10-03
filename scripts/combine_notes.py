@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 from pathlib import Path
 
@@ -22,25 +23,16 @@ TEACHING_FILE_SHORTCODE = (
 QRCODE_SHORTCODE = (
     REPOSITORY_ROOT / "_extensions" / "jmbuhr" / "qrcode" / "qrcode.lua"
 )
+MERMAID_CONFIG = REPOSITORY_ROOT / "assets" / "mermaid-init.json"
 
-ACADEMIC_MERMAID_INIT = """%%{init: {
-  "theme": "base",
-  "themeVariables": {
-    "background": "#ffffff",
-    "primaryColor": "#ffffff",
-    "primaryTextColor": "#222222",
-    "primaryBorderColor": "#999999",
-    "lineColor": "#777777",
-    "secondaryColor": "#ffffff",
-    "tertiaryColor": "#f7f7f7",
-    "clusterBkg": "#f7f7f7",
-    "clusterBorder": "#cccccc",
-    "edgeLabelBackground": "#ffffff"
-  },
-  "flowchart": {
-    "curve": "linear"
-  }
-}}%%"""
+
+def mermaid_init_directive() -> str:
+    """Return the PDF renderer's directive from the shared Mermaid config."""
+    config = json.loads(MERMAID_CONFIG.read_text(encoding="utf-8"))
+    return f"%%{{init: {json.dumps(config, indent=2)}}}%%"
+
+
+ACADEMIC_MERMAID_INIT = mermaid_init_directive()
 
 
 def inject_academic_mermaid_config(markdown: str) -> str:

@@ -76,6 +76,9 @@ print("unchanged")
     assert f"%%| label: fig-example\n{ACADEMIC_MERMAID_INIT}\nflowchart LR" in transformed
     assert transformed.endswith('~~~{python}\nprint("unchanged")\n~~~\n')
     assert transformed.count(ACADEMIC_MERMAID_INIT) == 1
+    assert '"look": "handDrawn"' in transformed
+    assert '"theme": "base"' in transformed
+    assert '"primaryColor": "#ffffff"' in transformed
 
 
 def test_inject_mermaid_config_respects_explicit_init() -> None:

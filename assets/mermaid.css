@@ -1,16 +1,22 @@
-/* Repository-wide academic Mermaid style for browser-rendered diagrams.
-   This file is loaded after the website, notes, exercise, and slide styles;
-   the combined notes PDF receives the same palette at source-generation time. */
+/* Repository-wide pencil Mermaid palette for browser-rendered diagrams.
+   Native line irregularity is configured in assets/mermaid-init.json; these
+   Quarto variables provide the same restrained fallback palette. */
 :root {
   --mermaid-bg-color: #ffffff;
-  --mermaid-edge-color: #777777;
+  --mermaid-edge-color: #555555;
   --mermaid-node-bg-color: #ffffff;
-  --mermaid-node-fg-color: #999999;
+  --mermaid-node-fg-color: #555555;
   --mermaid-label-bg-color: #ffffff;
   --mermaid-label-fg-color: #222222;
   --mermaid-fg-color: #222222;
-  /* Quarto also uses these foreground variants for structural fills. */
-  --mermaid-fg-color--lighter: #d5d5d5;
+  --mermaid-fg-color--lighter: #777777;
   --mermaid-fg-color--lightest: #f7f7f7;
   --mermaid-font-family: inherit;
+}
+
+/* Mermaid's SVG is transparent by default. Keep both screen and Decktape
+   output on the course's white paper-like ground without changing typography. */
+.mermaid,
+.mermaid svg {
+  background: #ffffff;
 }
