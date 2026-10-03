@@ -7,6 +7,7 @@ import pytest
 import yaml
 
 from scripts.combine_notes import (
+    CENTER_CAPTIONLESS_IMAGES_FILTER,
     HTML_BR_FILTER,
     NEEDSPACE_SHORTCODE,
     QRCODE_SHORTCODE,
@@ -40,6 +41,7 @@ def test_combine_preserves_html_line_breaks_and_configures_filter(
     assert "Slides 7–10<br>Slides 7 and 10<br />Exercise" in combined
     assert f"filters:\n  - {HTML_BR_FILTER.as_posix()}" in combined
     assert f"  - {TEACHING_BREAK_FILTER.as_posix()}" in combined
+    assert f"  - {CENTER_CAPTIONLESS_IMAGES_FILTER.as_posix()}" in combined
     assert f"shortcodes:\n  - {NEEDSPACE_SHORTCODE.as_posix()}" in combined
     assert f"  - {TEACHING_FILE_SHORTCODE.as_posix()}" in combined
     assert f"  - {QRCODE_SHORTCODE.as_posix()}" in combined
@@ -47,6 +49,7 @@ def test_combine_preserves_html_line_breaks_and_configures_filter(
     assert NEEDSPACE_SHORTCODE.is_absolute()
     assert TEACHING_FILE_SHORTCODE.is_absolute()
     assert QRCODE_SHORTCODE.is_absolute()
+    assert CENTER_CAPTIONLESS_IMAGES_FILTER.is_absolute()
     assert note.read_text(encoding="utf-8") == source
 
 
@@ -350,6 +353,65 @@ def test_teaching_break_filter_targets_only_latex_teaching_breaks(
     ).stdout
     assert 'class="teaching-break"' in html
     assert "Break — 10 minutes" in html
+
+
+def test_captionless_image_filter_centers_only_unaligned_standalone_images(
+    tmp_path: Path,
+) -> None:
+    if shutil.which("pandoc") is not None:
+        pandoc_command = ["pandoc"]
+    elif shutil.which("quarto") is not None:
+        pandoc_command = ["quarto", "pandoc"]
+    else:
+        pytest.skip("neither standalone nor Quarto-bundled Pandoc is available")
+
+    cases = {
+        "centered.md": '![](test.png){width="60%"}\n',
+        "right.md": '![](test.png){fig-align="right" width="60%"}\n',
+        "inline.md": 'An inline icon ![](test.png){width="10%"} stays inline.\n',
+    }
+    latex = {}
+    for filename, source in cases.items():
+        path = tmp_path / filename
+        path.write_text(source, encoding="utf-8")
+        latex[filename] = subprocess.run(
+            [
+                *pandoc_command,
+                path.name,
+                "--lua-filter",
+                str(CENTER_CAPTIONLESS_IMAGES_FILTER),
+                "-t",
+                "latex",
+            ],
+            cwd=tmp_path,
+            text=True,
+            capture_output=True,
+            check=True,
+        ).stdout
+
+    assert r"\begin{center}" in latex["centered.md"]
+    assert r"\end{center}" in latex["centered.md"]
+    assert r"width=0.6\textwidth" in latex["centered.md"]
+    assert r"\begin{center}" not in latex["right.md"]
+    assert r"width=0.6\textwidth" in latex["right.md"]
+    assert r"\begin{center}" not in latex["inline.md"]
+
+    html = subprocess.run(
+        [
+            *pandoc_command,
+            "centered.md",
+            "--lua-filter",
+            str(CENTER_CAPTIONLESS_IMAGES_FILTER),
+            "-t",
+            "html",
+        ],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+        check=True,
+    ).stdout
+    assert "<center" not in html
+    assert 'width="60%"' in html
 
 
 def test_generated_document_renders_needspace_shortcode(tmp_path: Path) -> None:

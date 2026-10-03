@@ -10,6 +10,9 @@ import yaml
 
 HTML_BR_FILTER = Path(__file__).resolve().with_name("html_br_to_linebreak.lua")
 TEACHING_BREAK_FILTER = Path(__file__).resolve().with_name("teaching_break.lua")
+CENTER_CAPTIONLESS_IMAGES_FILTER = Path(__file__).resolve().with_name(
+    "center_captionless_images.lua"
+)
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 COURSE_CONFIG = REPOSITORY_ROOT / "course.yml"
 NEEDSPACE_SHORTCODE = REPOSITORY_ROOT / "_extensions" / "needspace" / "needspace.lua"
@@ -146,6 +149,7 @@ papersize: a4
 filters:
   - {HTML_BR_FILTER.as_posix()}
   - {TEACHING_BREAK_FILTER.as_posix()}
+  - {CENTER_CAPTIONLESS_IMAGES_FILTER.as_posix()}
 shortcodes:
   - {NEEDSPACE_SHORTCODE.as_posix()}
   - {TEACHING_FILE_SHORTCODE.as_posix()}
