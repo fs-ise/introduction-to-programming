@@ -4,45 +4,55 @@ session_id: session-05
 event_id: null
 ---
 
-Resources:
+```{mermaid}
+%%| fig-width: 5
 
-- [Good explanation](https://proclusacademy.com/blog/practical/slice-pandas-dataframes-using-iloc-loc/)
-- [Kaggle exercise](https://www.kaggle.com/learn/pandas?trk=public_profile_certification-title)
-- [pandas tutorial](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html)
+flowchart
+
+  subgraph RIGHT["<b>Modifying and sorting data</b>"]
+    direction TB
+    B1["<b>Add rows/columns</b> (25 min)"]
+    B2["<b>Delete rows/columns</b> (15 min)"]
+    B3["<b>Sort and DataFrame functions</b> (20 min)"]
+    B4["<b>💻 Modify and sort</b> (25 min)<br/>countries.csv, countries2.py"]
+    B5["<b>Review and questions</b> (5 min)"]
+
+    B1 --> B2 --> B3 --> B4 --> B5
+  end
+
+  subgraph LEFT["<b>Selecting data</b>"]
+    direction TB
+    A1["<b>Column access and loc</b> (15 min)"]
+    A2["<b>Row selection with loc</b> (20 min)"]
+    A3["<b>Position-based selection with iloc</b> (20 min)"]
+    A4["<b>loc, iloc, and sorted labels</b> (15 min)"]
+    A5["<b>💻 DataFrame selection</b> (20 min)<br/>countries.csv, countries1.py"]
+
+    A1 --> A2 --> A3 --> A4 --> A5
+  end
+
+```
+
+{{< pagebreak >}}
+
+::: {.callout-note title="Session 4 datasets"}
+`exped` corresponds to `Exped.xlsx`; `data` corresponds to the Bikesales dataset.
+
+The files underlying the `data` and `exped` DataFrames are available in Canvas in `data.zip`. If Spyder or its Python console has been restarted since Session 4, reload the datasets before running these examples.
+:::
 
 TODO: illustrate Excel structured references (if they are helpful to understand)?
 TBD: illustrate label and index-based access in Python or on the whiteboard?
+
+TODO/TBD: start by explaining label/position-based access based on a whiteboard illustration (leverage similarities to Excel. Run the operations in parallel (**but make sure the results are identical with the illustration**))
+See: https://chatgpt.com/c/6a6758fc-2954-83eb-a108-c91f378dfc7c
+
+![](../images/pandas_label_vs_position.png){width="60%"}
 
 
 Check: working directory, can read an Excel/CSV file. If not: fix it later. Work with your neibour.
 
 
-::: {.callout-note title="Session 4 datasets"}
-The files underlying the `data` and `exped` DataFrames are available in Canvas in `data.zip`. If Spyder or its Python console has been restarted since Session 4, reload the datasets before running these examples.
-:::
-
-Note: `exped` corresponds to `Exped.xlsx`; `data` corresponds to the Bikesales dataset.
-
-TODO/TBD: start by explaining label/position-based access based on a whiteboard illustration (leverage similarities to Excel. Run the operations in parallel (**but make sure the results are identical with the illustration**))
-See: https://chatgpt.com/c/6a6758fc-2954-83eb-a108-c91f378dfc7c
-
-![](../images/pandas_label_vs_position.png){fig-align="center" width="60%"}
-
-| Time      | Topic/activity | Materials |
-| --------: | -------------- | --------- |
-| 0–15 min  | Column access and `loc` | Slides 23–24 |
-| 15–35 min | Row selection with `loc` | Slide 25 |
-| 35–55 min | Position-based selection with `iloc` | Slides 26–27 |
-| 55–70 min | `loc`, `iloc`, and sorted labels | Slides 28–30 |
-| 70–90 min | **Exercise: countries DataFrame selection** | Slide 31; `countries.csv`; `countries1.py` |
-| **Break** | | |
-| 0–25 min  | Adding rows and columns | Slides 32–33 |
-| 25–40 min | Deleting rows and columns | Slide 34 |
-| 40–60 min | Sorting and DataFrame functions | Slide 35 |
-| 60–85 min | **Exercise: modify and sort countries data** | Slide 36; `countries.csv`; `countries2.py` |
-| 85–90 min | Review and questions | Slides 23–36 |
-
-: {tbl-colwidths="[20,40,40]"}
 
 ## Slide 23 — Accessing a column
 
