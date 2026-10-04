@@ -13,4 +13,3 @@ countries.sort_values(by='GDP_per_capita', ascending=False)
 countries = countries.drop('GDP_per_capita', axis=1)
 
 countries = countries.drop(20)
-

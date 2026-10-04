@@ -13,11 +13,10 @@ GROUP_SCHEDULE := _groups.qmd
 NOTES_PDF := $(OUT_DIR)/notes.pdf
 NOTES_COMBINED := _pdf-tmp/notes.qmd
 CHEAT_SHEET_PDF := materials/excel-cheat-sheet.pdf
-QR_CODES := images/qr_excel_cheat_sheet.png images/qr_excel_language_settings.png
 .PHONY: help site site-fast pdfs notes cheat-sheet exercises exercises-assign exercises-solution all sync-events clean
 help:
 	@echo "Targets: site, pdfs, notes, cheat-sheet, exercises, all, sync-events, clean"
-site-fast: $(QR_CODES)
+site-fast:
 	$(QUARTO) render --no-clean
 site: exercises site-fast
 all: cheat-sheet site pdfs notes
@@ -39,16 +38,13 @@ cheat-sheet:
 	@mkdir -p $(OUT_DIR)/materials
 	@cp $(CHEAT_SHEET_PDF) $(OUT_DIR)/materials/
 
-$(QR_CODES): scripts/generate_qr_codes.js _extensions/jmbuhr/qrcode/qrcode.js
-	node scripts/generate_qr_codes.js
-
-$(NOTES_PDF): $(GROUP_SCHEDULE) $(TEACHING_CHECKLIST) $(NOTES_QMD) $(QR_CODES) scripts/combine_notes.py scripts/html_br_to_linebreak.lua scripts/teaching_break.lua _extensions/needspace/needspace.lua _extensions/needspace/_extension.yml _extensions/teaching-file/teaching-file.lua _extensions/teaching-file/_extension.yml
+$(NOTES_PDF): $(GROUP_SCHEDULE) $(TEACHING_CHECKLIST) $(NOTES_QMD) assets/mermaid-init.json scripts/combine_notes.py scripts/html_br_to_linebreak.lua scripts/teaching_break.lua scripts/center_captionless_images.lua _extensions/needspace/needspace.lua _extensions/needspace/_extension.yml _extensions/teaching-file/teaching-file.lua _extensions/teaching-file/_extension.yml _extensions/jmbuhr/qrcode/qrcode.lua _extensions/jmbuhr/qrcode/_extension.yml
 	@mkdir -p $(OUT_DIR) _pdf-tmp
 	@$(PYTHON) scripts/combine_notes.py --groups $(GROUP_SCHEDULE) --checklist $(TEACHING_CHECKLIST) $(NOTES_COMBINED) $(NOTES_QMD)
 	@$(QUARTO) render $(NOTES_COMBINED) --to pdf --output notes.pdf
 	@mv notes.pdf $(NOTES_PDF)
 	@rm -f $(NOTES_COMBINED)
-$(SLIDES_DIR)/%.pdf: $(SRC_SLIDES_DIR)/%.qmd _quarto.yml scripts/decktape.sh
+$(SLIDES_DIR)/%.pdf: $(SRC_SLIDES_DIR)/%.qmd _quarto.yml slides/_metadata.yml assets/mermaid.css assets/mermaid-init.json scripts/mermaid_style.lua scripts/decktape.sh
 	@mkdir -p $(SLIDES_DIR)
 	$(QUARTO) render $< --profile pdf --output-dir $(abspath _pdf-tmp)
 	@mv _pdf-tmp/slides/$*.html $(SLIDES_DIR)/$*-pdf.html

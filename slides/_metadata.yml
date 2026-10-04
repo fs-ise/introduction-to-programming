@@ -12,6 +12,7 @@ format:
       - ../assets/title-slide.html
     css:
       - ../assets/frankfurt.css
+      - ../assets/mermaid.css
     filters:
       - ../assets/inline-svg-no-embed.lua
     auto-stretch: false
@@ -25,8 +26,6 @@ format:
         header: ""
         footer: "<div class='menubar'><ul class='menu'></ul><div class='slide-number'></div></div>"
       scale: 0.67
-    mermaid:
-      theme: default
     chalkboard:
       theme: whiteboard
       boardmarker-width: 5

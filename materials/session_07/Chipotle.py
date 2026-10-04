@@ -52,8 +52,3 @@ chipo['item_name'].value_counts().head(5).plot(kind='bar', xlabel='Items', ylabe
 
 #16 Create a scatterplot with the number of items orderered per order price
 chipo.groupby('order_id').sum().plot(kind='scatter', x='quantity', y='item_price', xlabel='Items ordered', ylabel='Order Price', title='Number of items ordered per order price')
-
-
-
-
-

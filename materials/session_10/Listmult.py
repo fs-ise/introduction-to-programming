@@ -7,4 +7,3 @@ def multi(x):
 
 li = [8, 2, 3, -1, 7, 5, 6 ]
 print ("Product =", multi(li))
-

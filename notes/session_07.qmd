@@ -24,6 +24,8 @@ Python-Teil: Vorsichtig vorgehen (möglichst viele Studis mitnehmen)
 
 : {tbl-colwidths="[20,40,40]"}
 
+{{< needspace 20 >}}
+
 ## Slide 58 — Load the sales data and create a pivot table
 
 The additional `shape` and column-name checks inspect the dataset before constructing the pivot table.
@@ -46,7 +48,9 @@ pd.pivot_table(
 )
 ```
 
-### Slide 59 — Filter the data before pivoting
+{{< needspace 10 >}}
+
+## Slide 59 — Filter the data before pivoting
 
 Both filtering forms are equivalent and prevent actual and target values from being aggregated together.
 
@@ -68,7 +72,7 @@ pd.pivot_table(
 
 {{< needspace 8 >}}
 
-### Slide 60 — Apply multiple aggregation functions
+## Slide 60 — Apply multiple aggregation functions
 
 `aggfunc` can contain multiple aggregation functions.
 
@@ -80,6 +84,8 @@ pd.pivot_table(
     aggfunc=['sum', 'mean', 'std'],
 )
 ```
+
+{{< needspace 10 >}}
 
 ## Slide 61 — Add products as a column dimension
 
@@ -105,7 +111,7 @@ pd.pivot_table(
 )
 ```
 
-### Slide 62 — Combine multiple filters
+## Slide 62 — Combine multiple filters
 
 Parentheses are required around the individual Pandas conditions.
 
@@ -145,13 +151,15 @@ pivot_df.loc['Total'] = pivot_df.sum()
 print(pivot_df)
 ```
 
-### Slide 64 — Plot a pivot table
+## Slide 64 — Plot a pivot table
 
 ```python
 pivot_df.plot(kind='bar')
 ```
 
-### Slide 65 — Use multiple row dimensions
+{{< needspace 10 >}}
+
+## Slide 65 — Use multiple row dimensions
 
 Passing a list to `index` creates a hierarchical row index.
 
@@ -168,7 +176,7 @@ pd.pivot_table(
 ## Slide 67 — Pivot tables
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
+[`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_07/insurance2.py >}}
@@ -178,7 +186,7 @@ pd.pivot_table(
 
 Input variables describe the observations, while the target variable is the value to predict. A predictive model learns their relationship; prediction error measures how closely its predictions match known targets. Scikit-learn uses a standardized workflow: construct an estimator, fit it, predict, and evaluate.
 
-### Slide 70 — Prepare input and output data
+## Slide 70 — Prepare input and output data
 
 `x` contains the predictor variables and `y` contains the target variable. The following demonstrations are sequential and reuse these arrays.
 
@@ -204,7 +212,9 @@ x = students.loc[
 y = students.loc[:, 'Performance'].values
 ```
 
-### Slide 71 — Linear regression
+{{< needspace 10 >}}
+
+## Slide 71 — Linear regression
 
 This constructs the estimator, fits it, predicts the known observations, calculates $R^2$, and finally predicts one new observation.
 
@@ -238,7 +248,7 @@ r2_score(y, y_pred)
 predictivemodel_rf.predict([[5, 5, 1]])
 ```
 
-### Slide 73 — Neural-network regression
+## Slide 73 — Neural-network regression
 
 ```python
 from sklearn.neural_network import MLPRegressor
@@ -257,18 +267,22 @@ r2_score(y, y_pred)
 predictivemodel_net.predict([[5, 5, 1]])
 ```
 
+{{< needspace 30 >}}
+
 ## Slides 74–75 — Chipotle analysis
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/Chipotle.csv`](../materials/data/Chipotle.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/Chipotle.csv`](../materials/data/Chipotle.csv){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_07/Chipotle.py >}}
 
+{{< needspace 60 >}}
+
 ## Slides 76–77 — Florida housing analysis
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/Homes_Florida.xlsx`](../materials/data/Homes_Florida.xlsx){.teaching-button .teaching-button-exercise}
+[`../materials/data/Homes_Florida.xlsx`](../materials/data/Homes_Florida.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_07/Homes_Florida.py >}}
@@ -298,7 +312,9 @@ x
 type(x)
 ```
 
-### Slide 82 — Type conversion
+{{< needspace 10 >}}
+
+## Slide 82 — Type conversion
 
 Use this solution when reviewing conversions:
 
@@ -338,19 +354,20 @@ type(age)
 
 ## Slides 84–85 — Interactive formula programs
 
+Assign exercises `Traveltime.py`, `Fuel.py` and `AnnuityLoan1.py` as homework.
+
 {{< teaching-file ../materials/session_07/CircleArea2.py >}}
 
 {{< teaching-file ../materials/session_07/Currency.py >}}
 
 {{< teaching-file ../materials/session_07/Distance.py >}}
 
-{{< teaching-file ../materials/session_07/Traveltime.py >}}
+{{< teaching-file ../materials/session_07/Traveltime.py kind="homework" >}}
 
-{{< teaching-file ../materials/session_07/Fuel.py >}}
+{{< teaching-file ../materials/session_07/Fuel.py kind="homework" >}}
 
-{{< teaching-file ../materials/session_07/AnnuityLoan1.py >}}
+{{< teaching-file ../materials/session_07/AnnuityLoan1.py kind="homework" >}}
 
-- Assign exercises 4, 5, and 6 as homework.
 
 ## Slide 86 — Boolean values
 

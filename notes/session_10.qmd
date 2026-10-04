@@ -35,6 +35,8 @@ Cover loop termination, functions, and dictionaries, while retaining the planned
 
 : {tbl-colwidths="[20,40,40]"}
 
+{{< needspace 10 >}}
+
 ## Slide 115 — `break` and `continue`
 
 `break` terminates the loop, whereas `continue` skips the rest of the current iteration.
@@ -73,6 +75,8 @@ Assign exercise 2 as homework.
 ::: {.callout-note title="Additional exercise TODO"}
 An additional insurance exercise is shared by PR. TODO: Add its mapping when the material is available.
 :::
+
+{{< needspace 10 >}}
 
 ## Slide 118 — Defining functions
 
@@ -113,6 +117,8 @@ def fibonacci(n):
 n = int(input("How many numbers: "))
 print(fibonacci(n))
 ```
+
+{{< needspace 10 >}}
 
 ## Slide 120 — Reusing functions
 
@@ -192,7 +198,7 @@ print(math.sin(5))
 print(math.sin(math.pi))
 ```
 
-### Slide 127 — Creating a dictionary
+## Slide 127 — Creating a dictionary
 
 Dictionaries use curly braces to associate unique keys with values.
 
@@ -205,6 +211,8 @@ dict1 = {
 
 dict1
 ```
+
+{{< needspace 10 >}}
 
 ## Slide 128 — Accessing and modifying dictionaries
 
@@ -246,6 +254,8 @@ stockprices = {
 ```
 
 These examples demonstrate lookup, insertion, replacement, and list values.
+
+{{< needspace 10 >}}
 
 ## Slide 129 — Complex and nested dictionaries
 
@@ -324,7 +334,9 @@ students['student1']['courses'].append('Informatics')
 students['student1']
 ```
 
-### Slide 131 — Adding, changing, and deleting nested data
+{{< needspace 10 >}}
+
+## Slide 131 — Adding, changing, and deleting nested data
 
 ```python
 students['student3'] = {
@@ -349,7 +361,7 @@ students['student1'] = {'age': 25}
 
 The final assignment replaces the complete `student1` dictionary rather than changing only its age.
 
-### Slide 132 — Save and load dictionaries with JSON
+## Slide 132 — Save and load dictionaries with JSON
 
 Write mode creates or replaces the file and `json.dump()` serializes the dictionary; read mode opens it and `json.load()` reconstructs the data.
 
@@ -367,6 +379,8 @@ with open('students.db', 'r', encoding='utf-8') as file:
 Break — 10 minutes
 :::
 
+{{< needspace 10 >}}
+
 ## Slide 133 — Dictionaries and persistence
 
 {{< teaching-file ../materials/session_10/Friends.py >}}
@@ -376,6 +390,8 @@ Break — 10 minutes
 ::: {.callout-note title="Generated file"}
 `friends.db` is preserved in the exercise table, but it is not supplied as input material. `Friends.py` generates it at runtime.
 :::
+
+{{< needspace 10 >}}
 
 ## Summary and announcements
 

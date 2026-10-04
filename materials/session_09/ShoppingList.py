@@ -7,8 +7,6 @@ for i in sl:
     print(i)
 
 
-
-
 sl = []
 item="x"
 while item != "":
@@ -17,8 +15,6 @@ while item != "":
         sl.append(item)
 for i in sl:
     print(i)
-
-
 
 
 sl = []

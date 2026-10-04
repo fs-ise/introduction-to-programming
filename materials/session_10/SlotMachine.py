@@ -65,19 +65,6 @@ else:
     print("You have lost: ", result)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 import random
 
 def run_Slotmachine():
@@ -92,6 +79,3 @@ if result[0]==result[1]==result[2]:
     print("You have won: ", result)
 else:
     print("You have lost: ", result)
- 
- 
- 

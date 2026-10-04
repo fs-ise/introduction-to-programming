@@ -19,4 +19,3 @@ countries.loc[:, ['Country', 'Continent']].describe()
 
 len(countries['Continent'].unique())
 countries['Continent'].value_counts()
-

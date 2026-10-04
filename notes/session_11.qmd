@@ -31,6 +31,8 @@ Keep API examples non-executable in rendered notes and select them according to 
 
 : {tbl-colwidths="[20,40,40]"}
 
+{{< needspace 10 >}}
+
 ## Slide 137 — Calculate a moving average with a loop
 
 The loop calculates the mean of the preceding ten observations and writes it into the `MA10` column. The first ten positions remain empty because no complete ten-observation window is available.
@@ -84,6 +86,8 @@ def semivariance(values):
 semivariance(data['price'])
 ```
 
+{{< needspace 10 >}}
+
 ## General teaching notes
 
 {{< teaching-file ../materials/session_11/5_REST.py kind="demo" >}}
@@ -100,18 +104,20 @@ Do not execute API scripts while rendering these notes. They may require network
 The pandas portion of the exam is “pure pandas”; it does not combine pandas with the Python topics taught here.
 :::
 
+{{< needspace 10 >}}
+
 ## Slide 143 — Stock-market API
 
 {{< teaching-file ../materials/session_11/MercedesBenz1.py >}}
 
 {{< needspace 10 >}}
 
-### Slide 148 — Stock-price collection
+## Slide 148 — Stock-price collection
 
 {{< teaching-file ../materials/session_11/Stocks.py >}}
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/Stocks.csv`](../materials/data/Stocks.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/Stocks.csv`](../materials/data/Stocks.csv){.teaching-button .teaching-button-exercise}
 :::
 
 ::: {.teaching-break}
@@ -122,9 +128,13 @@ Break — 10 minutes
 
 {{< teaching-file ../materials/session_11/MercedesBenz2.py >}}
 
+{{< needspace 10 >}}
+
 ## Slide 155 — Cryptocurrency API analysis
 
 {{< teaching-file ../materials/session_11/Cryptocurrencies.py >}}
+
+{{< needspace 10 >}}
 
 ## Slide 159 — Weather API
 

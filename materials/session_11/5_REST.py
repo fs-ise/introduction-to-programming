@@ -1,8 +1,6 @@
-
 import pandas as pd
 stockdata = pd.read_csv('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo&datatype=csv')
 stockdata.head()
-
 
 
 import requests
@@ -21,7 +19,6 @@ price = float(data['05. price'])
 price
 
 
-
 import requests
 r = requests.get('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo')
 data = r.json()
@@ -30,11 +27,10 @@ dfdata = pd.DataFrame(data['Time Series (Daily)'].values(), index=data['Time Ser
 
 for col in list(dfdata):
     dfdata[col] = pd.to_numeric(dfdata[col])
-    
+
 dfdata = dfdata[::-1]
 
 dfdata.plot(y='4. close', use_index=True)
-
 
 
 import requests
@@ -56,34 +52,3 @@ r = requests.get('https://api.open-meteo.com/v1/forecast?latitude=50.12&'
 	'timezone=Europe%2FBerlin')
 data = r.json()
 data
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

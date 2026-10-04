@@ -8,4 +8,3 @@ while target_num != guess_num:
     elif(target_num>guess_num):
         print("higher")
 print('Well guessed!')
-

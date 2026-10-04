@@ -16,3 +16,6 @@ notes/.notes-combined.qmd
 *.quarto_ipynb_*
 
 *.Rhistory
+
+# Generated material viewer pages
+/generated/materials/

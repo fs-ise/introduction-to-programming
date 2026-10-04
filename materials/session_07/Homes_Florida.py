@@ -77,10 +77,3 @@ from sklearn.metrics import r2_score
 r2_score(y, forecasts)
 
 forecastmodel.predict([[5, 2000, 3]])
-
-
-
-
-
-
-

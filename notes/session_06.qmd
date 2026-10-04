@@ -34,6 +34,8 @@ The files underlying the `data` and `exped` DataFrames are available in Canvas i
 
 : {tbl-colwidths="[20,40,40]"}
 
+{{< needspace 30 >}}
+
 ## Slide 37 — Summing DataFrame values
 
 The latter two expressions calculate the same sums using label-based and position-based selection.
@@ -44,7 +46,7 @@ exped.loc[:, ['QUANTITY', 'REVENUE']].sum()
 exped.iloc[:, 5:7].sum()
 ```
 
-### Slide 39 — Mean, standard deviation, and correlation
+## Slide 39 — Mean, standard deviation, and correlation
 
 ```python
 exped.loc[:, ['QUANTITY', 'REVENUE']].mean()
@@ -52,7 +54,7 @@ exped['REVENUE'].std()
 exped.loc[:, ['QUANTITY', 'REVENUE']].corr()
 ```
 
-### Slide 40 — Statistical summaries
+## Slide 40 — Statistical summaries
 
 `describe()` is type-aware, so its summary depends on whether the selected data are numerical or categorical.
 
@@ -62,19 +64,19 @@ exped['REVENUE'].describe()
 exped['WHERE'].describe()
 ```
 
-### Slide 41 — Unique values and frequencies
+## Slide 41 — Unique values and frequencies
 
 ```python
 exped['WHERE'].unique()
 exped['WHERE'].value_counts()
 ```
 
-{{< needspace 11 >}}
+{{< needspace 20 >}}
 
-### Slide 42 — Descriptive statistics
+## Slide 42 — Descriptive statistics
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_06/countries3.py >}}
@@ -97,7 +99,7 @@ temps.head()
 temps.plot()
 ```
 
-### Slide 44 — Selecting variables for a chart
+## Slide 44 — Selecting variables for a chart
 
 ```python
 temps.iloc[:, 1:4].plot()
@@ -109,7 +111,7 @@ temps.plot(
 
 {{< needspace 8 >}}
 
-### Slide 45 — Formatting the x-axis
+## Slide 45 — Formatting the x-axis
 
 ```python
 temps.plot(
@@ -120,7 +122,7 @@ temps.plot(
 )
 ```
 
-### Slide 47 — Creating a bar chart
+## Slide 47 — Creating a bar chart
 
 ```python
 df = exped['WHERE'].value_counts()
@@ -129,7 +131,9 @@ df.dtypes
 df.plot(kind='bar')
 ```
 
-### Slide 48 — Creating pie charts
+{{< needspace 10 >}}
+
+## Slide 48 — Creating pie charts
 
 ```python
 df.plot(kind='pie', y='WHERE')
@@ -140,7 +144,7 @@ df.plot(kind='pie', subplots=True, legend=True)
 ## Slide 49 — Basic visualizations
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_06/countries4.py >}}
@@ -161,13 +165,15 @@ The comparison produces a Boolean Series with one value per row.
 exped.WHERE == 'London'
 ```
 
-### Slide 51 — Selecting rows based on a condition
+## Slide 51 — Selecting rows based on a condition
 
 ```python
 exped.loc[exped.WHERE == 'London']
 ```
 
-### Slide 52 — Combining conditions
+{{< needspace 10 >}}
+
+## Slide 52 — Combining conditions
 
 Use `&` for “and” and `|` for “or”. Each individual pandas condition needs parentheses when conditions are combined.
 
@@ -183,10 +189,12 @@ exped.loc[
 ]
 ```
 
+{{< needspace 20 >}}
+
 ## Slide 53 — Conditional filtering
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_06/countries5.py >}}
@@ -200,23 +208,27 @@ exped.groupby('HOW')['HOW'].count()
 exped.groupby('HOW')['REVENUE'].mean()
 ```
 
-### Slide 55 — Grouping by multiple columns
+{{< needspace 10 >}}
+
+## Slide 55 — Grouping by multiple columns
 
 ```python
 a = exped.groupby(['HOW', 'WHERE'])['REVENUE'].mean()
 a
 ```
 
+{{< needspace 20 >}}
+
 ## Slide 56 — Grouping and aggregation
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_06/countries6.py >}}
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
+[`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_06/insurance1.py >}}
@@ -226,6 +238,8 @@ a
 ::: {.callout-note title="Exam relevance"}
 Machine learning and prediction are not relevant to the exam.
 :::
+
+{{< needspace 10 >}}
 
 ## Summary and announcements
 

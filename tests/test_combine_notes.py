@@ -4,18 +4,24 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import pytest
+import yaml
 
 from scripts.combine_notes import (
+    ACADEMIC_MERMAID_INIT,
+    CENTER_CAPTIONLESS_IMAGES_FILTER,
     HTML_BR_FILTER,
     NEEDSPACE_SHORTCODE,
+    QRCODE_SHORTCODE,
     TEACHING_BREAK_FILTER,
     TEACHING_FILE_SHORTCODE,
     combine,
+    inject_academic_mermaid_config,
     remove_rooms_from_groups,
     session_page_prefix,
 )
 
 NEEDSPACE_EXTENSION = Path(__file__).resolve().parents[1] / "_extensions" / "needspace"
+REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_combine_preserves_html_line_breaks_and_configures_filter(
@@ -37,11 +43,89 @@ def test_combine_preserves_html_line_breaks_and_configures_filter(
     assert "Slides 7–10<br>Slides 7 and 10<br />Exercise" in combined
     assert f"filters:\n  - {HTML_BR_FILTER.as_posix()}" in combined
     assert f"  - {TEACHING_BREAK_FILTER.as_posix()}" in combined
+    assert f"  - {CENTER_CAPTIONLESS_IMAGES_FILTER.as_posix()}" in combined
     assert f"shortcodes:\n  - {NEEDSPACE_SHORTCODE.as_posix()}" in combined
     assert f"  - {TEACHING_FILE_SHORTCODE.as_posix()}" in combined
+    assert f"  - {QRCODE_SHORTCODE.as_posix()}" in combined
     assert HTML_BR_FILTER.is_absolute()
     assert NEEDSPACE_SHORTCODE.is_absolute()
     assert TEACHING_FILE_SHORTCODE.is_absolute()
+    assert QRCODE_SHORTCODE.is_absolute()
+    assert CENTER_CAPTIONLESS_IMAGES_FILTER.is_absolute()
+    assert note.read_text(encoding="utf-8") == source
+
+
+def test_inject_mermaid_config_after_cell_options_and_preserve_fences() -> None:
+    markdown = """Before
+
+````{mermaid}
+%%| fig-width: 5
+%%| label: fig-example
+flowchart LR
+  A --> B
+````
+
+~~~{python}
+print("unchanged")
+~~~
+"""
+
+    transformed = inject_academic_mermaid_config(markdown)
+
+    assert transformed.startswith("Before\n\n````{mermaid}\n%%| fig-width: 5\n")
+    assert f"%%| label: fig-example\n{ACADEMIC_MERMAID_INIT}\nflowchart LR" in transformed
+    assert transformed.endswith('~~~{python}\nprint("unchanged")\n~~~\n')
+    assert transformed.count(ACADEMIC_MERMAID_INIT) == 1
+    assert '"look": "handDrawn"' in transformed
+    assert '"theme": "base"' in transformed
+    assert '"primaryColor": "#ffffff"' in transformed
+
+
+def test_inject_mermaid_config_respects_explicit_init() -> None:
+    markdown = """```{mermaid}
+%%| fig-width: 5
+%%{init: {"theme": "dark"}}%%
+flowchart TB
+  A --> B
+```
+"""
+
+    assert inject_academic_mermaid_config(markdown) == markdown
+
+
+def test_inject_mermaid_config_preserves_indentation_and_line_endings() -> None:
+    markdown = "   ~~~~{mermaid}\r\n   sequenceDiagram\r\n   A->>B: Hi\r\n   ~~~~\r\n"
+
+    transformed = inject_academic_mermaid_config(markdown)
+
+    assert "   %%{init: {\r\n" in transformed
+    assert transformed.startswith("   ~~~~{mermaid}\r\n")
+    assert transformed.endswith("   ~~~~\r\n")
+
+
+def test_combine_injects_mermaid_without_modifying_source(tmp_path: Path) -> None:
+    note = tmp_path / "note.qmd"
+    source = """---
+title: Diagram note
+session_id: session-05
+---
+
+```{mermaid}
+%%| fig-width: 5
+flowchart
+  subgraph LEFT[Selecting data]
+    A --> B
+  end
+```
+"""
+    note.write_text(source, encoding="utf-8")
+    output = tmp_path / "notes.qmd"
+
+    combine(output, [note])
+
+    combined = output.read_text(encoding="utf-8")
+    assert f"%%| fig-width: 5\n{ACADEMIC_MERMAID_INIT}\nflowchart" in combined
+    assert "mermaid-format: png" in combined
     assert note.read_text(encoding="utf-8") == source
 
 
@@ -63,13 +147,18 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     combine(output, [first, second])
 
     combined = output.read_text(encoding="utf-8")
+    metadata = yaml.safe_load(combined.split("---", 2)[1])
     assert "toc-depth: 1" in combined
     assert "papersize: a4" in combined
+    assert metadata["format"]["pdf"]["fig-align"] == "center"
+    assert "knitr" not in metadata
     assert "left=1.5cm" in combined
     assert "bottom=2.2cm" in combined
     assert "footskip=0.9cm" in combined
     assert r"\usepackage{needspace}" in combined
     assert r"\usepackage{fvextra}" in combined
+    assert r"\usepackage{xcolor}" in combined
+    assert r"\usepackage{qrcode}" in combined
     assert r"\usepackage[skins]{tcolorbox}" in combined
     assert r"\tcbuselibrary{breakable}" in combined
     assert r"\newtcolorbox{teachingbreak}{%" in combined
@@ -134,6 +223,18 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     assert "### Topic one detail" in combined
     assert "## Topic two" in combined
     assert combined.count("Introduction to Programming: Notes") == 2
+
+
+def test_exercise_profiles_inherit_figure_alignment_default() -> None:
+    exercises = REPOSITORY_ROOT / "exercises"
+    project = yaml.safe_load((exercises / "_quarto.yml").read_text(encoding="utf-8"))
+
+    assert project["execute"]["fig-align"] == "center"
+    for profile in ("assign", "solution"):
+        profile_config = yaml.safe_load(
+            (exercises / f"_quarto-{profile}.yml").read_text(encoding="utf-8")
+        )
+        assert "fig-align" not in profile_config.get("execute", {})
 
 
 def test_session_title_is_not_inserted_into_footer(tmp_path: Path) -> None:
@@ -328,6 +429,65 @@ def test_teaching_break_filter_targets_only_latex_teaching_breaks(
     ).stdout
     assert 'class="teaching-break"' in html
     assert "Break — 10 minutes" in html
+
+
+def test_captionless_image_filter_centers_only_unaligned_standalone_images(
+    tmp_path: Path,
+) -> None:
+    if shutil.which("pandoc") is not None:
+        pandoc_command = ["pandoc"]
+    elif shutil.which("quarto") is not None:
+        pandoc_command = ["quarto", "pandoc"]
+    else:
+        pytest.skip("neither standalone nor Quarto-bundled Pandoc is available")
+
+    cases = {
+        "centered.md": '![](test.png){width="60%"}\n',
+        "right.md": '![](test.png){fig-align="right" width="60%"}\n',
+        "inline.md": 'An inline icon ![](test.png){width="10%"} stays inline.\n',
+    }
+    latex = {}
+    for filename, source in cases.items():
+        path = tmp_path / filename
+        path.write_text(source, encoding="utf-8")
+        latex[filename] = subprocess.run(
+            [
+                *pandoc_command,
+                path.name,
+                "--lua-filter",
+                str(CENTER_CAPTIONLESS_IMAGES_FILTER),
+                "-t",
+                "latex",
+            ],
+            cwd=tmp_path,
+            text=True,
+            capture_output=True,
+            check=True,
+        ).stdout
+
+    assert r"\begin{center}" in latex["centered.md"]
+    assert r"\end{center}" in latex["centered.md"]
+    assert r"width=0.6\textwidth" in latex["centered.md"]
+    assert r"\begin{center}" not in latex["right.md"]
+    assert r"width=0.6\textwidth" in latex["right.md"]
+    assert r"\begin{center}" not in latex["inline.md"]
+
+    html = subprocess.run(
+        [
+            *pandoc_command,
+            "centered.md",
+            "--lua-filter",
+            str(CENTER_CAPTIONLESS_IMAGES_FILTER),
+            "-t",
+            "html",
+        ],
+        cwd=tmp_path,
+        text=True,
+        capture_output=True,
+        check=True,
+    ).stdout
+    assert "<center" not in html
+    assert 'width="60%"' in html
 
 
 def test_generated_document_renders_needspace_shortcode(tmp_path: Path) -> None:

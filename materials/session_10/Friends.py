@@ -1,5 +1,3 @@
-
-
 friends = {'friend1' : {'name':'Peter', 'likes':['biking', 'techno'], 'food_intolerances':['pepper', 'cucumber']},
            'friend2' : {'name':'Maria', 'likes':['dancing', 'skiing'], 'food_intolerances':['nuts']}}
 
@@ -28,4 +26,3 @@ del friends['friend1']
 
 file = open('friends.db', 'w')
 json.dump(friends, file)
-

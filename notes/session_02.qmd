@@ -28,7 +28,7 @@ Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 Follow-up on questions/feedback from last session's survey.
 :::
 
-{{< needspace 10 >}}
+{{< needspace 30 >}}
 
 ## Homework review: DAX moving averages
 
@@ -46,7 +46,9 @@ Start by briefly explaining the task (again):
 - Check the starting periods for the 10-period and 20-period averages (sufficient historical data accumulation is needed / we cannot start in the first row with formulas1)
 - Emphasize that a longer moving average is smoother and reacts more slowly.
 
-![](../images/excel_moving_averages_solution.png){fig-align="center" width="90%"}
+![](../images/excel_moving_averages_solution.png){width="90%"}
+
+{{< needspace 30 >}}
 
 ## Homework review: Installment loan
 
@@ -67,7 +69,7 @@ Explain the payment schema introduced in the previous session.
 6. Insert line chart
 -->
 
-![](../images/excel_installment_loan_solution.png){fig-align="center" width="90%"}
+![](../images/excel_installment_loan_solution.png){width="90%"}
 
 **Validation**:
 
@@ -92,7 +94,7 @@ Explain the payment schema introduced in the previous session.
 5. Sum
 -->
 
-![](../images/excel_annuity_loan_solution.png){fig-align="center" width="90%"}
+![](../images/excel_annuity_loan_solution.png){width="90%"}
 
 **Validation**:
 
@@ -108,6 +110,8 @@ Note: Other solutions are possible (including a `=MIN(...)`for the principal rep
 ::: {.callout-important title="Slides"}
 If **Special IF functions** were not covered in the previous session: complete slide 28.
 :::
+
+{{< needspace 30 >}}
 
 ## Slides 30–31 — `VLOOKUP`
 
@@ -136,7 +140,7 @@ Whiteboard:
 - Calculate total price
 - Copy formulas down
 
-![](../images/excel_bar_sales_solution.png){fig-align="center" width="80%"}
+![](../images/excel_bar_sales_solution.png){width="80%"}
 
 Continue on the slides (the general VLOOKUP formula).
 
@@ -154,8 +158,7 @@ Key points:
 - Approximate matching with `TRUE` should only be used deliberately and normally requires sorted lookup data.
 - Lock the lookup range before copying a formula down.
 
-
-### Slide 34 — Client lookup
+## Slide 34 — Client lookup
 
 ::: {.teaching-file}
 [In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-exercise} -- Sheet: Clients
@@ -176,11 +179,11 @@ Teaching sequence:
 - Show that the name can be returned even though it is located to the left of the client number.
 - Change the client number to test all formulas.
 
-![](../images/excel_client_xlookup.png){fig-align="center" width="90%"}
+![](../images/excel_client_xlookup.png){width="90%"}
 
 ### Approximate range lookups
 
-![](../images/excel_illustration_approximate_range_lookup.png){fig-align="center" width="70%"}
+![](../images/excel_illustration_approximate_range_lookup.png){width="70%"}
 
 ### `VLOOKUP` and `HLOOKUP`
 
@@ -219,6 +222,8 @@ Contrast it with `VLOOKUP`:
 - Ask Students to fill in the formula to retrieve Names in the Clients sheet.
 - Next, the following lookups could be replaced with XLOOKUPs (in a copy of the sheet).
 
+{{< needspace 10 >}}
+
 ## Slide 35 — Christmas gift (Homework)
 
 ::: {.teaching-file}
@@ -234,7 +239,9 @@ Students should retrieve two values based on customer status:
 
 Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution (demonstrate how to copy the spreadsheet).
 
-### Slide 36 — Course grading (Homework)
+{{< needspace 10 >}}
+
+## Slide 36 — Course grading (Homework)
 
 ::: {.teaching-file}
 [Homework]{.teaching-label .teaching-label-homework} [`../materials/session_01/exercises.xlsx`](../materials/session_01/exercises.xlsx){.teaching-button .teaching-button-homework} -- Sheet: Grading
@@ -243,7 +250,7 @@ Encourage students to build both a `VLOOKUP`and  `XLOOKUP` solution (demonstrate
 This one is similar to the client lookup.
 We want to enter different StudentIDs and then the lookup functions should retrieve the different test scores and do the calculations of final grades.
 
-![](../images/excel_grading_assignment.png){fig-align="center" width="60%"}
+![](../images/excel_grading_assignment.png){width="60%"}
 
 ::: {.callout-important title="Error on the slides"}
 On the slides, the contribution of homework should be **9.11** and the overall grade **73.61** (as in the screenshot above).
@@ -286,9 +293,9 @@ Explain the main differences between an ordinary range and an Excel Table:
 A table name identifies the table independently of its position in the worksheet.
 :::
 
-![](../images/excel_create_table.png){fig-align="center" width="70%"}
+![](../images/excel_create_table.png){width="70%"}
 
-### Slide 40 — Sorting and filtering
+## Slide 40 — Sorting and filtering
 
 Demonstrate:
 
@@ -299,7 +306,7 @@ Demonstrate:
 
 Emphasize that filtering hides records but does not delete them. This distinction becomes important for `SUBTOTAL`.
 
-### Slides 41–42 — Table design and styles
+## Slides 41–42 — Table design and styles
 
 With a cell inside the table selected, open **Table Design**.
 
@@ -326,7 +333,7 @@ Demonstrate that:
 
 Add the `Gravel-Star` row and observe whether the chart changes.
 
-![](../images/excel_tables_add_row.png){fig-align="center" width="80%"}
+![](../images/excel_tables_add_row.png){width="80%"}
 
 ## Slide 44 — Inserting and deleting rows and columns
 
@@ -343,7 +350,7 @@ Students should understand that table operations affect the table structure, whe
 
 Activate **Table Design → Total Row**.
 
-![](../images/excel_table_total_row.png){fig-align="center" width="80%"}
+![](../images/excel_table_total_row.png){width="80%"}
 
 Demonstrate how the drop-down menu can be used to calculate:
 
@@ -457,7 +464,7 @@ Work through examples of structured references and explain them on the whiteboar
 
 \normalsize
 
-![](../images/excel_table_structured_refs.png){fig-align="center" width="90%"}
+![](../images/excel_table_structured_refs.png){width="90%"}
 
 Note: in `=ROWS(Bikesales[[#All],[Sales]])`, the `[#All]` also counts header and totals as rows.
 
@@ -467,7 +474,7 @@ Working with data tables raises the question: how can we use data within the tab
 
 Extend the example with current row formulas (**note: automated formula copying in Excel Tables!**):
 
-![](../images/excel_tables_current_row_ref.png){fig-align="center" width="80%"}
+![](../images/excel_tables_current_row_ref.png){width="80%"}
 
 Inside the table, `@` refers to the current row:
 
@@ -479,6 +486,8 @@ Inside the table, `@` refers to the current row:
 
 After entering the formula once, Excel should copy it to the complete calculated column.
 
+{{< needspace 30 >}}
+
 ## Slides 51–52 — Excel Tables exercise
 
 ::: {.teaching-file}
@@ -486,10 +495,6 @@ After entering the formula once, Excel should copy it to the complete calculated
 :::
 
 This extended exercise can be completed in class, assigned as homework, or continued in Session 3.
-
-Suggested checkpoints:
-
-### Table exercise
 
 1. Open `exercises.xlsx`, sheet `Sales_table`, and convert the data into an Excel Table (insert > table, or **ctrl+t**).
 2. Name the table `Sales`.
@@ -590,7 +595,9 @@ Suggested checkpoints:
 
 Solution:
 
-![](../images/excel_sales_table_solution.png){fig-align="center" width="100%"}
+![](../images/excel_sales_table_solution.png){width="100%"}
+
+{{< needspace 15 >}}
 
 ## Summary and announcements
 

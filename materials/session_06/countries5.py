@@ -18,6 +18,3 @@ df.plot(kind='pie', y='Continent')
 
 df = countries.loc[countries.Continent == 'Europe', 'GDP']
 df.plot(kind='density')
-
-
-

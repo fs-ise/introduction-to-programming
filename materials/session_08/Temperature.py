@@ -1,7 +1,3 @@
-
-
-
-
 type = input("Specify the temperature type, you enter (f or c): ")
 temp = int(input("Input the  temperature you like to convert : "))
 

@@ -34,7 +34,7 @@ event_id: null
 If Python does not work on student machines, a solution may be to use  
 <https://peter-rossbach.github.io/Python-Werkstatt/>:
 
-![](../images/qr_python_werkstatt.png){width=30% fig-align="center"}
+![](../images/qr_python_werkstatt.png){width=30%}
 
 For Anaconda: See Canvas instructions:
 
@@ -85,7 +85,7 @@ Show PyPI website; `pandas` project (popularity, commits, develoeprs, tests)
 
 Explain spyder interface:
 
-![](../images/spyder-interface.png){width=90% fig-align="center"}
+![](../images/spyder-interface.png){width=90%}
 
 ::: {.callout-note title="Spyder working directory"}
 For the exercises, work from the `materials/` directory and keep this as Spyder's **current working directory**.
@@ -106,9 +106,9 @@ Setup was supposed to be completed in the first sessions.
 
 ## Quick Walk through: `spytertest.py` (Canvas) at the start of the session
 
-{{< teaching-file ../materials/session_04/Spydertest.py kind="demo" >}}
+{{< teaching-file ../materials/session_04/Spydertest.py kind="demo"  max-lines="800" >}}
 
-{{< needspace 90 >}}
+{{< needspace 10 >}}
 
 ## Slide 5 — Basic arithmetic and string operations
 
@@ -127,7 +127,7 @@ Run these expressions individually in Spyder so that each result is visible.
 
 Note: operators explained on the following slide.
 
-### Slide 8 — Variables and reassignment
+## Slide 8 — Variables and reassignment
 
 Refer to a variable as **names bound to an object**
 
@@ -172,7 +172,7 @@ Explain step by step how Python approaches this statement.
 - Assignment: right side to the variable z.
 - Right side is a complex statement. Needs to be evaluated first....
 
-### Slide 10 — Output with `print()`
+## Slide 10 — Output with `print()`
 
 ::: {.callout-tip}
 Point students towards the tooltips provided in Spyder when typing `print(` in editor or console.
@@ -265,17 +265,9 @@ b = c+1
 
 ## Slide 13 — Basic formula programs
 
-::: {.callout-tip title="Exercises (in-class or homework): Circle"}
-
 {{< teaching-file ../materials/session_04/CircleArea1.py >}}
 
-:::
-
-::: {.callout-tip title="Exercise (in-class or homework): FutureValue"}
-
 {{< teaching-file ../materials/session_04/FutureValue.py >}}
-
-:::
 
 ::: {.callout-warning title="Typical error"}
 
@@ -317,7 +309,7 @@ The short alias `pd` is the conventional name used for pandas (programmers are o
 import pandas as pd
 ```
 
-### Slide 16 — Reading an Excel file into a DataFrame
+## Slide 16 — Reading an Excel file into a DataFrame
 
 ::: {.teaching-file}
 [`../materials/data/Bikesales.xlsx`](../materials/data/Bikesales.xlsx){.teaching-button .teaching-button-exercise}
@@ -366,7 +358,7 @@ data = pd.read_excel("data/Bikesales.xlsx")
 os.chdir(r'D:\Dropbox\Lehre\Introduction to Programming\Presentation')
 ```
 
-### Slide 17 — Inspecting a DataFrame
+## Slide 17 — Inspecting a DataFrame
 
 These expressions show the DataFrame dimensions, column names, and column data types.
 
@@ -376,7 +368,7 @@ list(data)
 data.dtypes
 ```
 
-### Slide 19 — Reading CSV files
+## Slide 19 — Reading CSV files
 
 The relative path is resolved against the active working directory. `Bikesales.csv` is in the archive's `data/` folder.
 
@@ -384,7 +376,7 @@ The relative path is resolved against the active working directory. `Bikesales.c
 data = pd.read_csv("data/Bikesales.csv")
 ```
 
-### Slide 20 — Loading, previewing, and exporting data
+## Slide 20 — Loading, previewing, and exporting data
 
 ::: {.teaching-file}
 [`../materials/data/Exped.xlsx`](../materials/data/Exped.xlsx){.teaching-button .teaching-button-exercise}
@@ -411,12 +403,12 @@ exped1 = exped1.set_index('Transid')
 exped1.head()
 ```
 
-{{< needspace 10 >}}
+{{< needspace 40 >}}
 
 ## Slide 22 — Importing and exporting data
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_04/countries.py >}}
@@ -424,7 +416,7 @@ exped1.head()
 ### Exercise
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
+[`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_04/insurance.py >}}

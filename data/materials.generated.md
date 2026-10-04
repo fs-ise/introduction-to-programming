@@ -35,101 +35,101 @@
 
 | Material | Type |
 |---|---|
-| [CircleArea1](materials/session_04/CircleArea1.py) | PY file |
-| [Countries](materials/session_04/countries.py) | PY file |
-| [FutureValue](materials/session_04/FutureValue.py) | PY file |
-| [Insurance](materials/session_04/insurance.py) | PY file |
-| [Spydertest](materials/session_04/Spydertest.py) | PY file |
+| [CircleArea1](generated/materials/session_04/CircleArea1.html) | PY file |
+| [Countries](generated/materials/session_04/countries.html) | PY file |
+| [FutureValue](generated/materials/session_04/FutureValue.html) | PY file |
+| [Insurance](generated/materials/session_04/insurance.html) | PY file |
+| [Spydertest](generated/materials/session_04/Spydertest.html) | PY file |
 
 ## Session 05
 
 | Material | Type |
 |---|---|
-| [Countries1](materials/session_05/countries1.py) | PY file |
-| [Countries2](materials/session_05/countries2.py) | PY file |
+| [Countries1](generated/materials/session_05/countries1.html) | PY file |
+| [Countries2](generated/materials/session_05/countries2.html) | PY file |
 
 ## Session 06
 
 | Material | Type |
 |---|---|
-| [Countries3](materials/session_06/countries3.py) | PY file |
-| [Countries4](materials/session_06/countries4.py) | PY file |
-| [Countries5](materials/session_06/countries5.py) | PY file |
-| [Countries6](materials/session_06/countries6.py) | PY file |
-| [Insurance1](materials/session_06/insurance1.py) | PY file |
+| [Countries3](generated/materials/session_06/countries3.html) | PY file |
+| [Countries4](generated/materials/session_06/countries4.html) | PY file |
+| [Countries5](generated/materials/session_06/countries5.html) | PY file |
+| [Countries6](generated/materials/session_06/countries6.html) | PY file |
+| [Insurance1](generated/materials/session_06/insurance1.html) | PY file |
 
 ## Session 07
 
 | Material | Type |
 |---|---|
-| [AnnuityLoan1](materials/session_07/AnnuityLoan1.py) | PY file |
-| [Chipotle](materials/session_07/Chipotle.py) | PY file |
-| [CircleArea2](materials/session_07/CircleArea2.py) | PY file |
-| [Currency](materials/session_07/Currency.py) | PY file |
-| [Distance](materials/session_07/Distance.py) | PY file |
-| [Fuel](materials/session_07/Fuel.py) | PY file |
-| [Homes Florida](materials/session_07/Homes_Florida.py) | PY file |
-| [Insurance2](materials/session_07/insurance2.py) | PY file |
-| [Traveltime](materials/session_07/Traveltime.py) | PY file |
+| [AnnuityLoan1](generated/materials/session_07/AnnuityLoan1.html) | PY file |
+| [Chipotle](generated/materials/session_07/Chipotle.html) | PY file |
+| [CircleArea2](generated/materials/session_07/CircleArea2.html) | PY file |
+| [Currency](generated/materials/session_07/Currency.html) | PY file |
+| [Distance](generated/materials/session_07/Distance.html) | PY file |
+| [Fuel](generated/materials/session_07/Fuel.html) | PY file |
+| [Homes Florida](generated/materials/session_07/Homes_Florida.html) | PY file |
+| [Insurance2](generated/materials/session_07/insurance2.html) | PY file |
+| [Traveltime](generated/materials/session_07/Traveltime.html) | PY file |
 
 ## Session 08
 
 | Material | Type |
 |---|---|
-| [AnnuityLoan2](materials/session_08/AnnuityLoan2.py) | PY file |
-| [Dicegame1](materials/session_08/dicegame1.py) | PY file |
-| [Discount](materials/session_08/Discount.py) | PY file |
-| [Grade](materials/session_08/Grade.py) | PY file |
-| [IBAN](materials/session_08/IBAN.py) | PY file |
-| [Listexercise1](materials/session_08/Listexercise1.py) | PY file |
-| [Listexercise2](materials/session_08/Listexercise2.py) | PY file |
-| [OddEven](materials/session_08/OddEven.py) | PY file |
-| [String1](materials/session_08/String1.py) | PY file |
-| [String2](materials/session_08/String2.py) | PY file |
-| [String3](materials/session_08/String3.py) | PY file |
-| [Tax](materials/session_08/Tax.py) | PY file |
-| [Temperature](materials/session_08/Temperature.py) | PY file |
+| [AnnuityLoan2](generated/materials/session_08/AnnuityLoan2.html) | PY file |
+| [Dicegame1](generated/materials/session_08/dicegame1.html) | PY file |
+| [Discount](generated/materials/session_08/Discount.html) | PY file |
+| [Grade](generated/materials/session_08/Grade.html) | PY file |
+| [IBAN](generated/materials/session_08/IBAN.html) | PY file |
+| [Listexercise1](generated/materials/session_08/Listexercise1.html) | PY file |
+| [Listexercise2](generated/materials/session_08/Listexercise2.html) | PY file |
+| [OddEven](generated/materials/session_08/OddEven.html) | PY file |
+| [String1](generated/materials/session_08/String1.html) | PY file |
+| [String2](generated/materials/session_08/String2.html) | PY file |
+| [String3](generated/materials/session_08/String3.html) | PY file |
+| [Tax](generated/materials/session_08/Tax.html) | PY file |
+| [Temperature](generated/materials/session_08/Temperature.html) | PY file |
 
 ## Session 09
 
 | Material | Type |
 |---|---|
-| [Average](materials/session_09/Average.py) | PY file |
-| [Dicegame2](materials/session_09/dicegame2.py) | PY file |
-| [Fibonacci](materials/session_09/Fibonacci.py) | PY file |
-| [For demo](materials/session_09/for_demo.py) | PY file |
-| [Frequencies](materials/session_09/Frequencies.py) | PY file |
-| [Guess1](materials/session_09/Guess1.py) | PY file |
-| [Guess2](materials/session_09/Guess2.py) | PY file |
-| [Loan](materials/session_09/Loan.py) | PY file |
-| [Message](materials/session_09/Message.py) | PY file |
-| [MultipleSum](materials/session_09/MultipleSum.py) | PY file |
-| [ShoppingList](materials/session_09/ShoppingList.py) | PY file |
-| [Tens](materials/session_09/Tens.py) | PY file |
-| [Triangle](materials/session_09/Triangle.py) | PY file |
+| [Average](generated/materials/session_09/Average.html) | PY file |
+| [Dicegame2](generated/materials/session_09/dicegame2.html) | PY file |
+| [Fibonacci](generated/materials/session_09/Fibonacci.html) | PY file |
+| [For demo](generated/materials/session_09/for_demo.html) | PY file |
+| [Frequencies](generated/materials/session_09/Frequencies.html) | PY file |
+| [Guess1](generated/materials/session_09/Guess1.html) | PY file |
+| [Guess2](generated/materials/session_09/Guess2.html) | PY file |
+| [Loan](generated/materials/session_09/Loan.html) | PY file |
+| [Message](generated/materials/session_09/Message.html) | PY file |
+| [MultipleSum](generated/materials/session_09/MultipleSum.html) | PY file |
+| [ShoppingList](generated/materials/session_09/ShoppingList.html) | PY file |
+| [Tens](generated/materials/session_09/Tens.html) | PY file |
+| [Triangle](generated/materials/session_09/Triangle.html) | PY file |
 
 ## Session 10
 
 | Material | Type |
 |---|---|
-| [Combinations](materials/session_10/Combinations.py) | PY file |
-| [CountDigits](materials/session_10/CountDigits.py) | PY file |
-| [Dicegame3](materials/session_10/dicegame3.py) | PY file |
-| [Factorial](materials/session_10/Factorial.py) | PY file |
-| [Friends](materials/session_10/Friends.py) | PY file |
-| [Harshad](materials/session_10/Harshad.py) | PY file |
-| [Listmult](materials/session_10/Listmult.py) | PY file |
-| [SlotMachine](materials/session_10/SlotMachine.py) | PY file |
-| [StopLoop](materials/session_10/StopLoop.py) | PY file |
+| [Combinations](generated/materials/session_10/Combinations.html) | PY file |
+| [CountDigits](generated/materials/session_10/CountDigits.html) | PY file |
+| [Dicegame3](generated/materials/session_10/dicegame3.html) | PY file |
+| [Factorial](generated/materials/session_10/Factorial.html) | PY file |
+| [Friends](generated/materials/session_10/Friends.html) | PY file |
+| [Harshad](generated/materials/session_10/Harshad.html) | PY file |
+| [Listmult](generated/materials/session_10/Listmult.html) | PY file |
+| [SlotMachine](generated/materials/session_10/SlotMachine.html) | PY file |
+| [StopLoop](generated/materials/session_10/StopLoop.html) | PY file |
 | [Versicherungsvertreter](materials/session_10/Versicherungsvertreter.docx) | Word document |
-| [Versicherungsvertreter](materials/session_10/Versicherungsvertreter.py) | PY file |
+| [Versicherungsvertreter](generated/materials/session_10/Versicherungsvertreter.html) | PY file |
 
 ## Session 11
 
 | Material | Type |
 |---|---|
-| [5 REST](materials/session_11/5_REST.py) | PY file |
-| [Cryptocurrencies](materials/session_11/Cryptocurrencies.py) | PY file |
-| [MercedesBenz1](materials/session_11/MercedesBenz1.py) | PY file |
-| [MercedesBenz2](materials/session_11/MercedesBenz2.py) | PY file |
-| [Stocks](materials/session_11/Stocks.py) | PY file |
+| [5 REST](generated/materials/session_11/5_REST.html) | PY file |
+| [Cryptocurrencies](generated/materials/session_11/Cryptocurrencies.html) | PY file |
+| [MercedesBenz1](generated/materials/session_11/MercedesBenz1.html) | PY file |
+| [MercedesBenz2](generated/materials/session_11/MercedesBenz2.html) | PY file |
+| [Stocks](generated/materials/session_11/Stocks.html) | PY file |

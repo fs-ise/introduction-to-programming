@@ -3,6 +3,13 @@ project:
   output-dir: ../_site/exercises
 profile:
   default: assign
+quarto-required: ">=1.8.0"
+filters:
+  - ../scripts/mermaid_style.lua
 format:
-  html: default
+  html:
+    css:
+      - ../assets/mermaid.css
   ipynb: default
+execute:
+  fig-align: center

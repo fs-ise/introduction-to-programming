@@ -41,9 +41,6 @@ flowchart
 The files underlying the `data` and `exped` DataFrames are available in Canvas in `data.zip`. If Spyder or its Python console has been restarted since Session 4, reload the datasets before running these examples.
 :::
 
-TODO: illustrate Excel structured references (if they are helpful to understand)?
-TBD: illustrate label and index-based access in Python or on the whiteboard?
-
 TODO/TBD: start by explaining label/position-based access based on a whiteboard illustration (leverage similarities to Excel. Run the operations in parallel (**but make sure the results are identical with the illustration**))
 See: https://chatgpt.com/c/6a6758fc-2954-83eb-a108-c91f378dfc7c
 
@@ -53,6 +50,21 @@ See: https://chatgpt.com/c/6a6758fc-2954-83eb-a108-c91f378dfc7c
 Check: working directory, can read an Excel/CSV file. If not: fix it later. Work with your neibour.
 
 
+{{< pagebreak >}}
+
+::: {.callout-note title="Session 4 datasets"}
+`exped` corresponds to `Exped.xlsx`; `data` corresponds to the Bikesales dataset.
+
+The files underlying the `data` and `exped` DataFrames are available in Canvas in `data.zip`. If Spyder or its Python console has been restarted since Session 4, reload the datasets before running these examples.
+:::
+
+TODO: illustrate Excel structured references (if they are helpful to understand)?
+TBD: illustrate label and index-based access in Python or on the whiteboard?
+
+TODO/TBD: start by explaining label/position-based access based on a whiteboard illustration (leverage similarities to Excel. Run the operations in parallel (**but make sure the results are identical with the illustration**))
+See: https://chatgpt.com/c/6a6758fc-2954-83eb-a108-c91f378dfc7c
+
+![](../images/pandas_label_vs_position.png){width="60%"}
 
 ## Slide 23 — Accessing a column
 
@@ -65,7 +77,7 @@ exped.WHERE
 
 {{< needspace 10 >}}
 
-### Slide 24 — Label-based selection with `loc`
+## Slide 24 — Label-based selection with `loc`
 
 `loc` selects by row and column labels. The final expression selects rows using a condition applied to the `Turnover` column.
 
@@ -79,7 +91,7 @@ data.loc[[1, 3, 6], 'Bike':'Turnover']
 data.loc[data.Turnover > 23000, :]
 ```
 
-### Slide 25 — Selecting rows with `loc`
+## Slide 25 — Selecting rows with `loc`
 
 Selecting a single row label returns one row, whereas a label slice selects multiple rows (including the ending label).
 
@@ -90,7 +102,9 @@ exped.loc[1, ['WHERE', 'WHAT', 'HOW']]
 exped.loc[1:3, ['WHEN', 'WHERE']]
 ```
 
-### Slide 26 — Position-based selection with `iloc`
+{{< needspace 10 >}}
+
+## Slide 26 — Position-based selection with `iloc`
 
 `iloc` uses zero-based integer positions. Negative positions count from the end, and the end of a slice is excluded.
 
@@ -115,7 +129,7 @@ exped.iloc[0:2]
 
 {{< needspace 8 >}}
 
-### Slide 28 — Comparing `loc` and `iloc`
+## Slide 28 — Comparing `loc` and `iloc`
 
 `loc` uses labels and includes the ending label; `iloc` uses integer positions and excludes the ending position.
 
@@ -127,7 +141,7 @@ exped.loc[1:3, 'WHEN':'WHERE']
 exped.iloc[1:3, 1:2]
 ```
 
-### Slide 29 — Labels after sorting
+## Slide 29 — Labels after sorting
 
 After sorting, `loc` still follows labels rather than the rows' current physical positions.
 
@@ -138,17 +152,19 @@ data_sorted
 data_sorted.loc[1:3, 'Bike':'Turnover']
 ```
 
-### Slide 30 - Accessing data: loc vs. iloc
+## Slide 30 - Accessing data: loc vs. iloc
 
 Highlight that the iloc (red) is fixed.
 The loc (blue) may change its positions.
 
 <!-- see also: https://proclusacademy.com/blog/practical/slice-pandas-dataframes-using-iloc-loc/ -->
 
+{{< needspace 30 >}}
+
 ## Slide 31 — DataFrame selection
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_05/countries1.py >}}
@@ -172,7 +188,7 @@ data['Profit'] = data.Turnover - data.Cost
 data['Gross_turnover'] = data.Turnover * 1.19
 ```
 
-### Slide 34 — Deleting rows and columns
+## Slide 34 — Deleting rows and columns
 
 `drop()` returns a changed DataFrame, so its result is assigned back to `data`. The default `axis=0` removes rows; `axis=1` removes columns.
 
@@ -183,6 +199,8 @@ data = data.drop(5)
 data = data.drop('Profit', axis=1)
 data = data.drop('Gross_turnover', axis=1)
 ```
+
+{{< needspace 10 >}}
 
 ## Slide 35 — Sorting and useful DataFrame functions
 
@@ -203,15 +221,17 @@ len(exped)
 data['Cost'].pct_change()
 ```
 
-### Slide 36 — Modifying and sorting data
+## Slide 36 — Modifying and sorting data
 
 ::: {.teaching-file}
-[In-class exercise]{.teaching-label .teaching-label-exercise} [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
 {{< teaching-file ../materials/session_05/countries2.py >}}
 
 - Use the exercise sequence to add, sort, calculate, and then remove data.
+
+{{< needspace 10 >}}
 
 ## Summary and announcements
 
