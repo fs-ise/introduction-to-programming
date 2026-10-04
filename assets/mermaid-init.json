@@ -2,7 +2,7 @@
   "theme": "base",
   "look": "handDrawn",
   "handDrawnSeed": 17,
-  "themeCSS": ".nodeLabel { min-width: 240px; }",
+  "themeCSS": ".nodeLabel { min-width: 300px; }",
   "themeVariables": {
     "background": "#ffffff",
     "primaryColor": "#ffffff",
