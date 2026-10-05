@@ -47,6 +47,7 @@
 |---|---|
 | [Countries1](generated/materials/session_05/countries1.html) | PY file |
 | [Countries2](generated/materials/session_05/countries2.html) | PY file |
+| [Customers](materials/session_05/customers.xlsx) | Excel workbook |
 
 ## Session 06
 
