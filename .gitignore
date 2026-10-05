@@ -15,4 +15,6 @@ notes/.notes-combined.qmd
 **/*.quarto_ipynb
 *.quarto_ipynb_*
 
+generated/*
+
 *.Rhistory
