@@ -314,22 +314,15 @@ customers.loc[
 
 Unlike `iloc`, the ending label is included.
 
-Therefore:
+Therefore, both select four rows and three columns in the current dataframe:
 
 ```python
 customers.iloc[0:4, 1:4]
-```
-
-and
-
-```python
 customers.loc[
     'CUST-1042':'CUST-4271',
     'Name':'Segment'
 ]
 ```
-
-both select four rows and three columns in the current dataframe.
 
 Note that label slices select everything **between the two labels in the current index order**.
 For robust identification of particular observations, explicit labels or conditions are preferable.
@@ -355,7 +348,6 @@ goodie_customers = customers.loc[
     customers['Active'] == 'No',
     ['Name', 'City']
 ]
-
 goodie_customers
 ```
 
@@ -439,10 +431,14 @@ customers.loc[
 ]
 ```
 
+::: {.callout-warning title="Important difference: Ranges in iloc vs. loc"}
+
 There is also an important difference for ranges:
 
 - `iloc[0:4]` includes positions 0, 1, 2, and 3;
 - `loc['CUST-1042':'CUST-4271']` includes both named endpoints.
+
+:::
 
 {{< needspace 12 >}}
 
@@ -457,7 +453,6 @@ customers = pd.read_excel(
     'customers.xlsx',
     index_col='CustomerID'
 )
-
 customers
 customers.index
 ```
@@ -466,7 +461,6 @@ Now read the file without specifying an index:
 
 ```python
 customers_default = pd.read_excel('customers.xlsx')
-
 customers_default
 customers_default.index
 ```
@@ -508,8 +502,7 @@ labels happen to look like positions.
 For datasets with meaningful identifiers such as `CustomerID`, using these
 identifiers as the index makes the distinction much clearer.
 
-
-{{< needspace 30 >}}
+{{< needspace 20 >}}
 
 ## Slide 31 — DataFrame selection
 
@@ -525,51 +518,105 @@ identifiers as the index makes the distinction much clearer.
 Break — 10 minutes
 :::
 
+{{< needspace 20 >}}
+
+## Discuss solution of `contries1.py` exercise (> Previous page)
+
 ## Slide 32 — Adding rows and columns
 
-Rows can use named or numeric labels. Values may be supplied manually, while new columns can also be calculated from existing columns.
+Rows can be added using a new row label. Because `CustomerID` is our index, we can use the identifier of the new customer directly.
 
 ```python
-data.loc['bike5'] = ['Gravelbike', 4, 14000, 9000]
-data.loc[len(data)] = ['Gravelbike', 4, 14000, 9000]
-
-data.loc[:, 'Profit'] = [3387, 6495, 999, 10796, 14310]
-data['Profit'] = data.Turnover - data.Cost
-data['Gross_turnover'] = data.Turnover * 1.19
+customers.loc['CUST-9999'] = [
+    'Alex Miller',
+    'Frankfurt',
+    'Business',
+    12000,
+    'Yes'
+]
+customers
 ```
+
+Using a dictionary makes clear which value belongs to which column and does not depend on the current column order.
+
+We can also create new columns from existing information. For example, convert annual spending into an approximate monthly value:
+
+```python
+customers['MonthlySpend'] = customers['AnnualSpend'] / 12
+```
+
+Or create a column with the same value for every customer:
+
+```python
+customers['Country'] = 'Germany'
+```
+
+The important distinction is that `.loc[...]` can add a **row**, whereas assigning to `customers['...']` adds or replaces a **column**.
+
+{{< needspace 10 >}}
 
 ## Slide 34 — Deleting rows and columns
 
-`drop()` returns a changed DataFrame, so its result is assigned back to `data`. The default `axis=0` removes rows; `axis=1` removes columns.
+`drop()` removes rows or columns by their labels.
+
+Remove the customer we just added:
 
 ```python
-data = data.drop('bike5')
-data = data.drop(5)
-
-data = data.drop('Profit', axis=1)
-data = data.drop('Gross_turnover', axis=1)
+customers = customers.drop('CUST-9999')
 ```
+
+Because rows are the default (`axis=0`), we do not need to specify an axis.
+
+To remove one of our newly created columns:
+
+```python
+customers = customers.drop('MonthlySpend', axis=1)
+customers = customers.drop('Country', axis=1)
+```
+
+Here, `axis=1` tells pandas that the labels refer to columns rather than rows.
+
+`drop()` normally returns a modified DataFrame rather than changing `customers` automatically. We therefore assign the result back to `customers`.
 
 {{< needspace 10 >}}
 
 ## Slide 35 — Sorting and useful DataFrame functions
 
-`sort_values()` can sort by one column or by several columns in priority order. `len()` counts rows, while `pct_change()` calculates proportional change from one row to the next.
+We can sort customers according to one variable. For example, sort from lowest to highest annual spending:
 
 ```python
-data_sorted = data.sort_values(by='Turnover')
-data_sorted
-
-data_sorted = data.sort_values(
-    by=['Sales', 'Turnover'],
-    ascending=False,
+customers_sorted = customers.sort_values(
+    by='AnnualSpend'
 )
-data_sorted
 
-len(exped)
-
-data['Cost'].pct_change()
+customers_sorted
 ```
+
+To show the highest-spending customers first:
+
+```python
+customers_sorted = customers.sort_values(
+    by='AnnualSpend',
+    ascending=False
+)
+
+customers_sorted
+```
+
+Several columns can be used as sorting priorities:
+
+```python
+customers_sorted = customers.sort_values(
+    by=['Segment', 'AnnualSpend'],
+    ascending=[True, False]
+)
+
+customers_sorted
+```
+
+This first groups customers by `Segment` and then orders customers within each segment from highest to lowest annual spending.
+
+{{< pagebreak >}}
 
 ## Slide 36 — Modifying and sorting data
 
@@ -579,13 +626,11 @@ data['Cost'].pct_change()
 
 {{< teaching-file ../materials/session_05/countries2.py >}}
 
-- Use the exercise sequence to add, sort, calculate, and then remove data.
-
 {{< needspace 10 >}}
 
 ## Summary and announcements
 
-- TODO
+**Questions for the Excel exam?**
 
 ::: {.callout-tip title="Notes for improvement"}
 Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
