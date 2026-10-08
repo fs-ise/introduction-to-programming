@@ -130,6 +130,7 @@ For example, positions 2–4 correspond to the **3rd through 5th rows**:
 
 ```python
 customers.iloc[2:5, :]
+# Note: last element (5) is exclusive!
 ```
 
 The same syntax can be used for columns:
@@ -189,7 +190,7 @@ After returning, we run exactly the same command:
 ```python
 customers = pd.read_excel('customers.xlsx')
 
-goodie_customers = customers.iloc[[4, 8], [0, 1, 2]]
+goodie_customers = customers.iloc[[4, 8], :]
 goodie_customers
 ```
 
