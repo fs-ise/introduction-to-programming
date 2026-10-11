@@ -8,6 +8,7 @@ event_id: null
 
 - Upoad the `customers.xlsx`
 - Make `customers.xlsx` available on presentation laptop
+- During the code illustrations: instead of removing/replacing examples, move them to comments
 
 ```{mermaid}
 %%| fig-width: 5
@@ -26,7 +27,7 @@ flowchart
 
   subgraph LEFT["<b>Access data</b>"]
     direction TB
-    A1["<b>Recap: working directories and opening files</b> (10 min)"]
+    A1["<b>Homework and recap (working directories and opening files)</b> (10 min)"]
     A2["<b>iloc: introduction and illustration</b> (20 min)"]
     A3["<b>loc: introduction and illustration</b> (20 min)"]
     A4["<b>💻 loc and iloc exercise</b> (40 min)<br/>countries.csv, countries1.py"]
@@ -39,6 +40,8 @@ flowchart
 {{< pagebreak >}}
 
 ## Working directories and paths
+
+Reiterate working directory setup as a first step to solving the homework exercises.
 
 Checklist for :
 
@@ -70,6 +73,22 @@ os.getcwd()
 - If you cannot open an Excel/CSV file: fix it later. Work with your neibour.
 :::
 
+## Homework
+
+::: {.teaching-file}
+[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+:::
+
+{{< teaching-file ../materials/session_04/countries.py >}}
+
+::: {.teaching-file}
+[`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
+:::
+
+{{< teaching-file ../materials/session_04/insurance.py >}}
+
+Inspect the CSV file, highlight the additional index column and show that `index=False` writes CSV without the index column.
+
 {{< pagebreak >}}
 
 <!--
@@ -81,6 +100,30 @@ The files underlying the `data` and `exped` DataFrames are available in Canvas i
 
 ![](../images/pandas_label_vs_position.png){width="60%"}
 -->
+
+## Blackboard summary (develop with live demonstrations)
+
+Both methods use the structure `[rows, columns]`. `iloc` selects by integer position; `loc` selects by labels.
+
+| Selection                 | `iloc` — Position-based          | `loc` — Label-based                                              |
+| ------------------------- | -------------------------------- | ---------------------------------------------------------------- |
+| General syntax            | `df.iloc[rows, columns]`         | `df.loc[rows, columns]`                                          |
+| Single cell               | `customers.iloc[0, 0]`           | `customers.loc['CUST-1042', 'Name']`                             |
+| Single row                | `customers.iloc[0, :]`           | `customers.loc['CUST-1042', :]`                                  |
+| Single column             | `customers.iloc[:, 0]`           | `customers.loc[:, 'Name']`                                       |
+| Range of rows and columns | `customers.iloc[0:4, 1:3]`       | `customers.loc['CUST-1042':'CUST-4271', 'Name':'Segment']`       |
+| List of rows and columns  | `customers.iloc[[0, 3], [0, 2]]` | `customers.loc[['CUST-1042', 'CUST-4271'], ['Name', 'Segment']]` |
+| Negative positions        | `customers.iloc[-1, -1]`         | Not applicable                                                   |
+| Condition                 | —                                | `customers.loc[customers['Active'] == 'No', :]`                  |
+
+Key differences:
+
+- Indexing: `iloc` starts at position `0`; `loc` uses row and column labels.
+- Ranges: `iloc[0:4]` excludes position `4`; `loc['A':'D']` includes both endpoints.
+- Negative positions: `iloc[-1]` selects the last row; `loc` does not interpret negative numbers as positions.
+- Conditions: `loc` supports boolean conditions directly.
+
+{{< pagebreak >}}
 
 ## Setup to explain loc/iloc access
 
@@ -313,7 +356,7 @@ customers.loc[
 ]
 ```
 
-Unlike `iloc`, the ending label is included.
+Unlike `iloc`, the ending label is included for `loc`.
 
 Therefore, both select four rows and three columns in the current dataframe:
 
@@ -327,6 +370,8 @@ customers.loc[
 
 Note that label slices select everything **between the two labels in the current index order**.
 For robust identification of particular observations, explicit labels or conditions are preferable.
+
+Illustrate that even label ranges are dependen on sort order: save file with different sorting and run again.
 
 {{< needspace 12 >}}
 
@@ -513,6 +558,7 @@ identifiers as the index makes the distinction much clearer.
 
 {{< teaching-file ../materials/session_05/countries1.py >}}
 
+- Run `countries.columns` and `countries.index` to access the current column/row labels
 - Guide students through selecting columns and rows with `iloc` and `loc`.
 
 ::: {.teaching-break}
