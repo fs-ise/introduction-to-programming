@@ -7,7 +7,7 @@ event_id: null
 ## Preparation
 
 - Upoad the `customers.xlsx`
-- Make `customers.xlsx` available on presentation laptop
+- Make `customers.xlsx` available on presentation laptop (**always use the same/unchanged file because students will try to reproduce the results**)
 - During the code illustrations: instead of removing/replacing examples, move them to comments
 
 ```{mermaid}
