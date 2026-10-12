@@ -12,7 +12,7 @@ Before working with Excel, configure its [language and regional settings](studen
 
 ## Getting help
 
-If you get stuck, review the relevant example, try the task again, and note where you are unsure. Ask questions in class or through the course communication channel—questions are always welcome.
+If you get stuck, review the relevant example, try the task again, and note where you are unsure. Ask questions in class—questions are always welcome. Questions about the mock exam are addressed collectively in class so everyone receives the same information; individual email replies about exam questions are generally not provided.
 
 ## Useful resources
 
@@ -54,6 +54,10 @@ No. You will write Excel formulas on paper in the Excel exam and Python code on 
 
 A mock exam will be provided for the Excel part through Canvas. Check Canvas for mock exams and related exam-preparation materials for the Python part.
 
+#### How should I ask questions about the mock exam?
+
+Bring questions about the mock exam to class. They are addressed collectively so all students receive the same explanations and clarifications. Individual email replies about mock-exam questions are generally not provided.
+
 ### General course questions
 
 #### Where can I find the course materials?
@@ -62,7 +66,7 @@ Course materials, exercises, announcements, and relevant organizational informat
 
 #### What if I miss a class?
 
-Review the corresponding materials and exercises in Canvas and catch up independently.
+Attendance is expected because key explanations, discussions, and clarifications take place in class. If you miss a session, review the corresponding materials and exercises in Canvas and coordinate with classmates to catch up on the in-class discussion and clarifications.
 
 #### Where will course announcements and updates be posted?
 
