@@ -1,6 +1,7 @@
 ---
 title: "Session 11/Python 8: Pandas automation and web APIs"
 session_id: session-11
+slide_range: "137–159"
 event_id: null
 ---
 

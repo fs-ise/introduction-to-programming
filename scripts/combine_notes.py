@@ -24,6 +24,7 @@ QRCODE_SHORTCODE = (
     REPOSITORY_ROOT / "_extensions" / "jmbuhr" / "qrcode" / "qrcode.lua"
 )
 MERMAID_CONFIG = REPOSITORY_ROOT / "assets" / "mermaid-init.json"
+SLIDE_RANGE = re.compile(r"\s*(\d+)\s*(?:[-–—]\s*(\d+))?\s*")
 
 
 def mermaid_init_directive() -> str:
@@ -107,9 +108,8 @@ def session_page_prefix(session_id: object, path: Path) -> str:
     return f"Session-{int(number)}{suffix}"
 
 
-def read_note(path: Path) -> tuple[str, str, str]:
-    """Return the title, body, and page prefix of a front-matter QMD file."""
-    source = path.read_text(encoding="utf-8")
+def _read_note_source(source: str, path: Path) -> tuple[str, str, str, str]:
+    """Return a note's title, body, page prefix, and validated slide range."""
     lines = source.splitlines()
     if not lines or lines[0].strip() != "---":
         raise ValueError(f"{path} does not start with YAML front matter")
@@ -124,12 +124,50 @@ def read_note(path: Path) -> tuple[str, str, str]:
         raise ValueError(f"{path} has unterminated YAML front matter") from error
 
     metadata = yaml.safe_load("\n".join(lines[1:yaml_end])) or {}
+    if not isinstance(metadata, dict):
+        raise ValueError(f"{path} YAML front matter must be a mapping")
     title = metadata.get("title")
     if not isinstance(title, str) or not title:
         raise ValueError(f"{path} has no title in its YAML front matter")
 
     page_prefix = session_page_prefix(metadata.get("session_id"), path)
-    return title, "\n".join(lines[yaml_end + 1 :]).strip(), page_prefix
+    if "slide_range" not in metadata:
+        raise ValueError(f"{path} has no slide_range in its YAML front matter")
+    slide_range = normalize_slide_range(metadata["slide_range"], path)
+    return title, "\n".join(lines[yaml_end + 1 :]).strip(), page_prefix, slide_range
+
+
+def read_note(path: Path) -> tuple[str, str, str]:
+    """Return the title, body, and page prefix of a front-matter QMD file."""
+    title, body, page_prefix, _ = _read_note_source(
+        path.read_text(encoding="utf-8"), path
+    )
+    return title, body, page_prefix
+
+
+def normalize_slide_range(value: object, path: Path) -> str:
+    """Validate and format a slide range from YAML front matter."""
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(
+            f"{path} has invalid slide_range {value!r}; "
+            "expected a string in the form N or N–M"
+        )
+
+    match = SLIDE_RANGE.fullmatch(value)
+    if match is None:
+        raise ValueError(
+            f"{path} has invalid slide_range {value!r}; expected N or N–M"
+        )
+
+    start = int(match.group(1))
+    end = int(match.group(2) or start)
+    if start < 1:
+        raise ValueError(f"{path} has invalid slide_range {value!r}; slides start at 1")
+    if end < start:
+        raise ValueError(
+            f"{path} has invalid slide_range {value!r}; end precedes start"
+        )
+    return str(start) if start == end else f"{start}–{end}"
 
 
 def read_checklist(path: Path) -> tuple[str, str]:
@@ -190,23 +228,32 @@ def combine(
     teaching_notes_title = f"{read_course_title()} Teaching Notes"
     sections: list[str] = []
 
-    sources = []
+    sources: list[tuple[str, str, str, str | None]] = []
     if groups is not None:
         title, body = read_groups(groups)
-        sources.append((title, remove_rooms_from_groups(body), "Groups"))
+        sources.append((title, remove_rooms_from_groups(body), "Groups", None))
     if checklist is not None:
         title, body = read_checklist(checklist)
-        sources.append((title, body, "Checklist"))
-    sources.extend(read_note(path) for path in inputs)
+        sources.append((title, body, "Checklist", None))
 
-    for title, body, page_prefix in sources:
+    for path in inputs:
+        source = path.read_text(encoding="utf-8")
+        title, body, page_prefix, slide_range = _read_note_source(source, path)
+        sources.append((title, body, page_prefix, slide_range))
+
+    for title, body, page_prefix, slide_range in sources:
+        latex_slide_range = (
+            slide_range.replace("–", "--")
+            if slide_range is not None
+            else r"\textemdash{}"
+        )
         sections.append(f"""```{{=latex}}
 \\clearpage
 \\renewcommand{{\\thepage}}{{{page_prefix}/p\\arabic{{page}}}}
 \\setcounter{{page}}{{1}}
 ```
 
-# {title}
+# {title} \\protect\\notesTOCSlides{{{latex_slide_range}}}
 
 {body}""")
 
@@ -283,20 +330,30 @@ format:
         }}%
       }}
 
-      % KOMA positions the page-number box at \\linewidth-\\rightindent.  Keep
-      % the box width and trailing space explicit so the heading can use the
-      % very same column boundary.
-      \\newcommand{{\\notesTOCPageNumberBox}}[1]{{\\makebox[8em][l]{{#1}}}}
+      % Reserve separate columns for slide ranges and custom page labels.
+      % KOMA positions the page-number box at \\linewidth-\\rightindent;
+      % retain a 1em gap after the combined 14em box.
+      \\newcommand{{\\notesTOCCurrentSlides}}{{\\textemdash}}
+      \\newcommand{{\\notesTOCSlides}}[1]{{\\gdef\\notesTOCCurrentSlides{{#1}}}}
+      \\newcommand{{\\notesTOCPageNumberBox}}[1]{{%
+        \\makebox[6em][c]{{\\notesTOCCurrentSlides}}%
+        \\makebox[8em][l]{{#1}}%
+      }}
+      \\newcommand{{\\notesTOCHeaderBox}}[1]{{%
+        \\makebox[6em][c]{{\\textbf{{Slides}}}}%
+        \\makebox[8em][l]{{#1}}%
+      }}
       \\DeclareTOCStyleEntry[
-        pagenumberwidth=8em,
-        rightindent=9em,
+        pagenumberwidth=14em,
+        rightindent=15em,
         pagenumberbox=\\notesTOCPageNumberBox
       ]{{tocline}}{{section}}
 
       \\AfterTOCHead[toc]{{%
         \\noindent
-        \\makebox[\\dimexpr\\linewidth-9em\\relax][l]{{\\textbf{{Section}}}}%
-        \\notesTOCPageNumberBox{{\\textbf{{Pages start with}}}}\\par
+        \\makebox[\\dimexpr\\linewidth-15em\\relax][l]{{\\textbf{{Section}}}}%
+        \\hspace*{{1em}}%
+        \\notesTOCHeaderBox{{\\textbf{{Pages start with}}}}\\par
         \\smallskip
       }}
 
@@ -321,7 +378,12 @@ def main() -> None:
     parser.add_argument("output", type=Path)
     parser.add_argument("inputs", nargs="+", type=Path)
     arguments = parser.parse_args()
-    combine(arguments.output, arguments.inputs, arguments.checklist, arguments.groups)
+    combine(
+        arguments.output,
+        arguments.inputs,
+        checklist=arguments.checklist,
+        groups=arguments.groups,
+    )
 
 
 if __name__ == "__main__":

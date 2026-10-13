@@ -1,6 +1,7 @@
 ---
 title: "Session 08/Python 5: Sequences and conditionals"
 session_id: session-08
+slide_range: "88–107"
 event_id: null
 ---
 

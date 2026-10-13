@@ -1,6 +1,7 @@
 ---
 title: "Session 03/Excel 3: Pivot tables"
 session_id: session-03
+slide_range: "54–78"
 event_id: null
 ---
 

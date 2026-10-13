@@ -1,6 +1,7 @@
 ---
 title: "Session 09/Python 6: For and while loops"
 session_id: session-09
+slide_range: "109–114"
 event_id: null
 ---
 

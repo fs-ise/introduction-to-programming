@@ -1,6 +1,7 @@
 ---
 title: "Session 06/Python 3: Statistics, charts, and grouping"
 session_id: session-06
+slide_range: "37–56"
 event_id: null
 ---
 

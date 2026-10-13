@@ -1,6 +1,7 @@
 ---
 title: "Session 07/Python 4: Pivoting, prediction, and data types"
 session_id: session-07
+slide_range: "58–86"
 event_id: null
 ---
 

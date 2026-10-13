@@ -1,6 +1,7 @@
 ---
 title: "Session 10/Python 7: Loop control, functions, and dictionaries"
 session_id: session-10
+slide_range: "115–133"
 event_id: null
 ---
 

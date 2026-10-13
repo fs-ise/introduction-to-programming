@@ -29,7 +29,8 @@ def test_combine_preserves_html_line_breaks_and_configures_filter(
 ) -> None:
     note = tmp_path / "note.qmd"
     source = (
-        '---\ntitle: "Table note"\nsession_id: session-01\n---\n\n'
+        '---\ntitle: "Table note"\nsession_id: session-01\n'
+        'slide_range: "7–28"\n---\n\n'
         "| Time | Material |\n"
         "|---|---|\n"
         "| 35–55 min | Slides 7–10<br>Slides 7 and 10<br />Exercise |\n"
@@ -53,6 +54,90 @@ def test_combine_preserves_html_line_breaks_and_configures_filter(
     assert QRCODE_SHORTCODE.is_absolute()
     assert CENTER_CAPTIONLESS_IMAGES_FILTER.is_absolute()
     assert note.read_text(encoding="utf-8") == source
+
+
+def test_session_slide_ranges_are_defined_in_front_matter() -> None:
+    expected = {
+        "session_01.qmd": "1–28",
+        "session_02.qmd": "29–52",
+        "session_03.qmd": "54–78",
+        "session_04.qmd": "1–22",
+        "session_05.qmd": "23–36",
+        "session_06.qmd": "37–56",
+        "session_07.qmd": "58–86",
+        "session_08.qmd": "88–107",
+        "session_09.qmd": "109–114",
+        "session_10.qmd": "115–133",
+        "session_11.qmd": "137–159",
+    }
+
+    note_paths = sorted((REPOSITORY_ROOT / "notes").glob("session_*.qmd"))
+    assert {path.name for path in note_paths} == set(expected)
+
+    for path in note_paths:
+        source = path.read_text(encoding="utf-8")
+        front_matter = source.split("---", 2)[1]
+        metadata = yaml.safe_load(front_matter)
+        assert metadata["slide_range"] == expected[path.name]
+
+
+def test_toc_uses_slide_range_metadata_and_preserves_three_columns(
+    tmp_path: Path,
+) -> None:
+    note = tmp_path / "note.qmd"
+    note.write_text(
+        '---\ntitle: "Metadata note"\nsession_id: session-05\n'
+        'slide_range: "31–34"\n---\n\n'
+        "| Time | Topic | Materials |\n"
+        "|---|---|---|\n"
+        "| 0–20 min | Main topic | Slides 23–25 |\n\n"
+        "## Slide 99 — Not the TOC range\n",
+        encoding="utf-8",
+    )
+    output = tmp_path / "notes.qmd"
+
+    combine(output, [note])
+
+    combined = output.read_text(encoding="utf-8")
+    assert "toc-depth: 1" in combined
+    assert r"# Metadata note \protect\notesTOCSlides{31--34}" in combined
+    assert "Slides 23–25" in combined
+    assert "Slide 99 — Not the TOC range" in combined
+    assert r"\makebox[6em][c]{\notesTOCCurrentSlides}" in combined
+    assert r"\makebox[6em][c]{\textbf{Slides}}" in combined
+    assert r"\makebox[8em][l]{#1}" in combined
+    assert "pagenumberwidth=14em" in combined
+    assert "rightindent=15em" in combined
+    assert (
+        r"\makebox[\dimexpr\linewidth-15em\relax][l]{\textbf{Section}}%"
+        in combined
+    )
+    assert r"\hspace*{1em}%" in combined
+    assert r"\notesTOCHeaderBox{\textbf{Pages start with}}\par" in combined
+
+
+@pytest.mark.parametrize(
+    ("slide_range", "error_message"),
+    [
+        (None, "no slide_range"),
+        ("not a range", "invalid slide_range"),
+        ("78–54", "end precedes start"),
+        ("0–4", "slides start at 1"),
+    ],
+)
+def test_combine_rejects_missing_or_invalid_slide_range_metadata(
+    tmp_path: Path, slide_range: str | None, error_message: str
+) -> None:
+    note = tmp_path / "note.qmd"
+    metadata = "" if slide_range is None else f'slide_range: "{slide_range}"\n'
+    note.write_text(
+        f'---\ntitle: "Invalid range"\nsession_id: session-01\n{metadata}---\n\n'
+        "## Topic\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match=error_message):
+        combine(tmp_path / "notes.qmd", [note])
 
 
 def test_inject_mermaid_config_after_cell_options_and_preserve_fences() -> None:
@@ -108,6 +193,7 @@ def test_combine_injects_mermaid_without_modifying_source(tmp_path: Path) -> Non
     source = """---
 title: Diagram note
 session_id: session-05
+slide_range: "23–36"
 ---
 
 ```{mermaid}
@@ -132,13 +218,15 @@ flowchart
 def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     first = tmp_path / "session_01.qmd"
     first.write_text(
-        '---\ntitle: "Notes S-01/First"\nsession_id: session-01\n---\n\n'
+        '---\ntitle: "Notes S-01/First"\nsession_id: session-01\n'
+        'slide_range: "1–2"\n---\n\n'
         "## Topic one\n\n### Topic one detail\n",
         encoding="utf-8",
     )
     second = tmp_path / "session_02.qmd"
     second.write_text(
-        '---\ntitle: "Notes S-02/Second"\nsession_id: session-02b\n---\n\n'
+        '---\ntitle: "Notes S-02/Second"\nsession_id: session-02b\n'
+        'slide_range: "3–4"\n---\n\n'
         "## Topic two\n",
         encoding="utf-8",
     )
@@ -180,20 +268,20 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     assert r"\usepackage{etoolbox}" not in combined
     assert r"\usepackage{scrlayer-scrpage}" in combined
     assert r"\DeclareTOCStyleEntry[" in combined
-    assert (
-        r"\newcommand{\notesTOCPageNumberBox}[1]{\makebox[8em][l]{#1}}"
-        in combined
-    )
-    assert "pagenumberwidth=8em" in combined
-    assert "rightindent=9em" in combined
+    assert r"\newcommand{\notesTOCPageNumberBox}[1]{%" in combined
+    assert r"\makebox[6em][c]{\notesTOCCurrentSlides}%" in combined
+    assert r"\newcommand{\notesTOCHeaderBox}[1]{%" in combined
+    assert "pagenumberwidth=14em" in combined
+    assert "rightindent=15em" in combined
     assert r"pagenumberbox=\notesTOCPageNumberBox" in combined
     assert r"\AfterTOCHead[toc]{%" in combined
     assert (
-        r"\makebox[\dimexpr\linewidth-9em\relax][l]{\textbf{Section}}%"
+        r"\makebox[\dimexpr\linewidth-15em\relax][l]{\textbf{Section}}%"
         in combined
     )
+    assert r"\hspace*{1em}%" in combined
     assert (
-        r"\notesTOCPageNumberBox{\textbf{Pages start with}}\par" in combined
+        r"\notesTOCHeaderBox{\textbf{Pages start with}}\par" in combined
     )
     assert r"\textbf{Section}\hfill" not in combined
     assert "fancyhdr" not in combined
@@ -219,6 +307,8 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     assert r"\renewcommand{\thepage}{Session-1/p\arabic{page}}" in combined
     assert r"\renewcommand{\thepage}{Session-2b/p\arabic{page}}" in combined
     assert combined.count(r"\setcounter{page}{1}") == 2
+    assert r"\protect\notesTOCSlides{1--2}" in combined
+    assert r"\protect\notesTOCSlides{3--4}" in combined
     assert "## Topic one" in combined
     assert "### Topic one detail" in combined
     assert "## Topic two" in combined
@@ -241,7 +331,7 @@ def test_session_title_is_not_inserted_into_footer(tmp_path: Path) -> None:
     note = tmp_path / "note.qmd"
     note.write_text(
         '---\ntitle: "50% R&D: #1_use of $x^{2}$, ~ and \\\\ paths"\n'
-        "session_id: session-03\n---\n\nText\n",
+        'session_id: session-03\nslide_range: "54–78"\n---\n\nText\n',
         encoding="utf-8",
     )
     output = tmp_path / "notes.qmd"
@@ -262,7 +352,8 @@ def test_checklist_appears_before_sessions(tmp_path: Path) -> None:
     )
     note = tmp_path / "session_01.qmd"
     note.write_text(
-        '---\ntitle: "Session 01"\nsession_id: session-01\n---\n\n## Topic\n',
+        '---\ntitle: "Session 01"\nsession_id: session-01\n'
+        'slide_range: "1–28"\n---\n\n## Topic\n',
         encoding="utf-8",
     )
     output = tmp_path / "notes.qmd"
@@ -298,7 +389,8 @@ def test_groups_appear_before_checklist_and_sessions(tmp_path: Path) -> None:
     )
     note = tmp_path / "session_01.qmd"
     note.write_text(
-        '---\ntitle: "Session 01"\nsession_id: session-01\n---\n\n## Topic\n',
+        '---\ntitle: "Session 01"\nsession_id: session-01\n'
+        'slide_range: "1–28"\n---\n\n## Topic\n',
         encoding="utf-8",
     )
     output = tmp_path / "notes.qmd"
@@ -503,7 +595,8 @@ def test_generated_document_renders_needspace_shortcode(tmp_path: Path) -> None:
 
     note = tmp_path / "note.qmd"
     note.write_text(
-        '---\ntitle: "Shortcode integration"\nsession_id: session-01\n---\n\n'
+        '---\ntitle: "Shortcode integration"\nsession_id: session-01\n'
+        'slide_range: "1–28"\n---\n\n'
         "Before the pagination directive.\n\n"
         "{{< needspace 3 >}}\n\n"
         "After the pagination directive.\n",
@@ -564,7 +657,8 @@ def test_pdf_builds_with_quarto_callout_and_teaching_break(tmp_path: Path) -> No
     _pdf_tools_or_skip()
     note = tmp_path / "note.qmd"
     note.write_text(
-        '---\ntitle: "Callouts"\nsession_id: session-06\n---\n\n'
+        '---\ntitle: "Callouts"\nsession_id: session-06\n'
+        'slide_range: "37–56"\n---\n\n'
         "::: {.callout-note}\nA standard Quarto callout.\n:::\n\n"
         "::: {.teaching-break}\nBreak — 10 minutes\n:::\n",
         encoding="utf-8",
@@ -591,7 +685,8 @@ def test_long_highlighted_code_wraps_inside_pdf_text_area(tmp_path: Path) -> Non
     long_token = "https://example.invalid/" + "unbroken-path-segment-" * 14
     note = tmp_path / "note.qmd"
     note.write_text(
-        '---\ntitle: "Code wrapping"\nsession_id: session-04\n---\n\n'
+        '---\ntitle: "Code wrapping"\nsession_id: session-04\n'
+        'slide_range: "1–22"\n---\n\n'
         "```python\n"
         'short_value = "unchanged"\n'
         f'long_value = "{long_token}"\n'
@@ -646,7 +741,8 @@ def test_pdf_with_only_plain_fenced_code_builds(tmp_path: Path) -> None:
     long_token = "plain_" * 80
     note = tmp_path / "note.qmd"
     note.write_text(
-        '---\ntitle: "Plain code"\nsession_id: session-05\n---\n\n'
+        '---\ntitle: "Plain code"\nsession_id: session-05\n'
+        'slide_range: "23–36"\n---\n\n'
         "```\n"
         f"{long_token}\n"
         "```\n",

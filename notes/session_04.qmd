@@ -1,6 +1,7 @@
 ---
 title: "Session 04/Python 1: Python and pandas basics"
 session_id: session-04
+slide_range: "1–22"
 event_id: null
 ---
 

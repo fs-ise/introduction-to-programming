@@ -1,6 +1,7 @@
 ---
 title: "Session 02/Excel 2: Lookups and tables"
 session_id: session-02
+slide_range: "29–52"
 event_id: null
 ---
 
