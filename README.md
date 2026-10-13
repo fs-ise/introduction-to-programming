@@ -1,57 +1,27 @@
-# Introduction to Programming
+<p align="center">
+  <img src="https://raw.githubusercontent.com/fs-ise/analytics-and-big-data/main/assets/fs_logo_blue.svg" alt="Frankfurt School logo" height="64">
+</p>
 
-This repository contains the Quarto website and teaching-support files for **Introduction to Programming** at Frankfurt School of Finance & Management.
+<h1 align="center">Introduction to Programming</h1>
 
-The course is configured for the **2026-WiSe** semester as a **6 ECTS Bachelor-level** course taught in **English**.
+<p align="center">
+  <img alt="Offered by Frankfurt School of Finance &amp; Management" src="https://img.shields.io/badge/Offered%20by-Frankfurt%20School%20of%20Finance%20%26%20Management-blue">
+  <a href="https://github.com/fs-ise/introduction-to-programming/actions/workflows/publish.yml"><img alt="GitHub Actions: publish" src="https://github.com/fs-ise/introduction-to-programming/actions/workflows/publish.yml/badge.svg"></a>
+  <a href="LICENSE"><img alt="License: CC BY 4.0" src="https://img.shields.io/badge/License-CC%20BY%204.0-green.svg"></a>
+</p>
 
-## Key files
+Welcome! **Introduction to Programming** is a 6 ECTS Bachelor course at Frankfurt School of Finance & Management. Through hands-on exercises, students learn to solve business and numerical problems using Excel and Python.
 
-- `course.yml` defines course metadata such as title, semester, credits, language, instructor, repository URL, and schedule settings.
-- `_groups.qmd` is the single source of truth for group dates, times, rooms, and assignments. The homepage shows the full schedule, while the generated teaching-notes PDF omits rooms.
-- `index.qmd` defines the course homepage, session table, and links to notes.
-- `teaching_notes.qmd` lists instructor notes for each session on the website.
-- `assets/styles.css` contains website-level styling, including the session color chips used in the group schedule.
-- `data/sessions.generated.yml` is generated schedule data and should not be edited manually.
-- `materials.qmd` is the automatically generated student-facing index of files in `materials/`.
-- `data/materials.generated.md` is the generated Materials page content and should not be edited manually.
-- `template/sources.yml` records reviewed source repositories and the template update process.
+Visit the [course website](https://fs-ise.github.io/introduction-to-programming/), read the [syllabus](https://fs-ise.github.io/introduction-to-programming/syllabus.html), and browse the [teaching materials](https://fs-ise.github.io/introduction-to-programming/materials.html).
 
-## Common commands
+## For developers
 
-Run commands from the repository root:
+Requires Python 3.11+ and [Quarto 1.8+](https://quarto.org/docs/get-started/). From the repository root:
 
-- `make site` renders exercises and the website.
-- `make notes` creates `_site/notes.pdf`, including the current group schedule without room assignments.
-- `make pdfs` creates slide PDFs with Decktape.
-- `make exercises` creates assignment and solution variants.
-- `make sync-events` regenerates generated schedule data when handbook schedule data are configured.
-- `make clean` removes generated build artifacts.
-- `python scripts/generate_materials_overview.py` manually refreshes the Materials page index (Quarto also runs it before every render or preview).
-- `PYTHONPATH=. pytest -q` runs the Python test suite in this environment.
+```sh
+python -m pip install -r requirements.txt
+make site-fast  # render the website
+make site       # render exercises and the website
+```
 
-## Maintenance notes
-
-- Make all changes to group dates, times, rooms, or assignments exclusively in `_groups.qmd`; the website includes this full schedule. The instructor `notes.pdf` intentionally omits rooms so printed notes do not become stale when room assignments change.
-- Update `index.qmd` when the session overview changes.
-- Keep each `notes/session_XX.qmd` aligned with the matching row in the session table.
-- If a session number appears multiple times in the group schedule, reuse the same `session-XX` CSS class so the color remains consistent.
-- Update this README when course-level details, file organization, or local commands change.
-
-## Materials page
-
-The website's Materials page is built automatically by recursively scanning
-`materials/`. Quarto runs `scripts/generate_materials_overview.py` before rendering
-and includes the resulting `data/materials.generated.md` fragment in `materials.qmd`.
-The generator only rewrites that fragment when its contents change.
-
-Hidden files and directories, cache and build directories, Quarto fragments whose
-names start with `_`, Office temporary files beginning with `~$`, solution files,
-`.DS_Store`, and generated HTML files that have a matching QMD source are excluded.
-To update the overview without rendering the site, run
-`python scripts/generate_materials_overview.py` from the repository root.
-
-## Licensing
-
-Teaching content defaults to CC BY 4.0 unless noted otherwise.
-
-Helper scripts are template infrastructure and intentionally do not declare a separate software-license decision.
+See the [Quarto project guide](https://quarto.org/docs/projects/quarto-projects.html) and the available targets in the [Makefile](Makefile).
