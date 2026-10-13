@@ -4,6 +4,8 @@ session_id: session-07
 event_id: null
 ---
 
+TODO/TBD: how to cover ML/prediction (not relevant for the exam)
+
 Python-Teil: Vorsichtig vorgehen (möglichst viele Studis mitnehmen)
 
 | Time      | Topic/activity | Materials |
