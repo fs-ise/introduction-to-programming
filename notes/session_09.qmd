@@ -7,23 +7,34 @@ event_id: null
 
 Explain loop mechanics with sums and products, then distinguish the planned in-class and homework exercises.
 
-| Time      | Topic/activity | Materials |
-| --------: | -------------- | --------- |
-| 0–25 min  | Ranges and `for` loops | Slide 109 |
-| 25–35 min | Demo: loop sums and products | Slides 110–111; `for_demo.py` |
-| 35–48 min | **Exercise: message** | Slides 110–111; `Message.py` |
-| 48–65 min | **Exercise: average** | Slides 110–111; `Average.py` |
-| 65–85 min | **Exercise: Fibonacci** | Slides 110–111; `Fibonacci.py` |
-| 85–90 min | `for`-loop homework | Slides 110–111; homework: `Tens.py`, `MultipleSum.py`, `Frequencies.py`, `Triangle.py` |
-| **Break** | | |
-| 0–25 min  | Condition-controlled `while` loops | Slide 112 |
-| 25–40 min | **Exercise: number guessing 1** | Slides 113–114; `Guess1.py` |
-| 40–58 min | **Exercise: number guessing 2** | Slides 113–114; `Guess2.py` |
-| 58–78 min | **Exercise: repeated dice game** | Slides 113–114; `dicegame2.py` |
-| 78–87 min | Homework: shopping list and loan | Slides 113–114; homework: `ShoppingList.py`, `Loan.py` |
-| 87–90 min | Loop review and questions | Slides 109–114 |
+```{mermaid}
+%%| fig-width: 6
 
-: {tbl-colwidths="[20,40,40]"}
+flowchart
+
+  subgraph AFTER_BREAK["<b>After break: while loops</b>"]
+    direction TB
+    B1["<b>Condition-controlled while loops</b> (25 min)"]
+    B2["<b>💻 Exercise: Number guessing 1</b> (15 min)"]
+    B3["<b>💻 Exercise: Number guessing 2</b> (18 min)"]
+    B4["<b>💻 Exercise: Repeated dice game</b> (20 min)"]
+    B5["<b>Homework: shopping list and loan</b> (9 min)"]
+    B6["<b>Loop review and questions</b> (3 min)"]
+    B1 --> B2 --> B3 --> B4 --> B5 --> B6
+  end
+
+  subgraph BEFORE_BREAK["<b>Before break: for loops</b>"]
+    direction TB
+    A1["<b>Ranges and for loops</b> (25 min)"]
+    A2["<b>Demo: loop sums and products</b> (10 min)"]
+    A3["<b>💻 Exercise: Message</b> (13 min)"]
+    A4["<b>💻 Exercise: Average</b> (17 min)"]
+    A5["<b>💻 Exercise: Fibonacci</b> (20 min)"]
+    A6["<b>for-loop homework</b> (5 min)"]
+    A1 --> A2 --> A3 --> A4 --> A5 --> A6
+  end
+
+```
 
 {{< needspace 10 >}}
 

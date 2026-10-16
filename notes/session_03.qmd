@@ -15,21 +15,32 @@ event_id: null
 
 Last Excel session already!
 
-| Time      | Topic/activity                                                | Materials                                      |
-| --------: | ------------------------------------------------------------- | ---------------------------------------------- |
-| 0–20 min  | Review homework                                               | Slides 36–37; sheets `Gift` / `Grading`        |
-| 20–35 min | Complete the **Sales table** exercise, if necessary           | Slides 51–52; sheet `Sales_table`              |
-| 35–50 min | Motivate PivotTables through management questions             | Slides 54–60                                   |
-| 65–90 min | Create the first PivotTable and explain the field areas       | Slides 65–66                                   |
-| **Break** |                                                               |                                                |
-| 0–20 min  | Filtering, aggregations, and displaying values                | Slides 67–69                                   |
-| 20–40 min | Multiple dimensions and measures; PivotCharts                 | Slides 70–73                                   |
-| 40–55 min | Calculated fields and date grouping                           | Slides 74–75                                   |
-| 50–65 min | Explain facts, dimensions, data cubes, and slicing            | Slides 61–64                                   |
-| 55–85 min | Complete the **Exporter** exercise                            | Slide 76; `Exporter_data` / `Exporter_pivot`   |
-| 85–90 min | Introduce the **Expeditioner** exercise                       | Slide 78; `Exped_data` / `Exped_pivot`         |
+```{mermaid}
+%%| fig-width: 6
 
-: {tbl-colwidths="[20,40,40]"}
+flowchart
+
+  subgraph AFTER_BREAK["<b>After break: PivotTables, analysis and application</b>"]
+    direction TB
+    B1["<b>Filter, aggregate, and display values</b> (20 min)"]
+    B2["<b>Multiple dimensions, measures, and PivotCharts</b> (20 min)"]
+    B3["<b>Calculated fields and date grouping</b> (15 min)"]
+    B4["<b>Facts, dimensions, cubes, and slicing</b> (15 min)"]
+    B5["<b>💻 Exercise: Exporter</b> (30 min)"]
+    B6["<b>💻 Introduce Expeditioner exercise</b> (5 min)"]
+    B1 --> B2 --> B3 --> B4 --> B5 --> B6
+  end
+
+  subgraph BEFORE_BREAK["<b>Before break: PivotTable foundations</b>"]
+    direction TB
+    A1["<b>Review homework</b> (20 min) · Gift, Grading"]
+    A2["<b>💻 Exercise: Complete Sales table if needed</b> (15 min)"]
+    A3["<b>Motivate PivotTables with management questions</b> (15 min)"]
+    A4["<b>Create first PivotTable and explain field areas</b> (25 min)"]
+    A1 --> A2 --> A3 --> A4
+  end
+
+```
 
 {{< needspace 30 >}}
 

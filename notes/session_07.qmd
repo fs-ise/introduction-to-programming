@@ -9,23 +9,34 @@ TODO/TBD: how to cover ML/prediction (not relevant for the exam)
 
 Python-Teil: Vorsichtig vorgehen (möglichst viele Studis mitnehmen)
 
-| Time      | Topic/activity | Materials |
-| --------: | -------------- | --------- |
-| 0–25 min  | Pivot tables: filtering and aggregation | Slides 58–62 |
-| 25–40 min | Pivot tables: dimensions and plots | Slides 63–65 |
-| 40–55 min | **Exercise: insurance pivot table** | Slide 67; `insurance.xlsx`; `insurance2.py` |
-| 55–70 min | Prediction concepts and data preparation | Slides 68–70 |
-| 70–80 min | Regression model comparison | Slides 71–73 |
-| 80–85 min | **Exercise: Chipotle analysis** | Slides 74–75; `Chipotle.csv`; `Chipotle.py` |
-| 85–90 min | **Exercise: Florida housing analysis** | Slides 76–77; `Homes_Florida.xlsx`; `Homes_Florida.py` |
-| **Break** | | |
-| 0–25 min  | Numeric types and conversion | Slides 80–82 |
-| 25–40 min | Keyboard input and conversion | Slide 83 |
-| 40–82 min | **Exercises: interactive formulas**; prioritize circle area and currency, then distance, fuel, and annuity loan | Slides 84–85; `CircleArea2.py`; `Currency.py`; `Distance.py`; `Fuel.py`; `Traveltime.py`; `AnnuityLoan1.py` |
-| 82–87 min | Homework: exercises 4–6 | Slides 84–85 |
-| 87–90 min | Boolean values and wrap-up | Slide 86 |
+```{mermaid}
+%%| fig-width: 6
 
-: {tbl-colwidths="[20,40,40]"}
+flowchart
+
+  subgraph AFTER_BREAK["<b>After break: Numeric types and input</b>"]
+    direction TB
+    B1["<b>Numeric types and conversion</b> (25 min)"]
+    B2["<b>Keyboard input and conversion</b> (15 min)"]
+    B3["<b>💻 Exercise: Interactive formulas</b> (42 min) · Circle, currency, distance, fuel, travel time, annuity"]
+    B4["<b>Homework: exercises 4–6</b> (5 min)"]
+    B5["<b>Boolean values and wrap-up</b> (3 min)"]
+    B1 --> B2 --> B3 --> B4 --> B5
+  end
+
+  subgraph BEFORE_BREAK["<b>Before break: Pivot tables and prediction</b>"]
+    direction TB
+    A1["<b>Pivot tables: filtering and aggregation</b> (25 min)"]
+    A2["<b>Pivot tables: dimensions and plots</b> (15 min)"]
+    A3["<b>💻 Exercise: Insurance pivot table</b> (15 min)"]
+    A4["<b>Prediction concepts and data preparation</b> (15 min)"]
+    A5["<b>Regression model comparison</b> (10 min)"]
+    A6["<b>💻 Exercise: Chipotle analysis</b> (5 min)"]
+    A7["<b>💻 Exercise: Florida housing analysis</b> (5 min)"]
+    A1 --> A2 --> A3 --> A4 --> A5 --> A6 --> A7
+  end
+
+```
 
 {{< needspace 20 >}}
 

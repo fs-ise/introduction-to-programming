@@ -17,24 +17,35 @@ Notes:
 
 Cover loop termination, functions, and dictionaries, while retaining the planned exercise order and exam guidance.
 
-| Time      | Topic/activity | Materials |
-| --------: | -------------- | --------- |
-| 0–12 min  | `break` and `continue` | Slide 115 |
-| 12–22 min | **Exercise: loop termination**; dice-game extension is homework | Slide 116; `StopLoop.py`; homework: `dicegame3.py` |
-| 22–42 min | Functions, parameters, returns, and scope | Slides 118–120 |
-| 42–62 min | **Exercises: count digits and factorial**; set function homework | Slides 121–122; `CountDigits.py`; `Factorial.py`; homework: `Listmult.py`, `Harshad.py` |
-| 62–72 min | **Exercises: combinations and slot machine** | Slides 121–122; `Combinations.py`; `SlotMachine.py` |
-| 72–77 min | External modules | Slide 125 |
-| 77–90 min | Dictionary basics | Slides 127–128 |
-| **Break** | | |
-| 0–25 min  | Nested dictionaries | Slide 129 |
-| 25–45 min | Accessing nested values | Slide 130 |
-| 45–62 min | Modifying nested data | Slide 131 |
-| 62–72 min | JSON persistence | Slide 132 |
-| 72–87 min | **Exercise: friends dictionary and persistence** | Slide 133; `Friends.py` (generates `friends.db`) |
-| 87–90 min | Functions and dictionaries review | Slides 118–133 |
+```{mermaid}
+%%| fig-width: 6
 
-: {tbl-colwidths="[20,40,40]"}
+flowchart
+
+  subgraph AFTER_BREAK["<b>After break: Dictionaries and persistence</b>"]
+    direction TB
+    B1["<b>Nested dictionaries</b> (25 min)"]
+    B2["<b>Accessing nested values</b> (20 min)"]
+    B3["<b>Modifying nested data</b> (17 min)"]
+    B4["<b>JSON persistence</b> (10 min)"]
+    B5["<b>💻 Exercise: Friends dictionary and persistence</b> (15 min)"]
+    B6["<b>Functions and dictionaries review</b> (3 min)"]
+    B1 --> B2 --> B3 --> B4 --> B5 --> B6
+  end
+
+  subgraph BEFORE_BREAK["<b>Before break: Loop control and functions</b>"]
+    direction TB
+    A1["<b>break and continue</b> (12 min)"]
+    A2["<b>💻 Exercise: Loop termination</b> (10 min) · Dice-game extension homework"]
+    A3["<b>Functions, parameters, returns, and scope</b> (20 min)"]
+    A4["<b>💻 Exercises: Count digits and factorial</b> (20 min) · Set function homework"]
+    A5["<b>💻 Exercises: Combinations and slot machine</b> (10 min)"]
+    A6["<b>External modules</b> (5 min)"]
+    A7["<b>Dictionary basics</b> (13 min)"]
+    A1 --> A2 --> A3 --> A4 --> A5 --> A6 --> A7
+  end
+
+```
 
 {{< needspace 10 >}}
 

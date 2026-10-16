@@ -9,23 +9,34 @@ TOOD: include visualization of IBAN (see https://monitorpay.ai/iban-format-by-co
 
 Use the exercises to move from sequences to conditional logic, while keeping the stated homework decisions.
 
-| Time      | Topic/activity | Materials |
-| --------: | -------------- | --------- |
-| 0–20 min  | Strings: creation and slicing | Slides 88–90 |
-| 20–40 min | **Exercises: strings 1–2**; exercise 3 is homework | Slides 91–92; `String1.py`; `String2.py`; homework: `String3.py` |
-| 40–52 min | **Exercise: IBAN** | Slides 91–92; `IBAN.py` |
-| 52–67 min | Lists: creation and slicing | Slides 93–94 |
-| 67–77 min | **Exercise: list 1**; exercise 2 is homework | Slide 97; `Listexercise1.py`; homework: `Listexercise2.py` |
-| 77–90 min | Tuples and mutability | Slides 98–99 |
-| **Break** | | |
-| 0–30 min  | Conditional branches | Slide 104 |
-| 30–45 min | **Exercise: odd/even** | Slides 105–107; `OddEven.py` |
-| 45–58 min | **Exercise: discount** | Slides 105–107; `Discount.py` |
-| 58–68 min | **Exercise: dice game and block placement** | Slides 105–107; `dicegame1.py` |
-| 68–78 min | **Exercise: temperature** | Slides 105–107; `Temperature.py` |
-| 78–90 min | Conditional homework and wrap-up | Slides 105–107; homework: `AnnuityLoan2.py`, `Temperature.py`, `Grade.py`, `Tax.py` |
+```{mermaid}
+%%| fig-width: 6
 
-: {tbl-colwidths="[20,40,40]"}
+flowchart
+
+  subgraph AFTER_BREAK["<b>After break: Conditional logic</b>"]
+    direction TB
+    B1["<b>Conditional branches</b> (30 min)"]
+    B2["<b>💻 Exercise: Odd/even</b> (15 min)"]
+    B3["<b>💻 Exercise: Discount</b> (13 min)"]
+    B4["<b>💻 Exercise: Dice game and block placement</b> (10 min)"]
+    B5["<b>💻 Exercise: Temperature</b> (10 min)"]
+    B6["<b>Conditional homework and wrap-up</b> (12 min)"]
+    B1 --> B2 --> B3 --> B4 --> B5 --> B6
+  end
+
+  subgraph BEFORE_BREAK["<b>Before break: Strings and sequences</b>"]
+    direction TB
+    A1["<b>Strings: creation and slicing</b> (20 min)"]
+    A2["<b>💻 Exercises: Strings 1–2</b> (20 min) · String 3 for homework"]
+    A3["<b>💻 Exercise: IBAN</b> (12 min)"]
+    A4["<b>Lists: creation and slicing</b> (15 min)"]
+    A5["<b>💻 Exercise: List 1</b> (10 min) · Exercise 2 for homework"]
+    A6["<b>Tuples and mutability</b> (13 min)"]
+    A1 --> A2 --> A3 --> A4 --> A5 --> A6
+  end
+
+```
 
 {{< needspace 10 >}}
 

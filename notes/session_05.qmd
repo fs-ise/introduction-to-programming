@@ -12,7 +12,7 @@ event_id: null
 - During the code illustrations: instead of removing/replacing examples, move them to comments
 
 ```{mermaid}
-%%| fig-width: 5
+%%| fig-width: 6
 
 flowchart
 
@@ -21,7 +21,7 @@ flowchart
     B1["<b>Add rows/columns</b> (25 min)"]
     B2["<b>Delete rows/columns</b> (15 min)"]
     B3["<b>Sort and DataFrame functions</b> (20 min)"]
-    B4["<b>💻 Modify and sort</b> (25 min)<br/>countries.csv, countries2.py"]
+    B4["<b>💻 Exercise: Modify and sort</b> (25 min) · countries.csv, countries2.py"]
 
     B1 --> B2 --> B3 --> B4
   end
@@ -31,7 +31,7 @@ flowchart
     A1["<b>Homework and recap (working directories and opening files)</b> (10 min)"]
     A2["<b>iloc: introduction and illustration</b> (20 min)"]
     A3["<b>loc: introduction and illustration</b> (20 min)"]
-    A4["<b>💻 loc and iloc exercise</b> (40 min)<br/>countries.csv, countries1.py"]
+    A4["<b>💻 Exercise: loc and iloc</b> (40 min) · countries.csv, countries1.py"]
 
     A1 --> A2 --> A3 --> A4
   end

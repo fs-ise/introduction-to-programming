@@ -5,23 +5,34 @@ slide_range: "29–52"
 event_id: null
 ---
 
-<br>
+Complete special IF functions (if necessary)
 
-| Time                 | Topic/activity                                               | Materials                                                                |
-| -------------------: | ------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| 0–15 min             | Review Homeworks <br> (if necessary: complete special IF functions) | Session 1 solutions                                     |
-| 15–55 min            | Introduce `VLOOKUP` and `HLOOKUP`                            | Slides 29–31 <br>Slide 32: Exercise **Bar sales**                        |
-| 55–85 min            | Explain `XLOOKUP` and contrast it with `VLOOKUP`             | Slide 33 <br>Slide 34: Exercise **Client lookup**; `exercises.xlsx`, sheet `Clients` |
-| 85–90 min            | Introduce the lookup homework                                | Slides 35–36: **Christmas gift** and **Course grading**                  |
-| **Break**            |                                                              |                                                                          |
-| 0–15 min             | Introduce and create Excel Tables                            | Slides 37–39;                                                            |
-| 15–30 min            | Sorting, filtering, table design, and styles                 | Slides 40–42                                                             |
-| 30–50 min            | Demonstrate dynamic tables, charts, and row operations       | Slides 43–44                                                             |
-| 50–65 min            | Add a Total Row and explain `SUBTOTAL`                       | Slides 45–46                                                             |
-| 65–75 min            | Introduce structured references                              | Slides 47–50                                                             |
-| 75–90 min            | Begin the Excel Tables exercise                              | Slides 51–52: Exercise **Excel tables**; `exercises.xlsx`, sheet `Sales_table` |
+```{mermaid}
+%%| fig-width: 6
 
-: {tbl-colwidths="[20,40,40]"}
+flowchart
+
+  subgraph AFTER_BREAK["<b>After break: Excel tables</b>"]
+    direction TB
+    B1["<b>Create Excel Tables</b> (15 min)"]
+    B2["<b>Sort, filter, design, and style</b> (15 min)"]
+    B3["<b>Dynamic tables, charts, and row operations</b> (20 min)"]
+    B4["<b>Total Row and SUBTOTAL</b> (15 min)"]
+    B5["<b>Structured references</b> (10 min)"]
+    B6["<b>💻 Exercise: Excel Tables</b> (15 min) · Sales_table"]
+    B1 --> B2 --> B3 --> B4 --> B5 --> B6
+  end
+
+  subgraph BEFORE_BREAK["<b>Before break: Lookups</b>"]
+    direction TB
+    A1["<b>Review homework</b> (15 min) · Session 1 solutions"]
+    A2["<b>VLOOKUP and HLOOKUP</b> (40 min) · 💻 Exercise: Bar sales"]
+    A3["<b>XLOOKUP vs. VLOOKUP</b> (30 min) · 💻 Exercise: Client lookup"]
+    A4["<b>Introduce lookup homework</b> (5 min) · Christmas gift, Course grading"]
+    A1 --> A2 --> A3 --> A4
+  end
+
+```
 
 Note: PR: Session 2 typically ends at 46. GW: try to cover everything until p.52
 

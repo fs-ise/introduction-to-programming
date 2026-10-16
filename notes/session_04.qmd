@@ -15,22 +15,33 @@ event_id: null
 - Inform students about recent materials (e.g., List of relevant Excel functions; Mock exam solutions)
 :::
 
-| Time      | Topic/activity | Materials |
-| --------: | -------------- | --------- |
-| 0–15 min  | Python, libraries, scripts, and Spyder | Slides 1–4 |
-| 15–30 min | Demo: first Python script | Slide 4; `Spydertest.py` |
-| 30–50 min | Arithmetic, strings, and variables | Slides 5–8 |
-| 50–65 min | Memory, `print()`, and program output | Slides 9–11 |
-| 65–90 min | **Exercises: circle area and future value** | Slide 13; `CircleArea1.py`; `FutureValue.py` |
-| **Break** | | |
-| 0–15 min  | pandas and imports | Slide 15 |
-| 15–35 min | Reading and inspecting Excel data | Slides 16–17; `Bikesales.xlsx` |
-| 35–50 min | File paths and CSV input | Slides 18–19 |
-| 50–65 min | Loading, previewing, and exporting data | Slide 20; `Exped.xlsx` |
-| 65–75 min | DataFrame indexes | Slide 21 |
-| 75–90 min | **Exercises: countries and insurance import/export**; unfinished work becomes homework | Slide 22; `countries.py`; `countries.csv`; `insurance.py`; `insurance.xlsx` |
+```{mermaid}
+%%| fig-width: 6
 
-: {tbl-colwidths="[20,40,40]"}
+flowchart
+
+  subgraph AFTER_BREAK["<b>After break: pandas and data files</b>"]
+    direction TB
+    B1["<b>pandas and imports</b> (15 min)"]
+    B2["<b>Read and inspect Excel data</b> (20 min) · Bikesales.xlsx"]
+    B3["<b>File paths and CSV input</b> (15 min)"]
+    B4["<b>Load, preview, and export data</b> (15 min) · Exped.xlsx"]
+    B5["<b>DataFrame indexes</b> (10 min)"]
+    B6["<b>💻 Exercise: Countries and insurance import/export</b> (15 min) · Unfinished work for homework"]
+    B1 --> B2 --> B3 --> B4 --> B5 --> B6
+  end
+
+  subgraph BEFORE_BREAK["<b>Before break: Python foundations</b>"]
+    direction TB
+    A1["<b>Python, libraries, scripts, and Spyder</b> (15 min)"]
+    A2["<b>Demo: first Python script</b> (15 min) · Spydertest.py"]
+    A3["<b>Arithmetic, strings, and variables</b> (20 min)"]
+    A4["<b>Memory, print(), and program output</b> (15 min)"]
+    A5["<b>💻 Exercise: Circle area and future value</b> (25 min)"]
+    A1 --> A2 --> A3 --> A4 --> A5
+  end
+
+```
 
 If Python does not work on student machines, a solution may be to use  
 <https://peter-rossbach.github.io/Python-Werkstatt/>:

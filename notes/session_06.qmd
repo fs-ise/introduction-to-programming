@@ -5,30 +5,41 @@ slide_range: "37–56"
 event_id: null
 ---
 
-- Plots: only Line/Bar are relevant for the exam
-- Focus on descriptive statistics, basic charts, filtering, and grouping; distinguish exam-relevant content from enrichment.
+Focus on descriptive statistics, basic charts (line, bar), filtering, and grouping. Other materials are complementary.
 
 ::: {.callout-note title="Session 4 datasets"}
-The files underlying the `data` and `exped` DataFrames are available in Canvas in `data.zip`. If Spyder or its Python console has been restarted since Session 4, reload the datasets before running these examples.
+The files underlying the `data` and `exped` DataFrames are available in Canvas in `data.zip`.
 :::
 
-| Time      | Topic/activity | Materials |
-| --------: | -------------- | --------- |
-| 0–20 min  | Sums, means, standard deviation, and correlation | Slides 37–39 |
-| 20–35 min | Summaries, unique values, and frequencies | Slides 40–41 |
-| 35–50 min | **Exercise: countries descriptive statistics** | Slide 42; `countries.csv`; `countries3.py` |
-| 50–70 min | Line charts | Slides 43–45 |
-| 70–80 min | Bar and pie charts | Slides 47–48 |
-| 80–90 min | **Exercise: countries visualizations** | Slide 49; `countries.csv`; `countries4.py` |
-| **Break** | | |
-| 0–20 min  | Boolean conditions and row filtering | Slides 50–51 |
-| 20–35 min | Combined conditions | Slide 52 |
-| 35–55 min | **Exercise: countries conditional filtering** | Slide 53; `countries.csv`; `countries5.py` |
-| 55–70 min | Grouping by one or more columns | Slides 54–55 |
-| 70–87 min | **Exercises: countries and insurance grouping** | Slide 56; `countries.csv`; `countries6.py`; `insurance.xlsx`; `insurance1.py` |
-| 87–90 min | Exam-relevant pandas review | Slides 37–56 |
+```{mermaid}
+%%| fig-width: 6
 
-: {tbl-colwidths="[20,40,40]"}
+flowchart
+
+  subgraph AFTER_BREAK["<b>After break: Filter and group data</b>"]
+    direction TB
+    B1["<b>Boolean conditions and row filtering</b> (20 min)"]
+    B2["<b>Combined conditions</b> (15 min)"]
+    B3["<b>💻 Exercise: Conditional filtering</b> (20 min) · countries.csv, countries5.py"]
+    B4["<b>Grouping by one or more columns</b> (15 min)"]
+    B5["<b>💻 Exercise: Group countries and insurance</b> (17 min) · countries.csv, countries6.py, insurance.xlsx, insurance1.py"]
+
+    B1 --> B2 --> B3 --> B4 --> B5
+  end
+
+  subgraph BEFORE_BREAK["<b>Before break: Summarize and visualize data</b>"]
+    direction TB
+    A0["<b>Solve homework</b> (10 min)"]
+    A1["<b>Sums, means, standard deviation, and correlation</b> (20 min)"]
+    A2["<b>Summaries, unique values, and frequencies</b> (15 min)"]
+    A3["<b>💻 Exercise: Countries descriptive statistics</b> (15 min) · countries.csv, countries3.py"]
+    A4["<b>Line, bar, and pie charts</b> (30 min)"]
+    A5["<b>💻 Exercise: Countries visualizations</b> (10 min) · countries.csv, countries4.py"]
+
+    A0 --> A1 --> A2 --> A3 --> A4 --> A5
+  end
+
+```
 
 {{< needspace 30 >}}
 
@@ -45,15 +56,18 @@ The files underlying the `data` and `exped` DataFrames are available in Canvas i
 
 The latter two expressions calculate the same sums using label-based and position-based selection.
 
-```python
-data.sum()
+```{python}
+import pandas as pd
+exped = pd.read_excel("../materials/data/Exped.xlsx")
+
 exped.loc[:, ['QUANTITY', 'REVENUE']].sum()
 exped.iloc[:, 5:7].sum()
 ```
 
+
 ## Slide 39 — Mean, standard deviation, and correlation
 
-```python
+```{python}
 exped.loc[:, ['QUANTITY', 'REVENUE']].mean()
 exped['REVENUE'].std()
 exped.loc[:, ['QUANTITY', 'REVENUE']].corr()
@@ -63,7 +77,7 @@ exped.loc[:, ['QUANTITY', 'REVENUE']].corr()
 
 `describe()` is type-aware, so its summary depends on whether the selected data are numerical or categorical.
 
-```python
+```{python}
 exped.describe()
 exped['REVENUE'].describe()
 exped['WHERE'].describe()
@@ -71,7 +85,7 @@ exped['WHERE'].describe()
 
 ## Slide 41 — Unique values and frequencies
 
-```python
+```{python}
 exped['WHERE'].unique()
 exped['WHERE'].value_counts()
 ```
@@ -122,10 +136,10 @@ With no explicit column selection, `plot()` includes all numerical columns by de
 [In-class demo]{.teaching-label .teaching-label-demo} [`../materials/data/temperatures.csv`](../materials/data/temperatures.csv){.teaching-button .teaching-button-demo}
 :::
 
-```python
+```{python}
 import pandas as pd
 
-temps = pd.read_csv("data/temperatures.csv")
+temps = pd.read_csv("../materials/data/temperatures.csv")
 temps.head()
 temps.plot()
 ```
@@ -187,6 +201,8 @@ Only line and bar plots are relevant to the exam; see the document listing exam-
 ::: {.teaching-break}
 Break — 10 minutes
 :::
+
+{{< needspace 15 >}}
 
 ## Slide 50 — Creating a Boolean condition
 

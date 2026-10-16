@@ -16,21 +16,32 @@ Notes:
 
 Keep API examples non-executable in rendered notes and select them according to the remaining class time.
 
-| Time      | Topic/activity | Materials |
-| --------: | -------------- | --------- |
-| 0–20 min  | Moving averages with loops | Slide 137; `Stockprice.csv` |
-| 20–35 min | Semivariance functions | Slide 138 |
-| 35–50 min | Demo: REST and JSON | Slides 139–142 (unverifiable from notes); `5_REST.py` |
-| 50–68 min | **Exercise: Mercedes-Benz stock data** | Slide 143; `MercedesBenz1.py` |
-| 68–88 min | **Exercise: stock-price collection** | Slide 148; `Stocks.py`; `Stocks.csv` |
-| 88–90 min | API troubleshooting | Slides 143–148 |
-| **Break** | | |
-| 0–30 min  | **Exercise: JSON stock data** | Slide 152; `MercedesBenz2.py` |
-| 30–60 min | **Exercise: cryptocurrency data** | Slide 155; `Cryptocurrencies.py` |
-| 60–82 min | Optional demo: weather API | Slide 159; `5_REST.py` |
-| 82–90 min | API review and exam scope | Slides 137–159 |
+```{mermaid}
+%%| fig-width: 6
 
-: {tbl-colwidths="[20,40,40]"}
+flowchart
+
+  subgraph AFTER_BREAK["<b>After break: JSON and APIs</b>"]
+    direction TB
+    B1["<b>💻 Exercise: JSON stock data</b> (30 min)"]
+    B2["<b>💻 Exercise: Cryptocurrency data</b> (30 min)"]
+    B3["<b>Optional weather API demo</b> (22 min)"]
+    B4["<b>API review and exam scope</b> (8 min)"]
+    B1 --> B2 --> B3 --> B4
+  end
+
+  subgraph BEFORE_BREAK["<b>Before break: Loops, functions, and REST</b>"]
+    direction TB
+    A1["<b>Moving averages with loops</b> (20 min) · Stockprice.csv"]
+    A2["<b>Semivariance functions</b> (15 min)"]
+    A3["<b>Demo: REST and JSON</b> (15 min) · 5_REST.py"]
+    A4["<b>💻 Exercise: Mercedes-Benz stock data</b> (18 min)"]
+    A5["<b>💻 Exercise: Stock-price collection</b> (20 min) · Stocks.csv"]
+    A6["<b>API troubleshooting</b> (2 min)"]
+    A1 --> A2 --> A3 --> A4 --> A5 --> A6
+  end
+
+```
 
 {{< needspace 10 >}}
 
