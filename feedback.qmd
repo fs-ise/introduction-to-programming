@@ -2,6 +2,7 @@
 title: "Feedback"
 ---
 
+- Tracks/groups: based on OS (Mac with a Mac instructor, Windows with a Windows instructor)?
 - Add an exercise for mixed references.
 - Links to the excel files/sheets and python scripts/data files should be on the slides
 - Slide 21: Correct the typo and spell **sophisticated** with `ph`.
@@ -9,3 +10,4 @@ title: "Feedback"
 - Use ChatGPT to systematically compare assignments with solutions (check for discrepancies).
 - Introduce general rules: Questions on exams only at the end. For all.
 - In-page anchors for Canvas pages would be helpful to direct students to relevant resources more efficiently. Avoids "Go to canvas, select the course, go to this area, ...".
+- Prepare debugging overview with QR codes in teaching notes
