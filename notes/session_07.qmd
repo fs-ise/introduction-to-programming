@@ -5,7 +5,7 @@ slide_range: "58–86"
 event_id: null
 ---
 
-TODO/TBD: how to cover ML/prediction (not relevant for the exam)
+Cover ML/prediction in 15-20 minutes, to illustrate that we only need to write a few lines of code to run an ML/prediction algorithm (ML/prediction will not be part of the exam).
 
 Python-Teil: Vorsichtig vorgehen (möglichst viele Studis mitnehmen)
 

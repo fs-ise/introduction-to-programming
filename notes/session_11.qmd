@@ -155,7 +155,9 @@ Break — 10 minutes
 
 ## Summary and announcements
 
-- TODO
+**Exam**:
+
+- Important to use standard Python functions that were covered in class (no f-strings!)
 
 ::: {.callout-tip title="Notes for improvement"}
 Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
