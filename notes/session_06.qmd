@@ -7,7 +7,7 @@ event_id: null
 
 Focus on descriptive statistics, basic charts (line, bar), filtering, and grouping. Other materials are complementary.
 
-::: {.callout-note title="Session 4 datasets"}
+::: {.callout-note title="Datasets"}
 The files underlying the `data` and `exped` DataFrames are available in Canvas in `data.zip`.
 :::
 
@@ -29,10 +29,10 @@ flowchart
 
   subgraph BEFORE_BREAK["<b>Before break: Summarize and visualize data</b>"]
     direction TB
-    A0["<b>Solve homework</b> (10 min)"]
-    A1["<b>Sums, means, standard deviation, and correlation</b> (20 min)"]
+    A0["<b>Solve homework (countries)</b> (10 min)"]
+    A1["<b>Sum, mean, SD, correlation</b> (20 min)"]
     A2["<b>Summaries, unique values, and frequencies</b> (15 min)"]
-    A3["<b>💻 Exercise: Countries descriptive statistics</b> (15 min) · countries.csv, countries3.py"]
+    A3["<b>💻 Exercise: Countries descriptive stats</b> (15 min) · countries.csv, countries3.py"]
     A4["<b>Line, bar, and pie charts</b> (30 min)"]
     A5["<b>💻 Exercise: Countries visualizations</b> (10 min) · countries.csv, countries4.py"]
 
@@ -51,6 +51,7 @@ flowchart
 
 {{< teaching-file ../materials/session_05/countries2.py >}}
 
+{{< pagebreak >}}
 
 ## Slide 37 — Summing DataFrame values
 
@@ -60,6 +61,12 @@ The latter two expressions calculate the same sums using label-based and positio
 import pandas as pd
 exped = pd.read_excel("../materials/data/Exped.xlsx")
 
+# display first:
+exped.loc[:, 'REVENUE']
+exped.loc[:, 'REVENUE'].sum()
+```
+
+```{python}
 exped.loc[:, ['QUANTITY', 'REVENUE']].sum()
 exped.iloc[:, 5:7].sum()
 ```
@@ -69,9 +76,17 @@ exped.iloc[:, 5:7].sum()
 
 ```{python}
 exped.loc[:, ['QUANTITY', 'REVENUE']].mean()
+```
+
+```{python}
 exped['REVENUE'].std()
+```
+
+```{python}
 exped.loc[:, ['QUANTITY', 'REVENUE']].corr()
 ```
+
+{{< needspace 30 >}}
 
 ## Slide 40 — Statistical summaries
 
@@ -79,7 +94,13 @@ exped.loc[:, ['QUANTITY', 'REVENUE']].corr()
 
 ```{python}
 exped.describe()
+```
+
+```python
 exped['REVENUE'].describe()
+```
+
+```python
 exped['WHERE'].describe()
 ```
 
@@ -87,18 +108,18 @@ exped['WHERE'].describe()
 
 ```{python}
 exped['WHERE'].unique()
+```
+
+```{python}
 exped['WHERE'].value_counts()
 ```
 
 {{< pagebreak >}}
 
-## Slide 42 — Descriptive statistics
+## Slide 42 — Exercise on descriptive statistics
 
-::: {.teaching-file}
-[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
-:::
 
-**Mean** measures the average value of a dataset.
+**Mean** measures the average value of a dataset (sensitive to outliers).
 
 $$
 \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
@@ -106,8 +127,6 @@ $$
 
 - $x_i$: Individual observation
 - $n$: Number of observations
-
-The mean is sensitive to outliers.
 
 **Variance** measures how spread out values are around their mean. A higher variance indicates greater variability, while a variance of zero means all values are identical.
 It is calculated as:
@@ -125,8 +144,12 @@ where:
 
 Variance is expressed in **squared units** of the original data. The standard deviation ($s = \sqrt{s^2}$) converts it back to the original units.
 
-{{< teaching-file ../materials/session_06/countries3.py >}}
 
+::: {.teaching-file}
+[`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
+:::
+
+{{< teaching-file ../materials/session_06/countries3.py >}}
 
 ## Slide 43 — Creating a basic chart
 
@@ -141,13 +164,25 @@ import pandas as pd
 
 temps = pd.read_csv("../materials/data/temperatures.csv")
 temps.head()
+```
+
+```{python}
 temps.plot()
 ```
 
+{{< needspace 20 >}}
+
 ## Slide 44 — Selecting variables for a chart
 
-```python
+Focus on Temperature (exclude rainfall). Reiterate `iloc[:, 1:4]` (0 and 4 excluded).
+
+```{python}
 temps.iloc[:, 1:4].plot()
+```
+
+Update X axis
+
+```{python}
 temps.plot(
     x='Month',
     y=['Maximum', 'Average', 'Minimum'],
@@ -169,10 +204,16 @@ temps.plot(
 
 ## Slide 47 — Creating a bar chart
 
-```python
+```{python}
 df = exped['WHERE'].value_counts()
 print(df)
+```
+
+```{python}
 df.dtypes
+```
+
+```{python}
 df.plot(kind='bar')
 ```
 
@@ -180,7 +221,7 @@ df.plot(kind='bar')
 
 ## Slide 48 — Creating pie charts
 
-```python
+```{python}
 df.plot(kind='pie', y='WHERE')
 df.plot(kind='pie', subplots=True)
 df.plot(kind='pie', subplots=True, legend=True)
@@ -202,34 +243,38 @@ Only line and bar plots are relevant to the exam; see the document listing exam-
 Break — 10 minutes
 :::
 
-{{< needspace 15 >}}
-
 ## Slide 50 — Creating a Boolean condition
 
 The comparison produces a Boolean Series with one value per row.
 
-```python
+```{python}
 exped.WHERE == 'London'
 ```
 
 ## Slide 51 — Selecting rows based on a condition
 
-```python
+```{python}
 exped.loc[exped.WHERE == 'London']
 ```
 
-{{< needspace 10 >}}
+{{< needspace 30 >}}
 
 ## Slide 52 — Combining conditions
 
-Use `&` for “and” and `|` for “or”. Each individual pandas condition needs parentheses when conditions are combined.
+Use `&` for “and” and `|` for “or”. Each condition needs parentheses when conditions are combined.
 
-```python
+**Task:** Display transactions in London with a revenue exceeding 2500.
+
+```{python}
 exped.loc[
     (exped.WHERE == 'London')
     & (exped.REVENUE >= 2500)
 ]
+```
 
+**Task:** Display transactions in with quantity greater 5 and revenue exceeding 2500.
+
+```{python}
 exped.loc[
     (exped.QUANTITY >= 5)
     | (exped.REVENUE >= 2500)
@@ -248,10 +293,15 @@ exped.loc[
 
 - Connect filtering conditions to the resulting summaries and visualizations.
 
+{{< pagebreak >}}
+
 ## Slide 54 — Grouping by one column
 
-```python
+```[python]
 exped.groupby('HOW')['HOW'].count()
+```
+
+```{python}
 exped.groupby('HOW')['REVENUE'].mean()
 ```
 
@@ -259,7 +309,7 @@ exped.groupby('HOW')['REVENUE'].mean()
 
 ## Slide 55 — Grouping by multiple columns
 
-```python
+```{python}
 a = exped.groupby(['HOW', 'WHERE'])['REVENUE'].mean()
 a
 ```
