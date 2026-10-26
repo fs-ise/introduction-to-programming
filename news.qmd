@@ -2,4 +2,65 @@
 title: "News"
 ---
 
-TBA
+## Key Tips for a Successful Second Half
+
+Dear all,
+
+
+I hope your exams went well, and I look forward to seeing you back in class!
+
+
+As we continue with the Introduction to Programming, I want to highlight a few important points to help everyone succeed.
+
+
+1. We have to keep moving forward as a class.
+
+
+During lectures, I need to focus on teaching the material and making progress with the entire group. Unfortunately, we cannot spend extended periods debugging individual technical problems while everyone else is waiting.
+
+
+I am happy to help before or after class, especially with issues related to setting up your working directory or development environment.
+
+
+2. Make sure your technical setup works.
+
+
+If you repeatedly encounter the same technical issues, please take responsibility for finding a sustainable solution. This might include using a different computer or considering an affordable (e.g., refurbished Windows) laptop suitable for the course.
+
+
+Having a reliable working environment is essential for keeping up with the exercises.
+
+
+3. Important: You MUST understand pandas!
+
+
+In particular, make sure you understand how to access and select data in a DataFrame using:
+
+
+- df.loc[] – label-based selection
+- df.iloc[] – position-based selection
+
+
+These are fundamental skills that we will continue to build on. Please practice them independently if you are not yet comfortable using them.
+
+
+4. Come to class and participate!
+
+
+I strongly encourage you to attend regularly. Those who show up, actively participate, and practice the exercises put themselves in the best position to pass the course. Consistency matters!
+
+
+5. Your feedback matters.
+
+
+I will continue using the surveys to understand what works well and what could improve your learning experience. If there is anything else I can do to support your learning, please let me know through the surveys.
+
+
+My goal is for everyone to succeed, but we also need to keep progressing together. I am happy to support you, and I ask you to take an active role in your own learning.
+
+
+Looking forward to seeing you in class!
+
+
+Best regards,
+Gerit Wagner
