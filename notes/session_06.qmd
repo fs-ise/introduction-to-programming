@@ -297,15 +297,22 @@ exped.loc[
 
 ## Slide 54 — Grouping by one column
 
-```[python]
-exped.groupby('HOW')['HOW'].count()
-```
+Inspect DataFrame `exped` and explain the goal of the analysis first.
 
 ```{python}
 exped.groupby('HOW')['REVENUE'].mean()
 ```
 
-{{< needspace 10 >}}
+Develop the illustration on the whiteboard (using different colors to match the parts of the formula and illustration):
+
+![](../images/groupby_illustration.png)
+
+<!--
+https://courses.cs.washington.edu/courses/cse163/26sp/lessons/lesson10-groupby/
+-->
+
+
+{{< needspace 30 >}}
 
 ## Slide 55 — Grouping by multiple columns
 
@@ -313,6 +320,8 @@ exped.groupby('HOW')['REVENUE'].mean()
 a = exped.groupby(['HOW', 'WHERE'])['REVENUE'].mean()
 a
 ```
+
+**Highlight: resembles Excel PivotTables.**
 
 {{< needspace 20 >}}
 
@@ -332,15 +341,11 @@ a
 
 - Demonstrate grouping with both the country and insurance datasets.
 
-::: {.callout-note title="Exam relevance"}
-Machine learning and prediction are not relevant to the exam.
-:::
-
 {{< needspace 10 >}}
 
 ## Summary and announcements
 
-- TODO
+- Survey (QR code)
 
 ::: {.callout-tip title="Notes for improvement"}
 Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
