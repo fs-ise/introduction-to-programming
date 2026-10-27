@@ -2,6 +2,7 @@
 title: "Feedback"
 ---
 
+- Slides: add numbers to tasks (local subtasks; maybe even global) to facilitate communication with tutors
 - Tracks/groups: based on OS (Mac with a Mac instructor, Windows with a Windows instructor)?
 - Add an exercise for mixed references.
 - Links to the excel files/sheets and python scripts/data files should be on the slides
