@@ -5,14 +5,17 @@ slide_range: "37–56"
 event_id: null
 ---
 
-Focus on descriptive statistics, basic charts (line, bar), filtering, and grouping. Other materials are complementary.
+Take notes separately on the solutions discussed with the students in this track.
 
 ::: {.callout-note title="Datasets"}
-The files underlying the `data` and `exped` DataFrames are available in Canvas in `data.zip`.
+- **`data.zip`**: `Exped.xlsx`
+- **`Python_exercises`**: `countries.csv`, `temperatures.csv`, `insurance.xlsx`
 :::
 
+Focus on descriptive statistics, basic charts (line, bar), filtering, and grouping. Other materials are complementary.
+
 ```{mermaid}
-%%| fig-width: 6
+%%| fig-width: 5
 
 flowchart
 
@@ -51,11 +54,16 @@ flowchart
 
 {{< teaching-file ../materials/session_05/countries2.py >}}
 
+In the following, we increasingly work with the assumption that we cannot look at all of the data (like in Excel).
+Instead, we use functions to calculate statistics or to visualize data (exploratory data analysis).
+
 {{< pagebreak >}}
 
 ## Slide 37 — Summing DataFrame values
 
-The latter two expressions calculate the same sums using label-based and position-based selection.
+In the following, it is a general approach to select DataFrames (columns and rows) before running statistical functions or visualizations.
+
+selecto expressions calculate the same sums using label-based and position-based selection.
 
 ```{python}
 import pandas as pd
@@ -153,6 +161,10 @@ Variance is expressed in **squared units** of the original data. The standard de
 
 ## Slide 43 — Creating a basic chart
 
+::: {.callout-note title="Switch Spyder display"}
+Use `Alt`+`Shift`+`PgUp` to switch Spyder display (activating the plot area).
+:::
+
 With no explicit column selection, `plot()` includes all numerical columns by default.
 
 ::: {.teaching-file}
@@ -197,7 +209,7 @@ temps.plot(
 temps.plot(
     x='Month',
     y=['Maximum', 'Average', 'Minimum'],
-    xticks=range(len(temps['Month'])),
+    xticks=range(len(temps)),
     rot=75,
 )
 ```
@@ -228,6 +240,9 @@ df.plot(kind='pie', subplots=True, legend=True)
 ```
 
 ## Slide 49 — Basic visualizations
+
+**Note**: In the following, the assumption is that the Country column contains unique alues.
+Counting rows is equivalent to counting unique countries.
 
 ::: {.teaching-file}
 [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
@@ -272,6 +287,8 @@ exped.loc[
 ]
 ```
 
+{{< pagebreak >}}
+
 **Task:** Display transactions in with quantity greater 5 and revenue exceeding 2500.
 
 ```{python}
@@ -281,7 +298,9 @@ exped.loc[
 ]
 ```
 
-{{< needspace 20 >}}
+Note: The "pre-selected" DataFrames can be used to run statistical functions or plots.
+
+{{< pagebreak >}}
 
 ## Slide 53 — Conditional filtering
 
@@ -307,6 +326,13 @@ Develop the illustration on the whiteboard (using different colors to match the 
 
 ![](../images/groupby_illustration.png)
 
+Highlight:
+
+- The aggregation functions reduce the rows. Variables that are not part of the aggregation will be removed.
+- The grouping-parameter could be an individual column, or multiple columns.
+- Pandas does not conveniently print the contents of the `groupby()` call.
+  Therefore, it is important to develop a good understanding of what the function calls do.
+
 <!--
 https://courses.cs.washington.edu/courses/cse163/26sp/lessons/lesson10-groupby/
 -->
@@ -323,7 +349,7 @@ a
 
 **Highlight: resembles Excel PivotTables.**
 
-{{< needspace 20 >}}
+{{< needspace 50 >}}
 
 ## Slide 56 — Grouping and aggregation
 

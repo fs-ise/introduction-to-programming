@@ -2,8 +2,12 @@ import pandas as pd
 
 countries = pd.read_csv('data/countries.csv')
 
-countries.plot(x='Country', y=['Population', 'Area', 'GDP'],
-               xticks=range(len(countries['Country'])), rot=75)
+countries.plot(
+    x='Country',
+    y=['Population', 'Area', 'GDP'],
+    xticks=range(len(countries)),
+    rot=75
+    )
 
 df = countries['Continent'].value_counts()
 df.plot(kind='bar')
