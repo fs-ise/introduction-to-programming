@@ -1,3 +1,3 @@
-radius = float(input ("Input the radius of the circle : "))
+radius = float(input("Input the radius of the circle : "))
 area = 3.14159 * radius**2
-print ('The area of the circle with radius', radius, 'is:', area)
+print("The area of the circle with radius", radius, "is:", area)

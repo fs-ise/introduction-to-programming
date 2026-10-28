@@ -10,12 +10,12 @@ print(s[6])
 print(s[-4:])
 
 # if length of the string is odd
-mid = len(s)//2 + 1
-print(s[mid-2:mid+1])
+mid = len(s) // 2 + 1
+print(s[mid - 2 : mid + 1])
 
 # if length of the string is even
-mid = len(s)//2
-print(s[mid-2:mid+2])
+mid = len(s) // 2
+print(s[mid - 2 : mid + 2])
 
 print("E" in s)
 print("el" in s)

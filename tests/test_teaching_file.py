@@ -8,9 +8,7 @@ import pytest
 
 ROOT = Path(__file__).parents[1]
 SESSIONS = tuple(ROOT / "notes" / f"session_{number:02}.qmd" for number in range(4, 12))
-SHORTCODE_PATTERN = re.compile(
-    r"\{\{<\s*teaching-file\s+([^\s>]+\.py)([^>]*)>\}\}"
-)
+SHORTCODE_PATTERN = re.compile(r"\{\{<\s*teaching-file\s+([^\s>]+\.py)([^>]*)>\}\}")
 LEGACY_FILE_PATTERN = re.compile(
     r"::: \{\.teaching-file\}\s+.*?\[`([^`]+)`\]\(([^)]+)\).*?\s+:::", re.DOTALL
 )
@@ -33,8 +31,12 @@ def test_notes_pdf_depends_on_teaching_file_extension():
 def test_sessions_use_shortcode_for_python_teaching_files():
     for session_path in SESSIONS:
         session = session_path.read_text()
-        assert not re.search(r"\{\{< include ../materials/session_\d+/[^ >]+\.py >\}\}", session)
-        legacy_paths = [target for _label, target in LEGACY_FILE_PATTERN.findall(session)]
+        assert not re.search(
+            r"\{\{< include ../materials/session_\d+/[^ >]+\.py >\}\}", session
+        )
+        legacy_paths = [
+            target for _label, target in LEGACY_FILE_PATTERN.findall(session)
+        ]
         assert not any(Path(path).suffix.lower() == ".py" for path in legacy_paths)
 
         shortcodes = SHORTCODE_PATTERN.findall(session)
@@ -73,7 +75,9 @@ def test_dataset_buttons_remain_separate_and_valid():
             for path, _kind in SHORTCODE_PATTERN.findall(session)
         )
 
-    assert dataset_buttons, "Expected the teaching notes to retain dataset download buttons"
+    assert dataset_buttons, (
+        "Expected the teaching notes to retain dataset download buttons"
+    )
 
 
 def test_shortcode_builds_display_only_python_code_and_file_link():
@@ -143,9 +147,7 @@ def test_shortcode_renders_callout_options_and_explicit_kinds(tmp_path: Path):
 
     # Callout titles replace the download row rather than duplicating it in
     # the body; only the two callout=false instances retain this standalone row.
-    teaching_rows = re.findall(
-        r'class="(?=[^"]*\bteaching-file\b)[^"]*"', rendered
-    )
+    teaching_rows = re.findall(r'class="(?=[^"]*\bteaching-file\b)[^"]*"', rendered)
     assert len(teaching_rows) == 2
 
 
@@ -209,7 +211,9 @@ def _render_shortcode(
 
 def _numbered_source(line_count: int) -> list[str]:
     # Deliberately omit blank lines so chunk boundaries are deterministic.
-    return [f"source_line_{number:03} = {number}" for number in range(1, line_count + 1)]
+    return [
+        f"source_line_{number:03} = {number}" for number in range(1, line_count + 1)
+    ]
 
 
 def test_short_file_is_one_latex_callout(tmp_path: Path):
@@ -282,7 +286,9 @@ def test_custom_max_lines_is_honored(tmp_path: Path):
 
 def test_long_lines_consume_more_of_latex_chunk_budget(tmp_path: Path):
     short_render = _render_shortcode(
-        tmp_path, [f"value_{number} = {number}" for number in range(4)], "latex",
+        tmp_path,
+        [f"value_{number} = {number}" for number in range(4)],
+        "latex",
         'max-lines="4"',
     )
     long_render = _render_shortcode(
@@ -306,9 +312,7 @@ def test_long_lines_consume_more_of_latex_chunk_budget(tmp_path: Path):
         ('max-lines="-2"', "max-lines must be a positive integer"),
     ],
 )
-def test_invalid_split_options_fail_clearly(
-    tmp_path: Path, options: str, message: str
-):
+def test_invalid_split_options_fail_clearly(tmp_path: Path, options: str, message: str):
     quarto = shutil.which("quarto")
     if quarto is None:
         pytest.skip("Quarto is not available")

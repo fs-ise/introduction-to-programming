@@ -2,25 +2,33 @@ import pandas as pd
 import requests
 import os
 
-r = requests.get('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=YOURKEY')
+r = requests.get(
+    "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=YOURKEY"
+)
 data = r.json()
-#data
+# data
 ibm = data["Global Quote"]["05. price"]
 date_ = data["Global Quote"]["07. latest trading day"]
 
-r = requests.get('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=DBK.DE&apikey=YOURKEY')
+r = requests.get(
+    "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=DBK.DE&apikey=YOURKEY"
+)
 data = r.json()
-#data
+# data
 dt_bank = data["Global Quote"]["05. price"]
 
-r = requests.get('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=XIACF&apikey=YOURKEY')
+r = requests.get(
+    "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=XIACF&apikey=YOURKEY"
+)
 data = r.json()
-#data
+# data
 xiaomi = data["Global Quote"]["05. price"]
 
-r = requests.get('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=NLLSF&apikey=YOURKEY')
+r = requests.get(
+    "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=NLLSF&apikey=YOURKEY"
+)
 data = r.json()
-#data
+# data
 nel_asa = data["Global Quote"]["05. price"]
 
 stocks = pd.read_csv("data/Stocks.csv")

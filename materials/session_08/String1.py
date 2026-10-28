@@ -1,4 +1,10 @@
-s = input ("Input a String: ")
+s = input("Input a String: ")
 length = len(s)
-print ('The length of the string is ', length,
-        ', the first character ', s[0], ', and the last character ', s[-1])
+print(
+    "The length of the string is ",
+    length,
+    ", the first character ",
+    s[0],
+    ", and the last character ",
+    s[-1],
+)

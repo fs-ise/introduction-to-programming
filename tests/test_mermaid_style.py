@@ -45,9 +45,7 @@ def test_shared_mermaid_config_uses_native_neutral_hand_drawn_look() -> None:
 
 
 def test_session_05_uses_shared_mermaid_config() -> None:
-    source = (REPOSITORY_ROOT / "notes" / "session_05.qmd").read_text(
-        encoding="utf-8"
-    )
+    source = (REPOSITORY_ROOT / "notes" / "session_05.qmd").read_text(encoding="utf-8")
 
     assert "%%{init:" not in source
     assert "Selecting data" in source
@@ -60,9 +58,7 @@ def test_mermaid_css_loads_last_in_each_html_output() -> None:
     exercises = yaml.safe_load(
         (REPOSITORY_ROOT / "exercises" / "_quarto.yml").read_text()
     )
-    slides = yaml.safe_load(
-        (REPOSITORY_ROOT / "slides" / "_metadata.yml").read_text()
-    )
+    slides = yaml.safe_load((REPOSITORY_ROOT / "slides" / "_metadata.yml").read_text())
 
     assert root["format"]["html"]["css"][-1] == "assets/mermaid.css"
     assert notes["format"]["html"]["css"][-1] == "../assets/mermaid.css"

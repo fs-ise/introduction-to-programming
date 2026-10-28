@@ -11,8 +11,8 @@ import yaml
 
 HTML_BR_FILTER = Path(__file__).resolve().with_name("html_br_to_linebreak.lua")
 TEACHING_BREAK_FILTER = Path(__file__).resolve().with_name("teaching_break.lua")
-CENTER_CAPTIONLESS_IMAGES_FILTER = Path(__file__).resolve().with_name(
-    "center_captionless_images.lua"
+CENTER_CAPTIONLESS_IMAGES_FILTER = (
+    Path(__file__).resolve().with_name("center_captionless_images.lua")
 )
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 COURSE_CONFIG = REPOSITORY_ROOT / "course.yml"
@@ -20,9 +20,7 @@ NEEDSPACE_SHORTCODE = REPOSITORY_ROOT / "_extensions" / "needspace" / "needspace
 TEACHING_FILE_SHORTCODE = (
     REPOSITORY_ROOT / "_extensions" / "teaching-file" / "teaching-file.lua"
 )
-QRCODE_SHORTCODE = (
-    REPOSITORY_ROOT / "_extensions" / "jmbuhr" / "qrcode" / "qrcode.lua"
-)
+QRCODE_SHORTCODE = REPOSITORY_ROOT / "_extensions" / "jmbuhr" / "qrcode" / "qrcode.lua"
 MERMAID_CONFIG = REPOSITORY_ROOT / "assets" / "mermaid-init.json"
 SLIDE_RANGE = re.compile(r"\s*(\d+)\s*(?:[-–—]\s*(\d+))?\s*")
 
@@ -155,9 +153,7 @@ def normalize_slide_range(value: object, path: Path) -> str:
 
     match = SLIDE_RANGE.fullmatch(value)
     if match is None:
-        raise ValueError(
-            f"{path} has invalid slide_range {value!r}; expected N or N–M"
-        )
+        raise ValueError(f"{path} has invalid slide_range {value!r}; expected N or N–M")
 
     start = int(match.group(1))
     end = int(match.group(2) or start)

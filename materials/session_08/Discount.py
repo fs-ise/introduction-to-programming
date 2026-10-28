@@ -7,4 +7,4 @@ elif amount >= 50:
 else:
     discount = 0
 
-print("Discount: " + str(discount) + "%");
+print("Discount: " + str(discount) + "%")

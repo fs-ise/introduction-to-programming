@@ -67,7 +67,9 @@ def is_excluded_path(relative_path: Path) -> bool:
 
     # Treat "solution" or "solutions" as a filename token. This covers both
     # *_solution.ext and common variants such as *_with_solutions.ext.
-    return bool(re.search(r"(?:^|[\W_])solutions?(?:[\W_]|$)", relative_path.stem, re.I))
+    return bool(
+        re.search(r"(?:^|[\W_])solutions?(?:[\W_]|$)", relative_path.stem, re.I)
+    )
 
 
 def publishable_files() -> list[Path]:
@@ -82,7 +84,10 @@ def publishable_files() -> list[Path]:
         relative_path = path.relative_to(MATERIALS_DIR)
         if is_excluded_path(relative_path):
             continue
-        if path.suffix.casefold() in {".html", ".htm"} and path.with_suffix(".qmd").exists():
+        if (
+            path.suffix.casefold() in {".html", ".htm"}
+            and path.with_suffix(".qmd").exists()
+        ):
             continue
         candidates.add(relative_path)
 
@@ -100,7 +105,9 @@ def qmd_title(path: Path) -> str | None:
     if not lines or lines[0].strip() != "---":
         return None
     try:
-        closing_line = next(index for index, line in enumerate(lines[1:], 1) if line.strip() == "---")
+        closing_line = next(
+            index for index, line in enumerate(lines[1:], 1) if line.strip() == "---"
+        )
         metadata = yaml.safe_load("\n".join(lines[1:closing_line])) or {}
     except (StopIteration, yaml.YAMLError):
         return None
@@ -129,7 +136,9 @@ def material_details(relative_path: Path) -> tuple[str, str, str]:
             relative_path.with_suffix(".html") if suffix == ".qmd" else relative_path
         )
     link = quote(target.as_posix(), safe="/")
-    type_label = TYPE_LABELS.get(suffix, f"{suffix[1:].upper()} file" if suffix else "File")
+    type_label = TYPE_LABELS.get(
+        suffix, f"{suffix[1:].upper()} file" if suffix else "File"
+    )
     return label, link, type_label
 
 
@@ -160,7 +169,9 @@ def generated_content(files: list[Path]) -> str:
         sections[path.parent].append(path)
 
     for directory in sorted(sections, key=casefold_path):
-        lines.extend([f"## {section_title(directory)}", "", "| Material | Type |", "|---|---|"])
+        lines.extend(
+            [f"## {section_title(directory)}", "", "| Material | Type |", "|---|---|"]
+        )
         for path in sorted(sections[directory], key=casefold_path):
             label, link, type_label = material_details(path)
             lines.append(f"| [{escape_table_text(label)}]({link}) | {type_label} |")
@@ -183,13 +194,11 @@ def viewer_content(relative_path: Path) -> str:
     # A longer fence keeps even source containing Markdown fences intact.
     backtick_runs = (len(match.group()) for match in re.finditer(r"`+", source))
     fence = "`" * max(3, max(backtick_runs, default=0) + 1)
-    filename = relative_path.name.replace('"', r'\"')
+    filename = relative_path.name.replace('"', r"\"")
     viewer_path = GENERATED_VIEWERS_DIR / relative_path.with_suffix(".qmd")
     source_path = MATERIALS_DIR / relative_path
     levels_to_root = len(viewer_path.relative_to(ROOT).parent.parts)
-    download_target = (
-        Path(*([".."] * levels_to_root)) / source_path.relative_to(ROOT)
-    )
+    download_target = Path(*([".."] * levels_to_root)) / source_path.relative_to(ROOT)
 
     return (
         "---\n"

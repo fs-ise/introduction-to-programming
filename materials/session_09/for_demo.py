@@ -23,7 +23,7 @@ for i in range(n):
 
 n = 5
 for i in range(n):
-    for j in range(i+1):
+    for j in range(i + 1):
         print(i, j, end=" | ")
     print()
 
@@ -46,7 +46,7 @@ for i in range(len(s)):
 
 s = "Hallo"
 for i in range(len(s)):
-    for j in range(i+1):
+    for j in range(i + 1):
         print(s[i], end="")
     print()
 

@@ -1,9 +1,9 @@
 import random
 
-stake = int(input('How much money would you like to invest? '))
+stake = int(input("How much money would you like to invest? "))
 
-dice1 = random.randint(1,6)
-dice2 = random.randint(1,6)
+dice1 = random.randint(1, 6)
+dice2 = random.randint(1, 6)
 
 if dice1 == dice2:
     print("You have won!!! It's a double", dice1)

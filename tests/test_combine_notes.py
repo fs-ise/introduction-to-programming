@@ -108,10 +108,7 @@ def test_toc_uses_slide_range_metadata_and_preserves_three_columns(
     assert r"\makebox[8em][l]{#1}" in combined
     assert "pagenumberwidth=14em" in combined
     assert "rightindent=15em" in combined
-    assert (
-        r"\makebox[\dimexpr\linewidth-15em\relax][l]{\textbf{Section}}%"
-        in combined
-    )
+    assert r"\makebox[\dimexpr\linewidth-15em\relax][l]{\textbf{Section}}%" in combined
     assert r"\hspace*{1em}%" in combined
     assert r"\notesTOCHeaderBox{\textbf{Pages start with}}\par" in combined
 
@@ -158,7 +155,9 @@ print("unchanged")
     transformed = inject_academic_mermaid_config(markdown)
 
     assert transformed.startswith("Before\n\n````{mermaid}\n%%| fig-width: 5\n")
-    assert f"%%| label: fig-example\n{ACADEMIC_MERMAID_INIT}\nflowchart LR" in transformed
+    assert (
+        f"%%| label: fig-example\n{ACADEMIC_MERMAID_INIT}\nflowchart LR" in transformed
+    )
     assert transformed.endswith('~~~{python}\nprint("unchanged")\n~~~\n')
     assert transformed.count(ACADEMIC_MERMAID_INIT) == 1
     assert '"look": "handDrawn"' in transformed
@@ -275,14 +274,9 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     assert "rightindent=15em" in combined
     assert r"pagenumberbox=\notesTOCPageNumberBox" in combined
     assert r"\AfterTOCHead[toc]{%" in combined
-    assert (
-        r"\makebox[\dimexpr\linewidth-15em\relax][l]{\textbf{Section}}%"
-        in combined
-    )
+    assert r"\makebox[\dimexpr\linewidth-15em\relax][l]{\textbf{Section}}%" in combined
     assert r"\hspace*{1em}%" in combined
-    assert (
-        r"\notesTOCHeaderBox{\textbf{Pages start with}}\par" in combined
-    )
+    assert r"\notesTOCHeaderBox{\textbf{Pages start with}}\par" in combined
     assert r"\textbf{Section}\hfill" not in combined
     assert "fancyhdr" not in combined
     assert r"\clearpairofpagestyles" in combined
@@ -295,12 +289,10 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     assert r"\pagestyle{scrheadings}" in combined
     assert "teachingnotesfooterlabel" not in combined
     assert (
-        "Introduction to Programming Teaching Notes - Notes S-01/First"
-        not in combined
+        "Introduction to Programming Teaching Notes - Notes S-01/First" not in combined
     )
     assert (
-        "Introduction to Programming Teaching Notes - Notes S-02/Second"
-        not in combined
+        "Introduction to Programming Teaching Notes - Notes S-02/Second" not in combined
     )
     assert "MLBD" not in combined
     assert combined.count(r"\clearpage") == 2
@@ -379,7 +371,7 @@ def test_groups_appear_before_checklist_and_sessions(tmp_path: Path) -> None:
         "Schedule room allocations may change.\n\n"
         "| Date | E3 | E4 | E5 |\n"
         "|---|---|---|---|\n"
-        "| Monday | <span class=\"session-chip session-04\">Session 04</span>"
+        '| Monday | <span class="session-chip session-04">Session 04</span>'
         "<br>09:30–11:00<br>11:15–12:45<br>Room: T6 A | | |\n"
     )
     groups.write_text(groups_source, encoding="utf-8")
@@ -418,7 +410,7 @@ def test_remove_rooms_from_groups_only_changes_room_table_segments(room: str) ->
         "The room allocations are provisional.\n\n"
         "| Date | E3 |\n"
         "|---|---|\n"
-        "| Monday | <span class=\"session-chip session-04\">Session 04</span>"
+        '| Monday | <span class="session-chip session-04">Session 04</span>'
         f"<br>09:30–11:00<br>11:15–12:45<br>Room: {room} |\n"
     )
 

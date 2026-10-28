@@ -5,5 +5,6 @@ def multi(x):
         prodX = prodX * x[i]
     return prodX
 
-li = [8, 2, 3, -1, 7, 5, 6 ]
-print ("Product =", multi(li))
+
+li = [8, 2, 3, -1, 7, 5, 6]
+print("Product =", multi(li))

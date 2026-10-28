@@ -84,7 +84,7 @@ def read_material_title(root: Path, path: str) -> str | None:
             continue
 
         if stripped.startswith("title:"):
-            return stripped.split(":", 1)[1].strip().strip('"\'')
+            return stripped.split(":", 1)[1].strip().strip("\"'")
 
     return None
 
@@ -128,12 +128,7 @@ def event_badge(event_type: str) -> str:
         event_type.strip().casefold(),
         event_type.replace("_", " ").title() or "Event",
     )
-    badge_slug = (
-        event_type.strip()
-        .casefold()
-        .replace("_", "-")
-        .replace(" ", "-")
-    )
+    badge_slug = event_type.strip().casefold().replace("_", "-").replace(" ", "-")
     class_name = f"event-badge event-badge-{badge_slug}"
     return f'<span class="{class_name}">{label}</span>'
 
@@ -191,11 +186,7 @@ def markdown_table(
     for event in load_events(root):
         status, _ = session_status(event, today)
 
-        date_text = str(
-            event.get("date")
-            or event.get("start_date")
-            or "TBD"
-        )
+        date_text = str(event.get("date") or event.get("start_date") or "TBD")
 
         time_text = (
             "–".join(

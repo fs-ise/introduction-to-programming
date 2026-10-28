@@ -17,16 +17,11 @@ except ModuleNotFoundError:
 
 ROOT = Path(__file__).resolve().parents[1]
 
-DEFAULT_URL = (
-    "https://raw.githubusercontent.com/fs-ise/handbook/"
-    "main/data/events.yaml"
-)
+DEFAULT_URL = "https://raw.githubusercontent.com/fs-ise/handbook/main/data/events.yaml"
 
 
 def load_yaml(path: Path) -> Any:
-    return yaml.safe_load(
-        path.read_text(encoding="utf-8")
-    ) or []
+    return yaml.safe_load(path.read_text(encoding="utf-8")) or []
 
 
 def load_remote_yaml(
@@ -71,22 +66,14 @@ def load_remote_yaml(
         except urllib.error.HTTPError as exc:
             last_error = exc
 
-            retryable = (
-                exc.code == 429
-                or 500 <= exc.code < 600
-            )
+            retryable = exc.code == 429 or 500 <= exc.code < 600
 
             if not retryable:
                 raise
 
-            retry_after = exc.headers.get(
-                "Retry-After"
-            )
+            retry_after = exc.headers.get("Retry-After")
 
-            if (
-                retry_after
-                and retry_after.isdigit()
-            ):
+            if retry_after and retry_after.isdigit():
                 delay = int(retry_after)
             else:
                 delay = min(2**attempt, 30)
@@ -116,8 +103,7 @@ def load_remote_yaml(
 
         except UnicodeDecodeError as exc:
             raise SystemExit(
-                f"Could not decode remote YAML from "
-                f"{url} as UTF-8."
+                f"Could not decode remote YAML from {url} as UTF-8."
             ) from exc
 
     if cache_path.exists():
@@ -147,8 +133,7 @@ def parse_semester(
 
     except (ValueError, AttributeError) as exc:
         raise SystemExit(
-            "Invalid course.semester. "
-            "Expected format YYYY-WiSe or YYYY-SuSe."
+            "Invalid course.semester. Expected format YYYY-WiSe or YYYY-SuSe."
         ) from exc
 
     if term == "WiSe":
@@ -163,39 +148,24 @@ def parse_semester(
             date(year, 5, 15),
         )
 
-    raise SystemExit(
-        "Invalid course.semester. "
-        "Expected format YYYY-WiSe or YYYY-SuSe."
-    )
+    raise SystemExit("Invalid course.semester. Expected format YYYY-WiSe or YYYY-SuSe.")
 
 
 def get_title_match(
     course_config: dict[str, Any],
 ) -> str:
-    match = (
-        course_config
-        .get("schedule", {})
-        .get("handbook_event_match")
-    )
+    match = course_config.get("schedule", {}).get("handbook_event_match")
 
     if isinstance(match, str) and match.strip():
         return match.strip()
 
     if isinstance(match, dict):
-        title_contains = match.get(
-            "title_contains"
-        )
+        title_contains = match.get("title_contains")
 
-        if (
-            isinstance(title_contains, str)
-            and title_contains.strip()
-        ):
+        if isinstance(title_contains, str) and title_contains.strip():
             return title_contains.strip()
 
-    raise SystemExit(
-        "Configure schedule.handbook_event_match "
-        "as a title substring."
-    )
+    raise SystemExit("Configure schedule.handbook_event_match as a title substring.")
 
 
 def select_events(
@@ -210,36 +180,22 @@ def select_events(
     selected: list[dict[str, Any]] = []
 
     for event in events:
-        title = str(
-            event.get("title", "")
-        )
+        title = str(event.get("title", ""))
 
-        if (
-            title_match_folded
-            not in title.casefold()
-        ):
+        if title_match_folded not in title.casefold():
             continue
 
         try:
-            start = datetime.fromisoformat(
-                str(event["start"])
-            )
+            start = datetime.fromisoformat(str(event["start"]))
 
-            datetime.fromisoformat(
-                str(event["end"])
-            )
+            datetime.fromisoformat(str(event["end"]))
 
         except (KeyError, ValueError) as exc:
             raise SystemExit(
-                "Matched event has invalid or "
-                f"missing start/end: {event!r}"
+                f"Matched event has invalid or missing start/end: {event!r}"
             ) from exc
 
-        if (
-            semester_start
-            <= start.date()
-            <= semester_end
-        ):
+        if semester_start <= start.date() <= semester_end:
             selected.append(event)
 
     if not selected:
@@ -252,12 +208,8 @@ def select_events(
 
     selected.sort(
         key=lambda event: (
-            datetime.fromisoformat(
-                str(event["start"])
-            ),
-            datetime.fromisoformat(
-                str(event["end"])
-            ),
+            datetime.fromisoformat(str(event["start"])),
+            datetime.fromisoformat(str(event["end"])),
             str(event.get("source_uid", "")),
         )
     )
@@ -268,33 +220,20 @@ def select_events(
 def normalize_event(
     event: dict[str, Any],
 ) -> dict[str, Any]:
-    start = datetime.fromisoformat(
-        str(event["start"])
-    )
+    start = datetime.fromisoformat(str(event["start"]))
 
-    end = datetime.fromisoformat(
-        str(event["end"])
-    )
+    end = datetime.fromisoformat(str(event["end"]))
 
     source_uid = event.get("source_uid")
 
-    if (
-        source_uid is None
-        or not str(source_uid).strip()
-    ):
-        raise SystemExit(
-            "Matched handbook event has no source_uid: "
-            f"{event!r}"
-        )
+    if source_uid is None or not str(source_uid).strip():
+        raise SystemExit(f"Matched handbook event has no source_uid: {event!r}")
 
     return {
         "date": start.date().isoformat(),
         "start": start.strftime("%H:%M"),
         "end": end.strftime("%H:%M"),
-        "location": str(
-            event.get("location")
-            or "Room TBD"
-        ),
+        "location": str(event.get("location") or "Room TBD"),
         "event_id": str(source_uid),
     }
 
@@ -336,20 +275,14 @@ def default_materials(
         return [
             {
                 "type": "slides",
-                "path": (
-                    f"slides/"
-                    f"session_{material_number:02d}.html"
-                ),
+                "path": (f"slides/session_{material_number:02d}.html"),
             },
         ]
 
     return [
         {
             "type": "exercise",
-            "path": (
-                f"exercises/"
-                f"session_{material_number:02d}.html"
-            ),
+            "path": (f"exercises/session_{material_number:02d}.html"),
         },
     ]
 
@@ -369,9 +302,7 @@ def apply_missing_event_defaults(
         start=1,
     ):
         if "type" not in event:
-            event["type"] = default_event_type(
-                position
-            )
+            event["type"] = default_event_type(position)
 
         if "materials" not in event:
             event["materials"] = default_materials(
@@ -386,9 +317,7 @@ def get_next_event_number(
     numbers: list[int] = []
 
     for event in events:
-        event_id = str(
-            event.get("event_id", "")
-        )
+        event_id = str(event.get("event_id", ""))
 
         match = re.fullmatch(
             r"event-(\d+)",
@@ -396,9 +325,7 @@ def get_next_event_number(
         )
 
         if match:
-            numbers.append(
-                int(match.group(1))
-            )
+            numbers.append(int(match.group(1)))
 
     return max(numbers, default=0) + 1
 
@@ -411,10 +338,7 @@ def merge_events(
     int,
     int,
 ]:
-    events = [
-        dict(event)
-        for event in existing_events
-    ]
+    events = [dict(event) for event in existing_events]
 
     # Backfill defaults for events created before
     # type/materials were introduced.
@@ -430,22 +354,14 @@ def merge_events(
 
         event_id_string = str(event_id)
 
-        if (
-            event_id_string
-            in event_index_by_event_id
-        ):
+        if event_id_string in event_index_by_event_id:
             raise SystemExit(
-                "Duplicate event_id in existing events: "
-                f"{event_id_string}"
+                f"Duplicate event_id in existing events: {event_id_string}"
             )
 
-        event_index_by_event_id[
-            event_id_string
-        ] = index
+        event_index_by_event_id[event_id_string] = index
 
-    next_event_number = get_next_event_number(
-        events
-    )
+    next_event_number = get_next_event_number(events)
 
     n_updated = 0
     n_added = 0
@@ -455,52 +371,33 @@ def merge_events(
     for handbook_event in handbook_events:
         event_data = normalize_event(handbook_event)
 
-        event_id = str(
-            event_data["event_id"]
-        )
+        event_id = str(event_data["event_id"])
 
         if event_id in seen_source_uids:
-            raise SystemExit(
-                "Duplicate source_uid in matched events: "
-                f"{event_id}"
-            )
+            raise SystemExit(f"Duplicate source_uid in matched events: {event_id}")
 
         seen_source_uids.add(event_id)
 
-        existing_index = (
-            event_index_by_event_id.get(
-                event_id
-            )
-        )
+        existing_index = event_index_by_event_id.get(event_id)
 
         if existing_index is not None:
-            updated_event = dict(
-                events[existing_index]
-            )
+            updated_event = dict(events[existing_index])
 
             # Only update event-controlled fields.
             # User-controlled type and materials are preserved.
-            updated_event.update(
-                event_data
-            )
+            updated_event.update(event_data)
 
-            events[existing_index] = (
-                updated_event
-            )
+            events[existing_index] = updated_event
 
             n_updated += 1
             continue
 
         position = len(events) + 1
 
-        event_type = default_event_type(
-            position
-        )
+        event_type = default_event_type(position)
 
         new_event = {
-            "event_id": (
-                f"event-{next_event_number:02d}"
-            ),
+            "event_id": (f"event-{next_event_number:02d}"),
             "type": event_type,
             **event_data,
             "materials": default_materials(
@@ -511,9 +408,7 @@ def merge_events(
 
         events.append(new_event)
 
-        event_index_by_event_id[
-            event_id
-        ] = len(events) - 1
+        event_index_by_event_id[event_id] = len(events) - 1
 
         next_event_number += 1
         n_added += 1
@@ -550,28 +445,17 @@ def compact_list_item_dashes(
     while index < len(lines):
         line = lines[index]
 
-        if (
-            line.strip() == "-"
-            and index + 1 < len(lines)
-        ):
+        if line.strip() == "-" and index + 1 < len(lines):
             next_line = lines[index + 1]
 
-            current_indent = (
-                len(line) - len(line.lstrip())
-            )
+            current_indent = len(line) - len(line.lstrip())
 
-            next_indent = (
-                len(next_line)
-                - len(next_line.lstrip())
-            )
+            next_indent = len(next_line) - len(next_line.lstrip())
 
             if next_indent > current_indent:
                 indent = " " * current_indent
 
-                result.append(
-                    f"{indent}- "
-                    f"{next_line.lstrip()}"
-                )
+                result.append(f"{indent}- {next_line.lstrip()}")
 
                 index += 2
                 continue
@@ -593,9 +477,7 @@ def render_events(
         allow_unicode=True,
     ).rstrip()
 
-    return compact_list_item_dashes(
-        rendered
-    )
+    return compact_list_item_dashes(rendered)
 
 
 def find_top_level_events_blocks(
@@ -631,17 +513,12 @@ def find_top_level_events_blocks(
         while end < len(lines):
             line = lines[end]
 
-            if (
-                line.strip()
-                and not line[0].isspace()
-            ):
+            if line.strip() and not line[0].isspace():
                 break
 
             end += 1
 
-        blocks.append(
-            (start, end)
-        )
+        blocks.append((start, end))
 
     return blocks
 
@@ -659,21 +536,14 @@ def replace_events_blocks(
 
     lines = course_text.splitlines()
 
-    blocks = find_top_level_events_blocks(
-        lines
-    )
+    blocks = find_top_level_events_blocks(lines)
 
-    rendered_lines = render_events(
-        events
-    ).splitlines()
+    rendered_lines = render_events(events).splitlines()
 
     if not blocks:
         result = list(lines)
 
-        while (
-            result
-            and not result[-1].strip()
-        ):
+        while result and not result[-1].strip():
             result.pop()
 
         result.append("")
@@ -686,19 +556,14 @@ def replace_events_blocks(
     indices_to_remove: set[int] = set()
 
     for start, end in blocks:
-        indices_to_remove.update(
-            range(start, end)
-        )
+        indices_to_remove.update(range(start, end))
 
     result: list[str] = []
 
     inserted = False
 
     for index, line in enumerate(lines):
-        if (
-            index == first_start
-            and not inserted
-        ):
+        if index == first_start and not inserted:
             result.extend(rendered_lines)
             inserted = True
 
@@ -710,11 +575,7 @@ def replace_events_blocks(
     if not inserted:
         result.extend(rendered_lines)
 
-    while (
-        len(result) >= 2
-        and not result[-1].strip()
-        and not result[-2].strip()
-    ):
+    while len(result) >= 2 and not result[-1].strip() and not result[-2].strip():
         result.pop()
 
     return "\n".join(result) + "\n"
@@ -730,9 +591,7 @@ def load_events(
         events = load_yaml(source)
 
         try:
-            source_label = str(
-                source.relative_to(ROOT)
-            )
+            source_label = str(source.relative_to(ROOT))
 
         except ValueError:
             source_label = str(source)
@@ -745,7 +604,6 @@ def load_events(
     )
 
     return events, url
-
 
 
 # Backward-compatible aliases for older tests and helper scripts.
@@ -773,12 +631,11 @@ def normalize(event: dict[str, Any]) -> dict[str, Any]:
 
     if not event.get("source_uid"):
         event["source_uid"] = (
-            "generated-"
-            f"{event.get('title', 'event')}-"
-            f"{event.get('start', '')}"
+            f"generated-{event.get('title', 'event')}-{event.get('start', '')}"
         )
 
     return normalize_event(event)
+
 
 def main(
     argv: list[str] | None = None,
@@ -788,8 +645,7 @@ def main(
     parser.add_argument(
         "--events",
         help=(
-            "Optional path to a local events.yaml. "
-            "Defaults to schedule.source_path."
+            "Optional path to a local events.yaml. Defaults to schedule.source_path."
         ),
     )
 
@@ -802,42 +658,22 @@ def main(
 
     course_path = ROOT / "course.yml"
 
-    course_text = course_path.read_text(
-        encoding="utf-8"
-    )
+    course_text = course_path.read_text(encoding="utf-8")
 
-    course_config = (
-        yaml.safe_load(course_text)
-        or {}
-    )
+    course_config = yaml.safe_load(course_text) or {}
 
-    semester = str(
-        course_config
-        .get("course", {})
-        .get("semester", "")
-    )
+    semester = str(course_config.get("course", {}).get("semester", ""))
 
     if not semester:
-        raise SystemExit(
-            "Missing course.semester in course.yml."
-        )
+        raise SystemExit("Missing course.semester in course.yml.")
 
-    semester_start, semester_end = (
-        parse_semester(semester)
-    )
+    semester_start, semester_end = parse_semester(semester)
 
-    title_match = get_title_match(
-        course_config
-    )
+    title_match = get_title_match(course_config)
 
-    source_path_value = (
-        args.events
-        or course_config
-        .get("schedule", {})
-        .get(
-            "source_path",
-            "data/events.yaml",
-        )
+    source_path_value = args.events or course_config.get("schedule", {}).get(
+        "source_path",
+        "data/events.yaml",
     )
 
     source = Path(source_path_value)
@@ -845,11 +681,7 @@ def main(
     if not source.is_absolute():
         source = ROOT / source
 
-    cache_path = (
-        ROOT
-        / ".cache"
-        / "handbook-events.yaml"
-    )
+    cache_path = ROOT / ".cache" / "handbook-events.yaml"
 
     events, source_label = load_events(
         source=source,
@@ -858,10 +690,7 @@ def main(
     )
 
     if not isinstance(events, list):
-        raise SystemExit(
-            "events.yaml must contain "
-            "a list of events."
-        )
+        raise SystemExit("events.yaml must contain a list of events.")
 
     selected_events = select_events(
         events,
@@ -870,20 +699,13 @@ def main(
         semester_end=semester_end,
     )
 
-    existing_events = (
-        course_config.get("events")
-        or course_config.get("sessions")
-        or []
-    )
+    existing_events = course_config.get("events") or course_config.get("sessions") or []
 
     if not isinstance(
         existing_events,
         list,
     ):
-        raise SystemExit(
-            "course.yml events must be "
-            "a list or empty."
-        )
+        raise SystemExit("course.yml events must be a list or empty.")
 
     (
         events,
@@ -911,9 +733,7 @@ def main(
         f"{len(events)} events total."
     )
 
-    print(
-        f"Event source: {source_label}"
-    )
+    print(f"Event source: {source_label}")
 
 
 if __name__ == "__main__":

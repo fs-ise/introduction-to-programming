@@ -11,7 +11,9 @@ class MaterialsOverviewTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             materials_dir = Path(tmpdir)
 
-            with patch.object(generate_materials_overview, "MATERIALS_DIR", materials_dir):
+            with patch.object(
+                generate_materials_overview, "MATERIALS_DIR", materials_dir
+            ):
                 content = generate_materials_overview.generated_content(
                     generate_materials_overview.publishable_files()
                 )
@@ -28,11 +30,15 @@ class MaterialsOverviewTest(unittest.TestCase):
             viewers_dir = root / "generated" / "materials"
             source_path = Path("session_04/example.py")
             (materials_dir / source_path).parent.mkdir(parents=True)
-            (materials_dir / source_path).write_text("print('example')\n", encoding="utf-8")
+            (materials_dir / source_path).write_text(
+                "print('example')\n", encoding="utf-8"
+            )
 
             with (
                 patch.object(generate_materials_overview, "ROOT", root),
-                patch.object(generate_materials_overview, "MATERIALS_DIR", materials_dir),
+                patch.object(
+                    generate_materials_overview, "MATERIALS_DIR", materials_dir
+                ),
                 patch.object(
                     generate_materials_overview,
                     "GENERATED_VIEWERS_DIR",

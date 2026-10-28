@@ -5,5 +5,5 @@ for i in range(n):
 sum = 0
 for i in range(n):
     sum = sum + numbers[i]
-average = sum/n
+average = sum / n
 print("The average is: ", average)

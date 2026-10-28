@@ -1,21 +1,21 @@
 import pandas as pd
 
-countries = pd.read_csv('data/countries.csv')
+countries = pd.read_csv("data/countries.csv")
 
-countries['Area'].sum()
-countries['GDP'].mean()
-countries['GDP'].var()
+countries["Area"].sum()
+countries["GDP"].mean()
+countries["GDP"].var()
 
-countries.loc[:, ['Population', 'Area', 'GDP']].mean()
-countries.loc[[2, 10, 11, 13], ['Population', 'Area', 'GDP']].mean()
+countries.loc[:, ["Population", "Area", "GDP"]].mean()
+countries.loc[[2, 10, 11, 13], ["Population", "Area", "GDP"]].mean()
 
-countries['Area'].min()
+countries["Area"].min()
 
-countries.loc[:, ['Population', 'Area', 'GDP']].corr()
+countries.loc[:, ["Population", "Area", "GDP"]].corr()
 
-countries.describe()    # or: countries[['Population', 'Area', 'GDP']].describe()
+countries.describe()  # or: countries[['Population', 'Area', 'GDP']].describe()
 
-countries.loc[:, ['Country', 'Continent']].describe()
+countries.loc[:, ["Country", "Continent"]].describe()
 
-len(countries['Continent'].unique())
-countries['Continent'].value_counts()
+len(countries["Continent"].unique())
+countries["Continent"].value_counts()

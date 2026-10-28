@@ -1,6 +1,6 @@
 kilometers = float(input("Enter your driven kilometers: "))
 volume = float(input("Enter the quantity of petrol tanked : "))
 
-consumption = volume*100/kilometers
+consumption = volume * 100 / kilometers
 
 print("Your car consumes", consumption, " liters per 100 km.")
