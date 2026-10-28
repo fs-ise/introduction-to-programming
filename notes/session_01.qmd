@@ -111,9 +111,7 @@ Start Excel and explain the following (without slides):
 - Selecting cells by typing "=A1+A2" vs. by clicking on cells
 - Illustrate data types: Add "€" to the numbers and show that the SUM/EXP no longer work.
 
-::: {.callout-important title="Types of cells"}
-Understand which type of cell is needed:
-
+::: {.callout-important title="Understand which type of cell is needed"}
 - Data cells (plain values)
 - Calculated cells (formulas)
 :::
@@ -133,7 +131,7 @@ Illustration:
 - 100€ * 1.05 = 105 € amount after year 1
 - 100€ * 1.05 * 1.05 = .... amount after year 2
 - ...
-- 100€ * 1.05^n
+- 100€ * $1.05^n$
 
 Reminder: "Scenarios" means that some cells are data cells that we want to change to automatically see what the updated outcome is.
 

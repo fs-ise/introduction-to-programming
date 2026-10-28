@@ -2,6 +2,7 @@
 title: "Feedback"
 ---
 
+- Python exercise: add numbers and semantic script names (e.g., `1_manipulate_countries.py`)
 - Prefer `df.pivot_table(...)` over `df.pivot_table(df)` for consistency with previous DataFrame methods (such as `df.groupby()`, `df.desribe()`).
 - Session 6: double-check the exercises/examples involving the counting of countries. They often build on the special case that countries are unique and count rows (or continents) instead.
 - For `xticks`: prefer `len(df)` to `len(df["colname"])` (Slides p.45 + exercises)
