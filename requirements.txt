@@ -3,3 +3,4 @@ PyYAML>=6.0.2
 matplotlib>=3.10.0
 pandas>=3.0.0
 openpyxl>=3.0.0
+scikit-learn>=1.6.0
