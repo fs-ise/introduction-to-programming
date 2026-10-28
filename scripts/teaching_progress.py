@@ -79,8 +79,8 @@ def _session_form(
         f"## Session {session:02d} - Track {_latex_escape(track)}",
         "",
         r"\begingroup\renewcommand{\arraystretch}{1.25}",
-        r"\begin{tabularx}{\linewidth}{|p{5.5cm}|p{3cm}|X|}\hline",
-        r"\textbf{Teaching file} & \textbf{Completed} & \textbf{Note} \\ \hline",
+        r"\begin{tabularx}{\linewidth}{|>{\arraybackslash}p{5.5cm}|>{\centering\arraybackslash}p{3cm}|>{\arraybackslash}X|}\hline",
+        r"\textbf{Exercise} & \textbf{Completed} & \textbf{To be discussed in tutorial sessions} \\ \hline",
     ]
     for teaching_file in files:
         filename = _latex_escape(Path(teaching_file.path).name)
@@ -111,9 +111,9 @@ def render_coverage_forms(
 
     sections = [
         (
-            "Check each file when completed and use the Note column for broader "
-            "comments. At the end of the session, share the update with the "
-            "appropriate tutor and tick the track's sharing checkbox."
+            "Check each exercise as completed. Use the To be discussed in tutorial "
+            "sessions column for broader comments. At the end of the session, share "
+            "the update with the appropriate tutor and tick the track's sharing checkbox."
         ),
     ]
     for session in sorted(by_session):

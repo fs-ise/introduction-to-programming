@@ -393,8 +393,9 @@ def test_python_solution_coverage_forms_follow_groups(tmp_path: Path) -> None:
     assert "## Session 06 - Track E5" in combined
     assert "exercise6.py" in combined
     assert "exercise6.py` (demo)" not in combined
-    assert r"\textbf{Teaching file} & \textbf{Completed} & \textbf{Note}" in combined
-    assert r"\begin{tabularx}{\linewidth}{|p{5.5cm}|p{3cm}|X|}\hline" in combined
+    assert r"\textbf{Exercise} & \textbf{Completed}" in combined
+    assert r"\textbf{To be discussed in tutorial sessions}" in combined
+    assert r">{\centering\arraybackslash}X|}\hline" in combined
     assert r"\Needspace{14\baselineskip}" in combined
     assert r"\renewcommand{\arraystretch}{1.25}" in combined
     assert "**Shared with tutor:** $\\square$" in combined
