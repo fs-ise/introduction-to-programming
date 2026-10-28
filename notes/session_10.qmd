@@ -72,17 +72,17 @@ print("The end")
 
 1. Extend the code to end the loop when the user enters 0.
 
-{{< teaching-file ../materials/session_10/StopLoop.py >}}
+{{< teaching-file ../materials/session_10/collect_numbers.py >}}
 
 2. Expand the dice game again.
 
 Assign exercise 2 as homework.
 
-{{< teaching-file ../materials/session_10/dicegame3.py kind="homework" >}}
+{{< teaching-file ../materials/session_10/play_dice_game_with_retries.py kind="homework" >}}
 
 Task instruction: [InsuranceAgent.pdf](../materials/session_10/InsuranceAgent.pdf), uploaded on Canvas
 
-{{< teaching-file ../materials/session_10/insuranceagent.py >}}
+{{< teaching-file ../materials/session_10/calculate_insurance_commission.py >}}
 
 
 {{< needspace 10 >}}
@@ -170,27 +170,27 @@ Assign 2,3 as homework.
 
 1. Write a function count_digits(int)
 
-{{< teaching-file ../materials/session_10/CountDigits.py >}}
+{{< teaching-file ../materials/session_10/count_digits.py >}}
 
 2. Write a Python function to multiply all the numbers in a list.
 
-{{< teaching-file ../materials/session_10/Listmult.py kind="homework" >}}
+{{< teaching-file ../materials/session_10/multiply_list_values.py kind="homework" >}}
 
 3. Write a function isHarshad(int)
 
-{{< teaching-file ../materials/session_10/Harshad.py kind="homework" >}}
+{{< teaching-file ../materials/session_10/check_harshad_number.py kind="homework" >}}
 
 4. Write a Python function to calculate the factorial of a number (n!).
 
-{{< teaching-file ../materials/session_10/Factorial.py >}}
+{{< teaching-file ../materials/session_10/calculate_factorial.py >}}
 
 5. Extend the program by adding a function which calculates the number of possible combinations
 
-{{< teaching-file ../materials/session_10/Combinations.py >}}
+{{< teaching-file ../materials/session_10/calculate_combinations.py >}}
 
 6. Write a program that simulates a slotmachine
 
-{{< teaching-file ../materials/session_10/SlotMachine.py >}}
+{{< teaching-file ../materials/session_10/simulate_slot_machine.py >}}
 
 ::: {.callout-important title="Exam relevance"}
 At least one exam exercise will cover functions.
@@ -392,12 +392,12 @@ Break — 10 minutes
 
 ## Slide 133 — Dictionaries and persistence
 
-{{< teaching-file ../materials/session_10/Friends.py >}}
+{{< teaching-file ../materials/session_10/manage_friends_json.py >}}
 
 - Dictionaries are less relevant to the exam; do not announce this explicitly at the beginning. They may appear in a multiple-choice question.
 
 ::: {.callout-note title="Generated file"}
-`friends.db` is preserved in the exercise table, but it is not supplied as input material. `Friends.py` generates it at runtime.
+`friends.db` is preserved in the exercise table, but it is not supplied as input material. `manage_friends_json.py` generates it at runtime.
 :::
 
 {{< needspace 10 >}}

@@ -73,13 +73,20 @@ def test_coverage_forms_have_completed_box_wide_note_and_full_gridlines() -> Non
     assert "## Session 07 - Track E4" in form
     assert "**Shared with tutor:** $\\square$" in form
     assert (
-        r"\begin{tabularx}{\linewidth}{|>{\centering\arraybackslash}p{5.5cm}|"
-        r">{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}X|}\hline"
+        r"\begin{tabularx}{\linewidth}{|>{\arraybackslash}p{7cm}|"
+        r">{\centering\arraybackslash}p{2.5cm}|>{\arraybackslash}X|}\hline"
     ) in form
     assert (
         r"\textbf{Exercise} & \textbf{Completed} & "
         r"\textbf{To be discussed in tutorial sessions}"
     ) in form
+    assert form.count(r"\newpage") == 1
+    assert (
+        form.index("## Session 06 - Track E4")
+        < form.index(r"\newpage")
+        < form.index("## Session 07 - Track E3")
+        < form.index("## Session 07 - Track E4")
+    )
     assert r"\renewcommand{\arraystretch}{1.25}" in form
     assert r"\rule{0pt}{7mm}" in form
     assert "homework.py" in form

@@ -190,7 +190,7 @@ pd.pivot_table(
 [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
-{{< teaching-file ../materials/session_07/insurance2.py >}}
+{{< teaching-file ../materials/session_07/pivot_insurance.py >}}
 
 {{< pagebreak >}}
 
@@ -285,7 +285,7 @@ predictivemodel_net.predict([[5, 5, 1]])
 [`../materials/data/Chipotle.csv`](../materials/data/Chipotle.csv){.teaching-button .teaching-button-exercise}
 :::
 
-{{< teaching-file ../materials/session_07/Chipotle.py >}}
+{{< teaching-file ../materials/session_07/analyze_chipotle_orders.py >}}
 
 {{< needspace 60 >}}
 
@@ -295,7 +295,7 @@ predictivemodel_net.predict([[5, 5, 1]])
 [`../materials/data/Homes_Florida.xlsx`](../materials/data/Homes_Florida.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
-{{< teaching-file ../materials/session_07/Homes_Florida.py >}}
+{{< teaching-file ../materials/session_07/analyze_florida_home_sales.py >}}
 
 ::: {.teaching-break}
 Break — 10 minutes
@@ -364,19 +364,19 @@ type(age)
 
 ## Slides 84–85 — Interactive formula programs
 
-Assign exercises `Traveltime.py`, `Fuel.py` and `AnnuityLoan1.py` as homework.
+Assign exercises `calculate_travel_time.py`, `calculate_fuel_consumption.py` and `calculate_loan_payment.py` as homework.
 
-{{< teaching-file ../materials/session_07/CircleArea2.py >}}
+{{< teaching-file ../materials/session_07/calculate_circle_area.py >}}
 
-{{< teaching-file ../materials/session_07/Currency.py >}}
+{{< teaching-file ../materials/session_07/convert_currency.py >}}
 
-{{< teaching-file ../materials/session_07/Distance.py >}}
+{{< teaching-file ../materials/session_07/calculate_distance.py >}}
 
-{{< teaching-file ../materials/session_07/Traveltime.py kind="homework" >}}
+{{< teaching-file ../materials/session_07/calculate_travel_time.py kind="homework" >}}
 
-{{< teaching-file ../materials/session_07/Fuel.py kind="homework" >}}
+{{< teaching-file ../materials/session_07/calculate_fuel_consumption.py kind="homework" >}}
 
-{{< teaching-file ../materials/session_07/AnnuityLoan1.py kind="homework" >}}
+{{< teaching-file ../materials/session_07/calculate_loan_payment.py kind="homework" >}}
 
 
 ## Slide 86 — Boolean values

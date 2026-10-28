@@ -5,7 +5,7 @@ slide_range: "137–159"
 event_id: null
 ---
 
-TODO: prepare (split) `5_REST.py`
+TODO: prepare (split) `explore_rest_apis.py`
 
 Notes:
 
@@ -34,7 +34,7 @@ flowchart
     direction TB
     A1["<b>Moving averages with loops</b> (20 min) · Stockprice.csv"]
     A2["<b>Semivariance functions</b> (15 min)"]
-    A3["<b>Demo: REST and JSON</b> (15 min) · 5_REST.py"]
+    A3["<b>Demo: REST and JSON</b> (15 min) · explore_rest_apis.py"]
     A4["<b>💻 Exercise: Mercedes-Benz stock data</b> (18 min)"]
     A5["<b>💻 Exercise: Stock-price collection</b> (20 min) · Stocks.csv"]
     A6["<b>API troubleshooting</b> (2 min)"]
@@ -102,7 +102,7 @@ semivariance(data['price'])
 
 ## General teaching notes
 
-{{< teaching-file ../materials/session_11/5_REST.py kind="demo" >}}
+{{< teaching-file ../materials/session_11/explore_rest_apis.py kind="demo" >}}
 
 - Explain why JSON is relevant to applications.
 - Choose API examples according to the remaining time.
@@ -120,13 +120,13 @@ The pandas portion of the exam is “pure pandas”; it does not combine pandas 
 
 ## Slide 143 — Stock-market API
 
-{{< teaching-file ../materials/session_11/MercedesBenz1.py >}}
+{{< teaching-file ../materials/session_11/analyze_mercedes_stock.py >}}
 
 {{< needspace 10 >}}
 
 ## Slide 148 — Stock-price collection
 
-{{< teaching-file ../materials/session_11/Stocks.py >}}
+{{< teaching-file ../materials/session_11/update_stock_prices.py >}}
 
 ::: {.teaching-file}
 [`../materials/data/Stocks.csv`](../materials/data/Stocks.csv){.teaching-button .teaching-button-exercise}
@@ -138,13 +138,13 @@ Break — 10 minutes
 
 ## Slide 152 — JSON data retrieval
 
-{{< teaching-file ../materials/session_11/MercedesBenz2.py >}}
+{{< teaching-file ../materials/session_11/analyze_mercedes_benz_stock_json.py >}}
 
 {{< needspace 10 >}}
 
 ## Slide 155 — Cryptocurrency API analysis
 
-{{< teaching-file ../materials/session_11/Cryptocurrencies.py >}}
+{{< teaching-file ../materials/session_11/compare_cryptocurrency_returns.py >}}
 
 {{< needspace 10 >}}
 

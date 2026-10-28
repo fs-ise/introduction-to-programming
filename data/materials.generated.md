@@ -46,93 +46,93 @@
 | Material | Type |
 |---|---|
 | [Countries1](generated/materials/session_05/countries1.html) | PY file |
-| [Countries2](generated/materials/session_05/countries2.html) | PY file |
 | [Customers](materials/session_05/customers.xlsx) | Excel workbook |
+| [Manipulate countries](generated/materials/session_05/manipulate_countries.html) | PY file |
 
 ## Session 06
 
 | Material | Type |
 |---|---|
-| [Countries3](generated/materials/session_06/countries3.html) | PY file |
-| [Countries4](generated/materials/session_06/countries4.html) | PY file |
-| [Countries5](generated/materials/session_06/countries5.html) | PY file |
-| [Countries6](generated/materials/session_06/countries6.html) | PY file |
-| [Insurance1](generated/materials/session_06/insurance1.html) | PY file |
+| [Filter countries](generated/materials/session_06/filter_countries.html) | PY file |
+| [Group by countries](generated/materials/session_06/group_by_countries.html) | PY file |
+| [Summarize insurance](generated/materials/session_06/summarize_insurance.html) | PY file |
+| [Summary stats countries](generated/materials/session_06/summary_stats_countries.html) | PY file |
+| [Visualize countries](generated/materials/session_06/visualize_countries.html) | PY file |
 
 ## Session 07
 
 | Material | Type |
 |---|---|
-| [AnnuityLoan1](generated/materials/session_07/AnnuityLoan1.html) | PY file |
-| [Chipotle](generated/materials/session_07/Chipotle.html) | PY file |
-| [CircleArea2](generated/materials/session_07/CircleArea2.html) | PY file |
-| [Currency](generated/materials/session_07/Currency.html) | PY file |
-| [Distance](generated/materials/session_07/Distance.html) | PY file |
-| [Fuel](generated/materials/session_07/Fuel.html) | PY file |
-| [Homes Florida](generated/materials/session_07/Homes_Florida.html) | PY file |
-| [Insurance2](generated/materials/session_07/insurance2.html) | PY file |
-| [Traveltime](generated/materials/session_07/Traveltime.html) | PY file |
+| [Analyze chipotle orders](generated/materials/session_07/analyze_chipotle_orders.html) | PY file |
+| [Analyze florida home sales](generated/materials/session_07/analyze_florida_home_sales.html) | PY file |
+| [Calculate circle area](generated/materials/session_07/calculate_circle_area.html) | PY file |
+| [Calculate distance](generated/materials/session_07/calculate_distance.html) | PY file |
+| [Calculate fuel consumption](generated/materials/session_07/calculate_fuel_consumption.html) | PY file |
+| [Calculate loan payment](generated/materials/session_07/calculate_loan_payment.html) | PY file |
+| [Calculate travel time](generated/materials/session_07/calculate_travel_time.html) | PY file |
+| [Convert currency](generated/materials/session_07/convert_currency.html) | PY file |
+| [Pivot insurance](generated/materials/session_07/pivot_insurance.html) | PY file |
 
 ## Session 08
 
 | Material | Type |
 |---|---|
-| [AnnuityLoan2](generated/materials/session_08/AnnuityLoan2.html) | PY file |
-| [Dicegame1](generated/materials/session_08/dicegame1.html) | PY file |
-| [Discount](generated/materials/session_08/Discount.html) | PY file |
-| [Grade](generated/materials/session_08/Grade.html) | PY file |
-| [IBAN](generated/materials/session_08/IBAN.html) | PY file |
-| [Listexercise1](generated/materials/session_08/Listexercise1.html) | PY file |
-| [Listexercise2](generated/materials/session_08/Listexercise2.html) | PY file |
-| [OddEven](generated/materials/session_08/OddEven.html) | PY file |
-| [String1](generated/materials/session_08/String1.html) | PY file |
-| [String2](generated/materials/session_08/String2.html) | PY file |
-| [String3](generated/materials/session_08/String3.html) | PY file |
-| [Tax](generated/materials/session_08/Tax.html) | PY file |
-| [Temperature](generated/materials/session_08/Temperature.html) | PY file |
+| [Analyze strings](generated/materials/session_08/analyze_strings.html) | PY file |
+| [Calculate discount](generated/materials/session_08/calculate_discount.html) | PY file |
+| [Calculate grades](generated/materials/session_08/calculate_grades.html) | PY file |
+| [Calculate loan](generated/materials/session_08/calculate_loan.html) | PY file |
+| [Calculate tax](generated/materials/session_08/calculate_tax.html) | PY file |
+| [Check even](generated/materials/session_08/check_even.html) | PY file |
+| [Check iban](generated/materials/session_08/check_iban.html) | PY file |
+| [Convert temperature](generated/materials/session_08/convert_temperature.html) | PY file |
+| [Describe string](generated/materials/session_08/describe_string.html) | PY file |
+| [Insert string](generated/materials/session_08/insert_string.html) | PY file |
+| [Manipulate list](generated/materials/session_08/manipulate_list.html) | PY file |
+| [Play dice game](generated/materials/session_08/play_dice_game.html) | PY file |
+| [Practice list operations](generated/materials/session_08/practice_list_operations.html) | PY file |
 
 ## Session 09
 
 | Material | Type |
 |---|---|
-| [Average](generated/materials/session_09/Average.html) | PY file |
-| [Dicegame2](generated/materials/session_09/dicegame2.html) | PY file |
-| [Fibonacci](generated/materials/session_09/Fibonacci.html) | PY file |
-| [For demo](generated/materials/session_09/for_demo.html) | PY file |
-| [Frequencies](generated/materials/session_09/Frequencies.html) | PY file |
-| [Guess1](generated/materials/session_09/Guess1.html) | PY file |
-| [Guess2](generated/materials/session_09/Guess2.html) | PY file |
-| [Loan](generated/materials/session_09/Loan.html) | PY file |
-| [Message](generated/materials/session_09/Message.html) | PY file |
-| [MultipleSum](generated/materials/session_09/MultipleSum.html) | PY file |
-| [ShoppingList](generated/materials/session_09/ShoppingList.html) | PY file |
-| [Tens](generated/materials/session_09/Tens.html) | PY file |
-| [Triangle](generated/materials/session_09/Triangle.html) | PY file |
+| [Build shopping list](generated/materials/session_09/build_shopping_list.html) | PY file |
+| [Calculate average](generated/materials/session_09/calculate_average.html) | PY file |
+| [Count random numbers](generated/materials/session_09/count_random_numbers.html) | PY file |
+| [Demonstrate for loops](generated/materials/session_09/demonstrate_for_loops.html) | PY file |
+| [Generate fibonacci sequence](generated/materials/session_09/generate_fibonacci_sequence.html) | PY file |
+| [Guess number](generated/materials/session_09/guess_number.html) | PY file |
+| [Guess number with hints](generated/materials/session_09/guess_number_with_hints.html) | PY file |
+| [Mark multiples of ten](generated/materials/session_09/mark_multiples_of_ten.html) | PY file |
+| [Play repeating dice game](generated/materials/session_09/play_repeating_dice_game.html) | PY file |
+| [Print character triangle](generated/materials/session_09/print_character_triangle.html) | PY file |
+| [Repeat message](generated/materials/session_09/repeat_message.html) | PY file |
+| [Simulate loan repayments](generated/materials/session_09/simulate_loan_repayments.html) | PY file |
+| [Sum multiples](generated/materials/session_09/sum_multiples.html) | PY file |
 
 ## Session 10
 
 | Material | Type |
 |---|---|
-| [Combinations](generated/materials/session_10/Combinations.html) | PY file |
-| [CountDigits](generated/materials/session_10/CountDigits.html) | PY file |
-| [Dicegame3](generated/materials/session_10/dicegame3.html) | PY file |
-| [Factorial](generated/materials/session_10/Factorial.html) | PY file |
-| [Friends](generated/materials/session_10/Friends.html) | PY file |
-| [Harshad](generated/materials/session_10/Harshad.html) | PY file |
+| [Calculate combinations](generated/materials/session_10/calculate_combinations.html) | PY file |
+| [Calculate factorial](generated/materials/session_10/calculate_factorial.html) | PY file |
+| [Calculate insurance commission](generated/materials/session_10/calculate_insurance_commission.html) | PY file |
+| [Check harshad number](generated/materials/session_10/check_harshad_number.html) | PY file |
+| [Collect numbers](generated/materials/session_10/collect_numbers.html) | PY file |
+| [Count digits](generated/materials/session_10/count_digits.html) | PY file |
 | [InsuranceAgent](materials/session_10/InsuranceAgent.pdf) | PDF |
-| [Insuranceagent](generated/materials/session_10/insuranceagent.html) | PY file |
 | [Insurance Agent: Commission](materials/session_10/InsuranceAgent.html) | Web page |
-| [Listmult](generated/materials/session_10/Listmult.html) | PY file |
-| [SlotMachine](generated/materials/session_10/SlotMachine.html) | PY file |
-| [StopLoop](generated/materials/session_10/StopLoop.html) | PY file |
+| [Manage friends json](generated/materials/session_10/manage_friends_json.html) | PY file |
+| [Multiply list values](generated/materials/session_10/multiply_list_values.html) | PY file |
+| [Play dice game with retries](generated/materials/session_10/play_dice_game_with_retries.html) | PY file |
+| [Simulate slot machine](generated/materials/session_10/simulate_slot_machine.html) | PY file |
 | [Versicherungsvertreter](materials/session_10/Versicherungsvertreter.docx) | Word document |
 
 ## Session 11
 
 | Material | Type |
 |---|---|
-| [5 REST](generated/materials/session_11/5_REST.html) | PY file |
-| [Cryptocurrencies](generated/materials/session_11/Cryptocurrencies.html) | PY file |
-| [MercedesBenz1](generated/materials/session_11/MercedesBenz1.html) | PY file |
-| [MercedesBenz2](generated/materials/session_11/MercedesBenz2.html) | PY file |
-| [Stocks](generated/materials/session_11/Stocks.html) | PY file |
+| [Analyze mercedes benz stock json](generated/materials/session_11/analyze_mercedes_benz_stock_json.html) | PY file |
+| [Analyze mercedes stock](generated/materials/session_11/analyze_mercedes_stock.html) | PY file |
+| [Compare cryptocurrency returns](generated/materials/session_11/compare_cryptocurrency_returns.html) | PY file |
+| [Explore rest apis](generated/materials/session_11/explore_rest_apis.html) | PY file |
+| [Update stock prices](generated/materials/session_11/update_stock_prices.html) | PY file |

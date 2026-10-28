@@ -21,7 +21,7 @@ flowchart
     B1["<b>Add rows/columns</b> (25 min)"]
     B2["<b>Delete rows/columns</b> (15 min)"]
     B3["<b>Sort and DataFrame functions</b> (20 min)"]
-    B4["<b>💻 Exercise: Modify and sort</b> (25 min) · countries.csv, countries2.py"]
+    B4["<b>💻 Exercise: Modify and sort</b> (25 min) · countries.csv, manipulate_countries.py"]
 
     B1 --> B2 --> B3 --> B4
   end
@@ -672,7 +672,7 @@ This first groups customers by `Segment` and then orders customers within each s
 [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
-{{< teaching-file ../materials/session_05/countries2.py >}}
+{{< teaching-file ../materials/session_05/manipulate_countries.py >}}
 
 {{< needspace 10 >}}
 

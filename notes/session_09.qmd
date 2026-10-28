@@ -72,37 +72,37 @@ for i in ['apple', 'orange']:
 
 Explain loops using $\sum_i^n$ and $\prod_i^n$.
 
-{{< teaching-file ../materials/session_09/for_demo.py kind="demo" >}}
+{{< teaching-file ../materials/session_09/demonstrate_for_loops.py kind="demo" >}}
 
 Note: 3–4 and 6–7 are homework.
 
 1. Write a program that will ask the user for a message and the number of times they want that message displayed.
 
-{{< teaching-file ../materials/session_09/Message.py >}}
+{{< teaching-file ../materials/session_09/repeat_message.py >}}
 
 2. Write a program that will calculate the average (mean) of a set of numbers.
 
-{{< teaching-file ../materials/session_09/Average.py >}}
+{{< teaching-file ../materials/session_09/calculate_average.py >}}
 
 3. Write a program that will output the numbers from 1 to 100.
 
-{{< teaching-file ../materials/session_09/Tens.py kind="homework" >}}
+{{< teaching-file ../materials/session_09/mark_multiples_of_ten.py kind="homework" >}}
 
 4. If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
 
-{{< teaching-file ../materials/session_09/MultipleSum.py kind="homework" >}}
+{{< teaching-file ../materials/session_09/sum_multiples.py kind="homework" >}}
 
 5. Write a program that generates a list containing the Fibonacci sequence.
 
-{{< teaching-file ../materials/session_09/Fibonacci.py >}}
+{{< teaching-file ../materials/session_09/generate_fibonacci_sequence.py >}}
 
 6. Write a program to generate n random numbers between 1 and 10.
 
-{{< teaching-file ../materials/session_09/Frequencies.py kind="homework" >}}
+{{< teaching-file ../materials/session_09/count_random_numbers.py kind="homework" >}}
 
 7. Write a program that displays a word entered by the user as a triangle of letters.
 
-{{< teaching-file ../materials/session_09/Triangle.py kind="homework" >}}
+{{< teaching-file ../materials/session_09/print_character_triangle.py kind="homework" >}}
 
 ::: {.teaching-break}
 Break — 10 minutes
@@ -136,25 +136,25 @@ Assign exercise 1, 5 as homework.
 
 1. Create a program that will keep track of items for a shopping list.
 
-{{< teaching-file ../materials/session_09/ShoppingList.py kind="homework" >}}
+{{< teaching-file ../materials/session_09/build_shopping_list.py kind="homework" >}}
 
 2. Write a Python program to guess a number between 1 to 10.
 
-{{< teaching-file ../materials/session_09/Guess1.py >}}
+{{< teaching-file ../materials/session_09/guess_number.py >}}
 
 3. Rewrite the program to have the user guess a number between 1 to 100
 
-{{< teaching-file ../materials/session_09/Guess2.py >}}
+{{< teaching-file ../materials/session_09/guess_number_with_hints.py >}}
 
 4. Expand the previously created dice game.
 
-{{< teaching-file ../materials/session_09/dicegame2.py >}}
+{{< teaching-file ../materials/session_09/play_repeating_dice_game.py >}}
 
 5. Write a program to create the history of a loan.
 
 Note: Remind students that exercise 5 is the same task they completed in Excel.
 
-{{< teaching-file ../materials/session_09/Loan.py kind="homework" >}}
+{{< teaching-file ../materials/session_09/simulate_loan_repayments.py kind="homework" >}}
 
 ## Summary and announcements
 

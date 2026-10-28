@@ -48,13 +48,21 @@ def test_sessions_use_shortcode_for_python_teaching_files():
 def test_session_07_interactive_formula_homework_mapping():
     session = (ROOT / "notes/session_07.qmd").read_text()
 
-    for filename in ("Traveltime.py", "Fuel.py", "AnnuityLoan1.py"):
+    for filename in (
+        "calculate_travel_time.py",
+        "calculate_fuel_consumption.py",
+        "calculate_loan_payment.py",
+    ):
         assert re.search(
             rf"teaching-file ../materials/session_07/{filename} kind=\"homework\"",
             session,
         )
 
-    for filename in ("CircleArea2.py", "Currency.py", "Distance.py"):
+    for filename in (
+        "calculate_circle_area.py",
+        "convert_currency.py",
+        "calculate_distance.py",
+    ):
         assert re.search(
             rf"teaching-file ../materials/session_07/{filename}\s*>", session
         )
@@ -340,7 +348,7 @@ def test_homes_florida_pdf_callout_stays_inside_page(tmp_path: Path):
         pytest.skip("Quarto is not available")
     fitz = pytest.importorskip("fitz", reason="PyMuPDF is needed for PDF geometry")
 
-    source_file = ROOT / "materials/session_07/Homes_Florida.py"
+    source_file = ROOT / "materials/session_07/analyze_florida_home_sales.py"
     (tmp_path / source_file.name).write_bytes(source_file.read_bytes())
     shortcode = ROOT / "_extensions/teaching-file/teaching-file.lua"
     (tmp_path / "regression.qmd").write_text(

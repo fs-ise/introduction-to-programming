@@ -79,7 +79,7 @@ def _session_form(
         f"## Session {session:02d} - Track {_latex_escape(track)}",
         "",
         r"\begingroup\renewcommand{\arraystretch}{1.25}",
-        r"\begin{tabularx}{\linewidth}{|>{\arraybackslash}p{5.5cm}|>{\centering\arraybackslash}p{3cm}|>{\arraybackslash}X|}\hline",
+        r"\begin{tabularx}{\linewidth}{|>{\arraybackslash}p{7cm}|>{\centering\arraybackslash}p{2.5cm}|>{\arraybackslash}X|}\hline",
         r"\textbf{Exercise} & \textbf{Completed} & \textbf{To be discussed in tutorial sessions} \\ \hline",
     ]
     for teaching_file in files:
@@ -116,7 +116,9 @@ def render_coverage_forms(
             "the update with the appropriate tutor and tick the track's sharing checkbox."
         ),
     ]
-    for session in sorted(by_session):
+    for session_index, session in enumerate(sorted(by_session)):
+        if session_index:
+            sections.extend(["```{=latex}", r"\newpage", "```", ""])
         for track in tracks:
             sections.extend([_session_form(session, track, by_session[session]), ""])
     return "\n\n".join(sections).strip()

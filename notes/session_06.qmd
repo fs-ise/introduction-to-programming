@@ -27,9 +27,9 @@ flowchart
     direction TB
     B1["<b>Boolean conditions and row filtering</b> (20 min)"]
     B2["<b>Combined conditions</b> (15 min)"]
-    B3["<b>💻 Exercise: Conditional filtering</b> (20 min) · countries.csv, countries5.py"]
+    B3["<b>💻 Exercise: Conditional filtering</b> (20 min) · countries.csv, filter_countries.py"]
     B4["<b>Grouping by one or more columns</b> (15 min)"]
-    B5["<b>💻 Exercise: Group countries and insurance</b> (17 min) · countries.csv, countries6.py, insurance.xlsx, insurance1.py"]
+    B5["<b>💻 Exercise: Group countries and insurance</b> (17 min) · countries.csv, group_by_countries.py, insurance.xlsx, summarize_insurance.py"]
 
     B1 --> B2 --> B3 --> B4 --> B5
   end
@@ -39,9 +39,9 @@ flowchart
     A0["<b>Solve homework (countries)</b> (10 min)"]
     A1["<b>Sum, mean, SD, correlation</b> (20 min)"]
     A2["<b>Summaries, unique values, and frequencies</b> (15 min)"]
-    A3["<b>💻 Exercise: Countries descriptive stats</b> (15 min) · countries.csv, countries3.py"]
+    A3["<b>💻 Exercise: Countries descriptive stats</b> (15 min) · countries.csv, summary_stats_countries.py"]
     A4["<b>Line, bar, and pie charts</b> (30 min)"]
-    A5["<b>💻 Exercise: Countries visualizations</b> (10 min) · countries.csv, countries4.py"]
+    A5["<b>💻 Exercise: Countries visualizations</b> (10 min) · countries.csv, visualize_countries.py"]
 
     A0 --> A1 --> A2 --> A3 --> A4 --> A5
   end
@@ -56,7 +56,7 @@ flowchart
 [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
-{{< teaching-file ../materials/session_05/countries2.py >}}
+{{< teaching-file ../materials/session_05/manipulate_countries.py >}}
 
 <br>
 
@@ -170,7 +170,7 @@ Variance is expressed in **squared units** of the original data. The standard de
 [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
-{{< teaching-file ../materials/session_06/countries3.py >}}
+{{< teaching-file ../materials/session_06/summary_stats_countries.py >}}
 
 ## Slide 43 — Creating a basic chart
 
@@ -263,7 +263,7 @@ Counting rows is equivalent to counting unique countries.
 [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
-{{< teaching-file ../materials/session_06/countries4.py >}}
+{{< teaching-file ../materials/session_06/visualize_countries.py >}}
 
 ::: {.callout-important title="Exam relevance"}
 Only line and bar plots are relevant to the exam; see the document listing exam-relevant topics.
@@ -321,7 +321,7 @@ Note: The "pre-selected" DataFrames can be used to run statistical functions or 
 [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
-{{< teaching-file ../materials/session_06/countries5.py >}}
+{{< teaching-file ../materials/session_06/filter_countries.py >}}
 
 - Connect filtering conditions to the resulting summaries and visualizations.
 
@@ -370,13 +370,13 @@ a
 [`../materials/data/countries.csv`](../materials/data/countries.csv){.teaching-button .teaching-button-exercise}
 :::
 
-{{< teaching-file ../materials/session_06/countries6.py >}}
+{{< teaching-file ../materials/session_06/group_by_countries.py >}}
 
 ::: {.teaching-file}
 [`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
 :::
 
-{{< teaching-file ../materials/session_06/insurance1.py >}}
+{{< teaching-file ../materials/session_06/summarize_insurance.py >}}
 
 - Demonstrate grouping with both the country and insurance datasets.
 
