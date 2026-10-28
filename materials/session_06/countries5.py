@@ -8,9 +8,13 @@ countries.loc[countries.Area > 8000, 'GDP'].mean()
 countries.loc[countries.Area < 800, 'GDP'].mean()
 
 countries.loc[(countries.Area > 8000) & (countries.Population < 400)]
-countries.loc[(countries.Area > 8000) & (countries.Population < 400), ['Country', 'GDP']]
+countries.loc[
+    (countries.Area > 8000) & (countries.Population < 400), ['Country', 'GDP']
+    ]
 
-df = countries.loc[(countries.Area > 8000) & (countries.Population < 400), ['Country', 'GDP']]
+df = countries.loc[
+    (countries.Area > 8000) & (countries.Population < 400), ['Country', 'GDP']
+    ]
 df.plot(x='Country', kind='bar', rot=0)
 
 df = countries.loc[countries.Population < 100, 'Continent'].value_counts()

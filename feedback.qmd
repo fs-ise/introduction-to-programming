@@ -2,6 +2,7 @@
 title: "Feedback"
 ---
 
+- Prefer `df.pivot_table(...)` over `df.pivot_table(df)` for consistency with previous DataFrame methods (such as `df.groupby()`, `df.desribe()`).
 - Session 6: double-check the exercises/examples involving the counting of countries. They often build on the special case that countries are unique and count rows (or continents) instead.
 - For `xticks`: prefer `len(df)` to `len(df["colname"])` (Slides p.45 + exercises)
 - Slides: add numbers to tasks (local subtasks; maybe even global) to facilitate communication with tutors

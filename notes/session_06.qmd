@@ -67,6 +67,7 @@ selecto expressions calculate the same sums using label-based and position-based
 
 ```{python}
 import pandas as pd
+
 exped = pd.read_excel("../materials/data/Exped.xlsx")
 
 # display first:
@@ -239,9 +240,11 @@ df.plot(kind='pie', subplots=True)
 df.plot(kind='pie', subplots=True, legend=True)
 ```
 
+{{< pagebreak >}}
+
 ## Slide 49 — Basic visualizations
 
-**Note**: In the following, the assumption is that the Country column contains unique alues.
+We assume that `Country` contains unique values.
 Counting rows is equivalent to counting unique countries.
 
 ::: {.teaching-file}
@@ -282,8 +285,7 @@ Use `&` for “and” and `|` for “or”. Each condition needs parentheses whe
 
 ```{python}
 exped.loc[
-    (exped.WHERE == 'London')
-    & (exped.REVENUE >= 2500)
+    (exped.WHERE == 'London') & (exped.REVENUE >= 2500)
 ]
 ```
 
@@ -293,8 +295,7 @@ exped.loc[
 
 ```{python}
 exped.loc[
-    (exped.QUANTITY >= 5)
-    | (exped.REVENUE >= 2500)
+    (exped.QUANTITY >= 5) | (exped.REVENUE >= 2500)
 ]
 ```
 
@@ -328,8 +329,8 @@ Develop the illustration on the whiteboard (using different colors to match the 
 
 Highlight:
 
-- The aggregation functions reduce the rows. Variables that are not part of the aggregation will be removed.
-- The grouping-parameter could be an individual column, or multiple columns.
+- Aggregation functions reduce rows. Variables that are not part of the aggregation will be removed.
+- Grouping-parameter could be an individual column, or multiple columns.
 - Pandas does not conveniently print the contents of the `groupby()` call.
   Therefore, it is important to develop a good understanding of what the function calls do.
 
