@@ -50,6 +50,8 @@ flowchart
 ## Slide 58 — Load the sales data and create a pivot table
 
 ```{python}
+import pandas as pd
+
 sales = pd.read_excel("../materials/data/Sales.xlsx")
 # briefly explore `sales`
 pd.pivot_table(
