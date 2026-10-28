@@ -54,6 +54,12 @@ flowchart
 
 {{< teaching-file ../materials/session_05/countries2.py >}}
 
+**Quick refresher after the mid-term break and exams**
+
+Briefly revisit how to select rows and columns in Pandas using `.iloc` and `.loc`.
+
+![](../images/summary_pandas_whiteboard.png)
+
 In the following, we increasingly work with the assumption that we cannot look at all of the data (like in Excel).
 Instead, we use functions to calculate statistics or to visualize data (exploratory data analysis).
 
