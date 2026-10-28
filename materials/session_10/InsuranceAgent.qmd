@@ -1,0 +1,21 @@
+---
+title: "Insurance Agent: Commission"
+---
+
+## Task
+
+An insurance agent wants to use a program to calculate their commission for all
+contracts concluded during one month. For each contract, the agent receives
+€50 plus 1% of the sum insured.
+
+End the input when the agent enters `0` as the sum insured.
+
+## Sample interaction
+
+```text
+Sum insured: 1000
+Sum insured: 2000
+Sum insured: 3000
+Sum insured: 0
+Commission: 210.0
+```

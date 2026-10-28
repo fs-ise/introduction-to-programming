@@ -119,11 +119,13 @@
 | [Factorial](generated/materials/session_10/Factorial.html) | PY file |
 | [Friends](generated/materials/session_10/Friends.html) | PY file |
 | [Harshad](generated/materials/session_10/Harshad.html) | PY file |
+| [InsuranceAgent](materials/session_10/InsuranceAgent.pdf) | PDF |
+| [Insuranceagent](generated/materials/session_10/insuranceagent.html) | PY file |
+| [Insurance Agent: Commission](materials/session_10/InsuranceAgent.html) | Web page |
 | [Listmult](generated/materials/session_10/Listmult.html) | PY file |
 | [SlotMachine](generated/materials/session_10/SlotMachine.html) | PY file |
 | [StopLoop](generated/materials/session_10/StopLoop.html) | PY file |
 | [Versicherungsvertreter](materials/session_10/Versicherungsvertreter.docx) | Word document |
-| [Versicherungsvertreter](generated/materials/session_10/Versicherungsvertreter.html) | PY file |
 
 ## Session 11
 
