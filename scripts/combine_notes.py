@@ -9,6 +9,11 @@ from pathlib import Path
 
 import yaml
 
+try:
+    from scripts.teaching_progress import load_tracks, render_coverage_forms
+except ModuleNotFoundError:
+    from teaching_progress import load_tracks, render_coverage_forms
+
 HTML_BR_FILTER = Path(__file__).resolve().with_name("html_br_to_linebreak.lua")
 TEACHING_BREAK_FILTER = Path(__file__).resolve().with_name("teaching_break.lua")
 CENTER_CAPTIONLESS_IMAGES_FILTER = (
@@ -225,17 +230,35 @@ def combine(
     sections: list[str] = []
 
     sources: list[tuple[str, str, str, str | None]] = []
-    if groups is not None:
-        title, body = read_groups(groups)
-        sources.append((title, remove_rooms_from_groups(body), "Groups", None))
-    if checklist is not None:
-        title, body = read_checklist(checklist)
-        sources.append((title, body, "Checklist", None))
-
+    note_sources: list[tuple[str, str, str, str | None]] = []
+    progress_sources: list[tuple[int, str]] = []
     for path in inputs:
         source = path.read_text(encoding="utf-8")
         title, body, page_prefix, slide_range = _read_note_source(source, path)
-        sources.append((title, body, page_prefix, slide_range))
+        note_sources.append((title, body, page_prefix, slide_range))
+        session_match = re.fullmatch(r"Session-(\d+)", page_prefix)
+        if session_match:
+            progress_sources.append((int(session_match.group(1)), body))
+
+    if groups is not None:
+        title, body = read_groups(groups)
+        sources.append((title, remove_rooms_from_groups(body), "Groups", None))
+
+    coverage_forms = render_coverage_forms(progress_sources, load_tracks(COURSE_CONFIG))
+    if coverage_forms:
+        sources.append(
+            (
+                "Python solution coverage",
+                coverage_forms,
+                "Coverage",
+                None,
+            )
+        )
+
+    if checklist is not None:
+        title, body = read_checklist(checklist)
+        sources.append((title, body, "Checklist", None))
+    sources.extend(note_sources)
 
     for title, body, page_prefix, slide_range in sources:
         latex_slide_range = (
@@ -283,6 +306,9 @@ format:
       \\usepackage{{needspace}}
       \\usepackage{{fvextra}}
       \\usepackage{{xcolor}}
+      \\usepackage{{amssymb}}
+      \\usepackage{{array}}
+      \\usepackage{{tabularx}}
       \\usepackage{{qrcode}}
       \\usepackage[skins]{{tcolorbox}}
       \\tcbuselibrary{{breakable}}

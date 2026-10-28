@@ -7,6 +7,10 @@ event_id: null
 
 Take notes separately on the solutions discussed with the students in this track.
 
+::: {.callout-tip title="Track solution progress"}
+After each session, use the **Python solution coverage** forms immediately after the Groups section near the beginning of the printed teaching notes. For each track, check completed teaching files and add broader notes as needed. Share the updated progress with that track's tutor and tick the session's **Shared with tutor** checkbox. The forms are generated from all `teaching-file` includes in Sessions 06–11; progress is recorded on paper.
+:::
+
 ::: {.callout-note title="Datasets"}
 - **`data.zip`**: `Exped.xlsx`
 - **`Python_exercises`**: `countries.csv`, `temperatures.csv`, `insurance.xlsx`
@@ -385,3 +389,5 @@ a
 ::: {.callout-tip title="Notes for improvement"}
 Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
 :::
+
+See the Python solution coverage forms after **Groups** at the beginning of the printed teaching notes.

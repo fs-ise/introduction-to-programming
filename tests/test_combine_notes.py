@@ -364,6 +364,44 @@ def test_checklist_appears_before_sessions(tmp_path: Path) -> None:
     assert combined.index(session_page) < combined.index("# Session 01")
 
 
+def test_python_solution_coverage_forms_follow_groups(tmp_path: Path) -> None:
+    groups = tmp_path / "_groups.qmd"
+    groups.write_text("## Groups\n\n| Date | E3 | E4 | E5 |\n|---|---|---|---|\n", encoding="utf-8")
+    checklist = tmp_path / "checklist.qmd"
+    checklist.write_text("# Teaching checklist\n\n- [ ] Check projector.\n", encoding="utf-8")
+    note = tmp_path / "session_06.qmd"
+    note.write_text(
+        '---\ntitle: "Session 06"\nsession_id: session-06\n'
+        'slide_range: "37–56"\n---\n\n'
+        '{{< teaching-file exercise6.py kind="demo" >}}\n',
+        encoding="utf-8",
+    )
+    output = tmp_path / "notes.qmd"
+
+    combine(output, [note], checklist=checklist, groups=groups)
+
+    combined = output.read_text(encoding="utf-8")
+    assert combined.index("# Groups") < combined.index("# Python solution coverage")
+    assert combined.index("# Python solution coverage") < combined.index(
+        "# Teaching checklist"
+    )
+    assert combined.index("# Teaching checklist") < combined.index(
+        "\n# Session 06 \\protect"
+    )
+    assert "## Session 06 - Track E3" in combined
+    assert "## Session 06 - Track E4" in combined
+    assert "## Session 06 - Track E5" in combined
+    assert "exercise6.py" in combined
+    assert "exercise6.py` (demo)" not in combined
+    assert r"\textbf{Teaching file} & \textbf{Completed} & \textbf{Note}" in combined
+    assert r"\begin{tabularx}{\linewidth}{|p{5.5cm}|p{3cm}|X|}\hline" in combined
+    assert r"\Needspace{14\baselineskip}" in combined
+    assert r"\renewcommand{\arraystretch}{1.25}" in combined
+    assert "**Shared with tutor:** $\\square$" in combined
+    assert r"\usepackage{amssymb}" in combined
+    assert r"\usepackage{tabularx}" in combined
+
+
 def test_groups_appear_before_checklist_and_sessions(tmp_path: Path) -> None:
     groups = tmp_path / "_groups.qmd"
     groups_source = (

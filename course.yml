@@ -7,6 +7,10 @@ course:
   language: English
   credits: 6
   description: Reusable Quarto teaching repository template for lectures, seminars, and project-based courses.
+tracks:
+  - E3
+  - E4
+  - E5
 repository:
   organization: fs-ise
   name: introduction-to-programming

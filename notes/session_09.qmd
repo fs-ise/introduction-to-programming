@@ -161,3 +161,5 @@ Note: Remind students that exercise 5 is the same task they completed in Excel.
 ::: {.callout-tip title="Notes for improvement"}
 Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
 :::
+
+See the Python solution coverage forms after **Groups** at the beginning of the printed teaching notes.
