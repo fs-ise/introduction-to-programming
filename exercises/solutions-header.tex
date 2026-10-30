@@ -1,0 +1,24 @@
+\usepackage{fvextra}
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+\usepackage{needspace}
+\AtBeginDocument{\apptocmd{\maketitle}{\vspace{-4.5em}}{}{}}
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Introduction to Programming}
+\makeatletter
+\fancyhead[R]{\small\nouppercase{\@title}}
+\makeatother
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\makeatletter
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyhead[L]{\small Introduction to Programming}
+  \fancyhead[R]{\small\nouppercase{\@title}}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
+}
+\makeatother
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines,breakanywhere}

@@ -5,11 +5,25 @@ profile:
   default: assign
 quarto-required: ">=1.8.0"
 filters:
+  - assign
   - ../scripts/mermaid_style.lua
 format:
   html:
     css:
       - ../assets/mermaid.css
   ipynb: default
+  pdf:
+    pdf-engine: lualatex
+    papersize: a4
+    toc: false
+    number-sections: false
+    colorlinks: true
+    geometry:
+      - left=1.5cm
+      - right=1.5cm
+      - top=2.0cm
+      - bottom=2.2cm
+      - includehead
+    include-in-header: solutions-header.tex
 execute:
   fig-align: center

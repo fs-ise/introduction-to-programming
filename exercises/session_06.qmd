@@ -1,0 +1,401 @@
+---
+title: "Session 06 — Statistics, Charts, Filtering, Grouping with Pandas"
+date: ""
+shortcodes:
+  - ../_extensions/needspace/needspace.lua
+execute:
+  echo: true
+  warning: false
+  message: false
+  fig-width: 7
+  fig-height: 4
+jupyter: python3
+---
+
+```{python}
+#| echo: false
+
+from IPython.core.interactiveshell import InteractiveShell
+from pathlib import Path
+import os
+
+InteractiveShell.ast_node_interactivity = "all"
+os.chdir(Path("../materials/data").resolve())
+
+import matplotlib.pyplot as plt
+
+plt.rcParams["figure.figsize"] = (4, 3)
+
+```
+
+{{< needspace 30 >}}
+
+## Slide 42 — Descriptive statistics: countries
+
+**Assignment:** Use the dataframe `countries`:
+
+::: {.sol}
+```{python}
+# Load Pandas and the countries dataset.
+import pandas as pd
+
+countries = pd.read_csv("countries.csv")
+```
+:::
+
+- Calculate and print the sum of `Area`.
+
+::: {.sol}
+```{python}
+# Sum the area values across all country rows.
+countries["Area"].sum()
+```
+:::
+
+- Calculate and print the average and variance of `GDP`.
+
+::: {.sol}
+```{python}
+# Calculate the average and sample variance of GDP.
+countries["GDP"].mean()
+countries["GDP"].var()
+```
+:::
+
+{{< pagebreak >}}
+
+- Calculate and print the averages of `Population`, `Area`, and `GDP`.
+
+::: {.sol}
+```{python}
+countries.loc[:, ["Population", "Area", "GDP"]].mean()
+```
+:::
+
+- Calculate and print the averages of `Population`, `Area`, and `GDP` for the US, Japan, Germany, and UK.
+
+::: {.sol}
+`.loc` selects rows by index labels, not by country names. Inspect the available labels with `countries.index`. For example, the US has label `2`, Japan `10`, Germany `11`, and the UK `13`. Country names are values in the `Country` column; the numbers are row labels.
+
+```{python}
+countries.loc[[2, 10, 11, 13], ["Population", "Area", "GDP"]].mean()
+```
+:::
+
+- Find the smallest area.
+
+::: {.sol}
+```{python}
+countries["Area"].min()
+```
+:::
+
+- Calculate and print correlations between the numerical variables, and interpret the result.
+
+::: {.sol}
+```{python}
+countries.loc[:, ["Population", "Area", "GDP"]].corr()
+```
+
+The diagonal is 1 because each variable is perfectly correlated with itself. Off-diagonal values show the pairwise linear relationships; here, the relationships are positive but not strong.
+:::
+
+{{< pagebreak >}}
+
+- Generate statistical summaries for `Population`, `Area`, and `GDP`, and for `Country` and `Continent`.
+
+::: {.sol}
+`describe()` gives a compact, type-aware summary. Numeric columns include statistics such as mean and standard deviation; categorical columns include counts and the most frequent value.
+
+```{python}
+countries.loc[:, ["Population", "Area", "GDP"]].describe()
+```
+
+```{python}
+countries.loc[:, ["Country", "Continent"]].describe()
+```
+:::
+
+- Count the different continents in the `Continent` column.
+
+::: {.sol}
+```{python}
+len(countries["Continent"].unique())
+```
+:::
+
+- Print the number of countries per continent.
+
+::: {.sol}
+Each country occurs only once in this dataset, so counting rows is equivalent to counting countries. `value_counts()` reports how many rows belong to each category.
+
+```{python}
+countries["Continent"].value_counts()
+```
+:::
+
+## Slide 49 — Visualizations: countries and temperatures
+
+**Assignment:** Use the dataframe `countries`:
+
+- Create a line chart of the numerical variables with country names on the x-axis.
+
+::: {.sol}
+```{python}
+#| fig-align: center
+# Compare population, area, and GDP across countries.
+countries.plot(
+    x="Country",
+    y=["Population", "Area", "GDP"],
+    xticks=range(len(countries)),
+    rot=75,
+)
+```
+:::
+
+{{< pagebreak >}}
+
+- Create a bar chart to show the number of countries per continent.
+
+::: {.sol}
+First, construct the chart data with `value_counts()`, which produces one count per continent. Then use those counts to create the bar chart.
+```{python}
+#| fig-align: center
+continent_counts = countries["Continent"].value_counts()
+continent_counts.plot(kind="bar", ylabel="Number of countries")
+```
+:::
+
+- Create a pie chart to show the number of countries per continent.
+
+::: {.sol}
+```{python}
+#| fig-align: center
+continent_counts.plot(kind="pie", ylabel="", autopct="%1.1f%%")
+```
+:::
+
+{{< pagebreak >}}
+
+- Create a density plot and a box plot for `GDP`, and interpret both charts.
+
+::: {.sol}
+The density plot shows the overall distribution of GDP; the box plot summarizes its center, spread, and potential outliers.
+
+```{python}
+#| fig-align: center
+countries["GDP"].plot(kind="density", title="GDP density: all countries")
+```
+
+```{python}
+#| fig-align: center
+countries["GDP"].plot(kind="box", title="GDP box plot: all countries")
+```
+:::
+
+::: {.sol}
+**Supplementary example:** The temperature dataset has months in rows and weather measures in columns. Plot the three temperature columns, excluding rainfall, to compare their trends.
+
+```{python}
+#| fig-align: center
+# Compare maximum, average, and minimum temperature by month.
+temperatures = pd.read_csv("temperatures.csv")
+temperatures.plot(
+    x="Month",
+    y=["Maximum", "Average", "Minimum"],
+    xticks=range(len(temperatures)),
+    rot=75,
+)
+```
+:::
+
+{{< needspace 30 >}}
+
+## Slide 53 — Conditional filtering: countries
+
+**Assignment:** Use the dataframe `countries`:
+
+- Select and print the data for countries with an area greater than 8,000.
+
+::: {.sol}
+A comparison such as `countries["Area"] > 8000` creates a Boolean Series with one `True` or `False` value per row. Use that Series inside `.loc[...]` to retain matching rows.
+
+```{python}
+# Keep countries with area greater than 8,000.
+countries.loc[countries["Area"] > 8000]
+```
+:::
+
+- Calculate the average GDP for countries with an area greater than 8,000 and for countries with an area smaller than 800.
+
+::: {.sol}
+Filter to countries with an area greater than 8,000, then calculate their average GDP.
+```{python}
+# Mean GDP among countries above the area threshold.
+countries.loc[countries["Area"] > 8000, "GDP"].mean()
+```
+
+Filter to countries with an area smaller than 800, then calculate their average GDP.
+
+```{python}
+# Mean GDP among countries below the area threshold.
+countries.loc[countries["Area"] < 800, "GDP"].mean()
+```
+:::
+
+{{< pagebreak >}}
+
+- Select and print the data for countries with an area greater than 8,000 and a population smaller than 400.
+
+::: {.sol}
+Combine conditions with `&` for **and** or `|` for **or**. Parenthesize each comparison so Pandas evaluates it before combining the conditions.
+```{python}
+# Countries that are both large in area and have a smaller population.
+large_and_less_populated = countries.loc[
+    (countries["Area"] > 8000) & (countries["Population"] < 400)
+]
+large_and_less_populated
+```
+:::
+
+- Adjust the previous query to print only `Country` and `GDP`.
+
+::: {.sol}
+The second argument to `.loc` selects columns as well as rows.
+```{python}
+# Keep only the country name and GDP for the qualifying rows.
+large_country_gdp = countries.loc[
+    (countries["Area"] > 8000) & (countries["Population"] < 400),
+    ["Country", "GDP"],
+]
+large_country_gdp
+```
+:::
+
+{{< pagebreak >}}
+
+- Create a bar chart of the previous query's results.
+
+::: {.sol}
+```{python}
+#| fig-align: center
+# Plot GDP for the filtered countries; horizontal labels stay unrotated.
+large_country_gdp.plot(x="Country", y="GDP", kind="bar", rot=0)
+```
+:::
+
+- Create a pie chart of the number of countries per continent where the population is smaller than 100.
+
+::: {.sol}
+Filter before counting categories to get the number of qualifying country rows per continent.
+```{python}
+#| fig-align: center
+# Select the continent values for the low-population countries, then count them.
+small_population_counts = countries.loc[
+    countries["Population"] < 100, "Continent"
+].value_counts()
+small_population_counts.plot(kind="pie", ylabel="", autopct="%1.1f%%")
+```
+:::
+
+- Create a density plot for the GDP values of European countries.
+
+::: {.sol}
+```{python}
+#| fig-align: center
+# GDP distribution for country rows classified as Europe.
+europe_gdp = countries.loc[countries["Continent"] == "Europe", "GDP"]
+europe_gdp.plot(kind="density", title="GDP density: Europe")
+```
+:::
+
+## Slide 56 — Grouping and aggregation: countries
+
+**Assignment:** Use the dataframe `countries`:
+
+- Print the number of countries per continent using `groupby()`.
+
+::: {.sol}
+`groupby()` partitions rows by category. Since each country appears once, counting the `Country` values gives the number of countries in each continent.
+```{python}
+countries.groupby("Continent")["Country"].count()
+```
+:::
+
+- Calculate the average GDP for each continent.
+
+::: {.sol}
+```{python}
+countries.groupby("Continent")["GDP"].mean()
+```
+:::
+
+- Calculate the average GDP-per-population ratio for each continent.
+
+::: {.sol}
+Create a GDP-per-population column first, then average that derived measure by continent.
+```{python}
+countries["GDP_by_Pop"] = countries["GDP"] / countries["Population"]
+countries.groupby("Continent")["GDP_by_Pop"].mean()
+```
+:::
+
+{{< pagebreak >}}
+
+## Slide 56 — Grouping and aggregation: insurance
+
+**Assignment:** Use the dataframe `insurance`:
+
+To display large numbers in decimal form, use `pd.options.display.float_format = '{:.2f}'.format`.
+
+- Calculate the average `InsuredValue` per state.
+
+::: {.sol}
+```{python}
+# Load insurance and calculate the average insured value per state.
+insurance = pd.read_excel("insurance.xlsx")
+# Average insured value for each state.
+insurance.groupby("State")["InsuredValue"].mean()
+```
+
+```{python}
+# Display floating-point output with two decimal places.
+pd.options.display.float_format = "{:.2f}".format
+insurance.groupby("State")["InsuredValue"].mean()
+```
+:::
+
+{{< pagebreak >}}
+
+- Count `InsuredValue` per state.
+
+::: {.sol}
+`count()` counts non-missing values in the selected column.
+```{python}
+# Count insurance records per state with a non-missing insured value.
+insurance.groupby("State")["InsuredValue"].count()
+```
+:::
+
+- Count `InsuredValue` per state for records where flood coverage is part of the contract.
+
+::: {.sol}
+Filter for flood coverage before grouping and counting.
+```{python}
+# Restrict to flood coverage marked "Y", then count those records per state.
+insurance.loc[insurance["Flood"] == "Y"].groupby("State")["InsuredValue"].count()
+```
+:::
+
+{{< pagebreak >}}
+
+- Count `InsuredValue` per state for records where flood or earthquake coverage is part of the contract.
+
+::: {.sol}
+Combine the flood and earthquake conditions with `|` (**or**), then group and count.
+```{python}
+# Keep records with flood coverage OR earthquake coverage, then count per state.
+flood_or_earthquake = (insurance["Flood"] == "Y") | (insurance["Earthquake"] == "Y")
+insurance.loc[flood_or_earthquake].groupby("State")["InsuredValue"].count()
+```
+:::

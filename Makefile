@@ -13,22 +13,20 @@ GROUP_SCHEDULE := _groups.qmd
 NOTES_PDF := $(OUT_DIR)/notes.pdf
 NOTES_COMBINED := _pdf-tmp/notes.qmd
 CHEAT_SHEET_PDF := materials/excel-cheat-sheet.pdf
-.PHONY: help site site-fast pdfs notes cheat-sheet exercises exercises-assign exercises-solution all sync-events clean
+.PHONY: help site site-fast pdfs notes cheat-sheet exercises all sync-events clean
 help:
-	@echo "Targets: site, pdfs, notes, cheat-sheet, exercises, all, sync-events, clean"
+	@echo "Targets: site, pdfs, notes, cheat-sheet, exercises (assignment and solution PDFs), all, sync-events, clean"
 site-fast:
 	$(QUARTO) render --no-clean
 site: exercises site-fast
 all: cheat-sheet site pdfs notes
-exercises-assign:
-	$(QUARTO) render exercises --profile assign --to ipynb --no-clean
-	$(QUARTO) render exercises --profile assign --to html --no-clean
-	@for f in _site/exercises/*.ipynb _site/exercises/*.html; do [ -e "$$f" ] && mv "$$f" "$${f%.*}_assign.$${f##*.}" || true; done
-exercises-solution:
-	$(QUARTO) render exercises --profile solution --to ipynb --no-clean
-	$(QUARTO) render exercises --profile solution --to html --no-clean
-	@for f in _site/exercises/*.ipynb _site/exercises/*.html; do case "$$f" in *_assign.*|*_solution.*) continue;; esac; [ -e "$$f" ] && mv "$$f" "$${f%.*}_solution.$${f##*.}" || true; done
-exercises: exercises-assign exercises-solution
+exercises:
+	@rm -rf _pdf-tmp/exercises-assign _pdf-tmp/exercises-solution
+	@mkdir -p _pdf-tmp _site/exercises
+	$(QUARTO) render exercises --profile assign --to pdf --output-dir $(abspath _pdf-tmp/exercises-assign) --no-clean
+	@for f in _pdf-tmp/exercises-assign/*.pdf; do [ -e "$$f" ] || continue; name=$${f##*/}; mv "$$f" "_site/exercises/$${name%.pdf}_assign.pdf"; done
+	$(QUARTO) render exercises --profile solution --to pdf --output-dir $(abspath _pdf-tmp/exercises-solution) --no-clean
+	@for f in _pdf-tmp/exercises-solution/*.pdf; do [ -e "$$f" ] || continue; name=$${f##*/}; mv "$$f" "_site/exercises/$${name%.pdf}_solution.pdf"; done
 pdfs: $(SLIDES_PDF)
 
 notes: $(NOTES_PDF)
