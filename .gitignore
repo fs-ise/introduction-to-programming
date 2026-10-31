@@ -19,3 +19,4 @@ notes/.notes-combined.qmd
 
 # Generated material viewer pages
 /generated/materials/
+.jupyter_cache/

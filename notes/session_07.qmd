@@ -7,7 +7,6 @@ event_id: null
 
 ::: {.callout-note title="Exam relevance"}
 Cover ML/prediction in 15-20 minutes, to illustrate that we only need to write a few lines of code to run an ML/prediction algorithm (ML/prediction will not be part of the exam).
-Machine learning and prediction are not relevant to the exam.
 :::
 
 ::: {.callout-note title="Datasets"}
@@ -17,9 +16,7 @@ Machine learning and prediction are not relevant to the exam.
 Python-Teil: Vorsichtig vorgehen (möglichst viele Studis mitnehmen)
 
 ```{mermaid}
-%%| fig-width: 6
-%%{init: {"flowchart": {"nodeSpacing": 10, "rankSpacing": 10, "padding": 5}}}%%
-
+%%| fig-height: 6
 flowchart
 
   subgraph AFTER_BREAK["<b>After break: Numeric types and input</b>"]
@@ -47,6 +44,12 @@ flowchart
 
 {{< needspace 20 >}}
 
+## Pandas and `pivot_table()`
+
+Whiteboard illustration:
+
+![](../images/pandas_pivot.png){width=80%}
+
 ## Slide 58 — Load the sales data and create a pivot table
 
 ```{python}
@@ -65,6 +68,8 @@ pd.pivot_table(
 ::: callout-note
 The `index` refers to rows. As in `df.index`, which prints the row labels.
 :::
+
+{{< needspace 30 >}}
 
 ## Slide 59 — Filter the data before pivoting
 
@@ -118,16 +123,15 @@ pd.pivot_table(
 )
 ```
 
+{{< needspace 30 >}}
+
 ## Slide 62 — Combine multiple filters
 
 Parentheses are required around the individual Pandas conditions.
 
 ```{python}
 pd.pivot_table(
-    sales[
-        (sales.Category == 'Actual')
-        & (sales.Year == 2020)
-    ],
+    sales[(sales.Category == 'Actual') & (sales.Year == 2020)],
     index='Region',
     columns='Product',
     values='Turnover',
@@ -143,19 +147,14 @@ The pivot table is a DataFrame and can therefore be stored, summed, and extended
 
 ```{python}
 pivot_df = pd.pivot_table(
-    sales[
-        (sales.Category == 'Actual')
-        & (sales.Year == 2020)
-    ],
+    sales[(sales.Category == 'Actual') & (sales.Year == 2020)],
     index='Region',
     columns='Product',
     values='Turnover',
     aggfunc='sum',
-)
-
-pivot_df.sum()
+) # briefly show pivot_df.sum() before the assignment:
 pivot_df.loc['Total'] = pivot_df.sum()
-print(pivot_df)
+pivot_df
 ```
 
 {{< pagebreak >}}
@@ -186,15 +185,15 @@ pd.pivot_table(
 
 ## Slide 67 — Pivot tables
 
-::: {.teaching-file}
-[`../materials/data/insurance.xlsx`](../materials/data/insurance.xlsx){.teaching-button .teaching-button-exercise}
-:::
-
 {{< teaching-file ../materials/session_07/pivot_insurance.py >}}
 
 {{< pagebreak >}}
 
 ## Slides 68–69 — Prediction concepts
+
+::: {.callout-tip title="Teaching focus"}
+Primarily illustrate that only a few additional lines of code are needed to run advanced analyses and predictions.
+:::
 
 Input variables describe the observations, while the target variable is the value to predict. A predictive model learns their relationship; prediction error measures how closely its predictions match known targets. Scikit-learn uses a standardized workflow: construct an estimator, fit it, predict, and evaluate.
 
@@ -202,23 +201,13 @@ Input variables describe the observations, while the target variable is the valu
 
 `x` contains the predictor variables and `y` contains the target variable. The following demonstrations are sequential and reuse these arrays.
 
-::: {.teaching-file}
-[In-class demo]{.teaching-label .teaching-label-demo} [`../materials/data/Student_performance.csv`](../materials/data/Student_performance.csv){.teaching-button .teaching-button-demo}
-:::
-
 ```{python}
 students = pd.read_csv("../materials/data/Student_performance.csv")
-students.head()
+print(students.head())
+```
 
-x = students.loc[
-    :,
-    [
-        'Hours_Studied',
-        'Sleep_Hours',
-        'Exercises_Practiced',
-    ],
-].values
-
+```{python}
+x = students.loc[ : , ['Hours_Studied', 'Sleep_Hours','Exercises_Practiced']].values
 y = students.loc[:, 'Performance'].values
 ```
 
@@ -226,7 +215,7 @@ y = students.loc[:, 'Performance'].values
 
 ## Slide 71 — Linear regression
 
-This constructs the estimator, fits it, predicts the known observations, calculates $R^2$, and finally predicts one new observation.
+This constructs the estimator, fits it, predicts the known observations and calculates $R^2$.
 
 ```{python}
 from sklearn.linear_model import LinearRegression
@@ -237,19 +226,25 @@ predictivemodel_reg.fit(x, y)
 
 y_pred = predictivemodel_reg.predict(x)
 
-r2_score(y, y_pred)
+print(r2_score(y, y_pred))
+```
+
+We predict one observation (5h studied, th sleep, 1 exercise practiced), **using a list of lists**:
+
+```{python}
 predictivemodel_reg.predict([[5, 5, 1]])
 ```
 
+{{< needspace 30 >}}
+
 ## Slide 72 — Random-forest regression
 
-`random_state=0` makes the model's random choices reproducible.
+Simply change the prediction model and use similar interfaces to predict and score.
 
 ```{python}
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import r2_score
 
-predictivemodel_rf = RandomForestRegressor(random_state=0)
+predictivemodel_rf = RandomForestRegressor()
 predictivemodel_rf.fit(x, y)
 
 y_pred = predictivemodel_rf.predict(x)
@@ -262,12 +257,11 @@ predictivemodel_rf.predict([[5, 5, 1]])
 
 ```{python}
 from sklearn.neural_network import MLPRegressor
-from sklearn.metrics import r2_score
 
 predictivemodel_net = MLPRegressor(
     solver='lbfgs',
     max_iter=3000,
-    random_state=0,
+    random_state=0
 )
 
 predictivemodel_net.fit(x, y)
@@ -281,19 +275,11 @@ predictivemodel_net.predict([[5, 5, 1]])
 
 ## Slides 74–75 — Chipotle analysis
 
-::: {.teaching-file}
-[`../materials/data/Chipotle.csv`](../materials/data/Chipotle.csv){.teaching-button .teaching-button-exercise}
-:::
-
 {{< teaching-file ../materials/session_07/analyze_chipotle_orders.py >}}
 
 {{< needspace 60 >}}
 
 ## Slides 76–77 — Florida housing analysis
-
-::: {.teaching-file}
-[`../materials/data/Homes_Florida.xlsx`](../materials/data/Homes_Florida.xlsx){.teaching-button .teaching-button-exercise}
-:::
 
 {{< teaching-file ../materials/session_07/analyze_florida_home_sales.py >}}
 
@@ -362,6 +348,8 @@ age = int(input("Your age? "))
 type(age)
 ```
 
+{{< needspace 30 >}}
+
 ## Slides 84–85 — Interactive formula programs
 
 Assign exercises `calculate_travel_time.py`, `calculate_fuel_consumption.py` and `calculate_loan_payment.py` as homework.
@@ -398,7 +386,7 @@ answer
 
 ## Summary and announcements
 
-- TODO
+- Survey (QR code)
 
 ::: {.callout-tip title="Notes for improvement"}
 Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
