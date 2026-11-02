@@ -43,6 +43,7 @@ pd.pivot_table(
     fill_value=0,
 )
 
+# assign to a variable
 pivot_df = pd.pivot_table(
     insurance,
     index=["Location", "BusinessType"],
