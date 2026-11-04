@@ -24,10 +24,12 @@ chipo["item_name"].value_counts().count()
 # 8 How many orders were made in the period?
 chipo["order_id"].value_counts().count()
 
-# 9 How much was the revenue for the period in the dataset? Solve without creating a new column 'revenue'.
+# 9 How much was the revenue for the period in the dataset?
+# Solve without creating a new column 'revenue'.
 (chipo["quantity"] * chipo["item_price"]).sum()
 
-# 10 What is the average revenue amount per order? Solve with creating a new column 'revenue'.
+# 10 What is the average revenue amount per order?
+# Solve with creating a new column 'revenue'.
 chipo["revenue"] = chipo["quantity"] * chipo["item_price"]
 chipo.groupby("order_id")["revenue"].sum().mean()
 

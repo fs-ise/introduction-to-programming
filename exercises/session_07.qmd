@@ -1,0 +1,374 @@
+---
+title: "Session 07 — Pivot Tables, Prediction, Numeric Types"
+date: ""
+shortcodes:
+  - ../_extensions/needspace/needspace.lua
+  - ../_extensions/teaching-file/teaching-file.lua
+execute:
+  echo: true
+  warning: false
+  message: false
+  fig-width: 7
+  fig-height: 4
+jupyter: python3
+---
+
+```{python}
+#| echo: false
+
+from IPython.core.interactiveshell import InteractiveShell
+from pathlib import Path
+import os
+import pandas as pd
+
+InteractiveShell.ast_node_interactivity = "all"
+os.chdir(Path("../materials/data").resolve())
+
+import matplotlib.pyplot as plt
+
+plt.rcParams["figure.figsize"] = (5, 3.5)
+pd.options.display.float_format = "{:.2f}".format
+```
+
+## Sales data: pivot-table practice
+
+In the first part, we work with the `Sales.xlsx` dataset:
+
+```{python}
+import pandas as pd
+sales = pd.read_excel("Sales.xlsx")
+```
+
+### Summarize turnover by region
+
+Calculate the total turnover in each region.
+
+::: {.sol}
+```{python}
+pd.pivot_table(
+    sales,
+    index="Region",
+    values="Turnover",
+    aggfunc="sum",
+)
+```
+:::
+
+### Filter to actual sales
+
+The dataset includes both actual and target values. Calculate total turnover by region for actual sales only.
+
+::: {.sol}
+```{python}
+pd.pivot_table(
+    sales.loc[sales["Category"] == "Actual"],
+    index="Region",
+    values="Turnover",
+    aggfunc="sum",
+)
+```
+:::
+
+### Apply multiple aggregation functions
+
+For actual sales, calculate the sum, mean, and standard deviation of turnover by region.
+
+::: {.sol}
+```{python}
+pd.pivot_table(
+    sales.loc[sales["Category"] == "Actual"],
+    index="Region",
+    values="Turnover",
+    aggfunc=["sum", "mean", "std"],
+)
+```
+:::
+
+### Add products as a column dimension
+
+Show the sum of turnover by region and product, first for the entire dataset and then for actual sales only.
+
+::: {.sol}
+```{python}
+pd.pivot_table(
+    sales,
+    index="Region",
+    columns="Product",
+    values="Turnover",
+    aggfunc="sum",
+)
+```
+
+```{python}
+pd.pivot_table(
+    sales.loc[sales["Category"] == "Actual"],
+    index="Region",
+    columns="Product",
+    values="Turnover",
+    aggfunc="sum",
+)
+```
+:::
+
+### Combine filters
+
+Calculate actual turnover by region and product for 2020. Parenthesize each Pandas comparison before combining conditions with `&`.
+
+::: {.sol}
+```{python}
+pd.pivot_table(
+    sales.loc[(sales["Category"] == "Actual") & (sales["Year"] == 2020)],
+    index="Region",
+    columns="Product",
+    values="Turnover",
+    aggfunc="sum",
+)
+```
+:::
+
+### Add totals and plot the pivot table
+
+Store the pivot table in a DataFrame, add a total row, and make a bar chart. `margins=True` is an alternative way to include totals.
+
+::: {.sol}
+```{python}
+pivot_df = pd.pivot_table(
+    sales.loc[(sales["Category"] == "Actual") & (sales["Year"] == 2020)],
+    index="Region",
+    columns="Product",
+    values="Turnover",
+    aggfunc="sum",
+)
+pivot_df.loc["Total"] = pivot_df.sum()
+pivot_df
+```
+
+```{python}
+#| fig-align: center
+pivot_df.plot(kind="bar")
+```
+:::
+
+### Use multiple row dimensions
+
+Create a hierarchical row index using year and region, with products as columns (remember to remove the year filter).
+
+::: {.sol}
+```{python}
+pd.pivot_table(
+    sales.loc[sales["Category"] == "Actual"],
+    index=["Year", "Region"],
+    columns="Product",
+    values="Turnover",
+    aggfunc="sum",
+)
+```
+:::
+
+## Insurance: pivot-table exercise
+
+```{python}
+insurance = pd.read_excel("insurance.xlsx")
+```
+
+### 1. Average insured value per state
+
+::: {.sol}
+```{python}
+pd.pivot_table(
+    insurance,
+    index="State",
+    values="InsuredValue",
+    aggfunc="mean",
+)
+```
+:::
+
+### 2. Average insured value by state and location
+
+Note: `fill_value=0` replaces missing cells in the result with zero.
+
+::: {.sol}
+```{python}
+pd.pivot_table(
+    insurance,
+    index="State",
+    columns="Location",
+    values="InsuredValue",
+    aggfunc="mean",
+    fill_value=0,
+)
+```
+:::
+
+### 3. Flood or earthquake coverage, by state and region
+
+Keep contracts with either flood or earthquake coverage, then calculate the average insured value for each state and region.
+
+::: {.sol}
+```{python}
+pd.pivot_table(
+    insurance.loc[(insurance["Flood"] == "Y") | (insurance["Earthquake"] == "Y")],
+    index="State",
+    columns="Region",
+    values="InsuredValue",
+    aggfunc="mean",
+    fill_value=0,
+)
+```
+:::
+
+### 4. Flood and earthquake coverage, by state and construction
+
+Keep only contracts with both coverages, then calculate the average insured value.
+
+::: {.sol}
+```{python}
+pd.pivot_table(
+    insurance.loc[(insurance["Flood"] == "Y") & (insurance["Earthquake"] == "Y")],
+    index="State",
+    columns="Construction",
+    values="InsuredValue",
+    aggfunc="mean",
+    fill_value=0,
+)
+```
+:::
+
+### 5. Total insured value by location, business type, and region
+
+::: {.sol}
+```{python}
+pd.pivot_table(
+    insurance,
+    index=["Location", "BusinessType"],
+    columns="Region",
+    values="InsuredValue",
+    aggfunc="sum",
+    fill_value=0,
+)
+```
+:::
+
+### 6. Add a total row
+
+::: {.sol}
+```{python}
+insurance_pivot = pd.pivot_table(
+    insurance,
+    index=["Location", "BusinessType"],
+    columns="Region",
+    values="InsuredValue",
+    aggfunc="sum",
+    fill_value=0,
+)
+insurance_pivot.loc["Total"] = insurance_pivot.sum()
+insurance_pivot
+```
+
+Another option is to use the built-in `margins=True` option.
+
+```{python}
+pd.pivot_table(
+    insurance,
+    index=["Location", "BusinessType"],
+    columns="Region",
+    values="InsuredValue",
+    aggfunc="sum",
+    fill_value=0,
+    margins=True,
+)
+```
+
+:::
+
+### 7. Plot contract counts by location and state
+
+::: {.sol}
+```{python}
+#| fig-align: center
+insurance_counts = pd.pivot_table(
+    insurance,
+    index="Location",
+    columns="State",
+    values="InsuredValue",
+    aggfunc="count",
+    fill_value=0,
+)
+insurance_counts.plot(kind="bar")
+```
+:::
+
+{{< pagebreak >}}
+
+## Chipotle orders analysis
+
+Use `Chipotle.csv` to inspect the order data, summarize orders and items, calculate revenue, filter for particular products, and create charts.
+
+::: {.sol}
+{{< teaching-file ../materials/session_07/analyze_chipotle_orders.py max-lines="40" >}}
+:::
+
+{{< pagebreak >}}
+
+## Florida home-sales analysis
+
+Use `Homes_Florida.xlsx` to calculate transaction profits, summarize and plot profits, filter and count properties, compare agencies, inspect correlations, and build price forecasts.
+
+::: {.sol}
+{{< teaching-file ../materials/session_07/analyze_florida_home_sales.py max-lines="40" >}}
+:::
+
+## Interactive formula programs
+
+`input()` returns text, so convert entered values to `int` or `float` before calculating. The following scripts are displayed as source and are not run while rendering this document.
+
+### In-class exercises
+
+#### Calculate the area of a circle
+
+Ask for a radius and calculate the circle's area.
+
+::: {.sol}
+{{< teaching-file ../materials/session_07/calculate_circle_area.py >}}
+:::
+
+#### Convert currency
+
+Ask for an amount and exchange rate, then calculate the converted amount.
+
+::: {.sol}
+{{< teaching-file ../materials/session_07/convert_currency.py >}}
+:::
+
+#### Calculate distance
+
+Ask for two pairs of coordinates and calculate the approximate distance between them.
+
+::: {.sol}
+{{< teaching-file ../materials/session_07/calculate_distance.py >}}
+:::
+
+#### Calculate travel time
+
+Use speed and distance to calculate the time needed for a trip.
+
+::: {.sol}
+{{< teaching-file ../materials/session_07/calculate_travel_time.py kind="homework" >}}
+:::
+
+#### Calculate fuel consumption
+
+Calculate fuel consumption in liters per 100 kilometers from distance driven and fuel added.
+
+::: {.sol}
+{{< teaching-file ../materials/session_07/calculate_fuel_consumption.py kind="homework" >}}
+:::
+
+#### Calculate the annual loan payment
+
+Convert the entered percentage rate to a decimal and calculate the annual payment for an annuity loan.
+
+::: {.sol}
+{{< teaching-file ../materials/session_07/calculate_loan_payment.py kind="homework" >}}
+:::

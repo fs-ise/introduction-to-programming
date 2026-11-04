@@ -3,7 +3,8 @@ import pandas as pd
 # 1 Read the file "Homes_Florida.xlsx" into a dataframe named homes.
 homes = pd.read_excel("data/Homes_Florida.xlsx")
 
-# 2 Create a new column named Profit that contains the profit made on each house transaction.
+# 2 Create a new column named Profit that contains
+# the profit made on each house transaction.
 homes["Profit"] = homes.Sales_Price - homes.Purchase_Price
 
 # 3 What profit did the agency "Orlando" make?
@@ -13,7 +14,8 @@ homes.loc[homes.Agency == "Orlando", "Profit"].sum()
 homes.groupby("Area")["Profit"].sum()
 homes.groupby("Area")["Profit"].sum().plot(kind="bar", x="Area", y="Profit")
 
-# 5 Calculate the average profit as a percentage of the sales price for houses smaller than 2,000.
+# 5 Calculate the average profit as a percentage of the sales price
+# for houses smaller than 2,000.
 (
     homes.loc[homes.Size < 2000, "Profit"]
     / homes.loc[homes.Size < 2000, "Sales_Price"]
@@ -40,7 +42,8 @@ homes["Agency"].nunique()
 # 10 Show the mean sales value and its standard deviation for each agency.
 pd.pivot_table(homes, index="Agency", values="Sales_Price", aggfunc=["mean", "std"])
 
-# 11 Show the correlations between the purchase price and the variables Size, Bedrooms, and Age.
+# 11 Show the correlations between the purchase price
+# and the variables Size, Bedrooms, and Age.
 homes.loc[:, ["Age", "Bedrooms", "Size", "Purchase_Price"]].corr().loc[
     ["Age", "Bedrooms", "Size"], "Purchase_Price"
 ]
