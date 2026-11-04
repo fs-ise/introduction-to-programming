@@ -9,4 +9,9 @@ long2 = float(input("Enter the longitude of the second location: "))
 # Distance=445.55
 
 distance = 69 * ((lat1 - lat2) ** 2 + (long1 - long2) ** 2) ** 0.5
+
+# Alternative solution
+# from math import sqrt
+# distance = 69 * sqrt((lat1 - lat2) ** 2 + (long1 - long2) ** 2)
+
 print("The distance is:", distance)

@@ -1,5 +1,5 @@
 ---
-title: "Session 07/Python 4: Pivoting, prediction, and data types"
+title: "Session 07/Python 4: Pivot, prediction, and data types"
 session_id: session-07
 slide_range: "58–86"
 event_id: null
@@ -50,7 +50,11 @@ Whiteboard illustration:
 
 ![](../images/pandas_pivot.png){width=80%}
 
+We create the same PivotTables as in Excel, using filters, row and column groupings, different aggregation functions and PivotCharts.
+
 ## Slide 58 — Load the sales data and create a pivot table
+
+At the beginning: we leave the column empty.
 
 ```{python}
 import pandas as pd
@@ -73,6 +77,10 @@ The `index` refers to rows. As in `df.index`, which prints the row labels.
 
 ## Slide 59 — Filter the data before pivoting
 
+We want to filter for `Actual` sales (remember: the data has *Actual* and *Target* data).
+
+Ask students to anticipate: how would you filter? It is similar to previous examples like `df.loc[criteria,:].plot()`.
+
 ```{python}
 pd.pivot_table(
     sales.loc[sales.Category == 'Actual'],
@@ -85,6 +93,8 @@ pd.pivot_table(
 {{< needspace 8 >}}
 
 ## Slide 60 — Apply multiple aggregation functions
+
+How would you apply multiple aggregation functions? Simillar to `df.sort_values(by="")`, we can use strings or lists as the parameter.
 
 `aggfunc` can contain multiple aggregation functions.
 
@@ -157,6 +167,8 @@ pivot_df.loc['Total'] = pivot_df.sum()
 pivot_df
 ```
 
+Note: adding `margins=True` is also an option.
+
 {{< pagebreak >}}
 
 ## Slide 64 — Plot a pivot table
@@ -191,6 +203,8 @@ pd.pivot_table(
 
 ## Slides 68–69 — Prediction concepts
 
+**Show the slides to explain prediction concepts before running the example.**
+
 ::: {.callout-tip title="Teaching focus"}
 Primarily illustrate that only a few additional lines of code are needed to run advanced analyses and predictions.
 :::
@@ -203,7 +217,7 @@ Input variables describe the observations, while the target variable is the valu
 
 ```{python}
 students = pd.read_csv("../materials/data/Student_performance.csv")
-print(students.head())
+print(students.head(2))
 ```
 
 ```{python}
@@ -216,6 +230,8 @@ y = students.loc[:, 'Performance'].values
 ## Slide 71 — Linear regression
 
 This constructs the estimator, fits it, predicts the known observations and calculates $R^2$.
+
+We import the powerful `sklearn` library (SOTA). We define the model setup.
 
 ```{python}
 from sklearn.linear_model import LinearRegression
@@ -271,6 +287,13 @@ r2_score(y, y_pred)
 predictivemodel_net.predict([[5, 5, 1]])
 ```
 
+For interested students:
+
+- Lecture **Analytics & Big Data**
+- `sklearn` tutorials like [https://www.kaggle.com/learn/intro-to-machine-learning](https://www.kaggle.com/learn/intro-to-machine-learning)
+
+{{< qrcode https://www.kaggle.com/learn/intro-to-machine-learning width=180 height=180 >}}
+
 {{< pagebreak >}}
 
 ## Slides 74–75 — Chipotle analysis
@@ -325,28 +348,57 @@ Use this solution when reviewing conversions:
 | `17.75`  | **`float`** | `int`   | **`int(17.75)`**    | **`17`**      |
 | `"3"`    | **`str`**   | `float` | **`float("3")`**    | **`3.0`**     |
 
-## Slide 83 — Keyboard input and type conversion
+## Slide 83 — Type conversion and interactive Python scripts
 
-`input()` returns a string. The final call uses `int()` to convert the second input explicitly.
+Interactive scripts typically follow three steps:
+
+1. Input: `input()` always returns a string (`str`).
+2. Calculation / Logic: Convert input to the required type (e.g., `int`, `float`) before performing arithmetic.
+3. Output: Use `print()` to communicate results in context. Convert numbers to strings for concatenation (`+`), or separate values with commas.
+
+### Example: Calculate your year of birth
 
 ```python
+# 1. INPUT
 name = input("What's your name? ")
-print("Nice to meet you " + name + "!")
+age = input("How old are you? ")
 
-age = input("Your age? ")
-print(
-    "So, you are already "
-    + age
-    + " years old, "
-    + name
-    + "!"
-)
+# 2. CALCULATION
+age = int(age)
+birth_year = 2026 - age
 
-type(age)
+# 3. OUTPUT
+print("Hello " + name + "!")
+print("You were born in " + str(birth_year) + ".")
 
-age = int(input("Your age? "))
-type(age)
+# Alternative: print() with commas
+print("You were born in", birth_year)
+
 ```
+
+Example interaction:
+
+CONSOLE
+
+What's your name? Anna\
+How old are you? 21\
+Hello Anna!\
+You were born in 2005.\
+You were born in 2005
+
+### Why type conversion matters
+
+| Expression               | Result                  |
+| ------------------------ | ----------------------- |
+| `"21" + "1"`             | `"211"` (concatenation) |
+| `21 + 1`                 | `22` (arithmetic)       |
+| `"Born in " + 2005`      | `TypeError`             |
+| `"Born in " + str(2005)` | `"Born in 2005"`        |
+| `print("Born in", 2005)` | `Born in 2005`          |
+
+Key takeaway: Convert strings to numbers for calculations, and numbers to strings when combining them with text using `+`.
+
+Note: The calculation assumes the birthday has already occurred in 2026. Otherwise, the birth year is 2004.
 
 {{< needspace 30 >}}
 
