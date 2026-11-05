@@ -572,6 +572,10 @@ Break — 10 minutes
 
 ## Slide 32 — Adding rows and columns
 
+::: {.callout-tip title="Selecting and adding rows"}
+With a single indexer and no comma, `.iloc[...]` selects a row by position and `.loc[...]` selects a row by index label. To add a row with a new label, assign values with `.loc[new_label] = values`.
+:::
+
 Rows can be added using a new row label. Because `CustomerID` is our index, we can use the identifier of the new customer directly.
 
 ```python

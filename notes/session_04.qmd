@@ -10,7 +10,9 @@ event_id: null
 - Install Spyder on the machine and run `Spydersetup.py` (Note: students already completed `Spydersetup.py` in the setup sessions!)
 - Before the pandas exercises, introduce the `data.zip` archive available in Canvas. Confirm that students have extracted its datasets into a `data/` folder.
 - Transfer files to laptop/open environment
-- Create a reminder to inform tutors about the exercises that we completed and those that should be discussed in the tutoring sessions
+- Create a reminder to inform tutors about the exercises that we completed and those that should be discussed in the tutoring sessions (use the session pages at the beginning of the notes)
+- For the Spyder demonstration, reuse one script per dataset and comment out earlier examples as you progress. Keep exercise scripts separate.
+- Spyder shortcut for live coding: `Ctrl`+`1` comments or uncomments the current line.
 - Open PPTX for animations
 - Inform students about recent materials (e.g., List of relevant Excel functions; Mock exam solutions)
 :::
