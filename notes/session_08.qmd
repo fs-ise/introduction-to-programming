@@ -5,7 +5,12 @@ slide_range: "88–107"
 event_id: null
 ---
 
-TOOD: include visualization of IBAN (see https://monitorpay.ai/iban-format-by-country-complete-guide-to-structure-validation-bank-lookup/)
+TODO:
+
+- Include visualization of IBAN - see `iban` branch! (see https://monitorpay.ai/iban-format-by-country-complete-guide-to-structure-validation-bank-lookup/)
+- Maybe use the IBAN illustration to show/motivate where we will go today. what we will be able to do at the end.
+- Add the link to the IBAN procedure, make it available to students? (canvas?)
+- Info: solutions available on Canvas
 
 Use the exercises to move from sequences to conditional logic, while keeping the stated homework decisions.
 

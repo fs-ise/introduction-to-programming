@@ -249,10 +249,13 @@ def test_combined_pdf_configuration_and_page_breaks(tmp_path: Path) -> None:
     assert r"\usepackage[skins]{tcolorbox}" in combined
     assert r"\tcbuselibrary{breakable}" in combined
     assert r"\newtcolorbox{teachingbreak}{%" in combined
-    assert "borderline north={0.4pt}{0pt}{gray!45}" in combined
-    assert "borderline south={0.4pt}{0pt}{gray!45}" in combined
+    assert "colback=blue!6" in combined
+    assert "borderline west={1.2pt}{0pt}{blue!65!black}" in combined
+    assert "borderline east={1.2pt}{0pt}{blue!65!black}" in combined
+    assert "borderline north={0.6pt}{0pt}{blue!45!black}" in combined
+    assert "borderline south={0.6pt}{0pt}{blue!45!black}" in combined
     assert "halign=center" in combined
-    assert r"fontupper=\bfseries" in combined
+    assert r"fontupper=\large\bfseries" in combined
     # tcolorbox is unbreakable unless its `breakable` option is enabled.
     assert "        breakable," not in combined
     assert r"\AtBeginDocument{%" in combined
@@ -381,14 +384,17 @@ def test_python_solution_coverage_forms_follow_groups(tmp_path: Path) -> None:
     combine(output, [note], checklist=checklist, groups=groups)
 
     combined = output.read_text(encoding="utf-8")
-    assert combined.index("# Groups") < combined.index("# Python solution coverage")
-    assert combined.index("# Python solution coverage") < combined.index(
+    assert combined.index("# Groups") < combined.index(
+        "# Progress of Python solutions by session"
+    )
+    assert combined.index("# Progress of Python solutions by session") < combined.index(
         "# Teaching checklist"
     )
     assert combined.index("# Teaching checklist") < combined.index(
         "\n# Session 06 \\protect"
     )
     assert "## Session 06 - Track E3" in combined
+    assert r"\renewcommand{\thepage}{Sessions/p\arabic{page}}" in combined
     assert "## Session 06 - Track E4" in combined
     assert "## Session 06 - Track E5" in combined
     assert "exercise6.py" in combined

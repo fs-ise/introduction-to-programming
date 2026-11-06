@@ -248,9 +248,9 @@ def combine(
     if coverage_forms:
         sources.append(
             (
-                "Python solution coverage",
+                "Progress of Python solutions by session",
                 coverage_forms,
-                "Coverage",
+                "Sessions",
                 None,
             )
         )
@@ -313,14 +313,16 @@ format:
       \\usepackage[skins]{{tcolorbox}}
       \\tcbuselibrary{{breakable}}
 
-      % A restrained, unbreakable callout for breaks in the teaching schedule.
+      % A clear, unbreakable callout for breaks in the teaching schedule.
       \\newtcolorbox{{teachingbreak}}{{%
         enhanced,
-        colback=gray!8,
+        colback=blue!6,
         frame hidden,
         boxrule=0pt,
-        borderline north={{0.4pt}}{{0pt}}{{gray!45}},
-        borderline south={{0.4pt}}{{0pt}}{{gray!45}},
+        borderline west={{1.2pt}}{{0pt}}{{blue!65!black}},
+        borderline east={{1.2pt}}{{0pt}}{{blue!65!black}},
+        borderline north={{0.6pt}}{{0pt}}{{blue!45!black}},
+        borderline south={{0.6pt}}{{0pt}}{{blue!45!black}},
         arc=1.5mm,
         outer arc=1.5mm,
         left=5mm,
@@ -330,7 +332,7 @@ format:
         before skip=6mm,
         after skip=6mm,
         halign=center,
-        fontupper=\\bfseries
+        fontupper=\\large\\bfseries
       }}
 
       % Pandoc defines Highlighting in its template, after header-includes has
