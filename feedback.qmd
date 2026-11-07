@@ -16,3 +16,4 @@ title: "Feedback"
 - Introduce general rules: Questions on exams only at the end. For all.
 - In-page anchors for Canvas pages would be helpful to direct students to relevant resources more efficiently. Avoids "Go to canvas, select the course, go to this area, ...".
 - Prepare debugging overview with QR codes in teaching notes
+- Listexercise2.py: Correction: Replaced `x.remove(2)` with `x.pop(2)` because on p. 97, the task requires removing the element at index 2 (the center position), not the element with the value `2`.

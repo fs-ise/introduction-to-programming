@@ -45,30 +45,156 @@ flowchart
 
 {{< needspace 10 >}}
 
-## Slide 88 — Creating strings
+## Slide 88 — Creating strings: Airline ticket example
 
-Single and double quotation marks both create strings and allow the other kind of quote to appear inside a value.
+![](../images/string_manipulation_airline.png)
+
+**Motivation:** Airline systems are complex problem-solving systems. They manage flight schedules, airports, routes, check-in, and much more. Often, information arrives as a single string rather than separate values.
+
+Use a simplified flight ticket identifier as a running example:
 
 ```python
-var1 = 'Hello World!'
-var2 = "Python Programming"
-
-x = 'abc'
-type(x)
-
-y = '"A quotation!"'
-print(y)
+ticket = "LH1234-FRA-JFK"
 ```
 
 ## Slide 90 — Slicing strings
 
-The two complementary slices reconstruct the original string.
+The system needs to identify the airline (`LH`), flight number (`1234`), departure (`FRA`), and destination (`JFK`).
+
+**Creating strings and checking their type**
 
 ```python
-s = 'Don Quijote'
+ticket = 'LH1234-FRA-JFK'   # Single quotes
+ticket = "LH1234-FRA-JFK"   # Double quotes
 
-s[:6] + s[6:]
+type(ticket)               # str
+len(ticket)                # 14
+
+message = 'Flight "LH1234" is ready'
+print(message)
 ```
+
+Both quotation styles work. String values are sequences of characters, including letters, numbers, spaces, and punctuation.
+
+**Combining strings**
+
+```python
+airline = "LH"
+flight_number = "1234"
+
+airline + flight_number     # 'LH1234'
+
+# print the flight code repeatedly
+ticket_code = ticket + " - "
+ticket_code * 10                 # 'LH1234-FRA-JFK - LH1234-FRA-JFK - ...'
+```
+
+The `+` operator concatenates strings; `*` repeats them.
+
+## Slide 89 — Accessing characters
+
+Explain zero-based indexing and negative indexing, using the ticket code.
+
+```python
+ticket = "LH1234-FRA-JFK"
+
+ticket[0]       # 'L' (first character)
+ticket[1]       # 'H'
+ticket[4]       # '3'
+ticket[-1]      # 'K' (last character)
+ticket[-3]      # 'J'
+```
+
+**Key points:**
+
+- Indexing starts at zero.
+- Negative indices count from the end.
+- Individual characters are themselves strings.
+- The digits in the ticket are initially characters, not numerical values.
+
+## Slide 90 — Slicing strings
+
+Extract the four meaningful components using slices.
+
+```python
+ticket = "LH1234-FRA-JFK"
+
+ticket[:2]       # 'LH' (airline)
+ticket[2:6]      # '1234' (flight number)
+ticket[7:10]     # 'FRA' (departure)
+ticket[-3:]      # 'JFK' (destination)
+
+ticket[:]        # Entire string
+ticket[:6] + ticket[6:] == ticket   # True
+```
+
+**Key points:**
+
+- Slicing uses `[start:stop]`.
+- The stop index is excluded.
+- Missing indices mean beginning or end.
+- Complementary slices reconstruct the original string.
+
+**Membership tests**
+
+```python
+"FRA" in ticket       # True
+"BER" in ticket       # False
+"JFK" not in ticket   # False
+```
+
+Use membership checks to identify whether particular sequences of characters appear in the ticket.
+
+**Type conversion**
+
+```python
+flight_number = ticket[2:6]   # '1234'
+number = int(flight_number)   # 1234
+
+type(flight_number)           # str
+type(number)                  # int
+```
+
+Explain why conversion is necessary when numbers must be used in numerical calculations.
+
+**Reconstructing the ticket**
+
+```python
+airline = ticket[:2]
+flight = ticket[2:6]
+departure = ticket[7:10]
+destination = ticket[-3:]
+
+new_ticket = airline + flight + "-" + departure + "-" + destination
+```
+
+**Validation and outlook**
+
+Ask students what might go wrong with a user-entered ticket:
+
+- Missing characters or separators
+- Incorrect flight number (`12A4`)
+- Unknown airport (`XXX`)
+- Departure and destination being identical
+
+Illustrate simple validation with familiar operations:
+
+```python
+len(ticket) == 14              # True
+ticket[6] == "-"               # True
+ticket[10] == "-"              # True
+```
+
+More sophisticated validation can be introduced later using conditional statements and additional string methods.
+
+**Transition:** These same techniques enable the IBAN exercise, in which students combine structured text, extract information, and convert strings to numbers for validation.
+
+- We want the completed IBAN to leave a remainder of 1 when divided by 97. During creation, we calculate the current remainder and determine how much must be added to reach 98—the next number with remainder 1. During verification, we simply check whether the completed number indeed has remainder 1.
+- Remember to do proper splitting, concatenation, and type conversions (`mod` requires int).
+- Why `mod 97` ? - Two digits available. Low numbers accept more errors (especially single-digit typos).
+- Standard: [ISO 7064](https://www.fisg.it/funzioni/php-iban/docs/ISO13616.pdf).
+
+{{< pagebreak >}}
 
 ## Slides 91–92 — Strings and IBAN
 
@@ -78,19 +204,13 @@ s[:6] + s[6:]
 
 {{< teaching-file ../materials/session_08/describe_string.py >}}
 
-<br>
-
 2. Write a Python program to insert a string in the middle of a string.
 
 {{< teaching-file ../materials/session_08/insert_string.py >}}
 
-<br>
-
 3. Write a program that at first asks for two strings...
 
 {{< teaching-file ../materials/session_08/analyze_strings.py kind="homework-solution" >}}
-
-<br>
 
 4. The International Bank Account Number (IBAN) is a standardized international numbering system developed to identify bank accounts across national borders....
 
@@ -102,41 +222,161 @@ Include a visualization of the IBAN procedure.
 
 {{< needspace 10 >}}
 
-## Slide 93 — Creating lists
+{{< pagebreak >}}
 
-Lists may contain different data types and may themselves contain other lists.
+## Slide 93 — Creating lists: Managing flights
+
+**Motivation:** Airlines manage collections of flights, not just individual tickets. Flights are added, canceled, or rescheduled. We need a data structure that can store and modify multiple values.
 
 ```python
-list1 = ['physics', 'chemistry', 1997, 2000]
-list2 = [1, 2, 3, 4, 5]
-list3 = ["a", "b", "c", "d"]
-
-list4 = [
-    [1, 2, 3, 4],
-    [5, 6, 7, 8],
-    [9, 10, 11, 12],
+flights = [
+    "LH1234-FRA-JFK",
+    "LH5678-FRA-LHR",
+    "LH9012-FRA-CDG",
+    "LH3456-FRA-JFK",
 ]
+
+type(flights)       # list
+len(flights)        # 4
 ```
 
 ## Slide 94 — Prepare a list for slicing
 
-This list is used for the indexing and slicing examples shown on the slide.
+**Key distinction:** A string is a sequence of characters; a list is a sequence of elements (e.g., flight identifiers).
+
+Lists can contain different data types, including other lists:
 
 ```python
-x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+bookings = [
+    ["LH1234", 450],
+    ["LH5678", 320],
+    ["LH9012", 580],
+]
+
+bookings[0]         # ['LH1234', 450]
+bookings[0][1]      # 450 (ticket price)
 ```
 
 {{< needspace 10 >}}
 
-## Slide 97 — List operations
+## Slide 94 — Indexing and slicing lists
 
-1. Perform the following list operations:
+The same indexing and slicing principles apply to strings and lists.
+
+```python
+ticket = "LH1234-FRA-JFK"
+
+ticket[0]           # 'L' (first character)
+flights[0]          # 'LH1234-FRA-JFK' (first flight)
+
+flights[-1]         # Last flight
+flights[1:3]        # Second and third flights
+flights[:2]         # First two flights
+flights[2:]         # Third flight onward
+flights[::2]        # Every second flight
+```
+
+**Key points:**
+
+- Indexing starts at zero; negative indices count from the end.
+- Slicing uses `[start:stop:step]`; the stop index is excluded.
+- Indexing returns one element; slicing returns a new list.
+
+**Membership and combining lists**
+
+```python
+"LH1234-FRA-JFK" in flights    # True
+"LH7777-FRA-MAD" in flights    # False
+
+flights + ["LH7777-FRA-MAD"]   # Combine lists
+flights * 2                   # Repeat list elements
+```
+
+## Slide 95 — Lists are mutable
+
+Unlike strings, lists can be modified after creation.
+
+```python
+flights[0] = "LH1111-FRA-JFK"  # Replace first flight
+
+ticket[0] = "A"               # TypeError: strings are immutable
+```
+
+**Managing flight schedules**
+
+```python
+flights = ["LH1234", "LH5678", "LH9012"]
+
+# Schedule a new flight
+flights.append("LH3456")
+
+# Add multiple flights
+flights.extend(["LH7777", "LH8888"])
+
+# Insert a flight at the second position
+flights.insert(1, "LH2222")
+
+# Cancel a flight
+flights.remove("LH5678")
+```
+
+The methods modify the existing list rather than creating a new one.
+
+**Ticket prices: built-in functions**
+
+```python
+prices = [450, 320, 580, 290]
+
+len(prices)         # 4 (number of prices)
+min(prices)         # 290 (cheapest ticket)
+max(prices)         # 580 (most expensive ticket)
+```
+
+## Slide 96 — Additional list operations
+
+Airline staff may need to locate particular flights, identify duplicate entries, or change the order in which flights are displayed.
+
+```python
+flights = ["LH1234", "LH5678", "LH9012", "LH1234"]
+
+# Find the position of a flight
+flights.index("LH5678")    # 1
+
+# Count occurrences
+flights.count("LH1234")    # 2
+
+# Reverse the order
+flights.reverse()
+
+# Remove the last flight and return it
+flights.pop()
+
+# Remove all flights
+flights.clear()
+```
+
+**Key points:**
+
+- `index()` returns the position of the first matching element; it raises an error if the element is missing.
+- `count()` returns the number of occurrences.
+- `reverse()` modifies the list in place.
+- `pop()` removes and returns an element (the last one by default).
+- `clear()` empties the list.
+
+**Takeaway:** Strings and lists share indexing, slicing, and membership operations. However, lists are mutable collections, making them suitable for managing changing information such as flight schedules and bookings.
+
+
+{{< pagebreak >}}
+
+## Slide 97 — Listexercise 1
 
 {{< teaching-file ../materials/session_08/practice_list_operations.py >}}
 
-2. Write a program that creates an empty list named x at first.
+## Slide 97 — Listexercise2
 
-- Assign exercise 2 as homework.
+Assign Listexercise2 as homework.
+
+**Note: replaced `x.remove(2)` with `x.pop(2)`.**
 
 {{< teaching-file ../materials/session_08/manipulate_list.py kind="homework" >}}
 
@@ -210,7 +450,7 @@ print(b)  # 10
 Break — 10 minutes
 :::
 
-{{< needspace 10 >}}
+{{< pagebreak >}}
 
 ## Slide 104 — Conditional statements
 
