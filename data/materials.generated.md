@@ -86,6 +86,8 @@
 | [Check iban](generated/materials/session_08/check_iban.html) | PY file |
 | [Convert temperature](generated/materials/session_08/convert_temperature.html) | PY file |
 | [Describe string](generated/materials/session_08/describe_string.html) | PY file |
+| [IBAN](generated/materials/session_08/IBAN.html) | PY file |
+| [IBAN construction and verification](materials/session_08/iban.html) | Web page |
 | [Insert string](generated/materials/session_08/insert_string.html) | PY file |
 | [Manipulate list](generated/materials/session_08/manipulate_list.html) | PY file |
 | [Play dice game](generated/materials/session_08/play_dice_game.html) | PY file |

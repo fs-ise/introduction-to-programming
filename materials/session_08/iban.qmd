@@ -1,0 +1,121 @@
+---
+title: "IBAN construction and verification"
+format:
+  revealjs:
+    controls: false
+    progress: false
+    slide-number: false
+    center: false
+    transition: none
+    background-transition: none
+    width: 1600
+    height: 1400
+    margin: 0.02
+title-slide-attributes:
+  data-visibility: hidden
+---
+
+```{=html}
+<style>
+  .reveal .iban-stage-stack {
+    position: relative;
+    width: 100%;
+    height: 1340px;
+    overflow: hidden;
+  }
+
+  .reveal .iban-stage-stack > img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    object-fit: contain;
+  }
+
+  .reveal .iban-standard-link {
+    position: absolute;
+    z-index: 20;
+    left: 50%;
+    bottom: 0.15rem;
+    transform: translateX(-50%);
+    color: #00549F;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+</style>
+
+<div class="iban-stage-stack">
+  <img
+    src="../../images/iban_steps_0.svg"
+    alt="IBAN construction: input values"
+    class="fragment fade-out"
+    data-fragment-index="1">
+
+  <img
+    src="../../images/iban_steps_1.svg"
+    alt="IBAN construction: convert country code DE to 1314"
+    class="fragment current-visible"
+    data-fragment-index="1">
+
+  <img
+    src="../../images/iban_steps_2.svg"
+    alt="IBAN construction: concatenate the strings"
+    class="fragment current-visible"
+    data-fragment-index="2">
+
+  <img
+    src="../../images/iban_steps_3.svg"
+    alt="IBAN construction: calculate modulo 97, giving remainder 10"
+    class="fragment current-visible"
+    data-fragment-index="3">
+
+  <img
+    src="../../images/iban_steps_4.svg"
+    alt="IBAN construction: calculate check digits 88"
+    class="fragment current-visible"
+    data-fragment-index="4">
+
+  <img
+    src="../../images/iban_steps_5.svg"
+    alt="IBAN construction: assemble the completed IBAN"
+    class="fragment current-visible"
+    data-fragment-index="5">
+
+  <img
+    src="../../images/iban_steps_6.svg"
+    alt="IBAN verification: start with the completed IBAN"
+    class="fragment current-visible"
+    data-fragment-index="6">
+
+  <img
+    src="../../images/iban_steps_7.svg"
+    alt="IBAN verification: convert DE to 1314"
+    class="fragment current-visible"
+    data-fragment-index="7">
+
+  <img
+    src="../../images/iban_steps_8.svg"
+    alt="IBAN verification: append the country code and check digits to the remaining account digits"
+    class="fragment current-visible"
+    data-fragment-index="8">
+
+  <img
+    src="../../images/iban_steps_9.svg"
+    alt="IBAN verification: modulo 97 gives 1 and the checksum is valid"
+    class="fragment"
+    data-fragment-index="9">
+
+  <a
+    class="iban-standard-link"
+    href="https://www.iso.org/standard/81090.html"
+    target="_blank"
+    rel="noopener noreferrer">Based on ISO 13616-1:2020 — IBAN structure</a>
+</div>
+```

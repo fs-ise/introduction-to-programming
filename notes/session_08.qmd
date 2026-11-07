@@ -189,11 +189,6 @@ More sophisticated validation can be introduced later using conditional statemen
 
 **Transition:** These same techniques enable the IBAN exercise, in which students combine structured text, extract information, and convert strings to numbers for validation.
 
-- We want the completed IBAN to leave a remainder of 1 when divided by 97. During creation, we calculate the current remainder and determine how much must be added to reach 98—the next number with remainder 1. During verification, we simply check whether the completed number indeed has remainder 1.
-- Remember to do proper splitting, concatenation, and type conversions (`mod` requires int).
-- Why `mod 97` ? - Two digits available. Low numbers accept more errors (especially single-digit typos).
-- Standard: [ISO 7064](https://www.fisg.it/funzioni/php-iban/docs/ISO13616.pdf).
-
 {{< pagebreak >}}
 
 ## Slides 91–92 — Strings and IBAN
@@ -214,11 +209,16 @@ More sophisticated validation can be introduced later using conditional statemen
 
 4. The International Bank Account Number (IBAN) is a standardized international numbering system developed to identify bank accounts across national borders....
 
-{{< teaching-file ../materials/session_08/check_iban.py >}}
 
-::: {.callout-note title="TODO"}
-Include a visualization of the IBAN procedure.
-:::
+**Illustrate logic**
+
+- Use the visualization: [IBAN construction and verification](../materials/session_08/iban.qmd).
+- We want the completed IBAN to leave a remainder of 1 when divided by 97. During creation, we calculate the current remainder and determine how much must be added to reach 98—the next number with remainder 1. During verification, we simply check whether the completed number indeed has remainder 1.
+- Remember to do proper splitting, concatenation, and type conversions (`mod` requires int).
+- Why `mod 97` ? - Two digits available. Low numbers accept more errors (especially single-digit typos).
+- Standard: [ISO 7064](https://www.fisg.it/funzioni/php-iban/docs/ISO13616.pdf).
+
+{{< teaching-file ../materials/session_08/check_iban.py >}}
 
 {{< needspace 10 >}}
 

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1400" viewBox="0 0 1600 1400" role="img" aria-labelledby="title desc">
+<title id="title">IBAN construction and verification, stage 9</title>
+<desc id="desc">Append the converted country code and check digits 131488 to the remaining account digits.</desc>
+<style>text { font-family: Arial, Helvetica, sans-serif; } .mono { font-family: Consolas, "Liberation Mono", monospace; }</style>
+<rect width="1600" height="1400" fill="#FFFFFF"/>
+<rect x="35" y="25" width="1530" height="675" rx="16" fill="#FBFDFE" stroke="#B8CEDF" stroke-width="2"/>
+<text x="80" y="78" font-size="36" font-weight="700" fill="#00549F" text-anchor="start" class="">CREATE IBAN</text>
+<text x="80" y="135" font-size="21" font-weight="700" fill="#00549F" text-anchor="start" class="">INPUT</text>
+<text x="285" y="135" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Bank code</text>
+<text x="650" y="135" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">50070010</text>
+<text x="285" y="180" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Account number</text>
+<text x="650" y="180" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">0175526303</text>
+<text x="285" y="225" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Country code</text>
+<text x="650" y="225" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">DE</text>
+<text x="80" y="292" font-size="21" font-weight="700" fill="#00549F" text-anchor="start" class="">CALCULATIONS</text>
+<text x="285" y="292" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Convert country code</text>
+<text x="650" y="292" font-size="29" font-weight="700" fill="#00549F" text-anchor="start" class="mono">DE → 1314</text>
+<text x="285" y="350" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Concatenate</text>
+<text x="650" y="350" font-size="29" font-weight="600" fill="#17212B" text-anchor="start" class="mono">&#x27;50070010&#x27; + &#x27;0175526303&#x27; + &#x27;1314&#x27; + &#x27;00&#x27;</text>
+<text x="285" y="408" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Calculate mod 97</text>
+<text x="650" y="408" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">500700100175526303131400 mod 97 = 10</text>
+<text x="285" y="466" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Calculate check digits</text>
+<text x="660" y="466" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">98 − 10 = 88</text>
+<text x="80" y="532" font-size="21" font-weight="700" fill="#00549F" text-anchor="start" class="">OUTPUT</text>
+<text x="285" y="532" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Assemble IBAN</text>
+<text x="650" y="532" font-size="29" font-weight="700" fill="#00549F" text-anchor="start" class="mono">DE</text>
+<text x="695" y="532" font-size="29" font-weight="700" fill="#9A6700" text-anchor="start" class="mono">88</text>
+<text x="755" y="532" font-size="29" font-weight="700" fill="#5B4B8A" text-anchor="start" class="mono">5007 0010</text>
+<text x="950" y="532" font-size="29" font-weight="700" fill="#2F6F73" text-anchor="start" class="mono">0175 5263 03</text>
+<text x="672" y="572" font-size="18" font-weight="600" fill="#00549F" text-anchor="middle" class="">Country code</text>
+<text x="720" y="607" font-size="18" font-weight="600" fill="#9A6700" text-anchor="middle" class="">Check digits</text>
+<text x="830" y="572" font-size="18" font-weight="600" fill="#5B4B8A" text-anchor="middle" class="">Bank code</text>
+<text x="1075" y="572" font-size="18" font-weight="600" fill="#2F6F73" text-anchor="middle" class="">Account number</text>
+<rect x="35" y="730" width="1530" height="620" rx="16" fill="#FCFEFC" stroke="#BED8CA" stroke-width="2"/>
+<text x="80" y="783" font-size="36" font-weight="700" fill="#00549F" text-anchor="start" class="">VERIFY IBAN</text>
+<text x="80" y="840" font-size="21" font-weight="700" fill="#00549F" text-anchor="start" class="">INPUT</text>
+<text x="285" y="840" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Completed IBAN</text>
+<text x="650" y="840" font-size="29" font-weight="700" fill="#00549F" text-anchor="start" class="mono">DE</text>
+<text x="695" y="840" font-size="29" font-weight="700" fill="#9A6700" text-anchor="start" class="mono">88</text>
+<text x="755" y="840" font-size="29" font-weight="700" fill="#5B4B8A" text-anchor="start" class="mono">5007 0010</text>
+<text x="950" y="840" font-size="29" font-weight="700" fill="#2F6F73" text-anchor="start" class="mono">0175 5263 03</text>
+<text x="80" y="900" font-size="21" font-weight="700" fill="#00549F" text-anchor="start" class="">CALCULATIONS</text>
+<text x="285" y="900" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Convert country code</text>
+<text x="650" y="900" font-size="29" font-weight="700" fill="#00549F" text-anchor="start" class="mono">DE → 1314</text>
+<text x="285" y="960" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Append country code</text>
+<text x="650" y="960" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">&#x27;500700100175526303&#x27; + &#x27;131488&#x27;</text>
+</svg>
