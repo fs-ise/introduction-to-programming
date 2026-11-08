@@ -57,10 +57,6 @@ Use a simplified flight ticket identifier as a running example:
 ticket = "LH1234-FRA-JFK"
 ```
 
-## Slide 90 — Slicing strings
-
-The system needs to identify the airline (`LH`), flight number (`1234`), departure (`FRA`), and destination (`JFK`).
-
 **Creating strings and checking their type**
 
 ```python
@@ -113,6 +109,8 @@ ticket[-3]      # 'J'
 - The digits in the ticket are initially characters, not numerical values.
 
 ## Slide 90 — Slicing strings
+
+The system needs to identify the airline (`LH`), flight number (`1234`), departure (`FRA`), and destination (`JFK`).
 
 Extract the four meaningful components using slices.
 
@@ -365,12 +363,13 @@ flights.clear()
 
 **Takeaway:** Strings and lists share indexing, slicing, and membership operations. However, lists are mutable collections, making them suitable for managing changing information such as flight schedules and bookings.
 
-
 {{< pagebreak >}}
 
 ## Slide 97 — Listexercise 1
 
 {{< teaching-file ../materials/session_08/practice_list_operations.py >}}
+
+{{< pagebreak >}}
 
 ## Slide 97 — Listexercise2
 
