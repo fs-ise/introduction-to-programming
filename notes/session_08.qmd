@@ -479,56 +479,46 @@ Pedagogical moment: Change `JFK` to `LHR`. Ask students to predict the output be
 
 ### Understanding how Python executes statements
 
-Motivation: To understand conditionals, we first need to understand how Python executes a program.
+Before introducing blocks, revisit familiar programs and ask students to trace
+how Python executes their statements.
 
 #### 1\. Sequential execution
 
+Open `../materials/session_07/calculate_travel_time.py`. Trace the program from
+the input statements through the calculation to the output. Emphasize that
 Python normally executes statements one after another, from top to bottom.
-
-```python
-ticket_price = 450
-tax = 50
-total = ticket_price + tax
-print(total)
-```
 
 #### 2\. A statement can involve several operations
 
-Executing an individual statement may involve multiple operations.
+Return to the airline message example:
 
 ```python
-price = 450
-print("Ticket price: " + str(price) + " EUR")
+message = 'Flight "' + ticket[:6] + '" is ready'
 ```
 
-Walk through the evaluation:
-
-- Retrieve the value of `price`.
-- Convert the integer `450` into the string `"450"`.
-- Concatenate the strings.
-- Call `print()` with the resulting string.
-
-Key distinction: A statement is not necessarily a single computational operation. Python evaluates the expressions needed to execute it.
+Ask students to trace the slice, the string concatenations, and the assignment.
+Emphasize that one statement can involve several operations.
 
 #### 3\. A statement may span multiple physical lines
 
+Return to the motivating airline example and ask students to reformat its
+existing print statement across multiple physical lines without changing what
+it does:
+
 ```python
 print(
-    "Flight: LH1234",
-    "Departure: FRA",
-    "Destination: JFK"
+    "Flight to New York"
 )
 ```
 
-Although this occupies five lines, it is one Python statement.
-
-Python recognizes the statement as continuing across lines because the parentheses remain open.
-
-Pedagogical moment: Ask: "Does Python execute five separate print statements here?" Emphasize the difference between physical lines and logical statements.
+Ask whether Python executes this as several separate statements or one
+statement spread across several physical lines. Point out that the open
+parentheses show that the `print()` call continues across lines.
 
 #### 4\. Compound statements introduce blocks
 
-Now revisit the conditional:
+Return to the motivating destination check and expand its `if` block to include
+several instructions:
 
 ```python
 destination = "JFK"
@@ -541,7 +531,7 @@ if destination == "JFK":
 print("Processing complete")
 ```
 
-Explain the execution process:
+Highlight the indentation and explain the execution process:
 
 1. Python evaluates the Boolean condition.
 2. If `True`, it executes the statements in the indented block, one after another.
@@ -589,110 +579,101 @@ Motivation: Sometimes we need the program to execute one block or another, rathe
 
 ```python
 ticket = "LH1234-FRA-JFK"
+destination = ticket[-3:]
 
 if len(ticket) == 14:
-    print("Correct length")
-    print("Continue processing")
+    print("The ticket is valid")
 else:
-    print("Invalid length")
-    print("Request correction")
-
-print("Validation finished")
+    print("Invalid booking reference")
 ```
 
-Explain that `if` and `else` each have their own indented block. Only one of these blocks executes, and the program then continues after the entire conditional structure.
+Explain that `if` and `else` each have their own indented block and only one
+executes. The length check is a simple first validation step; a correct length
+alone does not guarantee that every part of the ticket is valid.
 
 Pedagogical moments:
 
 - Ask whether both blocks could ever execute in the same pass through this `if/else`.
-- Show how changing the length of the ticket changes the execution path.
+- Change the length of `ticket` and ask students to predict which message prints.
 - Ask whether a ticket with the correct length is necessarily valid.
 
 Key takeaway: `if/else` represents two mutually exclusive execution paths.
 
 ### Multiple alternatives: `if / elif / else`
 
-Motivation: Airline systems may apply different rules depending on ticket prices.
+Now extend the same ticket check. For a correctly sized ticket, the destination
+subsystem can provide different information for JFK and YUL, or report that it
+does not have information for another destination.
 
 ```python
-price = 450
+ticket = "LH1234-FRA-JFK"
+destination = ticket[-3:]
 
-if price < 200:
-    print("Budget")
-elif price < 500:
-    print("Standard")
+if len(ticket) == 14:
+    print("The ticket is valid")
+
+    if destination == "JFK":
+        print("Your destination is New York.")
+        print("Weather: New York weather information")
+        print("Local time: New York local time")
+    elif destination == "YUL":
+        print("Your destination is Montreal.")
+        print("Weather: Montreal weather information")
+        print("Local time: Montreal local time")
+    else:
+        print("No information on destination")
+
+    print("Have a nice flight!")
 else:
-    print("Premium")
-
-print("Classification complete")
+    print("Invalid booking reference")
 ```
 
-Explain that Python evaluates conditions in order and executes the block associated with the first true condition. The remaining branches are skipped.
+Walk through the indentation carefully: the destination `if/elif/else` is
+nested inside the outer length check. The final greeting is inside the valid
+ticket branch but outside the destination alternatives, so it prints for a
+valid-length ticket even when the destination is unknown. An invalid-length
+ticket skips all destination processing and the greeting.
 
 Pedagogical moments:
 
-- Ask why `elif price < 500` does not also require `price >= 200`.
-- Compare the behavior of `if/elif/else` with three independent `if` statements.
-- Test `price = 200`, `499`, and `500`.
+- Predict the output for tickets ending in `JFK`, `YUL`, and an unsupported destination.
+- Change the ticket length and identify which nested statements are skipped.
+- Compare the outer `else` with the inner `else`; ask which `if` each belongs to.
+- Dedent `print("Have a nice flight!")` and predict how its execution changes.
 
-Key takeaway: In an `if/elif/else` chain, Python selects at most one branch. The order of conditions matters.
+Explain that Python checks `if` and `elif` conditions in order and executes
+only the first matching branch. The `else` runs when none of the preceding
+conditions in that chain are true.
+
+Key takeaway: Nested conditionals let one decision control which further
+alternatives are considered. Indentation makes the relationship between the
+outer and inner branches visible.
 
 ### Combining conditions: Boolean operators
 
-Motivation: Business decisions often depend on multiple requirements being satisfied simultaneously.
+Return to ticket validation to combine the length and separator checks already
+introduced:
 
 ```python
-price = 450
-seats_available = True
+ticket = "LH1234-FRA-JFK"
 
-if price <= 500 and seats_available:
-    print("Booking possible")
+if len(ticket) == 14 and ticket[6] == "-" and ticket[10] == "-":
+    print("The ticket has the expected basic structure")
 else:
-    print("Booking not possible")
+    print("Check the booking reference")
 ```
 
-Introduce `and`, `or`, and `not` as ways to combine or negate Boolean conditions.
+Introduce `and`, `or`, and `not` as ways to combine or negate Boolean
+conditions. For example, use `or` to ask whether the destination is either
+JFK or YUL, and `not` to express the opposite of a condition.
 
 Pedagogical moments:
 
-- Ask whether changing `and` to `or` would preserve the intended booking rule.
-- Evaluate `price <= 500` and `seats_available` independently before combining them.
+- Evaluate each length and separator check independently before combining them.
+- Ask how changing `and` to `or` would change the validation rule.
 - Explain that Python evaluates Boolean expressions using short-circuit evaluation, without exploring the implementation in depth.
 
 Key takeaway: Boolean operators allow us to express decision rules involving multiple conditions.
-
-<!--
-### Consolidation: Predict the execution path
-
-End with a short exercise combining the main concepts:
-
-```python
-price = 550
-seats_available = True
-
-print("Checking booking")
-
-if price <= 500:
-    print("Price accepted")
-    if seats_available:
-        print("Booking possible")
-else:
-    print("Price too high")
-
-print("Check complete")
-```
-
-Ask students to determine the output without running the program.
-
-Then discuss:
-
-- The two separate levels of indentation.
-- Why the nested `if` does not execute.
-- Why the final `print()` always executes.
-- How changing `price` to `450` changes the execution path.
-
-This also briefly introduces nested conditionals, without requiring extensive coverage.
--->
 
 ## Summary
 
