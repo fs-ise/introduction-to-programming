@@ -147,9 +147,9 @@ Explain why conversion is necessary when numbers must be used in numerical calcu
 **Reconstructing the ticket**
 
 ```python
-airline = ticket[:2]
-flight = ticket[2:6]
-departure = ticket[7:10]
+airline     = ticket[:2]
+flight      = ticket[2:6]
+departure   = ticket[7:10]
 destination = ticket[-3:]
 
 new_ticket = airline + flight + "-" + departure + "-" + destination
