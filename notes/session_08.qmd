@@ -679,9 +679,11 @@ Conditional statements do not replace sequential execution; they control which s
 
 {{< teaching-file ../materials/session_08/calculate_loan.py kind="homework" >}}
 
+{{< pagebreak >}}
+
 4. Write a program that simulates a dice game.
 
-**Explain exercise 4, emphasizing the importance of whether code is inside or outside an `if` block.**
+**Explain exercise 4, emphasizing the importance of whether code is inside/outside an `if` block.**
 
 {{< teaching-file ../materials/session_08/play_dice_game.py >}}
 
