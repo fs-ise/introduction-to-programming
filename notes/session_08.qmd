@@ -72,7 +72,14 @@ that the separators are in the expected positions. They are individual checks
 for now; conditional statements will show later how a program can respond to
 the results.
 
-### Informational reminder: quotes and printing
+### Informational print block
+
+Start with Python code comments to explain what we want to print (highlight surrounding quotes):
+
+```python
+# Flight "LH1234-FRA-JFK" is ready
+# LH1234-FRA-JFK-LH1234-FRA-JFK-LH1234-FRA-JFK-LH1234-FRA-JFK-LH1234-FRA-JFK...
+```
 
 Both single and double quotes can mark a string:
 
@@ -81,10 +88,12 @@ ticket = 'LH1234-FRA-JFK'   # Single quotes
 ticket = "LH1234-FRA-JFK"   # Double quotes
 ```
 
-Use different quote styles when the text itself contains a quotation mark:
+Use different quote styles when the text itself contains a quotation mark.
+Build the message from the ticket using concatenation and the flight-code
+slice:
 
 ```python
-message = 'Flight "LH1234" is ready'
+message = 'Flight "' + ticket + '" is ready'
 print(message)
 ```
 
@@ -117,7 +126,18 @@ ticket[-3]      # 'J'
 - Individual characters are themselves strings.
 - The digits in the ticket are initially characters, not numerical values.
 
+{{< needspace 20 >}}
+
 ## Slide 90 — Slicing strings
+
+::: {.callout-tip title="Activate prior Pandas knowledge"}
+Recall selecting data by position with `.iloc`. How might we use character
+positions to select part of a string such as `ticket`?
+
+Ask students to predict which characters a position range would include.
+As with `.iloc`, the start position is included and the stop position is
+excluded.
+:::
 
 The airline, flight-number, departure, and destination systems need different
 parts of the ticket. Since this ticket has a fixed structure, use slices to
@@ -135,10 +155,6 @@ destination = ticket[11:14]  # 'JFK'
 Imagine passing `airline` to the airline subsystem, `flightnr` to the flight
 subsystem, and the two airport codes to the departure and destination systems.
 
-**Activate prior Pandas knowledge:** Ask students to compare `ticket[2:6]`
-with position/range-based access using `.iloc`. In both cases, the start
-position is included and the upper limit is excluded. Therefore, `[2:6]`
-selects positions 2, 3, 4, and 5.
 
 **Key points:**
 
@@ -324,11 +340,13 @@ flights.index("LH5678")    # 2 (after reversing the list)
 # Count occurrences
 flights.count("LH1234")    # 2
 
-# Cancel a flight
+# Cancel a flight based on the value
 flights.remove("LH5678")
 
-# Remove the last flight and return it
+# Remove flight based on position: last flight
 flights.pop()
+# Pop also takes positions
+flights.pop(0)
 
 # Remove all flights
 flights.clear()
