@@ -22,3 +22,17 @@ generated/*
 # Generated material viewer pages
 /generated/materials/
 .jupyter_cache/
+
+/*.html
+/site_libs/
+/data/materials.generated.html
+/exercises/*.html
+/exercises/*_files/
+/notes/*.html
+/notes/*_files/
+/materials/*.html
+/materials/session_08/iban.html
+/materials/session_10/InsuranceAgent.html
+/slides/*.html
+/student_guide/*.html
+/cheatsheet/excel-cheat-sheet.pdf
