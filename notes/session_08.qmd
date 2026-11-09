@@ -5,14 +5,8 @@ slide_range: "88–107"
 event_id: null
 ---
 
-TODO:
-
-- Include visualization of IBAN - see `iban` branch! (see https://monitorpay.ai/iban-format-by-country-complete-guide-to-structure-validation-bank-lookup/)
-- Maybe use the IBAN illustration to show/motivate where we will go today. what we will be able to do at the end.
 - Add the link to the IBAN procedure, make it available to students? (canvas?)
-- Info: solutions available on Canvas
-
-Use the exercises to move from sequences to conditional logic, while keeping the stated homework decisions.
+- Info: solutions are available on Canvas
 
 ```{mermaid}
 %%| fig-width: 6
@@ -24,7 +18,7 @@ flowchart
     B1["<b>Conditional branches</b> (30 min)"]
     B2["<b>💻 Exercise: Odd/even</b> (15 min)"]
     B3["<b>💻 Exercise: Discount</b> (13 min)"]
-    B4["<b>💻 Exercise: Dice game and block placement</b> (10 min)"]
+    B4["<b>💻 Exercise: Dice game, block placement</b> (10 min)"]
     B5["<b>💻 Exercise: Temperature</b> (10 min)"]
     B6["<b>Conditional homework and wrap-up</b> (12 min)"]
     B1 --> B2 --> B3 --> B4 --> B5 --> B6
@@ -33,10 +27,10 @@ flowchart
   subgraph BEFORE_BREAK["<b>Before break: Strings and sequences</b>"]
     direction TB
     A1["<b>Strings: creation and slicing</b> (20 min)"]
-    A2["<b>💻 Exercises: Strings 1–2</b> (20 min) · String 3 for homework"]
+    A2["<b>💻 Exercises: Strings 1–2</b> (20 min) · 3: homework"]
     A3["<b>💻 Exercise: IBAN</b> (12 min)"]
     A4["<b>Lists: creation and slicing</b> (15 min)"]
-    A5["<b>💻 Exercise: List 1</b> (10 min) · Exercise 2 for homework"]
+    A5["<b>💻 Exercise: List 1</b> (10 min) · 2: homework"]
     A6["<b>Tuples and mutability</b> (13 min)"]
     A1 --> A2 --> A3 --> A4 --> A5 --> A6
   end
@@ -85,11 +79,7 @@ ticket_code = ticket + " - "
 ticket_code * 10                 # 'LH1234-FRA-JFK - LH1234-FRA-JFK - ...'
 ```
 
-The `+` operator concatenates strings; `*` repeats them.
-
 ## Slide 89 — Accessing characters
-
-Explain zero-based indexing and negative indexing, using the ticket code.
 
 ```python
 ticket = "LH1234-FRA-JFK"
@@ -111,7 +101,6 @@ ticket[-3]      # 'J'
 ## Slide 90 — Slicing strings
 
 The system needs to identify the airline (`LH`), flight number (`1234`), departure (`FRA`), and destination (`JFK`).
-
 Extract the four meaningful components using slices.
 
 ```python
@@ -185,13 +174,9 @@ ticket[10] == "-"              # True
 
 More sophisticated validation can be introduced later using conditional statements and additional string methods.
 
-**Transition:** These same techniques enable the IBAN exercise, in which students combine structured text, extract information, and convert strings to numbers for validation.
-
 {{< pagebreak >}}
 
-## Slides 91–92 — Strings and IBAN
-
-**Assign exercise 3 as homework.**
+## Slides 91–92 — Exercises: Strings and IBAN
 
 1. Write a Python program to calculate the length of a string you type in. Furthermore, it should output the first and the last character.
 
@@ -201,20 +186,30 @@ More sophisticated validation can be introduced later using conditional statemen
 
 {{< teaching-file ../materials/session_08/insert_string.py >}}
 
+{{< pagebreak >}}
+
+**Assign exercise 3 (maybe 4) as homework.**
+
 3. Write a program that at first asks for two strings...
 
 {{< teaching-file ../materials/session_08/analyze_strings.py kind="homework-solution" >}}
 
-4. The International Bank Account Number (IBAN) is a standardized international numbering system developed to identify bank accounts across national borders....
+{{< pagebreak >}}
 
+4. The International Bank Account Number (IBAN) is a standardized international numbering system developed to identify bank accounts across national borders....
 
 **Illustrate logic**
 
-- Use the visualization: [IBAN construction and verification](../materials/session_08/iban.qmd).
-- We want the completed IBAN to leave a remainder of 1 when divided by 97. During creation, we calculate the current remainder and determine how much must be added to reach 98—the next number with remainder 1. During verification, we simply check whether the completed number indeed has remainder 1.
-- Remember to do proper splitting, concatenation, and type conversions (`mod` requires int).
-- Why `mod 97` ? - Two digits available. Low numbers accept more errors (especially single-digit typos).
+- Remember: validation steps applied in the airline example. For critical input, we may also want to avoid typos.
 - Standard: [ISO 7064](https://www.fisg.it/funzioni/php-iban/docs/ISO13616.pdf).
+- Use the visualization: [IBAN construction and verification](https://fs-ise.github.io/introduction-to-programming/materials/session_08/iban.html).
+- We want the completed IBAN to leave a remainder of 1 when divided by 97. During creation, we calculate the current remainder and determine how much must be added to reach 98—the next number with remainder 1. During verification, we simply check whether the completed number indeed has remainder 1.
+- Why `mod 97` ? - Two digits available. Low numbers accept more errors (especially single-digit typos).
+- Remember to do proper splitting, concatenation, and type conversions (`mod` requires int).
+
+{{< qrcode https://fs-ise.github.io/introduction-to-programming/materials/session_08/iban.html width=280 height=280 >}}
+
+<br>
 
 {{< teaching-file ../materials/session_08/check_iban.py >}}
 
@@ -318,7 +313,7 @@ flights.insert(1, "LH2222")
 flights.remove("LH5678")
 ```
 
-The methods modify the existing list rather than creating a new one.
+The methods **modify the existing list** rather than creating a new one (different from Pandas `sort_values()`).
 
 **Ticket prices: built-in functions**
 
@@ -329,6 +324,8 @@ len(prices)         # 4 (number of prices)
 min(prices)         # 290 (cheapest ticket)
 max(prices)         # 580 (most expensive ticket)
 ```
+
+{{< needspace 20 >}}
 
 ## Slide 96 — Additional list operations
 
@@ -371,11 +368,7 @@ flights.clear()
 
 {{< pagebreak >}}
 
-## Slide 97 — Listexercise2
-
-Assign Listexercise2 as homework.
-
-**Note: replaced `x.remove(2)` with `x.pop(2)`.**
+## Slide 97 — Listexercise2: Homework
 
 {{< teaching-file ../materials/session_08/manipulate_list.py kind="homework" >}}
 
@@ -400,8 +393,6 @@ tuple4[1][2:4]
 
 ## Slide 99 — Mutable lists and immutable tuples
 
-The final line intentionally raises `TypeError: 'tuple' object does not support item assignment` because tuples are immutable.
-
 ```python
 mylist = [1, 2, 3, 4]
 mytupel = (1, 2, 3, 4)
@@ -412,38 +403,8 @@ print(mytupel)
 mylist[2] = 5
 print(mylist)
 
-mytupel[2] = 5
+mytupel[2] = 5 # raisese TypeError: 'tuple' object does not support item assignment
 ```
-
-::: {.callout-note title="TODO"}
-
-Compare mutable vs immutable types using strings and integers?
-
-```python
-# Lists are mutable
-a = [1, 2, 3]
-b = a
-a.append(4)
-
-print(b)  # [1, 2, 3, 4]
-
-# Strings are immutable
-a = "Hello"
-b = a
-a = a + " World"
-
-print(b)  # "Hello"
-
-# Integers are immutable
-a = 10
-b = a
-a = a + 5
-
-print(b)  # 10
-```
-
-:::
-
 
 ::: {.teaching-break}
 Break — 10 minutes
@@ -453,102 +414,292 @@ Break — 10 minutes
 
 ## Slide 104 — Conditional statements
 
-Assign suitable values to `x`, `y`, and `time` before running the relevant examples.
+### Motivation: From processing information to making decisions
+
+Opening question: "So far, our programs have processed information by following instructions. But how can a program react differently depending on the information it receives?"
+
+Return to the airline ticket example:
 
 ```python
-if x < 1:
-    print("x smaller than 1")
+ticket = "LH1234-FRA-JFK"
+destination = ticket[-3:]
+
+if destination == "JFK":
+    print("Flight to New York")
 ```
 
+Key points:
+
+- `destination == "JFK"` evaluates to `True` or `False`.
+- The `print()` statement only executes when the condition is true.
+- We have introduced a new way to control which instructions Python executes.
+
+Pedagogical moment: Change `JFK` to `LHR`. Ask students to predict the output before running the code.
+
+### Understanding how Python executes statements
+
+Motivation: To understand conditionals, we first need to understand how Python executes a program.
+
+#### 1\. Sequential execution
+
+Python normally executes statements one after another, from top to bottom.
+
 ```python
-if x < 1:
-    print("x smaller than 1")
+ticket_price = 450
+tax = 50
+total = ticket_price + tax
+print(total)
+```
+
+#### 2\. A statement can involve several operations
+
+Executing an individual statement may involve multiple operations.
+
+```python
+price = 450
+print("Ticket price: " + str(price) + " EUR")
+```
+
+Walk through the evaluation:
+
+- Retrieve the value of `price`.
+- Convert the integer `450` into the string `"450"`.
+- Concatenate the strings.
+- Call `print()` with the resulting string.
+
+Key distinction: A statement is not necessarily a single computational operation. Python evaluates the expressions needed to execute it.
+
+#### 3\. A statement may span multiple physical lines
+
+```python
+print(
+    "Flight: LH1234",
+    "Departure: FRA",
+    "Destination: JFK"
+)
+```
+
+Although this occupies five lines, it is one Python statement.
+
+Python recognizes the statement as continuing across lines because the parentheses remain open.
+
+Pedagogical moment: Ask: "Does Python execute five separate print statements here?" Emphasize the difference between physical lines and logical statements.
+
+#### 4\. Compound statements introduce blocks
+
+Now revisit the conditional:
+
+```python
+destination = "JFK"
+
+if destination == "JFK":
+    print("Flight to New York")
+    print("International destination")
+    print("Check travel requirements")
+
+print("Processing complete")
+```
+
+Explain the execution process:
+
+1. Python evaluates the Boolean condition.
+2. If `True`, it executes the statements in the indented block, one after another.
+3. If `False`, it skips the entire indented block.
+4. Execution continues with the first statement after the block.
+
+The important point of compound statements is that one part (the `if`) controls whether other statements are executed.
+
+
+```{mermaid}
+%%| fig-height: 2.5
+ 
+flowchart TD
+    A["destination = 'JFK'"]
+    B{"destination == 'JFK'?"}
+    C["Execute indented block<br/>3 print statements"]
+    D["Processing complete"]
+
+    A --> B
+    B -->|True| C
+    B -->|False| D
+    C --> D
+
+    classDef statement fill:#eef1f5,stroke:#94a3b8,color:#222
+    classDef decision fill:#e2e8f0,stroke:#6486a8,color:#222
+    classDef executed fill:#dceee5,stroke:#27835f,color:#222
+
+    class A,D statement
+    class B decision
+    class C executed
+```
+
+Pedagogical moments:
+
+- Ask students to identify exactly which statements are inside the `if` block.
+- Change the condition to `False` and ask which statements are skipped.
+- Dedent the third `print()` and ask how the execution changes.
+- Emphasize that indentation is part of Python's syntax, not merely a formatting convention.
+
+Key takeaway: Python executes statements sequentially, but compound statements such as `if` control which blocks of statements are executed.
+
+### Choosing between alternatives: `if / else`
+
+Motivation: Sometimes we need the program to execute one block or another, rather than simply execute or skip a block.
+
+```python
+ticket = "LH1234-FRA-JFK"
+
+if len(ticket) == 14:
+    print("Correct length")
+    print("Continue processing")
 else:
-    print("x is bigger than or equal to 1")
+    print("Invalid length")
+    print("Request correction")
+
+print("Validation finished")
 ```
 
+Explain that `if` and `else` each have their own indented block. Only one of these blocks executes, and the program then continues after the entire conditional structure.
+
+Pedagogical moments:
+
+- Ask whether both blocks could ever execute in the same pass through this `if/else`.
+- Show how changing the length of the ticket changes the execution path.
+- Ask whether a ticket with the correct length is necessarily valid.
+
+Key takeaway: `if/else` represents two mutually exclusive execution paths.
+
+### Multiple alternatives: `if / elif / else`
+
+Motivation: Airline systems may apply different rules depending on ticket prices.
+
 ```python
-if x < 1:
-    print("x smaller than 1")
-elif x == 1:
-    print("x is equal to 1")
+price = 450
+
+if price < 200:
+    print("Budget")
+elif price < 500:
+    print("Standard")
 else:
-    print("x is bigger than 1")
+    print("Premium")
+
+print("Classification complete")
 ```
+
+Explain that Python evaluates conditions in order and executes the block associated with the first true condition. The remaining branches are skipped.
+
+Pedagogical moments:
+
+- Ask why `elif price < 500` does not also require `price >= 200`.
+- Compare the behavior of `if/elif/else` with three independent `if` statements.
+- Test `price = 200`, `499`, and `500`.
+
+Key takeaway: In an `if/elif/else` chain, Python selects at most one branch. The order of conditions matters.
+
+### Combining conditions: Boolean operators
+
+Motivation: Business decisions often depend on multiple requirements being satisfied simultaneously.
 
 ```python
-# Swap x and y if y < x
-print(x, y)
+price = 450
+seats_available = True
 
-if y < x:
-    temp = x
-    x = y
-    y = temp
-
-print(x, y)
+if price <= 500 and seats_available:
+    print("Booking possible")
+else:
+    print("Booking not possible")
 ```
+
+Introduce `and`, `or`, and `not` as ways to combine or negate Boolean conditions.
+
+Pedagogical moments:
+
+- Ask whether changing `and` to `or` would preserve the intended booking rule.
+- Evaluate `price <= 500` and `seats_available` independently before combining them.
+- Explain that Python evaluates Boolean expressions using short-circuit evaluation, without exploring the implementation in depth.
+
+Key takeaway: Boolean operators allow us to express decision rules involving multiple conditions.
+
+<!--
+### Consolidation: Predict the execution path
+
+End with a short exercise combining the main concepts:
 
 ```python
-if time >= 11 and time <= 13:
-    print("It is noon!")
+price = 550
+seats_available = True
+
+print("Checking booking")
+
+if price <= 500:
+    print("Price accepted")
+    if seats_available:
+        print("Booking possible")
+else:
+    print("Price too high")
+
+print("Check complete")
 ```
 
-The final condition can also use a chained comparison:
+Ask students to determine the output without running the program.
 
-```python
-if 11 <= time <= 13:
-    print("It is noon!")
-```
+Then discuss:
+
+- The two separate levels of indentation.
+- Why the nested `if` does not execute.
+- Why the final `print()` always executes.
+- How changing `price` to `450` changes the execution path.
+
+This also briefly introduces nested conditionals, without requiring extensive coverage.
+-->
+
+## Summary
+
+1. Sequential execution: Python normally executes statements in order; a single statement may involve multiple operations or span several lines.
+2. Conditional execution: An `if` statement evaluates a Boolean condition to decide whether an entire indented block executes.
+3. Alternative paths: `else` and `elif` provide additional branches; only the first matching branch executes.
+4. Logical conditions: Comparisons and Boolean operators express business rules.
+5. Control flow and indentation: Indentation determines which statements belong to a block; statements following the block resume normal execution.
+
+Conditional statements do not replace sequential execution; they control which sequences of statements Python executes.
 
 {{< needspace 10 >}}
 
-## Slides 105–107 — Conditional logic
-
-PR: exercises 3, 5, 6, 7: homework (for the tutorial).
+## Slides 105–107 — Exercises on conditional logic. Homework: 3, 5, 6, 7
 
 1. Write a program to determine if a number entered is odd or even.
 
 {{< teaching-file ../materials/session_08/check_even.py >}}
 
-<br>
-
 2. Write a program that calculates a discount based on the purchase amount.
 
 {{< teaching-file ../materials/session_08/calculate_discount.py >}}
-
-<br>
 
 3. Extend the program which calculates the annual payment of an annuity loan by a rating parameter.
 
 {{< teaching-file ../materials/session_08/calculate_loan.py kind="homework" >}}
 
-<br>
-
 4. Write a program that simulates a dice game.
 
-**Explain exercise 4 in class, emphasizing the importance of whether code is inside or outside an `if` block.**
+**Explain exercise 4, emphasizing the importance of whether code is inside or outside an `if` block.**
 
 {{< teaching-file ../materials/session_08/play_dice_game.py >}}
-
-<br>
 
 5. Write a program to convert temperatures between celsius and fahrenheit.
 
 {{< teaching-file ../materials/session_08/convert_temperature.py kind="homework" >}}
 
-<br>
-
 6. Write a program to calculate the grades A-F based on the final percentage score:
 
 {{< teaching-file ../materials/session_08/calculate_grades.py kind="homework" >}}
-
-<br>
 
 7. Write a program to calculate income tax (T) and net income for any taxable income (X)
 
 {{< teaching-file ../materials/session_08/calculate_tax.py kind="homework" >}}
 
 ## Summary and announcements
+
+- Survey
 
 ::: {.callout-tip title="Notes for improvement"}
 Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.

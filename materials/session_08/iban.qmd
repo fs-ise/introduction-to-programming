@@ -2,6 +2,7 @@
 title: "IBAN construction and verification"
 format:
   revealjs:
+    menu: false
     controls: false
     progress: false
     slide-number: false
