@@ -5,6 +5,7 @@ slide_range: "88–107"
 event_id: null
 ---
 
+- Info on grading status?
 - Add the link to the IBAN procedure, make it available to students? (canvas?)
 - Info: solutions are available on Canvas
 
@@ -51,35 +52,52 @@ Use a simplified flight ticket identifier as a running example:
 ticket = "LH1234-FRA-JFK"
 ```
 
-**Creating strings and checking their type**
+The ticket arrives as one string, but different airline systems need different
+pieces of information. Before passing those pieces on, first check that the
+ticket has the expected basic structure.
+
+**Checking the ticket**
+
+```python
+ticket = "LH1234-FRA-JFK"
+
+type(ticket) == str        # True
+len(ticket) == 14          # True
+ticket[6] == "-"           # True
+ticket[10] == "-"          # True
+```
+
+These checks confirm that the value is a string with the expected length and
+that the separators are in the expected positions. They are individual checks
+for now; conditional statements will show later how a program can respond to
+the results.
+
+### Informational reminder: quotes and printing
+
+Both single and double quotes can mark a string:
 
 ```python
 ticket = 'LH1234-FRA-JFK'   # Single quotes
 ticket = "LH1234-FRA-JFK"   # Double quotes
+```
 
-type(ticket)               # str
-len(ticket)                # 14
+Use different quote styles when the text itself contains a quotation mark:
 
+```python
 message = 'Flight "LH1234" is ready'
 print(message)
 ```
 
-Both quotation styles work. String values are sequences of characters, including letters, numbers, spaces, and punctuation.
-
-**Combining strings**
+Repeating a string can also be useful for a visual separator in printed output:
 
 ```python
-airline = "LH"
-flight_number = "1234"
-
-airline + flight_number     # 'LH1234'
-
-# print the flight code repeatedly
-ticket_code = ticket + " - "
-ticket_code * 10                 # 'LH1234-FRA-JFK - LH1234-FRA-JFK - ...'
+print("-" * 30)
 ```
 
 ## Slide 89 — Accessing characters
+
+Indexing lets us check individual positions in the ticket and access individual
+characters:
 
 ```python
 ticket = "LH1234-FRA-JFK"
@@ -87,6 +105,7 @@ ticket = "LH1234-FRA-JFK"
 ticket[0]       # 'L' (first character)
 ticket[1]       # 'H'
 ticket[4]       # '3'
+ticket[6]       # '-' (first separator)
 ticket[-1]      # 'K' (last character)
 ticket[-3]      # 'J'
 ```
@@ -100,29 +119,50 @@ ticket[-3]      # 'J'
 
 ## Slide 90 — Slicing strings
 
-The system needs to identify the airline (`LH`), flight number (`1234`), departure (`FRA`), and destination (`JFK`).
-Extract the four meaningful components using slices.
+The airline, flight-number, departure, and destination systems need different
+parts of the ticket. Since this ticket has a fixed structure, use slices to
+extract the characters at the corresponding positions:
 
 ```python
 ticket = "LH1234-FRA-JFK"
 
-ticket[:2]       # 'LH' (airline)
-ticket[2:6]      # '1234' (flight number)
-ticket[7:10]     # 'FRA' (departure)
-ticket[-3:]      # 'JFK' (destination)
-
-ticket[:]        # Entire string
-ticket[:6] + ticket[6:] == ticket   # True
+airline = ticket[:2]       # 'LH'
+flightnr = ticket[2:6]     # '1234'
+departure = ticket[7:10]   # 'FRA'
+destination = ticket[11:14]  # 'JFK'
 ```
+
+Imagine passing `airline` to the airline subsystem, `flightnr` to the flight
+subsystem, and the two airport codes to the departure and destination systems.
+
+**Activate prior Pandas knowledge:** Ask students to compare `ticket[2:6]`
+with position/range-based access using `.iloc`. In both cases, the start
+position is included and the upper limit is excluded. Therefore, `[2:6]`
+selects positions 2, 3, 4, and 5.
 
 **Key points:**
 
 - Slicing uses `[start:stop]`.
 - The stop index is excluded.
 - Missing indices mean beginning or end.
-- Complementary slices reconstruct the original string.
+- Slices can extract parts that can be routed to different systems.
+
+**Prepare the flight number for numerical processing**
+
+The flight subsystem may need the flight number as a number for calculations.
+The slice is a string, so convert it before numerical processing:
+
+```python
+flightnr = ticket[2:6]       # '1234'
+flightnr_number = int(flightnr)  # 1234
+
+type(flightnr)               # str
+type(flightnr_number)        # int
+```
 
 **Membership tests**
+
+Use `in` to check whether a sequence of characters occurs in the ticket:
 
 ```python
 "FRA" in ticket       # True
@@ -130,49 +170,9 @@ ticket[:6] + ticket[6:] == ticket   # True
 "JFK" not in ticket   # False
 ```
 
-Use membership checks to identify whether particular sequences of characters appear in the ticket.
-
-**Type conversion**
-
-```python
-flight_number = ticket[2:6]   # '1234'
-number = int(flight_number)   # 1234
-
-type(flight_number)           # str
-type(number)                  # int
-```
-
-Explain why conversion is necessary when numbers must be used in numerical calculations.
-
-**Reconstructing the ticket**
-
-```python
-airline     = ticket[:2]
-flight      = ticket[2:6]
-departure   = ticket[7:10]
-destination = ticket[-3:]
-
-new_ticket = airline + flight + "-" + departure + "-" + destination
-```
-
-**Validation and outlook**
-
-Ask students what might go wrong with a user-entered ticket:
-
-- Missing characters or separators
-- Incorrect flight number (`12A4`)
-- Unknown airport (`XXX`)
-- Departure and destination being identical
-
-Illustrate simple validation with familiar operations:
-
-```python
-len(ticket) == 14              # True
-ticket[6] == "-"               # True
-ticket[10] == "-"              # True
-```
-
-More sophisticated validation can be introduced later using conditional statements and additional string methods.
+String membership can provide a quick check for a particular code. The
+position-based slices above are useful when the ticket follows a known fixed
+structure.
 
 {{< pagebreak >}}
 
@@ -201,11 +201,13 @@ More sophisticated validation can be introduced later using conditional statemen
 **Illustrate logic**
 
 - Remember: validation steps applied in the airline example. For critical input, we may also want to avoid typos.
+- **How could we know?** -> checksum!
 - Standard: [ISO 7064](https://www.fisg.it/funzioni/php-iban/docs/ISO13616.pdf).
-- Use the visualization: [IBAN construction and verification](https://fs-ise.github.io/introduction-to-programming/materials/session_08/iban.html).
+- Use the visualization: [IBAN construction and verification](https://fs-ise.github.io/introduction-to-programming/materials/session_08/iban.html). **Highlight that the task is to implement the last part: IBAN validation.**
 - We want the completed IBAN to leave a remainder of 1 when divided by 97. During creation, we calculate the current remainder and determine how much must be added to reach 98—the next number with remainder 1. During verification, we simply check whether the completed number indeed has remainder 1.
 - Why `mod 97` ? - Two digits available. Low numbers accept more errors (especially single-digit typos).
 - Remember to do proper splitting, concatenation, and type conversions (`mod` requires int).
+- Note: **Country code conversion is not part of the task** (assume users enter `1314` instead of `DE`).
 
 {{< qrcode https://fs-ise.github.io/introduction-to-programming/materials/session_08/iban.html width=280 height=280 >}}
 
@@ -233,46 +235,27 @@ type(flights)       # list
 len(flights)        # 4
 ```
 
-## Slide 94 — Prepare a list for slicing
-
-**Key distinction:** A string is a sequence of characters; a list is a sequence of elements (e.g., flight identifiers).
-
-Lists can contain different data types, including other lists:
-
-```python
-bookings = [
-    ["LH1234", 450],
-    ["LH5678", 320],
-    ["LH9012", 580],
-]
-
-bookings[0]         # ['LH1234', 450]
-bookings[0][1]      # 450 (ticket price)
-```
 
 {{< needspace 10 >}}
 
 ## Slide 94 — Indexing and slicing lists
 
-The same indexing and slicing principles apply to strings and lists.
+The **same indexing and slicing principles apply** to strings and lists.
 
 ```python
-ticket = "LH1234-FRA-JFK"
-
-ticket[0]           # 'L' (first character)
-flights[0]          # 'LH1234-FRA-JFK' (first flight)
+ticket[0]           # 'L' (first character of the ticket string)
+flights[0]          # 'LH1234-FRA-JFK' (first element of the flight list)
 
 flights[-1]         # Last flight
 flights[1:3]        # Second and third flights
 flights[:2]         # First two flights
 flights[2:]         # Third flight onward
-flights[::2]        # Every second flight
 ```
 
 **Key points:**
 
 - Indexing starts at zero; negative indices count from the end.
-- Slicing uses `[start:stop:step]`; the stop index is excluded.
+- Slicing uses `[start:stop]`; the stop index is excluded.
 - Indexing returns one element; slicing returns a new list.
 
 **Membership and combining lists**
@@ -281,67 +264,68 @@ flights[::2]        # Every second flight
 "LH1234-FRA-JFK" in flights    # True
 "LH7777-FRA-MAD" in flights    # False
 
-flights + ["LH7777-FRA-MAD"]   # Combine lists
-flights * 2                   # Repeat list elements
+# This fails: + combines a list and a string
+flights + "LH123-FRA-JFK"      # TypeError
+
+# Put the new flight in a list before combining
+flights + ["LH123-FRA-JFK"]
+flights # not modified - how could we actually change flights?
+flights = flights + ["LH123-FRA-JFK"]
 ```
 
-## Slide 95 — Lists are mutable
+Explain that `+` combines two lists and creates a new list. The example that
+fails helps highlight that a flight identifier is a string, while `flights` is
+a list.
 
-Unlike strings, lists can be modified after creation.
+## Slide 96 — Managing flight schedules
 
-```python
-flights[0] = "LH1111-FRA-JFK"  # Replace first flight
-
-ticket[0] = "A"               # TypeError: strings are immutable
-```
-
-**Managing flight schedules**
+Airline staff need to add and schedule flights. Start with methods that add
+one or more flights or place a flight at a particular position:
 
 ```python
 flights = ["LH1234", "LH5678", "LH9012"]
 
-# Schedule a new flight
+# Schedule one new flight
+# more convenient than the `flights = flights + [...]`!
 flights.append("LH3456")
 
 # Add multiple flights
 flights.extend(["LH7777", "LH8888"])
 
-# Insert a flight at the second position
-flights.insert(1, "LH2222")
-
-# Cancel a flight
-flights.remove("LH5678")
+# Notice: append/extend add new elements at the end
+# Insert a **special flight** at the first position
+flights.insert(1, "LH9999")
 ```
 
-The methods **modify the existing list** rather than creating a new one (different from Pandas `sort_values()`).
-
-**Ticket prices: built-in functions**
+These methods **modify the existing list**, unlike `flights + ["LH3456"]`,
+which creates a new list. This is a good point to introduce mutability: list
+elements can be reassigned, whereas strings cannot be changed character by
+character.
 
 ```python
-prices = [450, 320, 580, 290]
+flights[0] = "LH1111-FRA-JFK"  # Replace the first flight
 
-len(prices)         # 4 (number of prices)
-min(prices)         # 290 (cheapest ticket)
-max(prices)         # 580 (most expensive ticket)
+ticket = "LH1234-FRA-JFK"
+ticket[0] = "A"                 # TypeError: strings are immutable
 ```
 
-{{< needspace 20 >}}
-
-## Slide 96 — Additional list operations
-
-Airline staff may need to locate particular flights, identify duplicate entries, or change the order in which flights are displayed.
+Continue with methods for locating flights, changing their order, and removing
+them:
 
 ```python
 flights = ["LH1234", "LH5678", "LH9012", "LH1234"]
 
+# Change the order
+flights.reverse()
+
 # Find the position of a flight
-flights.index("LH5678")    # 1
+flights.index("LH5678")    # 2 (after reversing the list)
 
 # Count occurrences
 flights.count("LH1234")    # 2
 
-# Reverse the order
-flights.reverse()
+# Cancel a flight
+flights.remove("LH5678")
 
 # Remove the last flight and return it
 flights.pop()
@@ -355,10 +339,49 @@ flights.clear()
 - `index()` returns the position of the first matching element; it raises an error if the element is missing.
 - `count()` returns the number of occurrences.
 - `reverse()` modifies the list in place.
+- `remove()` removes the first matching element; it raises an error if the element is missing.
 - `pop()` removes and returns an element (the last one by default).
 - `clear()` empties the list.
 
-**Takeaway:** Strings and lists share indexing, slicing, and membership operations. However, lists are mutable collections, making them suitable for managing changing information such as flight schedules and bookings.
+### Lists inside lists: Managing bookings
+
+Appending a list to `flights` adds that whole list as one element. This is
+usually unintended when `flights` is meant to contain flight identifiers:
+
+```python
+flights = ["LH1234-FRA-JFK", "LH5678-FRA-LHR"]
+flights.append(["LH7777-FRA-MAD", "LH8888-FRA-CDG"])
+
+flights[-1]       # A list of two flight identifiers, not one flight
+```
+
+However, a list inside another list is useful when one record groups related
+values, such as a flight identifier and its ticket price:
+
+```python
+bookings = [
+    ["LH1234", 450],
+    ["LH5678", 320],
+    ["LH9012", 580],
+]
+
+bookings[0]         # ['LH1234', 450]
+bookings[0][1]      # 450 (ticket price)
+```
+
+**Takeaway:** Lists share indexing, slicing, and membership operations with
+strings. Unlike strings, lists can be modified, and they can contain other
+lists when related values belong together.
+
+**Ticket prices: built-in functions**
+
+```python
+prices = [450, 320, 580, 290]
+
+len(prices)         # 4 (number of prices)
+min(prices)         # 290 (cheapest ticket)
+max(prices)         # 580 (most expensive ticket)
+```
 
 {{< pagebreak >}}
 
@@ -372,9 +395,9 @@ flights.clear()
 
 {{< teaching-file ../materials/session_08/manipulate_list.py kind="homework" >}}
 
-## Slide 98 — Creating and slicing tuples
+{{< pagebreak >}}
 
-- Cover tuples briefly; use `df.shape` as an example.
+## Slide 98 — Mutable vs immutable types: the case of tuples
 
 Indexing and slicing are similar for tuples and lists.
 
@@ -403,7 +426,7 @@ print(mytupel)
 mylist[2] = 5
 print(mylist)
 
-mytupel[2] = 5 # raisese TypeError: 'tuple' object does not support item assignment
+mytupel[2] = 5 # raises a TypeError: 'tuple' object does not support item assignment
 ```
 
 ::: {.teaching-break}
