@@ -131,7 +131,7 @@ ticket[-3]      # 'J'
 
 ## Slide 90 — Slicing strings
 
-::: {.callout-tip title="Activate prior Pandas knowledge"}
+:::: {.callout-note .ask-students title="Ask students"}
 Recall selecting data by position with `.iloc`. How might we use character
 positions to select part of a string such as `ticket`?
 
@@ -147,10 +147,14 @@ extract the characters at the corresponding positions:
 ```python
 ticket = "LH1234-FRA-JFK"
 
-airline = ticket[:2]       # 'LH'
+airline = ticket[0:2]       # 'LH'
 flightnr = ticket[2:6]     # '1234'
 departure = ticket[7:10]   # 'FRA'
 destination = ticket[11:14]  # 'JFK'
+
+# Next change: remove leading 0 / end 14
+airline = ticket[:2]
+destination = ticket[11:] 
 ```
 
 Imagine passing `airline` to the airline subsystem, `flightnr` to the flight
@@ -224,6 +228,7 @@ structure.
 
 - Note: **Country code conversion is not part of the task** (assume users enter `1314` instead of `DE`).
 - Remember to do proper splitting, concatenation, and type conversions (`mod` requires int).
+- Test it with your own IBAN and include a typo
 
 More "in depth" explanation, covering IBAN construction:
 
@@ -315,9 +320,13 @@ flights # not modified - how could we actually change flights?
 flights = flights + ["LH123-FRA-JFK"]
 ```
 
-Explain that `+` combines two lists and creates a new list. The example that
-fails helps highlight that a flight identifier is a string, while `flights` is
-a list.
+::: {.callout-important .common-misconception title="Common misconception"}
+`+` combines two lists; `flights + "LH123-FRA-JFK"` fails because the flight
+identifier is a string while `flights` is a list.
+
+`flights + ["LH123-FRA-JFK"]` creates a new list and leaves `flights` unchanged
+until the result is assigned back.
+:::
 
 ## Slide 96 — Managing flight schedules
 
@@ -338,6 +347,11 @@ flights.extend(["LH7777", "LH8888"])
 # Insert a **special flight** at the first position
 flights.insert(1, "LH9999")
 ```
+
+::: {.callout-tip .teaching-tip title="Teaching tip"}
+Pause after each method and ask students to predict the new order before
+displaying `flights`. Contrast `append`, `extend`, and `insert` one at a time.
+:::
 
 These methods **modify the existing list**, unlike `flights + ["LH3456"]`,
 which creates a new list. This is a good point to introduce mutability: list
@@ -387,6 +401,18 @@ flights.clear()
 - `pop()` removes and returns an element (the last one by default).
 - `clear()` empties the list.
 
+## Slide 97 — Listexercise 1
+
+{{< teaching-file ../materials/session_08/practice_list_operations.py >}}
+
+{{< pagebreak >}}
+
+## Slide 97 — Listexercise2: Homework
+
+{{< teaching-file ../materials/session_08/manipulate_list.py kind="homework" >}}
+
+{{< pagebreak >}}
+
 ### Lists inside lists: Managing bookings
 
 Appending a list to `flights` adds that whole list as one element. This is
@@ -426,20 +452,6 @@ len(prices)         # 4 (number of prices)
 min(prices)         # 290 (cheapest ticket)
 max(prices)         # 580 (most expensive ticket)
 ```
-
-{{< pagebreak >}}
-
-## Slide 97 — Listexercise 1
-
-{{< teaching-file ../materials/session_08/practice_list_operations.py >}}
-
-{{< pagebreak >}}
-
-## Slide 97 — Listexercise2: Homework
-
-{{< teaching-file ../materials/session_08/manipulate_list.py kind="homework" >}}
-
-{{< pagebreak >}}
 
 ## Slide 98 — Mutable vs immutable types: the case of tuples
 
@@ -483,7 +495,11 @@ Break — 10 minutes
 
 ### Motivation: From processing information to making decisions
 
+Go back to the original string-based airline script.
+
 Opening question: "So far, our programs have processed information by following instructions. But how can a program react differently depending on the information it receives?"
+
+Specifically, we would like to add an announcement, announcing the local weather and time based on the destination.
 
 Return to the airline ticket example:
 
@@ -510,8 +526,7 @@ how Python executes their statements.
 
 #### 1\. Sequential execution
 
-Open `../materials/session_07/calculate_travel_time.py`. Trace the program from
-the input statements through the calculation to the output. Emphasize that
+Go through the string operation script. Emphasize that
 Python normally executes statements one after another, from top to bottom.
 
 #### 2\. A statement can involve several operations
@@ -719,6 +734,8 @@ Conditional statements do not replace sequential execution; they control which s
 
 {{< teaching-file ../materials/session_08/check_even.py >}}
 
+**Note**: The condition could also be defined separately: `even = i % 2 == 0`.
+
 2. Write a program that calculates a discount based on the purchase amount.
 
 {{< teaching-file ../materials/session_08/calculate_discount.py >}}
@@ -738,6 +755,8 @@ Conditional statements do not replace sequential execution; they control which s
 5. Write a program to convert temperatures between celsius and fahrenheit.
 
 {{< teaching-file ../materials/session_08/convert_temperature.py kind="homework" >}}
+
+{{< pagebreak >}}
 
 6. Write a program to calculate the grades A-F based on the final percentage score:
 
