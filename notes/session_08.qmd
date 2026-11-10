@@ -5,9 +5,10 @@ slide_range: "88–107"
 event_id: null
 ---
 
-- Info on grading status?
-- Add the link to the IBAN procedure, make it available to students? (canvas?)
+- Provide update on grading status.
+- Add the link to the IBAN procedure, make it available to students via Canvas.
 - Info: solutions are available on Canvas
+- Prep IBAN explanation
 
 ```{mermaid}
 %%| fig-width: 6
@@ -214,10 +215,13 @@ structure.
 
 4. The International Bank Account Number (IBAN) is a standardized international numbering system developed to identify bank accounts across national borders....
 
+- Remember: validation steps applied in the airline example. For critical input, we may also want to avoid typos.
+- Motivate: **How could we know?** -> checksum!
+
 **Illustrate logic**
 
-- Remember: validation steps applied in the airline example. For critical input, we may also want to avoid typos.
-- **How could we know?** -> checksum!
+![](../images/iban_verification.png)
+
 - Standard: [ISO 7064](https://www.fisg.it/funzioni/php-iban/docs/ISO13616.pdf).
 - Use the visualization: [IBAN construction and verification](https://fs-ise.github.io/introduction-to-programming/materials/session_08/iban.html). **Highlight that the task is to implement the last part: IBAN validation.**
 - We want the completed IBAN to leave a remainder of 1 when divided by 97. During creation, we calculate the current remainder and determine how much must be added to reach 98—the next number with remainder 1. During verification, we simply check whether the completed number indeed has remainder 1.
@@ -225,11 +229,31 @@ structure.
 - Remember to do proper splitting, concatenation, and type conversions (`mod` requires int).
 - Note: **Country code conversion is not part of the task** (assume users enter `1314` instead of `DE`).
 
-{{< qrcode https://fs-ise.github.io/introduction-to-programming/materials/session_08/iban.html width=280 height=280 >}}
+How banks create IBANs:
+
+> We start by appending `00` as a placeholder for the two check digits. We then calculate the remainder modulo 97, which is always between 0 and 96.
+>
+> Our goal is to determine what number we need to add so that the updated number has a remainder of exactly 1.
+>
+> By calculating `98 - remainder`, we obtain exactly that number. Since the result is always between 2 and 98, it fits into the two-digit placeholder.
+>
+> When we replace `00` with the calculated check digits, the new number is guaranteed to have a remainder of 1 modulo 97.
+> 
+> The particularly elegant aspect is that 98 serves two purposes simultaneously: it guarantees the target remainder of 1 because `(98=97+1)`, and it ensures the check digits fit into exactly two decimal places.
+
+
+{{< qrcode https://fs-ise.github.io/introduction-to-programming/materials/session_08/iban.html width=180 height=180 >}}
+
+::: {.callout-note .instructor-hint title="Instructor hint"}
+Open the IBAN visualization before class and verify the QR link. Have a sample
+ready to illustrate the mod-97 check; keep the country code numeric, as the
+exercise does not include converting country letters.
+:::
 
 <br>
 
 {{< teaching-file ../materials/session_08/check_iban.py >}}
+
 
 {{< needspace 10 >}}
 
