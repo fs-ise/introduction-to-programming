@@ -153,7 +153,7 @@ title-slide-attributes:
 
   <img
     src="../../images/iban_steps_8.svg"
-    alt="IBAN verification: append the country code and check digits to the remaining account digits"
+    alt="IBAN verification: concatenate the bank code and account number with the converted country code and checksum"
     class="fragment current-visible"
     data-fragment-index="8">
 

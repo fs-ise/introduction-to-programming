@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1400" viewBox="0 0 1600 1400" role="img" aria-labelledby="title desc">
 <title id="title">IBAN construction and verification, stage 10</title>
-<desc id="desc">Append the converted country code and check digits 131488 to the remaining account digits, then verify modulo 97.</desc>
+<desc id="desc">Concatenate the bank code 50070010 and account number 0175526303 with the converted country code 1314 and check digits 88, then verify modulo 97.</desc>
 <style>text { font-family: Arial, Helvetica, sans-serif; } .mono { font-family: Consolas, "Liberation Mono", monospace; }</style>
 <rect width="1600" height="1400" fill="#FFFFFF"/>
 <rect x="35" y="25" width="1530" height="675" rx="16" fill="#FBFDFE" stroke="#B8CEDF" stroke-width="2"/>
@@ -42,8 +42,8 @@
 <text x="80" y="900" font-size="21" font-weight="700" fill="#00549F" text-anchor="start" class="">CALCULATIONS</text>
 <text x="285" y="900" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Convert country code</text>
 <text x="650" y="900" font-size="29" font-weight="700" fill="#00549F" text-anchor="start" class="mono">DE → 1314</text>
-<text x="285" y="960" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Append country code</text>
-<text x="650" y="960" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">&#x27;500700100175526303&#x27; + &#x27;131488&#x27;</text>
+<text x="285" y="960" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Concatenate</text>
+<text x="650" y="960" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">&#x27;50070010&#x27; + &#x27;0175526303&#x27; + &#x27;1314&#x27; + &#x27;88&#x27;</text>
 <text x="285" y="1020" font-size="27" font-weight="600" fill="#52616B" text-anchor="start" class="">Calculate mod 97</text>
 <text x="650" y="1020" font-size="29" font-weight="700" fill="#17212B" text-anchor="start" class="mono">500700100175526303131488 mod 97 =</text>
 <rect x="1265" y="982" width="62" height="50" rx="8" fill="#E8F5EC"/>
