@@ -222,12 +222,14 @@ structure.
 
 ![](../images/iban_verification.png)
 
-- Standard: [ISO 7064](https://www.fisg.it/funzioni/php-iban/docs/ISO13616.pdf).
-- Use the visualization: [IBAN construction and verification](https://fs-ise.github.io/introduction-to-programming/materials/session_08/iban.html). **Highlight that the task is to implement the last part: IBAN validation.**
-- We want the completed IBAN to leave a remainder of 1 when divided by 97. During creation, we calculate the current remainder and determine how much must be added to reach 98—the next number with remainder 1. During verification, we simply check whether the completed number indeed has remainder 1.
-- Why `mod 97` ? - Two digits available. Low numbers accept more errors (especially single-digit typos).
-- Remember to do proper splitting, concatenation, and type conversions (`mod` requires int).
 - Note: **Country code conversion is not part of the task** (assume users enter `1314` instead of `DE`).
+- Remember to do proper splitting, concatenation, and type conversions (`mod` requires int).
+
+More "in depth" explanation, covering IBAN construction:
+
+- Use the visualization: [IBAN construction and verification](https://fs-ise.github.io/introduction-to-programming/materials/session_08/iban.html). **Highlight that the task is to implement the last part: IBAN validation.**
+- Standard: [ISO 7064](https://www.fisg.it/funzioni/php-iban/docs/ISO13616.pdf).
+- Why `mod 97` ? - Two digits available. Low numbers accept more errors (especially single-digit typos).
 
 How banks create IBANs:
 
