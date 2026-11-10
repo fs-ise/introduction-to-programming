@@ -36,7 +36,7 @@ cheat-sheet:
 	@mkdir -p $(OUT_DIR)/materials
 	@cp $(CHEAT_SHEET_PDF) $(OUT_DIR)/materials/
 
-$(NOTES_PDF): course.yml $(GROUP_SCHEDULE) $(TEACHING_CHECKLIST) $(NOTES_QMD) assets/fs_logo_blue.pdf assets/mermaid-init.json scripts/combine_notes.py scripts/teaching_progress.py scripts/html_br_to_linebreak.lua scripts/teaching_break.lua scripts/center_captionless_images.lua _extensions/needspace/needspace.lua _extensions/needspace/_extension.yml _extensions/teaching-file/teaching-file.lua _extensions/teaching-file/_extension.yml _extensions/jmbuhr/qrcode/qrcode.lua _extensions/jmbuhr/qrcode/_extension.yml
+$(NOTES_PDF): course.yml $(GROUP_SCHEDULE) $(TEACHING_CHECKLIST) $(NOTES_QMD) assets/fs_logo_blue.pdf assets/mermaid-init.json assets/notes-callouts.tex assets/icons/lightbulb.svg assets/icons/lightbulb.pdf assets/icons/message-circle-question.svg assets/icons/message-circle-question.pdf assets/icons/triangle-alert.svg assets/icons/triangle-alert.pdf assets/icons/clock.svg assets/icons/clock.pdf assets/icons/settings.svg assets/icons/settings.pdf scripts/combine_notes.py scripts/teaching_progress.py scripts/html_br_to_linebreak.lua scripts/teaching_break.lua scripts/teaching_callouts.lua scripts/center_captionless_images.lua _extensions/needspace/needspace.lua _extensions/needspace/_extension.yml _extensions/teaching-file/teaching-file.lua _extensions/teaching-file/_extension.yml _extensions/jmbuhr/qrcode/qrcode.lua _extensions/jmbuhr/qrcode/_extension.yml
 	@mkdir -p $(OUT_DIR) _pdf-tmp
 	@$(PYTHON) scripts/combine_notes.py --groups $(GROUP_SCHEDULE) --checklist $(TEACHING_CHECKLIST) $(NOTES_COMBINED) $(NOTES_QMD)
 	@$(QUARTO) render $(NOTES_COMBINED) --to pdf --output notes.pdf

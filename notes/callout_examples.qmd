@@ -1,0 +1,120 @@
+---
+title: "Teaching Callout Examples"
+format:
+  pdf:
+    include-in-header: ../assets/notes-callouts.tex
+---
+
+## Conditional statements
+
+Python evaluates a condition to determine whether an indented block should be
+executed.
+
+::: {.callout-tip .teaching-tip title="Teaching tip"}
+Ask students to predict the output before executing the Python statement. Compare
+their predictions afterward.
+:::
+
+:::: {.callout-note .ask-students title="Ask students"}
+What happens when `destination == "JFK"` evaluates to `False`?
+
+```python
+destination = "LHR"
+
+if destination == "JFK":
+    print("Flight to New York")
+else:
+    print("Different destination")
+```
+
+::: {.callout-explanation}
+**Follow-up:** Ask students which branch runs, and why the comparison is
+false.
+:::
+::::
+
+:::: {.callout-important .common-misconception title="Common misconception"}
+Indentation defines which statements belong to a block. It is not merely visual
+formatting.
+
+```python
+if destination == "JFK":
+    print("New York")
+    print("International flight")
+
+print("Check completed")
+```
+
+::: {.callout-explanation}
+The last statement runs independently of the condition because it is not
+indented.
+:::
+::::
+
+::: {.callout-caution .timing-transition title="Timing / transition"}
+5 minutes. Connect this example to the preceding discussion of Boolean
+expressions.
+:::
+
+::: {.callout-note .instructor-hint title="Instructor hint"}
+Before class, confirm that the working directory is set to the folder containing
+the files used in the live demonstration.
+:::
+
+## Ready-to-copy source snippets
+
+Copy the fenced-div markup below into a notes `.qmd` file and replace the example
+text as needed.
+
+````markdown
+::: {.callout-tip .teaching-tip title="Teaching tip"}
+Ask students to predict the output before executing the Python statement.
+Compare their predictions afterward.
+:::
+
+:::: {.callout-note .ask-students title="Ask students"}
+What happens when `destination == "JFK"` evaluates to `False`?
+
+```python
+destination = "LHR"
+
+if destination == "JFK":
+    print("Flight to New York")
+else:
+    print("Different destination")
+```
+
+::: {.callout-explanation}
+**Follow-up:** Ask students which branch runs, and why the comparison is
+false.
+:::
+::::
+
+:::: {.callout-important .common-misconception title="Common misconception"}
+Indentation defines which statements belong to a block. It is not merely visual
+formatting.
+
+```python
+if destination == "JFK":
+    print("New York")
+    print("International flight")
+
+print("Check completed")
+```
+
+::: {.callout-explanation}
+The last statement runs independently of the condition because it is not
+indented.
+:::
+::::
+
+::: {.callout-caution .timing-transition title="Timing / transition"}
+5 minutes. Connect this example to the preceding discussion of Boolean
+expressions.
+:::
+
+::: {.callout-note .instructor-hint title="Instructor hint"}
+Before class, confirm that the working directory is set to the folder containing
+the files used in the live demonstration.
+:::
+````

@@ -1,5 +1,60 @@
 @import url("styles.css");
 
+.callout.teaching-tip .callout-icon::before {
+  background-image: url("icons/lightbulb.svg");
+}
+
+.callout.ask-students .callout-icon::before {
+  background-image: url("icons/message-circle-question.svg");
+}
+
+.callout.common-misconception .callout-icon::before {
+  background-image: url("icons/triangle-alert.svg");
+}
+
+.callout.timing-transition .callout-icon::before {
+  background-image: url("icons/clock.svg");
+}
+
+.callout.instructor-hint .callout-icon::before {
+  background-image: url("icons/settings.svg");
+}
+
+.callout.teaching-tip .callout-icon::before,
+.callout.ask-students .callout-icon::before,
+.callout.common-misconception .callout-icon::before,
+.callout.timing-transition .callout-icon::before,
+.callout.instructor-hint .callout-icon::before {
+  width: 0.86rem;
+  height: 0.86rem;
+  background-size: 0.86rem 0.86rem;
+}
+
+.callout.teaching-tip .callout-header,
+.callout.ask-students .callout-header,
+.callout.common-misconception .callout-header,
+.callout.timing-transition .callout-header,
+.callout.instructor-hint .callout-header {
+  align-items: center;
+}
+
+.callout.callout-style-default.teaching-tip:not(.no-icon) .callout-icon-container,
+.callout.callout-style-default.ask-students:not(.no-icon) .callout-icon-container,
+.callout.callout-style-default.common-misconception:not(.no-icon) .callout-icon-container,
+.callout.callout-style-default.timing-transition:not(.no-icon) .callout-icon-container,
+.callout.callout-style-default.instructor-hint:not(.no-icon) .callout-icon-container {
+  padding-top: 0;
+  padding-right: 0.65em;
+}
+
+div.callout.instructor-hint.callout {
+  border-left-color: #000;
+}
+
+div.callout.instructor-hint.callout-style-default > .callout-header {
+  background-color: #f0f0f0;
+}
+
 @media print {
   h2 {
     break-before: page;

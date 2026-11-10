@@ -3,3 +3,5 @@ format:
     css:
       - ../assets/notes.css
       - ../assets/mermaid.css
+filters:
+  - ../scripts/teaching_callouts.lua

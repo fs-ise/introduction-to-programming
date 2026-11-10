@@ -19,8 +19,10 @@ TEACHING_BREAK_FILTER = Path(__file__).resolve().with_name("teaching_break.lua")
 CENTER_CAPTIONLESS_IMAGES_FILTER = (
     Path(__file__).resolve().with_name("center_captionless_images.lua")
 )
+TEACHING_CALLOUTS_FILTER = Path(__file__).resolve().with_name("teaching_callouts.lua")
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 FS_LOGO = REPOSITORY_ROOT / "assets" / "fs_logo_blue.pdf"
+TEACHING_CALLOUTS_HEADER = REPOSITORY_ROOT / "assets" / "notes-callouts.tex"
 COURSE_CONFIG = REPOSITORY_ROOT / "course.yml"
 NEEDSPACE_SHORTCODE = REPOSITORY_ROOT / "_extensions" / "needspace" / "needspace.lua"
 TEACHING_FILE_SHORTCODE = (
@@ -285,6 +287,7 @@ papersize: a4
 filters:
   - {HTML_BR_FILTER.as_posix()}
   - {TEACHING_BREAK_FILTER.as_posix()}
+  - {TEACHING_CALLOUTS_FILTER.as_posix()}
   - {CENTER_CAPTIONLESS_IMAGES_FILTER.as_posix()}
 shortcodes:
   - {NEEDSPACE_SHORTCODE.as_posix()}
@@ -316,7 +319,7 @@ format:
       \\usepackage{{qrcode}}
       \\usepackage[skins]{{tcolorbox}}
       \\tcbuselibrary{{breakable}}
-
+      \\input{{{TEACHING_CALLOUTS_HEADER.as_posix()}}}
       % A clear, unbreakable callout for breaks in the teaching schedule.
       \\newtcolorbox{{teachingbreak}}{{%
         enhanced,
