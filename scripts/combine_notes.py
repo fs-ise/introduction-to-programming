@@ -20,6 +20,7 @@ CENTER_CAPTIONLESS_IMAGES_FILTER = (
     Path(__file__).resolve().with_name("center_captionless_images.lua")
 )
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
+FS_LOGO = REPOSITORY_ROOT / "assets" / "fs_logo_blue.pdf"
 COURSE_CONFIG = REPOSITORY_ROOT / "course.yml"
 NEEDSPACE_SHORTCODE = REPOSITORY_ROOT / "_extensions" / "needspace" / "needspace.lua"
 TEACHING_FILE_SHORTCODE = (
@@ -226,7 +227,8 @@ def combine(
     groups: Path | None = None,
 ) -> None:
     """Combine note files into one PDF-oriented Quarto source."""
-    teaching_notes_title = f"{read_course_title()} Teaching Notes"
+    course_title = read_course_title()
+    fs_logo_path = FS_LOGO.as_posix()
     sections: list[str] = []
 
     sources: list[tuple[str, str, str, str | None]] = []
@@ -277,7 +279,8 @@ def combine(
 {body}""")
 
     front_matter = f"""---
-title: "{teaching_notes_title}"
+title: "{course_title}"
+subtitle: Teaching Notes
 papersize: a4
 filters:
   - {HTML_BR_FILTER.as_posix()}
@@ -303,6 +306,7 @@ format:
       - footskip=0.9cm
     header-includes: |
       \\usepackage{{scrlayer-scrpage}}
+      \\usepackage{{graphicx}}
       \\usepackage{{needspace}}
       \\usepackage{{fvextra}}
       \\usepackage{{xcolor}}
@@ -384,6 +388,8 @@ format:
       % The optional arguments apply the same footer to plain.scrheadings,
       % which KOMA uses for pages that would otherwise have a plain style.
       \\clearpairofpagestyles
+      \\newcommand{{\\notesFSLogo}}{{\\includegraphics[height=1.0cm]{{{fs_logo_path}}}}}
+      \\titlehead{{\\centering\\notesFSLogo\\par\\vspace{{0.5em}}}}
       \\ifoot[Introduction to Programming: Notes]{{Introduction to Programming: Notes}}
       \\ofoot[\\pagemark]{{\\pagemark}}
       \\pagestyle{{scrheadings}}

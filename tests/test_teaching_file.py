@@ -24,6 +24,7 @@ def test_teaching_file_shortcode_is_registered():
 def test_notes_pdf_depends_on_teaching_file_extension():
     makefile = (ROOT / "Makefile").read_text()
     notes_dependencies = makefile.split("$(NOTES_PDF):", 1)[1].splitlines()[0]
+    assert "assets/fs_logo_blue.pdf" in notes_dependencies
     assert "_extensions/teaching-file/teaching-file.lua" in notes_dependencies
     assert "_extensions/teaching-file/_extension.yml" in notes_dependencies
 
