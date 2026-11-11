@@ -1,0 +1,299 @@
+---
+title: "Session 08 — Sequences and Conditionals"
+date: ""
+shortcodes:
+  - ../_extensions/needspace/needspace.lua
+  - ../_extensions/teaching-file/teaching-file.lua
+execute:
+  echo: true
+  warning: false
+  message: false
+jupyter: python3
+---
+
+## In-class examples: airline booking system
+
+The examples below follow a flight ticket from a single string to a list of
+scheduled flights, then use conditional statements to print announcements depending on ticket details.
+
+### Airline strings
+
+Start with a ticket identifier containing an airline, flight number, departure
+airport, and destination airport. First, use string operations to check the
+ticket's basic format: its type, length, and separator positions.
+
+```python
+ticket = "LH1234-FRA-JFK"
+
+type(ticket) == str
+len(ticket) == 14
+ticket[6] == "-"
+ticket[10] == "-"
+```
+
+After checking the ticket format, build and print an
+announcement with string concatenation, adding quotes in the print statement:
+
+```python
+message = 'Flight "' + ticket + '" is ready'
+print(message)
+print("-" * 30)
+```
+
+Next, extract string slices to identify the airline, flight number, departure,
+and destination. The stop position is excluded from a slice.
+
+```python
+airline = ticket[:2]
+flight_number = ticket[2:6]
+departure = ticket[7:10]
+destination = ticket[11:]
+
+ticket[-1]
+ticket[-3:]
+"FRA" in ticket
+"BER" not in ticket
+```
+
+{{< pagebreak >}}
+
+### Flight lists
+
+Store a schedule as a list. Strings and lists both support indexing, slicing,
+and membership tests.
+
+```python
+flights = [
+    "LH1234-FRA-JFK",
+    "LH5678-FRA-LHR",
+    "LH9012-FRA-CDG",
+    "LH3456-FRA-JFK",
+]
+
+flights[0]
+flights[-1]
+flights[1:3]
+"LH1234-FRA-JFK" in flights
+```
+
+Add, insert, replace, and find flights. These list methods modify the existing
+list; combining lists with `+` creates a new list instead.
+
+```python
+flights.append("LH7777-FRA-MAD")
+flights.extend(["LH8888-FRA-ROM", "LH9999-FRA-AMS"])
+flights.insert(1, "LH0001-FRA-ZRH")
+flights[0] = "LH1111-FRA-JFK"
+
+flights.index("LH5678-FRA-LHR")
+flights.count("LH3456-FRA-JFK")
+flights.reverse()
+```
+
+Remove a flight by value or position. `pop()` removes and returns the last
+element by default; `clear()` removes every element.
+
+```python
+flights.remove("LH5678-FRA-LHR")
+flights.pop()
+flights.pop(0)
+flights.clear()
+```
+
+Lists can also group related booking information in nested lists:
+
+```python
+bookings = [
+    ["LH1234", 450],
+    ["LH5678", 320],
+    ["LH9012", 580],
+]
+
+bookings[0]
+bookings[0][1]
+```
+
+{{< pagebreak >}}
+
+### Conditional logic for tickets
+
+An `if` statement runs its indented block only when its condition is true.
+Here, the destination controls which announcement is printed:
+
+```python
+ticket = "LH1234-FRA-JFK"
+destination = ticket[-3:]
+
+if destination == "JFK":
+    print("Flight to New York")
+```
+
+::: {.callout-note title="How `if` works"}
+The `if` keyword introduces a condition that determines whether the following indented block is executed.
+
+**Indentation** means that a line starts with spaces. The indented block begins on the line after the colon (`:`) and ends when the code returns to the previous indentation level.
+:::
+
+Use `if/else` to choose between two outcomes, such as whether the ticket has
+the expected length:
+
+```python
+if len(ticket) == 14:
+    print("The ticket is valid")
+else:
+    print("Invalid booking reference")
+```
+
+Next, use nested conditionals to first check the ticket length and then choose a
+destination announcement for a ticket of the expected length. Only the first
+matching destination branch runs.
+
+```python
+if len(ticket) == 14:
+    print("The ticket is valid")
+
+    if destination == "JFK":
+        print("Your destination is New York.")
+    elif destination == "YUL":
+        print("Your destination is Montreal.")
+    else:
+        print("No information on destination")
+
+    print("Have a nice flight!")
+else:
+    print("Invalid booking reference")
+```
+
+Combine checks with `and` to validate the expected ticket length and separator
+positions together:
+
+```python
+if len(ticket) == 14 and ticket[6] == "-" and ticket[10] == "-":
+    print("The ticket has the expected basic structure")
+else:
+    print("Check the booking reference")
+```
+
+{{< pagebreak >}}
+
+## Strings
+
+### 1. Describe a string
+
+Ask the user to enter a string, then print its length, first character, and last character.
+
+::: {.sol}
+{{< teaching-file ../materials/session_08/describe_string.py >}}
+:::
+
+### 2. Insert a string in the middle
+
+Ask the user for two strings and insert the second string halfway through the first.
+
+::: {.sol}
+{{< teaching-file ../materials/session_08/insert_string.py >}}
+:::
+
+{{< pagebreak >}}
+
+### 3. Analyze two strings (take-home)
+
+Join two entered strings with a space. Print the combined string, its length, selected characters and slices, and whether it contains the substrings `"E"` and `"el"`.
+
+::: {.sol}
+{{< teaching-file ../materials/session_08/analyze_strings.py kind="homework" >}}
+:::
+
+### IBAN check digits
+
+Enter the account number, bank code, and numeric country code. Combine them with the `"00"` placeholder, calculate the check digits, and print the result. Country-code conversion is outside the scope of this exercise.
+
+::: {.sol}
+{{< teaching-file ../materials/session_08/check_iban.py >}}
+:::
+
+{{< pagebreak >}}
+
+## Lists
+
+### 1. Practice list operations
+
+Create a list of car manufacturers, select items by position, add a manufacturer, find the list length and an item's position, remove an item, and print the last item.
+
+::: {.sol}
+{{< teaching-file ../materials/session_08/practice_list_operations.py >}}
+:::
+
+{{< pagebreak >}}
+
+### 2. Manipulate a list of numbers (take-home)
+
+Read four integers into a list, insert their sum at the beginning, reverse the list, remove its center element, and print its minimum, maximum, and last two elements.
+
+::: {.sol}
+{{< teaching-file ../materials/session_08/manipulate_list.py kind="homework" >}}
+:::
+
+{{< pagebreak >}}
+
+## Conditional logic
+
+### 1. Determine whether a number is odd or even
+
+::: {.sol}
+{{< teaching-file ../materials/session_08/check_even.py >}}
+:::
+
+### 2. Calculate a discount
+
+Choose the discount rate based on the purchase amount: 20% for amounts of at least 100, 10% for amounts of at least 50, and no discount otherwise.
+
+::: {.sol}
+{{< teaching-file ../materials/session_08/calculate_discount.py >}}
+:::
+
+{{< pagebreak >}}
+
+### 3. Calculate an annual loan payment with a rating (take-home)
+
+Calculate an annuity loan's annual payment, adjusting the interest rate according to the entered rating.
+
+::: {.sol}
+{{< teaching-file ../materials/session_08/calculate_loan.py kind="homework" >}}
+:::
+
+### 4. Simulate a dice game
+
+Roll two dice. A matching pair wins a payout based on the stake; otherwise, report the result of the throw.
+
+::: {.sol}
+{{< teaching-file ../materials/session_08/play_dice_game.py >}}
+:::
+
+{{< pagebreak >}}
+
+### 5. Convert temperatures (take-home)
+
+Ask which temperature scale the user entered, convert the temperature to the other scale, and report invalid scale choices.
+
+::: {.sol}
+{{< teaching-file ../materials/session_08/convert_temperature.py kind="homework" >}}
+:::
+
+### 6. Calculate a grade (take-home)
+
+Map a percentage score to a grade from A to F using the specified score thresholds.
+
+::: {.sol}
+{{< teaching-file ../materials/session_08/calculate_grades.py kind="homework" >}}
+:::
+
+{{< pagebreak >}}
+
+### 7. Calculate income tax and net income (take-home)
+
+Use the income-tax brackets to calculate tax and net income for the entered taxable income.
+
+::: {.sol}
+{{< teaching-file ../materials/session_08/calculate_tax.py kind="homework" >}}
+:::
