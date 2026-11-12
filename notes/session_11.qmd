@@ -159,6 +159,18 @@ Break — 10 minutes
 
 - Important to use standard Python functions that were covered in class (no f-strings!)
 
+::: {.callout-important title="Exam hints: Pandas"}
+
+Make the output convention explicit before students work on Pandas exam questions:
+
+- Assume each Pandas command is entered directly into the interactive Python console.
+  A bare expression, such as `sales.head()` or `sales['Region']`, displays its result automatically; do not wrap it in `print()`.
+  Clarify that this console convention is for Pandas questions; for regular Python program tasks, use `print()` when the instructions ask for output.
+- An assignment does not display its result. If the task asks to display the assigned DataFrame or Series, enter its variable name as a separate expression.
+- Use ChatGPT to compare the slides with the parts that are excluded. Prepare for those where you are not yet well prepared.
+
+:::
+
 ::: {.callout-tip title="Notes for improvement"}
 Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
 :::

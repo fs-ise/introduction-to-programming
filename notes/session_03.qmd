@@ -490,6 +490,12 @@ Make sure students are prepared for the typical exam question the Pivot-table cr
 
 ![](../images/pivot-numbered.png){width="30%"}
 
+::: {.callout-important title="Exam hints: Excel"}
+
+TODO
+
+:::
+
 Solve Mock exam (we will go through solutions very quickly next time; Solutions will be available on 2026-09-28 on Canvas).
 
 End on a positive note for the exam
