@@ -201,60 +201,44 @@ total = 0
 
 for delay in delays:
     total = total + delay
+    # Add these for debugging (after a first run):
+    print("Current delay:", delay)
+    print("Total so far:", total)
+    input("Press Enter to continue...")
 
 average = total / len(delays)
 print("Average delay:", average)
 ```
 
-Trace how `total` changes. It starts at `0`, then becomes `10`, `10`, `35`,
-and finally `40`. The average delay is `10` minutes. For this example, assume
-the list contains at least one delay.
+The loop variable `delay` is the **target** of the `for` loop: Python assigns
+the next list value to it on every iteration. The variable `total` is an
+**accumulator**: it carries a result forward and updates it on each iteration.
 
-| Iteration | `delay` | `total` after the iteration |
-| --------- | ------: | --------------------------: |
-| 1         | 10      | 10                          |
-| 2         | 0       | 10                          |
-| 3         | 25      | 35                          |
-| 4         | 5       | 40                          |
+### Applying a rule while accumulating
 
-The variable `total` is an **accumulator**: it stores a result that changes
-from one iteration to the next. The same pattern can accumulate counts. Add an
-`if` statement inside the loop to count delays greater than zero:
-
-::: {.callout-tip .teaching-tip title="Teaching tip"}
-
-1. Open the script in Spyder.
-2. Set a breakpoint on `total = total + delay` by clicking beside the line number.
-3. Start debugging with Debug file (`Ctrl+F5` in typical Spyder configurations).
-4. Open the Variable Explorer and point out `total`, `delay`, and `delays`.
-5. Use Continue (`Ctrl+F12`, depending on configuration) to advance to the same breakpoint in the next iteration.
-
-![](../images/for_debug_loop.png){width=60%}
-
-:::
+Now apply an airline policy: delays of less than 10 minutes do not count. The
+average should include only flights whose delay is at least 10 minutes. A
+simple sum of all values would not apply this rule; the loop lets us check each
+delay before deciding whether to add it:
 
 ```python
-delayed_flights = 0
+total = 0
+counted_flights = 0
 
 for delay in delays:
-    if delay > 0:
-        delayed_flights = delayed_flights + 1
+    if delay >= 10:
+        total = total + delay
+        counted_flights = counted_flights + 1
 
-print("Delayed flights:", delayed_flights)
+average = total / counted_flights
+print("Average delay for qualifying flights:", average)
 ```
-
-The `if` condition is checked for each delay. The count only increases when
-the condition is true.
-
-::: {.callout-note .ask-students title="Ask students"}
-What is the value of `delayed_flights` after each iteration? Which lines are
-inside the `for` loop, and which line runs once after the loop finishes?
-:::
 
 **Key points:**
 
-- Initialize an accumulator before the loop.
-- Update it inside the loop for each item, or only when an `if` condition is met.
+- The `for` loop assigns each next item to its target variable (`delay`).
+- Initialize accumulators before the loop and update them inside its body.
+- Put an `if` inside the loop to update an accumulator only when an item meets a rule.
 - Use the final accumulated value after the loop has finished.
 
 {{< pagebreak >}}
