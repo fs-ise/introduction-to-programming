@@ -49,7 +49,6 @@ flowchart
 Start on the whiteboard (left side):
 
 ```python
-
 # Start with 
 if "FRA" in ticket:
     print("Fly to Frankfurt")
@@ -186,7 +185,7 @@ Have students trace the values before displaying the output. Use
 they would change the range to include `4`.
 :::
 
-{{< needspace 10 >}}
+{{< pagebreak >}}
 
 ## Slides 110–111 — Calculating across flights
 
@@ -343,11 +342,6 @@ flowchart TD
     B -->|Yes| D["Continue program"]
 ```
 
-::: {.callout-note .ask-students title="Ask students"}
-Trace the program first with `"JFK"`, then with an invalid code followed by
-`"LHR"`. How many times does the indented input statement run in each case?
-:::
-
 **Key points:**
 
 - A `while` loop repeats as long as its Boolean condition is `True`.
@@ -362,11 +356,11 @@ will remain invalid and the program will keep asking forever—or, if there is n
 new prompt, repeat without making progress.
 :::
 
+
+
 **Continue on the whiteboard (right side)**:
 
 ```python
-
-# TBD:
 while <condition>:
     block
 
@@ -449,15 +443,6 @@ A `for` loop is a natural choice when the values or number of repetitions are
 already represented by an iterable. A `while` loop is a natural choice when
 repetition depends on a condition changing. Some tasks can be written with
 either loop; choose the structure that makes the task easiest to understand.
-
-**Tracing and debugging checklist:**
-
-- Identify the statements inside the indented block.
-- For a `for` loop, track the current item and check when the iterable runs out.
-- For a `while` loop, evaluate the condition before each pass and track the
-  state update.
-- Check whether the loop should run zero times, once, or several times.
-- Look for a missing update that could leave a `while` condition true forever.
 
 ## Summary
 
