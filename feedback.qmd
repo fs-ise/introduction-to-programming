@@ -19,3 +19,8 @@ title: "Feedback"
 - Prepare debugging overview with QR codes in teaching notes
 - Listexercise2.py: Correction: Replaced `x.remove(2)` with `x.pop(2)` because on p. 97, the task requires removing the element at index 2 (the center position), not the element with the value `2`.
 - In the API part, include an example of querying the openai API, showing how LLMs can be used in a Python script through the same API access mechanisms.
+- Teaching notes: generally start with summary of learning objectives for the session (as in session 9)?
+- Loops: after if (with figure illustration), introduce while (before for loops): if the condition is true, after the block, it continues to check the condition instead of proceeding with the next block. Intuitively, this means some part of the condition needs to change in the block to prevent infinite loops. Then illustrate that list iterations with while are cumbersome and much easier with for.
+  See: https://chatgpt.com/c/94788317-a418-8322-836c-261cd1f668d9
+- Share Excel Task collection one File and additional painter exercises wir pr/team
+- Notes. For each Session, start with recommend spyder Setup (variables pane activated?) in "instructor callout"
