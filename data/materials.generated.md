@@ -25,6 +25,13 @@
 | [Student performance](materials/data/Student_performance.csv) | CSV file |
 | [Temperatures](materials/data/temperatures.csv) | CSV file |
 
+## Illustration
+
+| Material | Type |
+|---|---|
+| [Ast parse](generated/materials/illustration/ast_parse.html) | PY file |
+| [Example](generated/materials/illustration/example.html) | PY file |
+
 ## Session 01
 
 | Material | Type |
