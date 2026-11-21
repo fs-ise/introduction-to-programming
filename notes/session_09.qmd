@@ -49,13 +49,14 @@ flowchart
 Start on the whiteboard (left side):
 
 ```python
-# Start with 
+# Start with "in" as a membership test (a condition!) 
 if "FRA" in ticket:
     print("Fly to Frankfurt")
 
 # Replace by general syntax:
 if <condition>:
     block # one or multiple lines with the same indentation
+    # Python ignores empty lines or comments!
 elif <condition>:
     block
 else:
@@ -95,8 +96,10 @@ print("Flight:", "LH9012-FRA-CDG")
 ```
 
 The statements do almost the same thing; only the flight identifier changes.
-The flight list from Session 08 already contains these identifiers. A loop lets
-us write the repeated action once:
+The flight list from Session 08 already contains these identifiers. It would be
+more elegant and avoid repetition if we could iterate over the flights.
+
+A loop lets us write the repeated action once:
 
 ```python
 flights = [
@@ -109,7 +112,9 @@ for flight in flights:
     print("Flight:", flight)
 ```
 
-### Understanding how Python executes a `for` loop
+Note: in a `for` loop, Python automatically assigns the `next(iter(iterable))` to the loop variable.
+
+### Understanding how Python executes a `for` loop (the "mechanics" of for loops)
 
 Connect this new control structure to the execution model from Session 08:
 Python still executes statements in sequence, but now repeats an indented
@@ -143,49 +148,14 @@ repeatedly assigns an item from the list to `flight`. By contrast,
 
 ```python
 # preparing for
-for <target> in <iterable>:
+for <loop variable> in <iterable>:
     block
 # note: this involves a repeated assignment.
 ```
 
 <!--
-we cannot copy the "<target> in <iterable>" and run it independently (like for the boolean if conditions)
+we cannot copy the "<loop variable> in <iterable>" and run it independently (like for the boolean if conditions)
 -->
-
-## Slide 109 — Iterating over lists, strings, and ranges
-
-The loop variable can receive values from a string as well as a list. A string
-produces one character at a time:
-
-```python
-for character in "FRA":
-    print(character)
-```
-
-Use `range()` when the program needs to repeat an action a specified number of
-times and there is no existing collection to process:
-
-```python
-for number in range(3):
-    print(number)
-```
-
-Ask students to predict the output before running the code. `range(3)` produces
-`0`, `1`, and `2`, so the body runs three times. The stop value is excluded.
-The start and step are optional:
-
-```python
-list(range(1, 4))       # [1, 2, 3]
-list(range(2, 10, 2))   # [2, 4, 6, 8]
-```
-
-::: {.callout-tip .teaching-tip title="Teaching tip"}
-Have students trace the values before displaying the output. Use
-`range(1, 4)` to make clear that the stop value is not included, and ask how
-they would change the range to include `4`.
-:::
-
-{{< pagebreak >}}
 
 ## Slides 110–111 — Calculating across flights
 
@@ -210,7 +180,7 @@ average = total / len(delays)
 print("Average delay:", average)
 ```
 
-The loop variable `delay` is the **target** of the `for` loop: Python assigns
+The loop variable `delay` is the **loop variable** of the `for` loop: Python assigns
 the next list value to it on every iteration. The variable `total` is an
 **accumulator**: it carries a result forward and updates it on each iteration.
 
@@ -236,10 +206,51 @@ print("Average delay for qualifying flights:", average)
 
 **Key points:**
 
-- The `for` loop assigns each next item to its target variable (`delay`).
+- The `for` loop assigns each next item to its loop variable (`delay`).
 - Initialize accumulators before the loop and update them inside its body.
 - Put an `if` inside the loop to update an accumulator only when an item meets a rule.
+  **This allows us to implement more flexible business logic.**
 - Use the final accumulated value after the loop has finished.
+
+
+## Slide 109 — Iterating over lists, strings, and ranges
+
+The loop variable can receive values from a string as well as a list. A string
+produces one character at a time:
+
+```python
+for character in "FRA":
+    print(character)
+```
+
+Use `range()` when the program needs to repeat an action a specified number of
+times and there is no existing collection to process:
+
+```python
+for number in range(3):
+    print(number)
+```
+
+Ask students to predict the output before running the code. `range(3)` produces
+`0`, `1`, and `2`, so the body runs three times. **The stop value is excluded.**
+The start and step are optional:
+
+```python
+list(range(1, 4))       # [1, 2, 3]
+list(range(2, 10, 2))   # [2, 4, 6, 8]
+```
+
+::: {.callout-tip .teaching-tip title="Teaching tip"}
+Have students trace the values before displaying the output. Use
+`range(1, 4)` to make clear that the stop value is not included, and ask how
+they would change the range to include `4`.
+:::
+
+Use the following selectively: focus on the simple `range()` and direct iteration
+examples, and treat nested loops as an extension.
+
+{{< teaching-file ../materials/session_09/demonstrate_for_loops.py kind="demo" >}}
+
 
 {{< pagebreak >}}
 
@@ -254,7 +265,8 @@ should be displayed.
 
 {{< teaching-file ../materials/session_09/calculate_average.py >}}
 
-The remaining exercises provide extra practice or homework. Prioritize
+The remaining exercises **provide extra practice or homework**
+. Prioritize
 exercises that combine a loop with a condition or accumulator. Fibonacci is an
 optional challenge rather than a core in-class activity.
 
@@ -281,11 +293,14 @@ loop inside another loop, which is not part of the core progression today.
 
 {{< teaching-file ../materials/session_09/print_character_triangle.py kind="homework" >}}
 
-The demonstration file contains additional examples, including nested loops.
-Use it selectively: focus on the simple `range()` and direct iteration
-examples, and treat nested loops as an extension.
 
-{{< teaching-file ../materials/session_09/demonstrate_for_loops.py kind="demo" >}}
+::: {.callout-warning title="Explain homework"}
+Explain Fibonacci sequences: Each item is the sum of the two preceding numbers:
+
+```python
+[0,1,1,2,3,5,8,13,...]
+```
+:::
 
 ::: {.teaching-break}
 Break — 10 minutes
@@ -295,49 +310,52 @@ Break — 10 minutes
 
 ## Slide 112 — From fixed repetition to condition-controlled repetition
 
-### Motivation: Repeat until the destination is valid
+### Motivation: Check in passengers
 
 With a `for` loop, the program processes each item in a collection or repeats a
-known number of times. Sometimes we do not know how many attempts will be
-needed. For example, an airline system may ask for a valid destination code:
+known number of times. At an airport check-in desk, we may not know in advance
+how many passengers a staff member will check in. The program can ask whether
+there is another passenger:
 
 ```python
-destination = input("Destination (JFK or LHR): ")
+check_in_another = input("Check in a passenger? (yes/no): ")
 
-while destination not in ["JFK", "LHR"]:
-    destination = input("Try again (JFK or LHR): ")
+while check_in_another == "yes":
+    input("Passenger name: ")
+    check_in_another = input("Check in another passenger? (yes/no): ")
 
-print("Destination accepted")
+print("Check-in is closed")
 ```
 
-The first input initializes `destination`. Python then checks the condition. If
-the destination is not accepted, it runs the indented block, asks again, and
-updates `destination`. Python checks the condition again using the new value.
-When the condition becomes false, Python skips the block and continues after
-the loop.
+The first input initializes `check_in_another`. Python checks the condition. If
+the answer is `yes`, it runs the indented block, asks for the passenger's name,
+and asks whether to check in another passenger. The name is not stored; the
+input simply represents the interaction. The second prompt updates
+`check_in_another`, so Python checks the condition again using the new answer.
+When the answer is `no`, the condition is false, Python skips the block and
+continues with the statement after the loop.
 
 ```{mermaid}
 %%| fig-height: 2.5
 
 flowchart TD
-    A["Read destination"] --> B{"Destination accepted?"}
-    B -->|No| C["Ask again and update destination"]
+    A["Ask whether to check in a passenger"] --> B{"check_in_another == 'yes'?"}
+    B -->|True| C["Indented block:<br/>ask passenger name<br/>ask whether to check in another"]
     C --> B
-    B -->|Yes| D["Continue program"]
+    B -->|False| D["Print: Check-in is closed"]
 ```
 
 **Key points:**
 
 - A `while` loop repeats as long as its Boolean condition is `True`.
 - The condition is checked before each execution of the body.
-- The body must update relevant state so the condition can eventually become
-  false. If an invalid destination is never replaced, the loop does not end.
+- The body must update the value used by the condition. Here, the user's answer
+  determines whether the loop repeats or ends.
 
 ::: {.callout-important .common-misconception title="Common misconception"}
 The condition is checked again only after the indented block finishes. If the
-block does not change the value used by the condition, an invalid destination
-will remain invalid and the program will keep asking forever—or, if there is no
-new prompt, repeat without making progress.
+block does not change the value used by the condition, the loop may repeat
+forever. Here, the prompt inside the block gets a new answer from the user.
 :::
 
 
@@ -357,30 +375,24 @@ while x in list:
 
 ## Slides 113–114 — Guessing, playing, and choosing loops
 
-### Number guessing: a changing condition
+1. Create a program that keeps track of items for a **shopping list**. The user
+signals that they are finished by entering an empty string.
 
-The number-guessing game gives a clear reason to check a condition repeatedly:
-the program does not know how many guesses the player will need. Trace how the
-initial guess and each new input affect the loop condition:
+{{< teaching-file ../materials/session_09/build_shopping_list.py kind="homework" >}}
+
+2. A program to guess numbers between 1 and 10.
 
 {{< teaching-file ../materials/session_09/guess_number.py >}}
 
-In the hints version, the loop still continues until the guess is correct. An
-`if`/`elif` inside the loop chooses which hint to display after each guess:
+3. Guessing numbers from 1 to 100 with hints:
 
 {{< teaching-file ../materials/session_09/guess_number_with_hints.py >}}
 
-Ask students to identify which statements repeat and which run only once after
-the player guesses correctly. Also ask what happens if the guess is correct on
-the first attempt.
-
 {{< pagebreak >}}
 
-### Revisit the dice game from Session 08
-
-In Session 08, students wrote a one-round dice game with an `if`/`else`. The
-repeating version wraps the game in a `while` loop, so the game can continue
-after a win if the player chooses to play again:
+::: {.callout-warning}
+Task 4 refers to `Dicegame1.py` on slide 105.
+:::
 
 {{< teaching-file ../materials/session_09/play_repeating_dice_game.py >}}
 
@@ -397,12 +409,6 @@ the loop condition.
 
 {{< pagebreak >}}
 
-### Homework and advanced application
-
-1. Create a program that keeps track of items for a shopping list. The user
-signals that they are finished by entering an empty string.
-
-{{< teaching-file ../materials/session_09/build_shopping_list.py kind="homework" >}}
 
 2. Advanced application: simulate a loan repayment history. Remind students
 that this is the same task they completed in Excel.
