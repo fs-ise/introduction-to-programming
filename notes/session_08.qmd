@@ -581,6 +581,16 @@ Highlight the indentation and explain the execution process:
 
 The important point of compound statements is that one part (the `if`) controls whether other statements are executed.
 
+::: {.callout-note title="Complementary material: Python's parsed source"}
+Python parses source code into a structured representation before processing it.
+This small example uses the `ast` module to parse the code and print its
+normalized Python source. Compare the output with the original file to see how
+comments and formatting are not part of the parsed program structure.
+
+- [Parser script](../generated/materials/illustration/ast_parse.html)
+- [Example source](../generated/materials/illustration/example.html)
+:::
+
 
 ```{mermaid}
 %%| fig-height: 2.5
