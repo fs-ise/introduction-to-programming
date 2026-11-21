@@ -1,9 +1,9 @@
 import random
 
 stake = int(input("How much money would you like to invest? "))
-continue_ = True
+play_another_round = True
 
-while continue_:
+while play_another_round:
     dice1 = random.randint(1, 6)
     dice2 = random.randint(1, 6)
 
@@ -11,9 +11,9 @@ while continue_:
         print("You have won!!! It's a double", dice1)
         payout = stake * dice1
         print("You get", payout, "Euro!")
-        continue_ = bool(int(input("Would you like to continue? 1=yes, 0=no: ")))
-        if continue_:
+        play_another_round = bool(int(input("Would you like to continue? 1=yes, 0=no: ")))
+        if play_another_round:
             stake = payout
     else:
         print("Unfortunately they lost!!! The throw brought", dice1, "and", dice2)
-        continue_ = False
+        play_another_round = False
