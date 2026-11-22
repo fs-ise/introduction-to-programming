@@ -80,6 +80,8 @@ for seat_status in seat_statuses:
 Ask what happens if every seat is taken: the loop finishes without assigning a
 seat.
 
+{{< pagebreak >}}
+
 The same search can be written with a `while` loop. Update the index before
 `continue` so the loop moves on to the next seat:
 
@@ -246,7 +248,7 @@ squared_number = square(number)
 print("Square:", squared_number)
 ```
 
-{{< needspace 10 >}}
+{{< pagebreak >}}
 
 ## Slide 120 — Reusing functions
 
@@ -279,7 +281,7 @@ total = sum_of_squares(numbers)
 print("Sum of squares:", total)
 ```
 
-{{< needspace 10 >}}
+{{< pagebreak >}}
 
 ## Slides 121–122 — Functions
 
@@ -293,6 +295,8 @@ Assign 2,3 as homework.
 2. Write a Python function to multiply all the numbers in a list.
 
 {{< teaching-file ../materials/session_10/multiply_list_values.py kind="homework" >}}
+
+{{< pagebreak >}}
 
 3. Write a function isHarshad(int)
 
