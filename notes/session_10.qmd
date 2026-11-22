@@ -1,5 +1,5 @@
 ---
-title: "Session 10/Python 7: Loop control, functions, and dictionaries"
+title: "Session 10/Python 7: Loop control, dictionaries, and functions"
 session_id: session-10
 slide_range: "115–133"
 event_id: null
@@ -7,50 +7,101 @@ event_id: null
 
 PREP TODO: Upload [InsuranceAgent.pdf](../materials/session_10/InsuranceAgent.pdf) to Canvas.
 
-Notes:
-
+::: {.callout-important title="Exam relevance"}
 - Functions: at least one problem set in the exam.
 - Dictionaries: less relevant for the exam (do not explicitly announce as not relevant at the beginning) - maybe as multiple-choice.
-
-Cover loop termination, functions, and dictionaries, while retaining the planned exercise order and exam guidance.
+:::
 
 ```{mermaid}
 %%| fig-width: 6
 
 flowchart
 
-  subgraph AFTER_BREAK["<b>After break: Dictionaries and persistence</b>"]
+  subgraph AFTER_BREAK["<b>After break: Functions</b>"]
     direction TB
-    B1["<b>Nested dictionaries</b> (25 min)"]
-    B2["<b>Accessing nested values</b> (20 min)"]
-    B3["<b>Modifying nested data</b> (17 min)"]
-    B4["<b>JSON persistence</b> (10 min)"]
-    B5["<b>💻 Exercise: Friends dictionary and persistence</b> (15 min)"]
-    B6["<b>Functions and dictionaries review</b> (3 min)"]
+    B1["<b>First function: print information</b> (10 min)"]
+    B2["<b>Calculate and return a value</b> (15 min)"]
+    B3["<b>Reuse and compose functions</b> (15 min)"]
+    B4["<b>💻 Exercises: Count digits and factorial</b> (25 min)"]
+    B5["<b>💻 Exercises: Combinations and slot machine</b> (20 min)"]
+    B6["<b>External modules and review</b> (5 min)"]
     B1 --> B2 --> B3 --> B4 --> B5 --> B6
   end
 
-  subgraph BEFORE_BREAK["<b>Before break: Loop control and functions</b>"]
+  subgraph BEFORE_BREAK["<b>Before break: Control flow, loop control, and dictionaries</b>"]
     direction TB
-    A1["<b>break and continue</b> (12 min)"]
-    A2["<b>💻 Exercise: Loop termination</b> (10 min) · Dice-game extension homework"]
-    A3["<b>Functions, parameters, returns, and scope</b> (20 min)"]
-    A4["<b>💻 Exercises: Count digits and factorial</b> (20 min) · Set function homework"]
-    A5["<b>💻 Exercises: Combinations and slot machine</b> (10 min)"]
-    A6["<b>External modules</b> (5 min)"]
-    A7["<b>Dictionary basics</b> (13 min)"]
-    A1 --> A2 --> A3 --> A4 --> A5 --> A6 --> A7
+    A1["<b>Control-flow recap: if, while, for</b> (5 min)"]
+    A2["<b>break and continue: airline seats</b> (20 min)"]
+    A3["<b>💻 Loop-termination exercises</b> (35 min) · Dice-game extension homework"]
+    A4["<b>Dictionary access and updates</b> (20 min)"]
+    A5["<b>Lookup efficiency and recap</b> (10 min)"]
+    A1 --> A2 --> A3 --> A4 --> A5
   end
 
 ```
 
 {{< needspace 10 >}}
 
+## Control-flow recap — `if`, `while`, and `for`
+
+![](../images/illustration_control_flow.png){width=100%}
+
+Use the illustration to recall the control-flow structures from the previous
+sessions, in this order:
+
+1. `if` selects whether a block runs.
+2. `while` repeats a block while its condition is true; the condition must be
+   updated so the loop can end.
+3. `for` repeats a block for each item in a sequence; Python assigns the next
+   item to the loop variable.
+
+Emphasize that `if` is selection, while `while` and `for` are repetition.
+
 ## Slide 115 — `break` and `continue`
 
 `break` terminates the loop, whereas `continue` skips the rest of the current iteration.
 
+For example, when looking for an available airline seat, `continue` skips seats
+that are taken, and `break` stops the search as soon as a free seat is found:
+
 ```python
+seat_statuses = ["taken", "taken", "free", "free"]
+
+for seat_status in seat_statuses:
+    print("Checking", seat_status)
+
+    if seat_status == "taken":
+        continue
+
+    print("Assigning the first free seat")
+    break
+```
+
+Ask what happens if every seat is taken: the loop finishes without assigning a
+seat.
+
+The same search can be written with a `while` loop. Update the index before
+`continue` so the loop moves on to the next seat:
+
+```python
+seat_statuses = ["taken", "taken", "free", "free"]
+seat_index = 0
+
+while seat_index < len(seat_statuses):
+    seat_status = seat_statuses[seat_index]
+    print("Checking", seat_status)
+    seat_index = seat_index + 1
+
+    if seat_status == "taken":
+        continue
+
+    print("Assigning the first free seat")
+    break
+```
+
+**Predict the output of these code blocks**
+
+```{python}
 for val in "string":
     if val == "i":
         break
@@ -59,7 +110,7 @@ for val in "string":
 print("The end")
 ```
 
-```python
+```{python}
 for val in "string":
     if val == "i":
         continue
@@ -67,6 +118,8 @@ for val in "string":
 
 print("The end")
 ```
+
+{{< pagebreak >}}
 
 ## Slide 116 — Loop termination
 
@@ -80,6 +133,8 @@ Assign exercise 2 as homework.
 
 {{< teaching-file ../materials/session_10/play_dice_game_with_retries.py kind="homework" >}}
 
+{{< pagebreak >}}
+
 Task instruction: [InsuranceAgent.pdf](../materials/session_10/InsuranceAgent.pdf), uploaded on Canvas
 
 {{< teaching-file ../materials/session_10/calculate_insurance_commission.py >}}
@@ -87,85 +142,148 @@ Task instruction: [InsuranceAgent.pdf](../materials/session_10/InsuranceAgent.pd
 
 {{< needspace 10 >}}
 
+## Dictionary basics — creation, access, and updates (current slides 127–128)
+
+This sequence is taught before functions. The current slide deck is maintained
+outside this repository; reorder its dictionary slides before the function
+slides and update the slide numbers to match.
+
+### Creating a dictionary
+
+Dictionaries associate unique keys with values.
+
+```python
+flight_statuses = {
+    "LH1234-FRA-JFK": "boarding",
+    "LH5678-FRA-LHR": "scheduled",
+    "LH9012-FRA-CDG": "delayed",
+}
+
+flight_statuses
+```
+
+### Accessing and modifying a dictionary
+
+Use a flight identifier in square brackets to access its status:
+
+```python
+flight_statuses["LH1234-FRA-JFK"]
+```
+
+Unlike a list, a dictionary is not accessed by numeric position. This expression
+intentionally raises `KeyError` because `0` is not one of the flight keys:
+
+```python
+flight_statuses[0]
+```
+
+Assigning a value to a new flight identifier adds an entry; assigning to an
+existing flight identifier updates its status.
+
+```python
+flight_statuses["LH2468-FRA-AMS"] = "scheduled"
+flight_statuses
+
+flight_statuses["LH1234-FRA-JFK"] = "departed"
+flight_statuses
+```
+
+::: {.callout-note title="Teaching note: efficient, label-based lookup"}
+- **Efficient lookup:** A dictionary retrieves a value by a known key without
+  scanning through its entries (typically O(1) on average). Searching a list for
+  a matching value may require checking items one by one (O(n)); direct list
+  access by numeric position remains efficient.
+- **Explicit, robust selection:** A meaningful key, such as a flight identifier,
+  makes the intended record clear and remains stable if a list is reordered. A
+  key that does not match an entry raises `KeyError`; an incorrect but valid list
+  index can instead silently select a different record.
+:::
+
+::: {.callout-note title="Teaching note: Pandas connection"}
+Invite students to notice the conceptual parallel with the label-based Pandas
+axes they have used: a label identifies the value or row of interest. Keep this
+as a brief verbal connection, with no additional code example; a Pandas index
+is not simply a Python dictionary.
+:::
+
+::: {.teaching-break}
+Break — 10 minutes
+:::
+
+{{< pagebreak >}}
+
 ## Slide 118 — Defining functions
 
-Parameters receive call arguments, `return` sends a value to the caller, and a function call runs the reusable body.
+Students have already called functions such as `print()`. Now show how to define
+a function of their own.
+
+### First function: print information
+
+This function prints information and does not explicitly return a value:
 
 ```python
-def square(x):
-    sq = x * x
-    return sq
+def show_flight_information(flight):
+    print("Flight:", flight)
+    print("Please proceed to your gate.")
 
 
-x = 2
-y = square(x)
-print(x, y)
+show_flight_information("LH1234-FRA-JFK")
 ```
 
-```python
-def add(x, y):
-    return x + y
+### A function that calculates and returns a value
 
-
-x = 2
-y = 3
-z = add(x, y)
-print(x, y, z)
-```
+Explain that `return` sends a result back to the caller. The caller can store
+the result or use it in another calculation.
 
 ```python
-def fibonacci(n):
-    fib = [0, 1]
-
-    for i in range(n):
-        fib.append(fib[-2] + fib[-1])
-
-    return fib
+def square(number):
+    result = number * number
+    return result
 
 
-n = int(input("How many numbers: "))
-print(fibonacci(n))
+number = 5
+squared_number = square(number)
+print("Square:", squared_number)
 ```
 
 {{< needspace 10 >}}
 
 ## Slide 120 — Reusing functions
 
-One function can call another, and defining reusable functions reduces duplication.
+Compare the repeated inline calculation `a * a + b * b` with calling
+`square(a)` and `square(b)`. A named function makes the operation easier to
+read, update, and reuse. Then show one function calling another:
 
 ```python
-def square(x):
-    sq = x * x
-    return sq
+def square(number):
+    return number * number
 
 
-def sumofSquares(numberlist):
-    sum_ = 0
+def sum_of_squares(numbers):
+    total = 0
 
-    for i in numberlist:
-        squaredValue = square(i)
-        sum_ += squaredValue
+    for number in numbers:
+        total = total + square(number)
 
-    return sum_
+    return total
 
 
 a = 2
 b = 3
-
-c2 = square(a) + square(b)
-print(c2)
+total_for_two_numbers = square(a) + square(b)
+print(total_for_two_numbers)
 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-total = sumofSquares(numbers)
+total = sum_of_squares(numbers)
 
-print("Sum of the Square of List of Numbers:", total)
+print("Sum of squares:", total)
 ```
 
 {{< needspace 10 >}}
 
 ## Slides 121–122 — Functions
 
-Order, in-session: 4, 5, 1, 6 (if time permits).
+Order, in-session: 1, 4, 5, 6 (if time permits).
 Assign 2,3 as homework.
 
 1. Write a function count_digits(int)
@@ -192,10 +310,6 @@ Assign 2,3 as homework.
 
 {{< teaching-file ../materials/session_10/simulate_slot_machine.py >}}
 
-::: {.callout-important title="Exam relevance"}
-At least one exam exercise will cover functions.
-:::
-
 ## Slide 125 — Using an external module
 
 The module name acts as a namespace prefix.
@@ -207,204 +321,14 @@ print(math.sin(5))
 print(math.sin(math.pi))
 ```
 
-## Slide 127 — Creating a dictionary
-
-Dictionaries use curly braces to associate unique keys with values.
-
-```python
-dict1 = {
-    'Peter': 55,
-    'Mary': 40,
-    'Bob': 34,
-}
-
-dict1
-```
-
-{{< needspace 10 >}}
-
-## Slide 128 — Accessing and modifying dictionaries
-
-The second and third expressions below intentionally raise `KeyError` because those keys do not exist.
-
-```python
-dict1['Mary']
-dict1['Hans']
-dict1[0]
-```
-
-```python
-a = 'Peter'
-dict1[a]
-```
-
-```python
-dict1['Alice'] = 55
-dict1
-```
-
-```python
-dict1['Mary'] = 41
-dict1
-```
-
-```python
-stockprices = {
-    'Date': [
-        '1.1.2021',
-        '2.1.2021',
-        '1.1.2021',
-        '2.1.2021',
-    ],
-    'BMW': [89, 91, 95, 92],
-    'Telekom': [12, 10, 14, 17],
-    'SAP': [114, 119, 125, 130],
-}
-```
-
-These examples demonstrate lookup, insertion, replacement, and list values.
-
-{{< needspace 10 >}}
-
-## Slide 129 — Complex and nested dictionaries
-
-Values can themselves be dictionaries or lists, and keys may be strings or numbers.
-
-```python
-contacts = {
-    'name': 'Alice',
-    'age': 30,
-    'address': {
-        'street': '123 Main St',
-        'city': 'Wonderland',
-        'zip': '12345',
-    },
-    'phone_numbers': [
-        {
-            'type': 'home',
-            'number': '123-456-7890',
-        },
-        {
-            'type': 'work',
-            'number': '987-654-3210',
-        },
-    ],
-}
-```
-
-```python
-product_details = {
-    'product_id': 101,
-    'name': 'Laptop',
-    'price': 799.99,
-    'in_stock': True,
-    'tags': ['electronics', 'computer'],
-}
-```
-
-```python
-item_quantities = {
-    1: 50,
-    2: 30,
-    3: 75,
-}
-```
-
-```python
-students = {
-    'student1': {
-        'name': 'John',
-        'age': 22,
-        'courses': ['Math', 'Science'],
-    },
-    'student2': {
-        'name': 'Jane',
-        'age': 24,
-        'courses': ['History', 'Literature'],
-    },
-}
-```
-
-## Slide 130 — Accessing nested dictionary values
-
-Use successive keys to access nested values; a list stored inside a dictionary can be modified with its list methods.
-
-```python
-students['student1']
-students['student1']['age']
-students['student1']['courses']
-students['student1']['courses'][0]
-```
-
-```python
-students['student1']['haircolor'] = 'blonde'
-students['student1']['courses'].append('Informatics')
-
-students['student1']
-```
-
-{{< needspace 10 >}}
-
-## Slide 131 — Adding, changing, and deleting nested data
-
-```python
-students['student3'] = {
-    'name': 'Peter',
-    'age': 25,
-    'courses': ['Finance'],
-}
-
-students['student3']['weight'] = 23
-```
-
-```python
-del students['student3']['weight']
-del students['student3']
-```
-
-```python
-students['student2']['courses'].append('Informatics')
-students['student1']['courses'].remove('Math')
-students['student1'] = {'age': 25}
-```
-
-The final assignment replaces the complete `student1` dictionary rather than changing only its age.
-
-## Slide 132 — Save and load dictionaries with JSON
-
-Write mode creates or replaces the file and `json.dump()` serializes the dictionary; read mode opens it and `json.load()` reconstructs the data.
-
-```python
-import json
-
-with open('students.db', 'w') as file:
-    json.dump(students, file)
-
-with open('students.db', 'r') as file:
-    students = json.load(file)
-```
-
-::: {.teaching-break}
-Break — 10 minutes
-:::
-
-{{< needspace 10 >}}
-
-## Slide 133 — Dictionaries and persistence
-
-{{< teaching-file ../materials/session_10/manage_friends_json.py >}}
-
-- Dictionaries are less relevant to the exam; do not announce this explicitly at the beginning. They may appear in a multiple-choice question.
-
-::: {.callout-note title="Generated file"}
-`friends.db` is preserved in the exercise table, but it is not supplied as input material. `manage_friends_json.py` generates it at runtime.
-:::
-
 {{< needspace 10 >}}
 
 ## Summary and announcements
 
-- TODO
+- `if` chooses a path, while `while` and `for` repeat work.
+- `continue` skips the rest of one loop iteration; `break` exits the loop.
+- Dictionaries access values through keys and can add or update entries.
+- Functions can print information or return a value for later use.
 
 ::: {.callout-tip title="Notes for improvement"}
 Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
