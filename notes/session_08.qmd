@@ -73,6 +73,14 @@ that the separators are in the expected positions. They are individual checks
 for now; conditional statements will show later how a program can respond to
 the results.
 
+Comparisons do not treat numeric text as a number: `3` and `3.0` compare as
+equal, but the string `"3"` is not equal to the number `3`.
+
+```python
+3 == 3.0       # True
+3 == "3"       # False
+```
+
 ### Informational print block
 
 Start with Python code comments to explain what we want to print (highlight surrounding quotes):

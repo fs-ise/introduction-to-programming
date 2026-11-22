@@ -136,10 +136,13 @@ Run these expressions individually in Spyder so that each result is visible.
 16%5              # modulo/remainder after integer division (1)
 16//5             # floor division: returns whole-number qotient (3)
 3**2              # exponent
+3 + 2.5           # integer and float can be added
 "Hello " + "World"
 ```
 
-Note: operators explained on the following slide.
+Use `3 + 2.5` to show that numeric values of different types can be added. How
+mixed types behave depends on the operation; operators are explained on the
+following slide.
 
 ## Slide 8 — Variables and reassignment
 
