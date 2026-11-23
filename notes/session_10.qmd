@@ -55,11 +55,13 @@ sessions, in this order:
 3. `for` repeats a block for each item in a sequence; Python assigns the next
    item to the loop variable.
 
-Emphasize that `if` is selection, while `while` and `for` are repetition.
-
 ## Slide 115 — `break` and `continue`
 
-`break` terminates the loop, whereas `continue` skips the rest of the current iteration.
+Emphasize that the compound statements `if`, `while` and `for` control the flow of execution.
+In the following, we focus on statements that allow us to control the block execution in `for` and `while`:
+
+- `continue` skips the rest of the current iteration and continues with the next
+- `break` terminates the loop
 
 For example, when looking for an available airline seat, `continue` skips seats
 that are taken, and `break` stops the search as soon as a free seat is found:
