@@ -704,6 +704,8 @@ Explain that Python checks `if` and `elif` conditions in order and executes
 only the first matching branch. The `else` runs when none of the preceding
 conditions in that chain are true.
 
+![](../images/python-control_flow_explanation_if_elif.png){width="100%"}
+
 Key takeaway: Nested conditionals let one decision control which further
 alternatives are considered. Indentation makes the relationship between the
 outer and inner branches visible.
