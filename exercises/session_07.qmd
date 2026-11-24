@@ -318,7 +318,7 @@ Use `Homes_Florida.xlsx` to calculate transaction profits, summarize and plot pr
 ### In-class exercises on interactive formula programs
 
 ::: {.callout-warning title="Important"}
-`input()` returns a `string` type, so convert entered values to `int` or `float` before calculating.
+`input()` returns a `string` type, so convert entered values to `int` or `float` before calculating. These programs are shown as runnable scripts rather than executed in the page. Since they use `input()`, they need values entered when you run them, so no output appears directly below the examples. Use the [Test your program table](#test-your-program) at the end of this section to check your results.
 :::
 
 #### Calculate the area of a circle
@@ -372,3 +372,16 @@ Convert the entered percentage rate to a decimal and calculate the annual paymen
 ::: {.sol}
 {{< teaching-file ../materials/session_07/calculate_loan_payment.py kind="homework" >}}
 :::
+
+### Test your program
+
+Run each script with the sample inputs and compare your result with the expected value. Your output formatting may differ.
+
+| Exercise | Sample inputs | Expected result |
+| --- | --- | --- |
+| Circle area | Radius: `5` | `78.53975` |
+| Currency conversion | Amount: `10`; exchange rate: `2` | `20` |
+| Distance | Frankfurt: latitude `50.1109`, longitude `8.6821`; Paris: latitude `48.8534951`, longitude `2.3483915` | About `445.55` km |
+| Travel time | Speed: `60` km/h; distance: `120` km | `2` hours |
+| Fuel consumption | Distance: `500` km; fuel: `40` liters | `8` liters per 100 km |
+| Annual loan payment | Amount: `1000`; interest rate: `5%`; duration: `1` year | `1050` per year |
