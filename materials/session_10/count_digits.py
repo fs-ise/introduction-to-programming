@@ -1,9 +1,10 @@
+# Solution alternative 1
 def count_digitsa(number):
     snum = str(number)
     count = len(snum)
     return count
 
-
+# Solution alternative 2
 def count_digitsb(number):
     count = 0
     while number > 0:

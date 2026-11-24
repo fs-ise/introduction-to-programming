@@ -24,3 +24,4 @@ title: "Feedback"
   See: https://chatgpt.com/c/94788317-a418-8322-836c-261cd1f668d9
 - Share Excel Task collection one File and additional painter exercises wir pr/team
 - Notes. For each Session, start with recommend spyder Setup (variables pane activated?) in "instructor callout"
+- Color-coding: in-class exercises as green boxes; homework (including flexible in-class/homework exercises) as grey boxes

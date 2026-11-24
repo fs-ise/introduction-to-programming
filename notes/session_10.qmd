@@ -44,7 +44,7 @@ flowchart
 
 ## Control-flow recap — `if`, `while`, and `for`
 
-![](../images/illustration_control_flow.png){width=100%}
+![](../images/illustration_control_flow.png){width=90%}
 
 Use the illustration to recall the control-flow structures from the previous
 sessions, in this order:
@@ -76,16 +76,30 @@ for seat_status in seat_statuses:
         continue
 
     print("Assigning the first free seat")
-    break
+    break  # add break as the last element (without it, we continue to assign seats to the passenger
+```
+
+Variations:
+
+```python
+for ...:
+    ...
+    # additional if:
+    if "y" != input("Passenger accepts"):
+        continue
 ```
 
 Ask what happens if every seat is taken: the loop finishes without assigning a
 seat.
 
-{{< pagebreak >}}
+::: callout-note
+Show slide p. 115 (right side).
+:::
 
-The same search can be written with a `while` loop. Update the index before
-`continue` so the loop moves on to the next seat:
+**Exercise**: The same search can be written with a `while` loop.
+
+Hint: Use an index to retrieve items.
+Remember to update the index before `continue` so the loop moves on to the next seat:
 
 ```python
 seat_statuses = ["taken", "taken", "free", "free"]
@@ -100,7 +114,7 @@ while seat_index < len(seat_statuses):
         continue
 
     print("Assigning the first free seat")
-    break
+    break)
 ```
 
 **Predict the output of these code blocks**
@@ -139,68 +153,71 @@ Assign exercise 2 as homework.
 
 {{< pagebreak >}}
 
+::: {.callout-tip title="Attention: Learn to analyze and implement requirements"}
+In this task, we learn to systematically analyze requirements and
+identify the corresponding programming constructs:
+
+- **Interactive input:** Does the task require users to enter information?
+  → Use `input()`.
+- **Repetition:** Does an operation (e.g., entering information) need
+  to be repeated?
+  - If the number of repetitions is known → Use a `for` loop.
+  - If repetition depends on a condition → Use a `while` loop.
+- **Accumulation:** Does a result need to be calculated across multiple
+  iterations (e.g., a sum or count)?
+  → Initialize and update an accumulator variable.
+
+Before writing code, analyze the task description for these patterns
+and determine how the programming constructs should be combined.
+:::
+
 Task instruction: [InsuranceAgent.pdf](../materials/session_10/InsuranceAgent.pdf), uploaded on Canvas
 
 {{< teaching-file ../materials/session_10/calculate_insurance_commission.py >}}
 
+{{< pagebreak >}}
 
-{{< needspace 10 >}}
+## 127-128 Dictionary illustration
 
-## Dictionary basics — creation, access, and updates (current slides 127–128)
+The same flight can be represented as a list or a dictionary. The access and
+update statements highlight the difference: a list uses numeric positions, while
+a dictionary uses descriptive keys.
 
-This sequence is taught before functions. The current slide deck is maintained
-outside this repository; reorder its dictionary slides before the function
-slides and update the slide numbers to match.
-
-### Creating a dictionary
-
-Dictionaries associate unique keys with values.
+### List: position-based access and updates
 
 ```python
-flight_statuses = {
-    "LH1234-FRA-JFK": "boarding",
-    "LH5678-FRA-LHR": "scheduled",
-    "LH9012-FRA-CDG": "delayed",
+flight_9012 = ["BER", "FRA", "boarding"]
+
+print(flight_9012[0])
+flight_9012[2] = "delayed"
+```
+
+### Dictionary: key-based access and updates
+
+```python
+flight_9012 = {
+    "destination": "BER",
+    "departure": "FRA",
+    "status": "boarding",
 }
 
-flight_statuses
+print(flight_9012["destination"])
+flight_9012["status"] = "delayed"
 ```
 
-### Accessing and modifying a dictionary
-
-Use a flight identifier in square brackets to access its status:
-
-```python
-flight_statuses["LH1234-FRA-JFK"]
-```
-
-Unlike a list, a dictionary is not accessed by numeric position. This expression
-intentionally raises `KeyError` because `0` is not one of the flight keys:
-
-```python
-flight_statuses[0]
-```
-
-Assigning a value to a new flight identifier adds an entry; assigning to an
-existing flight identifier updates its status.
-
-```python
-flight_statuses["LH2468-FRA-AMS"] = "scheduled"
-flight_statuses
-
-flight_statuses["LH1234-FRA-JFK"] = "departed"
-flight_statuses
-```
+In the list, position `0` contains the destination and position `2` contains
+the status. In the dictionary, the keys make those roles explicit. Assigning to
+an existing key updates its value; assigning to a new key adds an entry.
 
 ::: {.callout-note title="Teaching note: efficient, label-based lookup"}
 - **Efficient lookup:** A dictionary retrieves a value by a known key without
   scanning through its entries (typically O(1) on average). Searching a list for
   a matching value may require checking items one by one (O(n)); direct list
   access by numeric position remains efficient.
-- **Explicit, robust selection:** A meaningful key, such as a flight identifier,
-  makes the intended record clear and remains stable if a list is reordered. A
+- **Explicit, robust selection:** A meaningful key, such as `"destination"`,
+  makes the intended value clear and remains stable if a list is reordered. A
   key that does not match an entry raises `KeyError`; an incorrect but valid list
-  index can instead silently select a different record.
+  index can instead silently select a different value.
 :::
 
 ::: {.callout-note title="Teaching note: Pandas connection"}
@@ -233,6 +250,10 @@ def show_flight_information(flight):
 show_flight_information("LH1234-FRA-JFK")
 ```
 
+::: callout-tip
+Running just the function definition does not print anything. It only makes the function available.
+:::
+
 ### A function that calculates and returns a value
 
 Explain that `return` sends a result back to the caller. The caller can store
@@ -257,11 +278,25 @@ Compare the repeated inline calculation `a * a + b * b` with calling
 `square(a)` and `square(b)`. A named function makes the operation easier to
 read, update, and reuse. Then show one function calling another:
 
+Motivation: sum of squares to assess performance of predictions.
+
+Start with simple square function:
+
 ```python
 def square(number):
     return number * number
 
+# Test call
+print(square(2))
 
+# Continue with additions
+total_for_two_numbers = square(2) + square(3)
+print(total_for_two_numbers)
+```
+
+Then introduce the loop to sum up and wrap it in a function:
+
+```python
 def sum_of_squares(numbers):
     total = 0
 
@@ -271,10 +306,6 @@ def sum_of_squares(numbers):
     return total
 
 
-a = 2
-b = 3
-total_for_two_numbers = square(a) + square(b)
-print(total_for_two_numbers)
 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 total = sum_of_squares(numbers)
@@ -332,7 +363,8 @@ print(math.sin(math.pi))
 
 - `if` chooses a path, while `while` and `for` repeat work.
 - `continue` skips the rest of one loop iteration; `break` exits the loop.
-- Dictionaries access values through keys and can add or update entries.
+- Lists access items by position; dictionaries access values through keys and
+  can add or update entries.
 - Functions can print information or return a value for later use.
 
 ::: {.callout-tip title="Notes for improvement"}
