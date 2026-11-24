@@ -128,7 +128,7 @@ pd.pivot_table(
 
 ### Add totals and plot the pivot table
 
-Store the pivot table in a DataFrame, add a total row, and make a bar chart. `margins=True` is an alternative way to include totals.
+Store the pivot table in a DataFrame, add a total row, and make a bar chart.
 
 ::: {.sol}
 ```{python}
@@ -142,6 +142,10 @@ pivot_df = pd.pivot_table(
 pivot_df.loc["Total"] = pivot_df.sum()
 pivot_df
 ```
+
+::: callout-tip
+`margins=True` is an another way to include totals.
+:::
 
 ```{python}
 #| fig-align: center
@@ -164,6 +168,8 @@ pd.pivot_table(
 )
 ```
 :::
+
+{{< needspace 16 >}}
 
 ## Insurance: pivot-table exercise
 
@@ -218,6 +224,8 @@ pd.pivot_table(
 ```
 :::
 
+{{< needspace 16 >}}
+
 ### 4. Flood and earthquake coverage, by state and construction
 
 Keep only contracts with both coverages, then calculate the average insured value.
@@ -266,20 +274,6 @@ insurance_pivot.loc["Total"] = insurance_pivot.sum()
 insurance_pivot
 ```
 
-Another option is to use the built-in `margins=True` option.
-
-```{python}
-pd.pivot_table(
-    insurance,
-    index=["Location", "BusinessType"],
-    columns="Region",
-    values="InsuredValue",
-    aggfunc="sum",
-    fill_value=0,
-    margins=True,
-)
-```
-
 :::
 
 ### 7. Plot contract counts by location and state
@@ -319,11 +313,13 @@ Use `Homes_Florida.xlsx` to calculate transaction profits, summarize and plot pr
 {{< teaching-file ../materials/session_07/analyze_florida_home_sales.py max-lines="40" >}}
 :::
 
-## Interactive formula programs
+{{< needspace 20 >}}
 
-`input()` returns text, so convert entered values to `int` or `float` before calculating. The following scripts are displayed as source and are not run while rendering this document.
+### In-class exercises on interactive formula programs
 
-### In-class exercises
+::: {.callout-warning title="Important"}
+`input()` returns a `string` type, so convert entered values to `int` or `float` before calculating.
+:::
 
 #### Calculate the area of a circle
 
@@ -341,6 +337,8 @@ Ask for an amount and exchange rate, then calculate the converted amount.
 {{< teaching-file ../materials/session_07/convert_currency.py >}}
 :::
 
+{{< needspace 20 >}}
+
 #### Calculate distance
 
 Ask for two pairs of coordinates and calculate the approximate distance between them.
@@ -356,6 +354,8 @@ Use speed and distance to calculate the time needed for a trip.
 ::: {.sol}
 {{< teaching-file ../materials/session_07/calculate_travel_time.py kind="homework" >}}
 :::
+
+{{< needspace 20 >}}
 
 #### Calculate fuel consumption
 

@@ -568,7 +568,7 @@ Break — 10 minutes
 
 {{< needspace 20 >}}
 
-## Discuss solution of `contries1.py` exercise (> Previous page)
+## Discuss solution of `countries1.py` exercise (> Previous page)
 
 ## Slide 32 — Adding rows and columns
 
