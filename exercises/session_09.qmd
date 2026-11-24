@@ -1,0 +1,244 @@
+---
+title: "Session 09 — For and While Loops"
+date: ""
+shortcodes:
+  - ../_extensions/needspace/needspace.lua
+execute:
+  echo: true
+  warning: false
+  message: false
+jupyter: python3
+---
+
+## In-class examples: repeating instructions
+
+A `for` loop processes each item in a sequence or repeats a known number of
+times. A `while` loop repeats as long as its condition is true. Trace each
+example and identify the values the loop variable receives.
+
+### Process each item with a `for` loop
+
+```{python}
+flights = ["LH1234-FRA-JFK", "LH5678-FRA-LHR", "LH9012-FRA-CDG"]
+
+for flight in flights:
+    print("Flight:", flight)
+```
+
+Strings are sequences too. A `for` loop can process one character at a time:
+
+```{python}
+for character in "FRA":
+    print(character)
+```
+
+### Repeat a specified number of times with `range()`
+
+With one argument, `range()` starts at 0 and stops before the number given:
+
+```{python}
+for number in range(3):
+    print(number)
+```
+
+This prints `0`, `1`, and `2`. The stop value is excluded, so the loop body runs
+three times. You can also give a start and stop value, or add a step value:
+
+```{python}
+for number in range(1, 4):
+    print(number)
+```
+The first loop prints `1`, `2`, and `3`.
+
+```{python}
+for number in range(2, 10, 2):
+    print(number)
+```
+
+The second prints `2`, `4`, `6`, and
+`8`: the step is 2, and the stop value `10` is still excluded.
+
+### Accumulate values and apply a rule
+
+An accumulator keeps a running result as a loop processes items. Here, calculate
+the average delay for flights whose delay is at least 10 minutes:
+
+```{python}
+delays = [10, 0, 25, 5]
+total_delay = 0
+counted_flights = 0
+
+for delay in delays:
+    if delay >= 10:
+        total_delay = total_delay + delay
+        counted_flights = counted_flights + 1
+
+average_delay = total_delay / counted_flights
+print("Average delay for qualifying flights:", average_delay)
+```
+
+The `if` statement applies the rule. The loop adds only qualifying delays to
+`total_delay` and counts those flights in `counted_flights`. After the loop,
+divide the total by the count to get the average (`17.5` minutes here).
+
+### Repeat while a condition is true
+
+The loop body must update the value used in the condition so the loop can end.
+Here, entering an empty string ends the loop:
+
+```python
+answer = input("Enter a word (or press Enter to finish): ")
+
+while answer != "":
+    print(answer)
+    answer = input("Enter a word (or press Enter to finish): ")
+```
+
+{{< needspace 10 >}}
+
+## For loops
+
+### 1. Repeat a message
+
+Ask the user for a message and how many times it should be displayed.
+
+```python
+{{< include ../materials/session_09/repeat_message.py >}}
+```
+
+### 2. Calculate an average
+
+Ask how many numbers will be entered, read the numbers into a list, and use a
+loop to calculate and print their average.
+
+```python
+{{< include ../materials/session_09/calculate_average.py >}}
+```
+
+{{< needspace 10 >}}
+
+### 3. Mark multiples of ten (take-home)
+
+Display the numbers from 1 to 100. Mark the numbers that are divisible by ten.
+
+```python
+{{< include ../materials/session_09/mark_multiples_of_ten.py >}}
+```
+
+### 4. Sum multiples of 3 or 5 (take-home)
+
+Ask for an upper bound, then add the positive whole numbers below it that are
+divisible by 3 or 5.
+
+```python
+{{< include ../materials/session_09/sum_multiples.py >}}
+```
+
+### 5. Generate a Fibonacci sequence (optional challenge)
+
+Ask how many additional Fibonacci numbers to generate, starting with the list
+`[0, 1]`. Each new number is the sum of the two preceding numbers.
+
+**Homework**
+
+```python
+{{< include ../materials/session_09/generate_fibonacci_sequence.py >}}
+```
+
+{{< needspace 10 >}}
+
+### 6. Count random numbers (optional take-home)
+
+Generate a user-specified number of random integers from 1 to 10. Count how
+often each number occurs and display the counts.
+
+```python
+{{< include ../materials/session_09/count_random_numbers.py >}}
+```
+
+### 7. Print a character triangle (advanced challenge)
+
+Ask for a word and print its characters as a triangle, repeating each character
+according to its position. This challenge uses a loop inside another loop.
+
+**Homework**
+
+```python
+{{< include ../materials/session_09/print_character_triangle.py >}}
+```
+
+{{< needspace 10 >}}
+
+## While loops
+
+### 1. Build a shopping list (take-home)
+
+Keep asking the user for items and add each item to a list. An empty entry ends
+the input. Then print the items in the list.
+
+```python
+{{< include ../materials/session_09/build_shopping_list.py >}}
+```
+
+### 2. Guess a number
+
+Choose a random number from 1 to 10. Keep asking the user to guess until they
+guess correctly.
+
+```python
+{{< include ../materials/session_09/guess_number.py >}}
+```
+
+### 3. Guess a number with hints
+
+Choose a random number from 1 to 100. Keep asking for guesses and tell the user
+whether the target number is higher or lower until they guess correctly.
+
+```python
+{{< include ../materials/session_09/guess_number_with_hints.py >}}
+```
+
+{{< needspace 15 >}}
+
+### 4. Repeat a dice game
+
+Roll two dice and apply the rules from the Session 08 dice game. After a win,
+ask whether the player wants another round. A loss ends the game.
+
+```python
+{{< include ../materials/session_09/play_repeating_dice_game.py >}}
+```
+
+### 5. Simulate loan repayments (advanced take-home)
+
+Ask for the loan amount, repayment, and annual interest rate. Print a monthly
+repayment history until the amount is paid, including the month, repayment,
+interest estimate, and remaining amount. In this model, interest is displayed
+but is not added to the remaining balance.
+
+```python
+{{< include ../materials/session_09/simulate_loan_repayments.py >}}
+```
+
+{{< needspace 15 >}}
+
+## Choose and debug a loop
+
+For each task, decide whether a `for` loop or a `while` loop is the more natural
+choice. Explain what determines when the loop ends.
+
+- Print every flight in a list.
+- Ask for guesses until the user finds a randomly chosen number.
+- Print the numbers from 1 to 20.
+- Ask for list items until the user enters an empty string.
+
+The following loop does not finish when the user enters `"no"`. Identify why,
+then change the code so the user can end the repetition:
+
+```python
+answer = "yes"
+
+while answer == "yes":
+    print("The loop is running")
+    input("Continue? (yes/no): ")
+```

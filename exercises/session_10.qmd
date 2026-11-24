@@ -1,0 +1,284 @@
+---
+title: "Session 10 — Loop Control, Dictionaries, and Functions"
+date: ""
+shortcodes:
+  - ../_extensions/needspace/needspace.lua
+execute:
+  echo: true
+  warning: false
+  message: false
+jupyter: python3
+---
+
+## Loop control: `break` and `continue`
+
+Recall that `for` and `while` repeat an indented block. `continue` skips the rest
+of the current iteration and moves to the next one. `break` exits the loop.
+
+### Find the first available seat
+
+Skip seats that are taken and stop searching after finding the first free seat:
+
+```python
+seat_statuses = ["taken", "taken", "free", "free"]
+
+for seat_status in seat_statuses:
+    print("Checking", seat_status)
+
+    if seat_status == "taken":
+        continue
+
+    print("Assigning the first free seat")
+    break
+```
+
+What happens if every seat is taken? Trace the loop and identify what each
+statement does. In particular, the `while` version must advance its index before
+`continue` so that it moves on to the next seat:
+
+```python
+seat_statuses = ["taken", "taken", "free", "free"]
+seat_index = 0
+
+while seat_index < len(seat_statuses):
+    seat_status = seat_statuses[seat_index]
+    print("Checking", seat_status)
+    seat_index = seat_index + 1
+
+    if seat_status == "taken":
+        continue
+
+    print("Assigning the first free seat")
+    break
+```
+
+Predict the output of each loop before running it. How does `break` change the
+first output compared with `continue`?
+
+{{< pagebreak >}}
+
+These are typical exam questions. Predict the output:
+
+```python
+for character in "string":
+    if character == "i":
+        break
+    print(character)
+
+print("The end")
+```
+
+```python
+for character in "string":
+    if character == "i":
+        continue
+    print(character)
+
+print("The end")
+```
+
+{{< needspace 15 >}}
+
+## Loop termination
+
+### 1. Collect numbers until zero
+
+Collect integers in a list. End the input when the user enters `0`; do not add
+the zero to the list.
+
+```python
+{{< include ../materials/session_10/collect_numbers.py >}}
+```
+
+### 2. Retry the dice game (take-home)
+
+Extend the dice game so the player gets up to three throws in each round. A
+matching pair wins; after a win, ask whether to play another round. If all three
+throws fail to produce a pair, the game ends.
+
+**Homework**
+
+```python
+{{< include ../materials/session_10/play_dice_game_with_retries.py >}}
+```
+
+### 3. Calculate insurance commission
+
+For each contract, an insurance agent receives €50 plus 1% of the sum insured.
+Ask for each sum insured until the agent enters `0`, then display the total
+commission. For example, sums insured of 1000, 2000, and 3000 produce a total
+commission of 210.0.
+
+```python
+{{< include ../materials/session_10/calculate_insurance_commission.py >}}
+```
+
+{{< pagebreak >}}
+
+## Lists and dictionaries: access and updates
+
+**List: position-based access and updates**
+
+```python
+flight_9012 = ["BER", "FRA", "boarding", 97]
+
+print(flight_9012[0])
+
+flight_9012[2] = "delayed"
+```
+
+**Dictionary: key-based access and updates**
+
+```python
+flight_9012 = {
+    "destination": "BER",
+    "departure": "FRA",
+    "status": "boarding",
+    "nr_passengers": 97,
+}
+
+print(flight_9012["destination"])
+
+flight_9012["status"] = "delayed"
+```
+
+The access and update statements are added to illustrate the handwritten
+distinction between position-based and key-based access.
+
+{{< pagebreak >}}
+
+## Functions
+
+Functions can print information, calculate and return a value, or call other
+functions. A returned value can be stored and used in a later calculation.
+
+```python
+def show_flight_information(flight):
+    print("Flight:", flight)
+    print("Please proceed to your gate.")
+
+show_flight_information("LH1234-FRA-JFK")
+```
+
+```python
+def square(number):
+    result = number * number
+    return result
+
+squared_number = square(5)
+print("Square:", squared_number)
+```
+
+```python
+def sum_of_squares(numbers):
+    total = 0
+
+    for number in numbers:
+        total = total + square(number)
+
+    return total
+
+print("Sum of squares:", sum_of_squares([1, 2, 3]))
+```
+
+Trace the calls to `square()` inside `sum_of_squares()`. What value does each
+function return, and where is that value used?
+
+{{< needspace 15 >}}
+
+### In-class function exercises
+
+#### Count digits
+
+Write a function that counts the digits in a positive integer. The provided
+program compares counting after converting the number to a string with counting
+by repeated integer division.
+
+```python
+{{< include ../materials/session_10/count_digits.py >}}
+```
+
+#### Calculate a factorial
+
+Write a function that calculates `n!` for a non-negative integer `n`. Recall that
+`0!` is 1.
+
+```python
+{{< include ../materials/session_10/calculate_factorial.py >}}
+```
+
+{{< needspace 15 >}}
+
+#### Calculate combinations
+
+Use the factorial function to calculate the number of ways to choose `k` items
+from `n`. Assume `n` and `k` are integers with `0 <= k <= n`.
+
+```python
+{{< include ../materials/session_10/calculate_combinations.py >}}
+```
+
+{{< needspace 15 >}}
+
+#### Simulate a slot machine (if time permits)
+
+Use a function to generate three numbers and report whether they match. The
+existing script contains several versions of the simulation; use it as an
+optional extension rather than a core exercise.
+
+```python
+{{< include ../materials/session_10/simulate_slot_machine.py >}}
+```
+
+{{< pagebreak >}}
+
+### Function homework
+
+#### Multiply values in a list
+
+Write a function that returns the product of all values in a list.
+
+**Homework**
+
+```python
+{{< include ../materials/session_10/multiply_list_values.py >}}
+```
+
+#### Check for a Harshad number
+
+A positive integer is a Harshad number if it is divisible by the sum of its
+digits. Write a function that returns `True` when the entered positive integer
+is a Harshad number and `False` otherwise.
+
+**Homework**
+
+```python
+{{< include ../materials/session_10/check_harshad_number.py >}}
+```
+
+{{< needspace 15 >}}
+
+## External modules
+
+### Create a module from the factorial function
+
+A module is a Python file that contains reusable code. Save the factorial
+function in `math_functions.py`. Module names cannot contain spaces, so use an
+underscore between the words.
+
+```python
+import math_functions
+
+# After import, we can now use our own function from a different file (module):
+math_functions.factorial(3)
+```
+
+The expression `math_functions.factorial(n)` uses the module name, a dot, and
+the function name. Python's standard-library `math` module uses the same pattern:
+
+```python
+import math
+
+print(math.sin(5))
+print(math.sin(math.pi))
+```

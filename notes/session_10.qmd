@@ -218,8 +218,7 @@ Break — 10 minutes
 
 ## Slide 118 — Defining functions
 
-Students have already called functions such as `print()`. Now show how to define
-a function of their own.
+![](../images/functions_summary_explanations.png)
 
 ### First function: print information
 

@@ -1,9 +1,8 @@
 ---
-title: "Session 07 — Pivot Tables, Prediction, Numeric Types"
+title: "Session 07 — Pivot Tables, Prediction, Data Types"
 date: ""
 shortcodes:
   - ../_extensions/needspace/needspace.lua
-  - ../_extensions/teaching-file/teaching-file.lua
 execute:
   echo: true
   warning: false
@@ -109,6 +108,8 @@ pd.pivot_table(
 )
 ```
 :::
+
+{{< needspace 16 >}}
 
 ### Combine filters
 
@@ -300,7 +301,9 @@ insurance_counts.plot(kind="bar")
 Use `Chipotle.csv` to inspect the order data, summarize orders and items, calculate revenue, filter for particular products, and create charts.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_07/analyze_chipotle_orders.py max-lines="40" >}}
+```python
+{{< include ../materials/session_07/analyze_chipotle_orders.py >}}
+```
 :::
 
 {{< pagebreak >}}
@@ -310,10 +313,12 @@ Use `Chipotle.csv` to inspect the order data, summarize orders and items, calcul
 Use `Homes_Florida.xlsx` to calculate transaction profits, summarize and plot profits, filter and count properties, compare agencies, inspect correlations, and build price forecasts.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_07/analyze_florida_home_sales.py max-lines="40" >}}
+```python
+{{< include ../materials/session_07/analyze_florida_home_sales.py >}}
+```
 :::
 
-{{< needspace 20 >}}
+{{< needspace 15 >}}
 
 ### In-class exercises on interactive formula programs
 
@@ -326,7 +331,9 @@ Use `Homes_Florida.xlsx` to calculate transaction profits, summarize and plot pr
 Ask for a radius and calculate the circle's area.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_07/calculate_circle_area.py >}}
+```python
+{{< include ../materials/session_07/calculate_circle_area.py >}}
+```
 :::
 
 #### Convert currency
@@ -334,17 +341,21 @@ Ask for a radius and calculate the circle's area.
 Ask for an amount and exchange rate, then calculate the converted amount.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_07/convert_currency.py >}}
+```python
+{{< include ../materials/session_07/convert_currency.py >}}
+```
 :::
 
-{{< needspace 20 >}}
+{{< needspace 5 >}}
 
 #### Calculate distance
 
 Ask for two pairs of coordinates and calculate the approximate distance between them.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_07/calculate_distance.py >}}
+```python
+{{< include ../materials/session_07/calculate_distance.py >}}
+```
 :::
 
 #### Calculate travel time
@@ -352,25 +363,39 @@ Ask for two pairs of coordinates and calculate the approximate distance between 
 Use speed and distance to calculate the time needed for a trip.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_07/calculate_travel_time.py kind="homework" >}}
+**Homework**
+
+```python
+{{< include ../materials/session_07/calculate_travel_time.py >}}
+```
 :::
 
-{{< needspace 20 >}}
+{{< needspace 10 >}}
 
 #### Calculate fuel consumption
 
 Calculate fuel consumption in liters per 100 kilometers from distance driven and fuel added.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_07/calculate_fuel_consumption.py kind="homework" >}}
+**Homework**
+
+```python
+{{< include ../materials/session_07/calculate_fuel_consumption.py >}}
+```
 :::
+
+{{< needspace 10 >}}
 
 #### Calculate the annual loan payment
 
 Convert the entered percentage rate to a decimal and calculate the annual payment for an annuity loan.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_07/calculate_loan_payment.py kind="homework" >}}
+**Homework**
+
+```python
+{{< include ../materials/session_07/calculate_loan_payment.py >}}
+```
 :::
 
 ### Test your program
@@ -378,7 +403,7 @@ Convert the entered percentage rate to a decimal and calculate the annual paymen
 Run each script with the sample inputs and compare your result with the expected value. Your output formatting may differ.
 
 | Exercise | Sample inputs | Expected result |
-| --- | --- | --- |
+| -- | ------ | --- |
 | Circle area | Radius: `5` | `78.53975` |
 | Currency conversion | Amount: `10`; exchange rate: `2` | `20` |
 | Distance | Frankfurt: latitude `50.1109`, longitude `8.6821`; Paris: latitude `48.8534951`, longitude `2.3483915` | About `445.55` km |

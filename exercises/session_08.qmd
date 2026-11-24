@@ -3,7 +3,6 @@ title: "Session 08 — Sequences and Conditionals"
 date: ""
 shortcodes:
   - ../_extensions/needspace/needspace.lua
-  - ../_extensions/teaching-file/teaching-file.lua
 execute:
   echo: true
   warning: false
@@ -183,7 +182,9 @@ else:
 Ask the user to enter a string, then print its length, first character, and last character.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_08/describe_string.py >}}
+```python
+{{< include ../materials/session_08/describe_string.py >}}
+```
 :::
 
 ### 2. Insert a string in the middle
@@ -191,7 +192,9 @@ Ask the user to enter a string, then print its length, first character, and last
 Ask the user for two strings and insert the second string halfway through the first.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_08/insert_string.py >}}
+```python
+{{< include ../materials/session_08/insert_string.py >}}
+```
 :::
 
 {{< pagebreak >}}
@@ -201,7 +204,9 @@ Ask the user for two strings and insert the second string halfway through the fi
 Join two entered strings with a space. Print the combined string, its length, selected characters and slices, and whether it contains the substrings `"E"` and `"el"`.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_08/analyze_strings.py kind="homework" >}}
+```python
+{{< include ../materials/session_08/analyze_strings.py >}}
+```
 :::
 
 ### IBAN check digits
@@ -209,7 +214,9 @@ Join two entered strings with a space. Print the combined string, its length, se
 Enter the account number, bank code, and numeric country code. Combine them with the `"00"` placeholder, calculate the check digits, and print the result. Country-code conversion is outside the scope of this exercise.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_08/check_iban.py >}}
+```python
+{{< include ../materials/session_08/check_iban.py >}}
+```
 :::
 
 {{< pagebreak >}}
@@ -221,7 +228,9 @@ Enter the account number, bank code, and numeric country code. Combine them with
 Create a list of car manufacturers, select items by position, add a manufacturer, find the list length and an item's position, remove an item, and print the last item.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_08/practice_list_operations.py >}}
+```python
+{{< include ../materials/session_08/practice_list_operations.py >}}
+```
 :::
 
 {{< pagebreak >}}
@@ -231,7 +240,9 @@ Create a list of car manufacturers, select items by position, add a manufacturer
 Read four integers into a list, insert their sum at the beginning, reverse the list, remove its center element, and print its minimum, maximum, and last two elements.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_08/manipulate_list.py kind="homework" >}}
+```python
+{{< include ../materials/session_08/manipulate_list.py >}}
+```
 :::
 
 {{< pagebreak >}}
@@ -241,7 +252,9 @@ Read four integers into a list, insert their sum at the beginning, reverse the l
 ### 1. Determine whether a number is odd or even
 
 ::: {.sol}
-{{< teaching-file ../materials/session_08/check_even.py >}}
+```python
+{{< include ../materials/session_08/check_even.py >}}
+```
 :::
 
 ### 2. Calculate a discount
@@ -249,7 +262,9 @@ Read four integers into a list, insert their sum at the beginning, reverse the l
 Choose the discount rate based on the purchase amount: 20% for amounts of at least 100, 10% for amounts of at least 50, and no discount otherwise.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_08/calculate_discount.py >}}
+```python
+{{< include ../materials/session_08/calculate_discount.py >}}
+```
 :::
 
 {{< pagebreak >}}
@@ -259,7 +274,9 @@ Choose the discount rate based on the purchase amount: 20% for amounts of at lea
 Calculate an annuity loan's annual payment, adjusting the interest rate according to the entered rating.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_08/calculate_loan.py kind="homework" >}}
+```python
+{{< include ../materials/session_08/calculate_loan.py >}}
+```
 :::
 
 ### 4. Simulate a dice game
@@ -267,7 +284,9 @@ Calculate an annuity loan's annual payment, adjusting the interest rate accordin
 Roll two dice. A matching pair wins a payout based on the stake; otherwise, report the result of the throw.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_08/play_dice_game.py >}}
+```python
+{{< include ../materials/session_08/play_dice_game.py >}}
+```
 :::
 
 {{< pagebreak >}}
@@ -277,7 +296,9 @@ Roll two dice. A matching pair wins a payout based on the stake; otherwise, repo
 Ask which temperature scale the user entered, convert the temperature to the other scale, and report invalid scale choices.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_08/convert_temperature.py kind="homework" >}}
+```python
+{{< include ../materials/session_08/convert_temperature.py >}}
+```
 :::
 
 ### 6. Calculate a grade (take-home)
@@ -285,7 +306,9 @@ Ask which temperature scale the user entered, convert the temperature to the oth
 Map a percentage score to a grade from A to F using the specified score thresholds.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_08/calculate_grades.py kind="homework" >}}
+```python
+{{< include ../materials/session_08/calculate_grades.py >}}
+```
 :::
 
 {{< pagebreak >}}
@@ -295,5 +318,7 @@ Map a percentage score to a grade from A to F using the specified score threshol
 Use the income-tax brackets to calculate tax and net income for the entered taxable income.
 
 ::: {.sol}
-{{< teaching-file ../materials/session_08/calculate_tax.py kind="homework" >}}
+```python
+{{< include ../materials/session_08/calculate_tax.py >}}
+```
 :::
