@@ -46,16 +46,9 @@ flowchart
 
 ![](../images/illustration_control_flow.png){width=90%}
 
-Use the illustration to recall the control-flow structures from the previous
-sessions, in this order:
+Use the illustration as a recap and highlight that loop control focuses on the loop blocks (highlight them).
 
-1. `if` selects whether a block runs.
-2. `while` repeats a block while its condition is true; the condition must be
-   updated so the loop can end.
-3. `for` repeats a block for each item in a sequence; Python assigns the next
-   item to the loop variable.
-
-## Slide 115 — `break` and `continue`
+<!-- ## Slide 115 — `break` and `continue` -->
 
 Emphasize that the compound statements `if`, `while` and `for` control the flow of execution.
 In the following, we focus on statements that allow us to control the block execution in `for` and `while`:
@@ -89,8 +82,7 @@ for ...:
         continue
 ```
 
-Ask what happens if every seat is taken: the loop finishes without assigning a
-seat.
+Ask what happens if every seat is taken: the loop finishes without assigning a seat.
 
 ::: callout-note
 Show slide p. 115 (right side).
@@ -338,6 +330,10 @@ Assign 2,3 as homework.
 
 {{< teaching-file ../materials/session_10/calculate_factorial.py >}}
 
+**Remember**: `range(..., stop)` : the stop value is excluded. Therefore, iterate to `n+1` (exclusively).
+
+{{< pagebreak >}}
+
 5. Extend the program by adding a function which calculates the number of possible combinations
 
 {{< teaching-file ../materials/session_10/calculate_combinations.py >}}
@@ -347,6 +343,8 @@ Assign 2,3 as homework.
 {{< teaching-file ../materials/session_10/simulate_slot_machine.py >}}
 
 ## Slide 125 — Using an external module
+
+Modify one of the previous scripts to move the function out into a separate file (module) and import it.
 
 The module name acts as a namespace prefix.
 
@@ -366,6 +364,10 @@ print(math.sin(math.pi))
 - Lists access items by position; dictionaries access values through keys and
   can add or update entries.
 - Functions can print information or return a value for later use.
+
+Looking back at the Python sessions: You already know a lot.
+With the `if`, `for`, `while`, function definitions etc., you understand 60-70% of the code in a Python project.
+If you want to know more (beyond the course), you may look at class definitions or exception handling.
 
 ::: {.callout-tip title="Notes for improvement"}
 Take notes on improvements and common questions during the session and add them to `feedback.qmd` afterwards.
