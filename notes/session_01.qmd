@@ -81,11 +81,10 @@ Any questions?
 
 I hope you enjoy the course, learn a lot, and develop skills you can actually use.
 
-* **Develop a good learning rhythm early.** Work consistently and aim to understand and solve the tasks yourself.
-* **Expect errors.** They are a normal part of programming and learning: test, understand, revise, and try again.
+* **Show up and engage consistently.** This is a challenging course for many students, and regular participation is critical to success. Come to class regularly and keep working through the problem sets.
+* **Expect challenges and ask for help.** It is okay if a problem is hard at first—that is where learning happens. The important thing is not to stay stuck: ask questions and let me guide you so you can make progress.
 * **Do not work in isolation.** Form learning groups, compare solutions, and support each other.
-* **Ask questions—again and again.** In class, in tutorials, and whenever something remains unclear.
-* **Use the support available.** Our tutors do an excellent job and are there to help you.
+* **Use the support available.** Ask questions in class and tutorials, and make use of our tutors. I am here to help you work through problems.
 * **Keep going.** Perseverance and genuine understanding are the best preparation for success in the course and exams.
 
 {{< needspace 20 >}}
