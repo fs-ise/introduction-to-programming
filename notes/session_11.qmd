@@ -43,7 +43,7 @@ flowchart
 
 ```
 
-{{< needspace 10 >}}
+{{< pagebreak >}}
 
 ## Slide 137 — Calculate a moving average with a loop
 
